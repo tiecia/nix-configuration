@@ -8,10 +8,8 @@
         vim
         wget
         vscode
-        spotify
         git
-	python3
-	python311Packages.pytest
+        gitkraken
     ];
 
 
