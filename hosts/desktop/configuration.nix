@@ -16,8 +16,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "TyYogaL390"; # Define your hostname.
+  networking.hostName = "TyDesktopNix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -108,6 +111,7 @@
       onedrive
       onedrivegui
 
+
     #  thunderbird
     ];
   };
@@ -119,6 +123,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wireguard-tools
+    home-manager
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
