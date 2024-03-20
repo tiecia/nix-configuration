@@ -59,14 +59,13 @@
   ];
 
   programs.vscode = {
-    enable = true;
-    # extensions = with pkgs.vscode-extensions; [
-    #   ms-python.python
-    # ];
+    extensions = with pkgs.vscode-extensions; [
+      ms-python.python
+      bbenoist.nix
+    ];
   };
 
   programs.git = {
-    enable = true;
     userName = "tiecia";
     userEmail = "ty.cia@outlook.com";
   };
