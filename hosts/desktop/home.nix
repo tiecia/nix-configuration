@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tiec";
@@ -20,7 +22,7 @@
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    hello
+    # hello
     teams-for-linux
     obs-studio
     bitwarden
@@ -77,8 +79,12 @@
   #
   #  /etc/profiles/per-user/tiec/etc/profile.d/hm-session-vars.sh
   #
+
+  # Add environment variables to the shell environment.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    # # This will add the 'MY_ENV_VAR' environment variable to your shell
+    # # environment.
+    # MY_ENV_VAR = "some value";
   };
 
   # Let Home Manager install and manage itself.

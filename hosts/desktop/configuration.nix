@@ -1,25 +1,28 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, config, pkgs, ... }:
-
 {
-  imports =
-  [ # Include the results of the hardware scan.
+  inputs,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./basic-devtools-configuration.nix
     # ./modules/wireguard.nix
+    inputs.home-manager.nixosModules.default # Imports the home-manager module
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs pkgs;};
     users = {
       tiec = import ./home.nix;
     };
   };
 
-
+  # nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -70,8 +73,11 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+  # Enable docker
+  virtualisation.docker.enable = true;
+
   # Enables flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure keymap in X11
   services.xserver = {
@@ -79,7 +85,7 @@
     xkbVariant = "";
   };
 
-  services.onedrive.enable=true;
+  services.onedrive.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -108,7 +114,11 @@
   users.users.tiec = {
     isNormalUser = true;
     description = "tiec";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker" # Gives tiec account access to the docker socket
+    ];
     packages = with pkgs; [
       firefox
       discord
@@ -122,8 +132,9 @@
       onedrivegui
       betterbird
 
+      libnotify # Provides the notify-send used in my nixos-rebuild script
 
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -132,10 +143,46 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    wireguard-tools
-    home-manager
-  ];
+  # environment.
+
+  environment = {
+    systemPackages = with pkgs; [
+      wireguard-tools
+      home-manager
+      alejandra
+    ];
+
+    # For some reason doing this in home-manger is not working. Eventually theses should be moved to home-manager
+    shellAliases = {
+      edit = "code ~/nix-configuration";
+      rebuild = "~/nix-configuration/nixos-rebuild.sh";
+
+      sconf = "nano ~/nix-configuration/hosts/desktop/configuration.nix";
+      hconf = "nano ~/nix-configuration/hosts/desktop/home.nix";
+      nxrs = "sudo nixos-rebuild switch --flake ~/nix-configuration/#desktop";
+      nxrt = "sudo nixos-rebuild test --flake ~/nix-configuration/#desktop";
+
+      vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
+      vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
+    };
+
+    # variables = {
+    #   CONFIGURATION_HOST = "desktop";
+    #   EDITOR = "code";
+    # };
+
+    # shellHook = ''
+    #   export CONFIGURATION_HOST=desktop
+    #   export EDITOR=code
+    # '';
+  };
+
+  # environment.sessionVariables = {
+  #   CONFIGURATION_HOST = "desktop";
+  #   EDITOR = "code";
+  # };
+
+  # environment.
 
   # Enable OpenGL
   hardware.opengl = {
@@ -148,13 +195,12 @@
   services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
   hardware.nvidia = {
-
     # Modesetting is required.
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
     powerManagement.enable = false;
 
@@ -164,21 +210,20 @@
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Support is limited to the Turing and later architectures. Full list of
+    # supported GPUs is at:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
 
     # Enable the Nvidia settings menu,
-	  # accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -206,6 +251,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
-
