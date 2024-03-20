@@ -40,7 +40,7 @@
 
     vim
     wget
-    vscode
+    # vscode
     git
     gitkraken
 
@@ -58,12 +58,12 @@
     # '')
   ];
 
-  # programs.vscode = {
-  #   enable = true;
-  #   extensions = with pkgs.vscode-extensions; [
-  #     ms-python.python
-  #   ];
-  # };
+  programs.vscode = {
+    enable = true;
+    # extensions = with pkgs.vscode-extensions; [
+    #   ms-python.python
+    # ];
+  };
 
   programs.git = {
     enable = true;
