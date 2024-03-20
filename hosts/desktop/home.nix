@@ -40,8 +40,6 @@
 
     vim
     wget
-    vscode
-    git
     gitkraken
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -63,10 +61,12 @@
     extensions = with pkgs.vscode-extensions; [
       ms-python.python
       bbenoist.nix
+      github.copilot
     ];
   };
 
   programs.git = {
+    enable = true;
     userName = "tiecia";
     userEmail = "ty.cia@outlook.com";
   };
