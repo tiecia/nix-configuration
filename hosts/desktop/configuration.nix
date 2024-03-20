@@ -120,18 +120,8 @@
       "docker" # Gives tiec account access to the docker socket
     ];
     packages = with pkgs; [
-      firefox
-      discord
-      spotify
-      steam
-      notion-app-enhanced
-      quota
-      solaar # Logitech device configuration
-      onedrive
-      bluemail
-      onedrivegui
-      betterbird
-
+      home-manager
+      alejandra
       libnotify # Provides the notify-send used in my nixos-rebuild script
 
       #  thunderbird
@@ -147,9 +137,6 @@
 
   environment = {
     systemPackages = with pkgs; [
-      wireguard-tools
-      home-manager
-      alejandra
     ];
 
     # For some reason doing this in home-manger is not working. Eventually theses should be moved to home-manager

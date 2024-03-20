@@ -26,7 +26,23 @@
     teams-for-linux
     obs-studio
     bitwarden
-    # vscode
+
+    firefox
+    discord
+    spotify
+    steam
+    solaar # Logitech device configuration
+    onedrive
+    bluemail
+    onedrivegui
+    betterbird
+    wireguard-tools
+
+    vim
+    wget
+    vscode
+    git
+    gitkraken
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
