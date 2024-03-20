@@ -62,6 +62,7 @@
       # These should always be installed
       bbenoist.nix
       github.copilot
+      github.copilot-chat
       arrterian.nix-env-selector
 
       # These should eventually be moved to individual environments.
