@@ -41,6 +41,7 @@
     vim
     wget
     gitkraken
+    git
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -59,11 +60,20 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
-      ms-python.python
+      # These should always be installed
       bbenoist.nix
       github.copilot
-
       arrterian.nix-env-selector
+
+      # These should eventually be moved to individual environments.
+
+      # Rosepoint environment.
+      ms-vscode-remote.remote-containers
+      ms-vscode-remote.remote-ssh
+      ms-vscode-remote.remote-ssh
+
+      # OPL Environment
+      ms-python.python
     ];
   };
 

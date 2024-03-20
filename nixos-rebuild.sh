@@ -45,9 +45,9 @@ sudo nixos-rebuild switch --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixo
 current=$(nixos-rebuild list-generations | grep current)
 
 # Commit all changes witih the generation metadata
-git commit -am "$current"
+sudo git commit -am "$current"
 
-git push
+sudo git push
 
 # Back to where you were
 popd
