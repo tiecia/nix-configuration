@@ -40,7 +40,7 @@
 
     vim
     wget
-    vscode
+    # vscode
     git
     gitkraken
 
