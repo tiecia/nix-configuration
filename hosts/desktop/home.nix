@@ -61,6 +61,7 @@
     extensions = with pkgs.vscode-extensions; [
       ms-python.python
       bbenoist.nix
+      arrterian.nix-env-selector
       github.copilot
     ];
   };
