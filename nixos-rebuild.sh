@@ -37,7 +37,7 @@ do
 done
 
 # Early return if no changes were detected (thanks @singiamtel!)
-if [ $force == 0 ] and [ git diff --quiet **/*.nix ]; then
+if [ $force == 0 ] && [ git diff --quiet **/*.nix ]; then
     # if [ $force == 0 ]; then
         echo "No changes detected, exiting."
         popd
