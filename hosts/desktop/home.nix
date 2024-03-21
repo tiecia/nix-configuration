@@ -41,7 +41,7 @@
     vim
     wget
     gitkraken
-    git-credential-manager
+    gitAndTools.gitFull
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -79,12 +79,10 @@
   };
 
   programs.git = {
-    enable = true;
+    # enable = true;
     userName = "tiecia";
     userEmail = "ty.cia@outlook.com";
-    # extraConfig = {
-    #   credential.helper = "${nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
-    # };
+    # config.credential.helper = "libsecret";
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
