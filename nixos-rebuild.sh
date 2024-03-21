@@ -23,11 +23,25 @@ CONFIGURATION_HOST="desktop" # TODO: Set this from configuration.nix
 # cd to your config dir
 pushd ~/nix-configuration
 
+# If --nopush is present
+nopush=0
+
+for arg in "$@"
+do
+    if [ "$arg" == "-n" ] ||[ "$arg" == "--nopush" ]; then
+        nopush=1
+    elif [ "$arg" == "-f" ] || [ "$arg" == "--force" ]; then
+        force=1
+    fi
+done
+
 # Early return if no changes were detected (thanks @singiamtel!)
 if git diff --quiet **/*.nix; then
-    echo "No changes detected, exiting."
-    popd
-    exit 0
+    if [[ $force == 0 ]]; then
+        echo "No changes detected, exiting."
+        popd
+        exit 0
+    fi
 fi
 
 # Autoformat your nix files
@@ -47,7 +61,9 @@ current=$(nixos-rebuild list-generations | grep current)
 # Commit all changes witih the generation metadata
 sudo git commit -am "$current"
 
-# sudo git push
+if [ $nopush == 0 ]; then
+    sudo git push
+fi
 
 # Back to where you were
 popd
