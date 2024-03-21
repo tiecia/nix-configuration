@@ -83,7 +83,9 @@
     userName = "tiecia";
     userEmail = "ty.cia@outlook.com";
     package = pkgs.gitFull;
-    # config.credential.helper = "libsecret";
+    extraConfig = {
+      credential.helper = "libsecret";
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
