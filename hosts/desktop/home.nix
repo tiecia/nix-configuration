@@ -41,7 +41,7 @@
     vim
     wget
     gitkraken
-    gitAndTools.gitFull
+    # gitAndTools.gitFull
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -79,9 +79,10 @@
   };
 
   programs.git = {
-    # enable = true;
+    enable = true;
     userName = "tiecia";
     userEmail = "ty.cia@outlook.com";
+    package = pkgs.gitFull;
     # config.credential.helper = "libsecret";
   };
 
