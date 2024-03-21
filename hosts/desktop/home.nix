@@ -26,7 +26,6 @@
     teams-for-linux
     obs-studio
     bitwarden
-
     firefox
     discord
     spotify
@@ -37,6 +36,7 @@
     onedrivegui
     betterbird
     wireguard-tools
+    kdeconnect
 
     vim
     wget
