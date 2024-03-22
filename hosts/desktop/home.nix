@@ -82,6 +82,12 @@
     enable = true;
     userName = "tiecia";
     userEmail = "ty.cia@outlook.com";
+    aliases = {
+      co = "checkout";
+      cm = "commit";
+      st = "status";
+      pu = "push";
+    };
     # package = pkgs.gitFull;
     # extraConfig = {
     #   credential.helper = "libsecret";
