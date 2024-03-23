@@ -25,7 +25,7 @@
     ../../modules/nixos/configuration/locale-en-us.nix
     ../../modules/nixos/configuration/networking.nix
     ../../modules/nixos/configuration/bootloader.nix
-    ../../modules/nixos/configuration/rebuild-script.nix
+    ../../modules/nixos/configuration/rebuild.nix
 
     # Desktop environment
     ../../modules/nixos/desktop-environment/kde-plasma.nix
