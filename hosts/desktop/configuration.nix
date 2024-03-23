@@ -77,9 +77,8 @@
     };
 
     sessionVariables = {
-      # EDITOR = "code";
-      TEST = "test";
-      TEST2 = "test2";
+      EDITOR = "code";
+      CONFIGURATION_HOST = "desktop";
     };
   };
 
