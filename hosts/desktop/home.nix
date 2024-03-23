@@ -76,6 +76,11 @@
     # MY_ENV_VAR = "some value";
   };
 
+  home.shellAliases = {
+    # # This will add the 'my-alias' shell alias to your shell environment.
+    my-alias = "echo 'Hello, world!'";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

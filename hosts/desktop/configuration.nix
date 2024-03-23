@@ -30,6 +30,7 @@
     ../../modules/nixos/desktop-environment/kde-plasma.nix
   ];
 
+  # TODO: Move this to a home-manager configuration module
   home-manager = {
     extraSpecialArgs = {inherit inputs pkgs;};
     users = {

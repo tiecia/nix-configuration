@@ -51,6 +51,8 @@ alejandra . &>/dev/null \ || ( alejandra . ; echo "formatting failed!" && exit 1
 # Shows your changes
 git diff -U0 *.nix
 
+sudo git add -A
+
 echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 
 # Rebuild, output simplified errors, log trackebacks
