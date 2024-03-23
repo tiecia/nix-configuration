@@ -7,4 +7,6 @@
     onedrive
     onedrivegui
   ];
+
+  # services.onedrive.enable = true;
 }

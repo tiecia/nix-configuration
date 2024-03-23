@@ -13,9 +13,13 @@
 
     # Programs
     ../../modules/nixos/programs/kde-connect.nix
+    ../../modules/nixos/programs/docker.nix
 
     # Configurations
     ../../modules/nixos/configuration/bluetooth.nix
+    ../../modules/nixos/configuration/nvidia-graphics.nix
+
+    # Desktop environment
     ../../modules/nixos/desktop-environment/kde-plasma.nix
   ];
 
@@ -55,16 +59,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Steam config
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
-  # Enable docker
-  virtualisation.docker.enable = true;
-
   # Enables flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -73,8 +67,6 @@
     layout = "us";
     xkbVariant = "";
   };
-
-  services.onedrive.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -112,8 +104,6 @@
       home-manager
       alejandra
       libnotify # Provides the notify-send used in my nixos-rebuild script
-
-      #  thunderbird
     ];
   };
 
@@ -143,84 +133,7 @@
 
       g = "git";
     };
-
-    # variables = {
-    #   CONFIGURATION_HOST = "desktop";
-    #   EDITOR = "code";
-    # };
-
-    # shellHook = ''
-    #   export CONFIGURATION_HOST=desktop
-    #   export EDITOR=code
-    # '';
   };
-
-  # environment.sessionVariables = {
-  #   CONFIGURATION_HOST = "desktop";
-  #   EDITOR = "code";
-  # };
-
-  # environment.
-
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
-
-  hardware.nvidia = {
-    # Modesetting is required.
-    modesetting.enable = true;
-
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
-    # of just the bare essentials.
-    powerManagement.enable = false;
-
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
-
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of
-    # supported GPUs is at:
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
-
-    # Enable the Nvidia settings menu,
-    # accessible via `nvidia-settings`.
-    nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
