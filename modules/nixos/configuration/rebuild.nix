@@ -16,7 +16,7 @@ with lib; {
   config = {
     environment = {
       systemPackages = with pkgs; [
-        alejandra
+        alejandra # .nix formatter
         libnotify # Provides the notify-send used in my nixos-rebuild script
       ];
       shellAliases = {

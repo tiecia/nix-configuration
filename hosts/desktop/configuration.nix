@@ -63,12 +63,11 @@
   };
 
   environment = {
-    # For some reason doing this in home-manger is not working. Eventually theses should be moved to home-manager
     shellAliases = {
       vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
       vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
 
-      g = "git";
+      # g = "git";
     };
 
     sessionVariables = {

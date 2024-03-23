@@ -3,11 +3,18 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    git
-    gitkraken
-    git-credential-manager
-  ];
+  home = {
+    packages = with pkgs; [
+      git
+      gitkraken
+      git-credential-manager
+    ];
+
+    shellAliases = {
+      g = "git";
+      gk = "gitkraken";
+    };
+  };
 
   programs.git = {
     enable = true;
