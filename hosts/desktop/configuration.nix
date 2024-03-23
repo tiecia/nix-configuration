@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/programs/kde-connect.nix
+    ../../modules/nixos/configuration/bluetooth.nix
     inputs.home-manager.nixosModules.default # Imports the home-manager module
   ];
 
@@ -28,9 +29,6 @@
 
   networking.hostName = "TyDesktopNix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
