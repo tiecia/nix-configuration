@@ -42,7 +42,7 @@
   };
 
   rebuild = {
-    host = "desktop2";
+    # host = "desktop2";
   };
 
   # TODO: Move this to networking.nix
@@ -67,14 +67,6 @@
   environment = {
     # For some reason doing this in home-manger is not working. Eventually theses should be moved to home-manager
     shellAliases = {
-      # edit = "code ~/nix-configuration";
-      # rebuild = "~/nix-configuration/nixos-rebuild.sh";
-
-      # sconf = "nano ~/nix-configuration/hosts/desktop/configuration.nix";
-      # hconf = "nano ~/nix-configuration/hosts/desktop/home.nix";
-      # nxrs = "sudo nixos-rebuild switch --flake ~/nix-configuration/#desktop";
-      # nxrt = "sudo nixos-rebuild test --flake ~/nix-configuration/#desktop";
-
       vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
       vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
 
@@ -83,7 +75,6 @@
 
     sessionVariables = {
       EDITOR = "code";
-      # CONFIGURATION_HOST = "desktop";
     };
   };
 
