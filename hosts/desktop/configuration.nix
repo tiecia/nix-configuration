@@ -45,8 +45,9 @@
     host = "desktop";
   };
 
-  # TODO: Move this to networking.nix
-  networking.hostName = "TyDesktopNix"; # Define your hostname.
+  networking = {
+    hostname = "TyDesktopNix";
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiec = {
@@ -58,18 +59,23 @@
       "docker" # Gives tiec account access to the docker socket
     ];
     packages = with pkgs; [
+      # TODO: Move this to a home-manager configuration module. Then make a user module.
       home-manager
     ];
   };
 
   environment = {
     shellAliases = {
+      # TODO: Make a module for these
       vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
       vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
 
-      # g = "git";
+      # TODO: Move these to git.nix. Need to figure out why aliases are not working with homemanager.
+      g = "git";
+      gk = "gitkraken";
     };
 
+    # TODO: Move these to vscode.nix. Need to figure out why environment variables are not working with homemanager.
     sessionVariables = {
       EDITOR = "code";
     };

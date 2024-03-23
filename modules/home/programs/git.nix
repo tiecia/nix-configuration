@@ -10,10 +10,10 @@
       git-credential-manager
     ];
 
-    shellAliases = {
-      g = "git";
-      gk = "gitkraken";
-    };
+    # shellAliases = {
+    #   g = "git";
+    #   gk = "gitkraken";
+    # };
   };
 
   programs.git = {
