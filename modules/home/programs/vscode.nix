@@ -10,6 +10,7 @@
       bbenoist.nix
       github.copilot
       github.copilot-chat
+
       arrterian.nix-env-selector
       # aaron-bond.better-comments
 
