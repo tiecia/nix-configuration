@@ -16,7 +16,6 @@
     ../../modules/home/programs/onedrive.nix
     ../../modules/home/programs/solaar.nix
     ../../modules/home/programs/spotify.nix
-    ../../modules/home/programs/steam.nix
     ../../modules/home/programs/wireguard.nix
   ];
 

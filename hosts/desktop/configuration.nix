@@ -14,10 +14,14 @@
     # Programs
     ../../modules/nixos/programs/kde-connect.nix
     ../../modules/nixos/programs/docker.nix
+    ../../modules/nixos/programs/steam.nix
 
     # Configurations
     ../../modules/nixos/configuration/bluetooth.nix
     ../../modules/nixos/configuration/nvidia-graphics.nix
+    ../../modules/nixos/configuration/printing.nix
+    ../../modules/nixos/configuration/pipewire.nix # Sound configuration
+    ../../modules/nixos/configuration/flakes.nix
 
     # Desktop environment
     ../../modules/nixos/desktop-environment/kde-plasma.nix
@@ -59,33 +63,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enables flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
