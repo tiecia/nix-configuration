@@ -16,6 +16,7 @@
 
     # Configurations
     ../../modules/nixos/configuration/bluetooth.nix
+    ../../modules/nixos/desktop-environment/kde-plasma.nix
   ];
 
   home-manager = {
@@ -32,10 +33,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "TyDesktopNix"; # Define your hostname.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -57,13 +54,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   # Steam config
   programs.steam = {
