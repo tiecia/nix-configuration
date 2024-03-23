@@ -9,9 +9,13 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/programs/kde-connect.nix
-    ../../modules/nixos/configuration/bluetooth.nix
     inputs.home-manager.nixosModules.default # Imports the home-manager module
+
+    # Programs
+    ../../modules/nixos/programs/kde-connect.nix
+
+    # Configurations
+    ../../modules/nixos/configuration/bluetooth.nix
   ];
 
   home-manager = {
@@ -28,7 +32,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "TyDesktopNix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
