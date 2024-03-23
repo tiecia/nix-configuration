@@ -31,6 +31,14 @@
           ./hosts/desktop/configuration.nix
         ];
       };
+
+      l390 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs system pkgs;};
+
+        modules = [
+          ./hosts/l390/configuration.nix
+        ];
+      };
     };
   };
 }
