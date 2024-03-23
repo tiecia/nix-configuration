@@ -5,7 +5,6 @@
 }: {
   imports = [
     ../../modules/home/programs/vscode.nix
-    ../../modules/home/programs/kde-connect.nix
     # ./basic-devtools-configuration.nix
   ];
 
@@ -44,7 +43,6 @@
     onedrivegui
     betterbird
     wireguard-tools
-    kdeconnect
 
     vim
     wget

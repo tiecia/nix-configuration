@@ -3,12 +3,6 @@
   pkgs,
   ...
 }: {
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # home.packages = with pkgs; [
-
-  # ];
-
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
