@@ -75,6 +75,11 @@
 
       g = "git";
     };
+
+    sessionVariables = {
+      # EDITOR = "code";
+      TEST = "test";
+    };
   };
 
   # This value determines the NixOS release from which the default

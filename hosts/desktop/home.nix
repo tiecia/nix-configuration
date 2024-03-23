@@ -73,7 +73,7 @@
   home.sessionVariables = {
     # # This will add the 'MY_ENV_VAR' environment variable to your shell
     # # environment.
-    MY_ENV_VAR = "some value";
+    # MY_ENV_VAR = "some value";
   };
 
   # Let Home Manager install and manage itself.
