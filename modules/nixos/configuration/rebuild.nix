@@ -8,7 +8,7 @@ with lib; {
   options = {
     rebuild.host = mkOption {
       type = types.str;
-      default = "nixos";
+      default = "default";
       description = "The name of the configuration host";
     };
   };

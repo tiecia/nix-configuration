@@ -42,7 +42,7 @@
   };
 
   rebuild = {
-    # host = "desktop2";
+    host = "desktop";
   };
 
   # TODO: Move this to networking.nix
