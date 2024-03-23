@@ -6,6 +6,11 @@
 }:
 with lib; {
   options = {
+    rebuild.host = mkOption {
+      type = types.str;
+      default = "nixos";
+      description = "The name of the configuration host";
+    };
   };
 
   config = {
@@ -18,6 +23,10 @@ with lib; {
         hconf = "nano ~/nix-configuration/hosts/${config.environment.sessionVariables.CONFIGURATION_HOST}/home.nix";
         nxrs = "sudo nixos-rebuild switch --flake ~/nix-configuration/#${config.environment.sessionVariables.CONFIGURATION_HOST}";
         nxrt = "sudo nixos-rebuild test --flake ~/nix-configuration/#${config.environment.sessionVariables.CONFIGURATION_HOST}";
+      };
+
+      sessionVariables = {
+        CONFIGURATION_HOST = config.rebuild.host;
       };
     };
   };

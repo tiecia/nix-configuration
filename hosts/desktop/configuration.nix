@@ -41,6 +41,10 @@
     useUserPackages = true;
   };
 
+  rebuild = {
+    host = "desktop";
+  };
+
   # TODO: Move this to networking.nix
   networking.hostName = "TyDesktopNix"; # Define your hostname.
 
@@ -79,7 +83,7 @@
 
     sessionVariables = {
       EDITOR = "code";
-      CONFIGURATION_HOST = "desktop";
+      # CONFIGURATION_HOST = "desktop";
     };
   };
 
