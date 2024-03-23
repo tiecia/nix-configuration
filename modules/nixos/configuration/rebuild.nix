@@ -15,6 +15,10 @@ with lib; {
 
   config = {
     environment = {
+      systemPackages = with pkgs; [
+        alejandra
+        libnotify # Provides the notify-send used in my nixos-rebuild script
+      ];
       shellAliases = {
         edit = "code ~/nix-configuration";
         rebuild = "~/nix-configuration/nixos-rebuild.sh";
@@ -29,5 +33,7 @@ with lib; {
         CONFIGURATION_HOST = config.rebuild.host;
       };
     };
+
+    # TODO: Maybe add nixos-rebuild.sh here?
   };
 }

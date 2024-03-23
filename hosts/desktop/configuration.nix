@@ -59,8 +59,6 @@
     ];
     packages = with pkgs; [
       home-manager
-      alejandra
-      libnotify # Provides the notify-send used in my nixos-rebuild script
     ];
   };
 
