@@ -18,7 +18,6 @@
 
     # Configurations
     ../../modules/nixos/configuration/bluetooth.nix
-    ../../modules/nixos/configuration/nvidia-graphics.nix
     ../../modules/nixos/configuration/printing.nix
     ../../modules/nixos/configuration/pipewire.nix # Sound configuration
     ../../modules/nixos/configuration/flakes.nix

@@ -11,6 +11,7 @@
       github.copilot
       github.copilot-chat
       arrterian.nix-env-selector
+      aaron-bond.better-comments
 
       # These should eventually be moved to individual environments.
 
