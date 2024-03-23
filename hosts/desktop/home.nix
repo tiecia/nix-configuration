@@ -73,16 +73,8 @@
   home.sessionVariables = {
     # # This will add the 'MY_ENV_VAR' environment variable to your shell
     # # environment.
-    # MY_ENV_VAR = "some value";
+    MY_ENV_VAR = "some value";
   };
-
-  programs.bash.shellAliases = {
-    my-alias = "echo 'Hello, world!'";
-  };
-
-  # home.shellAliases = {
-  #   # # This will add the 'my-alias' shell alias to your shell environment.
-  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
