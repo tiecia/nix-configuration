@@ -13,8 +13,8 @@
 set -e
 
 
-# CONFIGURATION_HOST="desktop" # TODO: Set this from configuration.nix
-# EDITOR="code" # TODO: Set this from configuration.nix
+# CONFIGURATION_HOST="desktop" # This is usually set from configuration.nix
+# EDITOR="code" # This is usually set from configuration.nix
 
 # Edit your config
 # $EDITOR ./hosts/$CONFIGURATION_HOST/configuration.nix
