@@ -26,6 +26,7 @@ pushd ~/nix-configuration
 # If --nopush is present
 nopush=0
 force=0
+update=0
 
 for arg in "$@"
 do
@@ -33,12 +34,14 @@ do
         nopush=1
     elif [ "$arg" == "-f" ] || [ "$arg" == "--force" ]; then
         force=1
+    elif [ "$arg" == "-u" ] || [ "$arg" == "--update" ]; then
+        update=1
     fi
 done
 
 # Early return if no changes were detected (thanks @singiamtel!)
 if git diff --quiet **/*.nix; then
-    if [ $force == 0 ]; then
+    if [ $force == 0 && update == 0 ]; then
         echo "No changes detected, exiting."
         popd
         exit 0
@@ -47,6 +50,11 @@ fi
 
 # Autoformat your nix files
 alejandra . &>/dev/null \ || ( alejandra . ; echo "formatting failed!" && exit 1)
+
+if [ $update == 1 ]; then
+    konsole -e "bash -c 'tail -f ./nixos-switch.log; exec bash'" &
+    nix flake update
+fi
 
 # Shows your changes
 git diff -U0 *.nix
@@ -62,7 +70,7 @@ sudo nixos-rebuild switch --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixo
 current=$(nixos-rebuild list-generations | grep current)
 
 # Commit all changes witih the generation metadata
-sudo git commit -am "$current"
+sudo git commit -am "$CONFIGURATION_HOST $current"
 
 if [ $nopush == 0 ]; then
     sudo git push
