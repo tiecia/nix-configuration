@@ -8,6 +8,7 @@
     extensions = with pkgs.vscode-extensions; [
       # These should always be installed
       bbenoist.nix
+
       github.copilot
       github.copilot-chat
 
