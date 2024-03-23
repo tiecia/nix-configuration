@@ -79,6 +79,7 @@
     sessionVariables = {
       # EDITOR = "code";
       TEST = "test";
+      TEST2 = "test2";
     };
   };
 
