@@ -3,6 +3,13 @@
   pkgs,
   ...
 }: {
+  imports = [
+    # ./vscode.nix
+    # ./basic-devtools-configuration.nix
+  ];
+
+  # home.useGlobalPkgs = true;
+  # home.useUserPackages = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tiec";
@@ -40,6 +47,7 @@
 
     vim
     wget
+    git
     gitkraken
     git-credential-manager
 

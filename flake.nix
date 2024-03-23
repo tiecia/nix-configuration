@@ -23,6 +23,8 @@
       };
     };
   in {
+    # homeManagerModules = import ./modules/home;
+
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs system pkgs;};

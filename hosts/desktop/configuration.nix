@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./basic-devtools-configuration.nix
+    ./vscode.nix
     # ./modules/wireguard.nix
     inputs.home-manager.nixosModules.default # Imports the home-manager module
   ];
@@ -20,9 +21,9 @@
     users = {
       tiec = import ./home.nix;
     };
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
-
-  # nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -167,6 +168,8 @@
 
       vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
       vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
+
+      g = "git";
     };
 
     # variables = {
