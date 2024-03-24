@@ -36,6 +36,7 @@
   # Install packages globally in the user profile.
   home.packages = with pkgs; [
     # hello
+    devenv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
