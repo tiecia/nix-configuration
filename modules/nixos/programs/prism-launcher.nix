@@ -4,7 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    megasync # TODO: Automate file sync
+    # megasync # TODO: Automate file sync
     prismlauncher
   ];
 

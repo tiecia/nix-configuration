@@ -11,6 +11,7 @@
       github.copilot
       github.copilot-chat
       arrterian.nix-env-selector
+      yzhang.markdown-all-in-one
 
       # These should eventually be moved to individual environments.
 

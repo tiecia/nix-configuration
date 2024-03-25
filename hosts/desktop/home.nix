@@ -17,6 +17,8 @@
     ../../modules/home/programs/solaar.nix
     ../../modules/home/programs/spotify.nix
     ../../modules/home/programs/wireguard.nix
+    ../../modules/home/programs/filezilla.nix
+    # ../../modules/home/programs/kalc.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
