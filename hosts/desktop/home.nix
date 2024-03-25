@@ -20,6 +20,7 @@
     ../../modules/home/programs/filezilla.nix
     # ../../modules/home/programs/kalc.nix
     # ../../modules/home/programs/wine.nix
+    ../../modules/home/programs/libreoffice.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
