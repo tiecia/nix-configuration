@@ -15,10 +15,7 @@ in {
       enable = true;
       user = "${username}";
       dataDir = "/home/${username}/Documents"; # Default folder for new synced folders
-      configDir = "/home/${username}/Documents/.config/syncthing"; # Folder for Syncthing's settings and keys
-      # user = "tiec";
-      # dataDir = "/home/tiec/Documents"; # Default folder for new synced folders
-      # configDir = "/home/tiec/Documents/.config/syncthing"; # Folder for Syncthing's settings and keys
+      configDir = "/home/${username}/.config/syncthing"; # Folder for Syncthing's settings and keys
       guiAddress = "0.0.0.0:8384";
       settings.gui = {
         user = "ty";
