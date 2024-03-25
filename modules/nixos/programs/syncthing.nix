@@ -19,6 +19,7 @@ in {
       user = "tiec";
       dataDir = "/home/tiec/Documents"; # Default folder for new synced folders
       configDir = "/home/tiec/Documents/.config/syncthing"; # Folder for Syncthing's settings and keys
+      guiAddress = "0.0.0.0:8384";
       settings.gui = {
         user = "ty";
         password = "uda8BYJ^Qu5N&R";
