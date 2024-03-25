@@ -16,6 +16,7 @@
     ../../modules/nixos/programs/docker.nix
     ../../modules/nixos/programs/steam.nix
     ../../modules/nixos/programs/prism-launcher.nix
+    ../../modules/nixos/programs/syncthing.nix
 
     # Configurations
     ../../modules/nixos/configuration/bluetooth.nix
