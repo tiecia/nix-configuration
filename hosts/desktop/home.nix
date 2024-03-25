@@ -13,7 +13,7 @@
     ../../modules/home/programs/firefox.nix
     ../../modules/home/programs/git.nix
     ../../modules/home/programs/msteams.nix
-    ../../modules/home/programs/onedrive.nix
+    # ../../modules/home/programs/onedrive.nix
     ../../modules/home/programs/solaar.nix
     ../../modules/home/programs/spotify.nix
     ../../modules/home/programs/wireguard.nix
