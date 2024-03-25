@@ -22,6 +22,8 @@ with lib; {
       shellAliases = {
         edit = "code ~/nix-configuration";
         rebuild = "~/nix-configuration/nixos-rebuild.sh";
+        listgens = "nix profile history --profile /nix/var/nix/profiles/system"; # https://nixos.org/manual/nix/stable/package-management/garbage-collection
+        cleannix = "nix-collect-garbage -d";
 
         sconf = "nano ~/nix-configuration/hosts/${config.environment.sessionVariables.CONFIGURATION_HOST}/configuration.nix";
         hconf = "nano ~/nix-configuration/hosts/${config.environment.sessionVariables.CONFIGURATION_HOST}/home.nix";

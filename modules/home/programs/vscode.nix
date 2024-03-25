@@ -10,8 +10,11 @@
       bbenoist.nix
       github.copilot
       github.copilot-chat
+
       arrterian.nix-env-selector
       yzhang.markdown-all-in-one
+
+      # aaron-bond.better-comments
 
       # These should eventually be moved to individual environments.
 
