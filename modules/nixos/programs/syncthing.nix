@@ -17,6 +17,9 @@ in {
       dataDir = "/home/${username}/Documents"; # Default folder for new synced folders
       configDir = "/home/${username}/.config/syncthing"; # Folder for Syncthing's settings and keys
       guiAddress = "0.0.0.0:8384";
+      overrideDevices = false;
+      overrideFolders = false;
+
       settings.gui = {
         user = "ty";
         password = "uda8BYJ^Qu5N&R";
