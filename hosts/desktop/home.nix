@@ -41,6 +41,7 @@
   home.packages = with pkgs; [
     # hello
     devenv
+    parsec-bin
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

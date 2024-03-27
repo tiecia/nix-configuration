@@ -34,7 +34,7 @@
     ../../modules/nixos/desktop-environment/kde-plasma.nix
   ];
 
-  hardware.opengl.enable = true;
+  # hardware.opengl.enable = true;
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
