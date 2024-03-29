@@ -15,6 +15,7 @@
     ../../modules/nixos/programs/kde-connect.nix
     ../../modules/nixos/programs/docker.nix
     ../../modules/nixos/programs/steam.nix
+    ../../modules/nixos/programs/wine.nix
 
     # Configurations
     ../../modules/nixos/configuration/bluetooth.nix
