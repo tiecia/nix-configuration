@@ -15,6 +15,9 @@
     ../../modules/nixos/programs/kde-connect.nix
     ../../modules/nixos/programs/docker.nix
     ../../modules/nixos/programs/steam.nix
+    ../../modules/nixos/programs/prism-launcher.nix
+    ../../modules/nixos/programs/syncthing.nix
+    ../../modules/nixos/programs/wine.nix
 
     # Configurations
     ../../modules/nixos/configuration/bluetooth.nix
@@ -30,6 +33,8 @@
     # Desktop environment
     ../../modules/nixos/desktop-environment/kde-plasma.nix
   ];
+
+  # hardware.opengl.enable = true;
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {

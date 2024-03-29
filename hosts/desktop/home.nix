@@ -13,10 +13,14 @@
     ../../modules/home/programs/firefox.nix
     ../../modules/home/programs/git.nix
     ../../modules/home/programs/msteams.nix
-    ../../modules/home/programs/onedrive.nix
+    # ../../modules/home/programs/onedrive.nix
     ../../modules/home/programs/solaar.nix
     ../../modules/home/programs/spotify.nix
     ../../modules/home/programs/wireguard.nix
+    ../../modules/home/programs/filezilla.nix
+    # ../../modules/home/programs/kalc.nix
+    # ../../modules/home/programs/wine.nix
+    ../../modules/home/programs/libreoffice.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -36,6 +40,8 @@
   # Install packages globally in the user profile.
   home.packages = with pkgs; [
     # hello
+    devenv
+    parsec-bin
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

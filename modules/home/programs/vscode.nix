@@ -13,6 +13,7 @@
       github.copilot-chat
 
       arrterian.nix-env-selector
+      yzhang.markdown-all-in-one
 
       # aaron-bond.better-comments
 
