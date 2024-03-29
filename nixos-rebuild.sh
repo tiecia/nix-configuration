@@ -72,9 +72,9 @@ current=$(nixos-rebuild list-generations | grep current)
 # Commit all changes witih the generation metadata
 sudo git commit -am "$CONFIGURATION_HOST $current"
 
-if [ $nopush == 0 ]; then
-    sudo git push
-fi
+# if [ $nopush == 0 ]; then
+#     sudo git push
+# fi
 
 # Back to where you were
 popd
