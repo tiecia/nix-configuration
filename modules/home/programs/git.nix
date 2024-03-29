@@ -7,7 +7,8 @@
     packages = with pkgs; [
       git
       gitkraken
-      git-credential-manager
+      # git-credential-manager
+      git-credential-oauth
     ];
 
     # shellAliases = {
