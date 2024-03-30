@@ -19,6 +19,7 @@
     ../../modules/home/programs/wireguard.nix
     ../../modules/home/programs/filezilla.nix
     ../../modules/home/programs/libreoffice.nix
+    ../../modules/home/programs/kdepartitionmanager.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
