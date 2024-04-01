@@ -43,8 +43,8 @@
 
   programs.firefox = {
     nativeMessagingHosts.packages = [
-      pkgs.firefoxpwa
-      # firefoxpwa-unwrapped
+      # pkgs.firefoxpwa
+      pkgs.firefoxpwa-unwrapped
     ];
   };
 
