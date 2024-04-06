@@ -3,7 +3,13 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    firefox
-  ];
+  # pkgs.firefox = {
+  #   extraNativeMessagingHosts = [
+  #     pkgs.firefoxpwa
+  #   ];
+  # };
+
+  # home.packages = with pkgs; [
+  #   firefox
+  # ];
 }
