@@ -21,6 +21,7 @@
     # ../../modules/home/programs/kalc.nix
     # ../../modules/home/programs/wine.nix
     ../../modules/home/programs/libreoffice.nix
+    ../../modules/home/programs/chrome.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
