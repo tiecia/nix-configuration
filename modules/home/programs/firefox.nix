@@ -14,5 +14,5 @@
     firefoxpwa
   ];
 
-  programs.firefox.nativeMessagingHosts = [pkgs.firefoxpwa];
+  programs.firefox.nativeMessagingHosts.packages = [pkgs.firefoxpwa];
 }
