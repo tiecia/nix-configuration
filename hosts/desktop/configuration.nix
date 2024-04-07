@@ -94,11 +94,13 @@ in {
   # };
 
   environment.systemPackages = with pkgs; [
-    # firefox
+    firefox
 
     # (pkgs.firefox.override {nativeMessagingHosts = [firefoxpwa];})
-    # firefoxpwa
+    firefoxpwa
   ];
+
+  programs.firefox.nativeMessagingHosts.packages = [pkgs.firefoxpwa];
 
   # self: super: {
   #   firefox = super.firefox.override {
