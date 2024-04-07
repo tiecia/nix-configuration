@@ -21,7 +21,7 @@ in {
     theme = spicePkgs.themes.Sleek;
     # colorScheme = "deep";
 
-    colorScheme = "custom";
+    # colorScheme = "custom";
 
     enabledExtensions = with spicePkgs.extensions; [
       shuffle # shuffle+ (special characters are sanitized out of ext names)
