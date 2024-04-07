@@ -31,6 +31,7 @@ in {
     ../../modules/nixos/configuration/networking.nix
     ../../modules/nixos/configuration/bootloader.nix
     ../../modules/nixos/configuration/rebuild.nix
+    ../../modules/nixos/configuration/numlock.nix
 
     # Desktop environment
     ../../modules/nixos/desktop-environment/kde-plasma.nix
@@ -96,10 +97,6 @@ in {
     enable = true;
     nativeMessagingHosts.packages = [pkgs.firefoxpwa];
   };
-
-  services.xserver.displayManager.setupCommands = ''
-    ${pkgs.numlockx}/bin/numlockx on
-  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
