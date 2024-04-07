@@ -19,17 +19,9 @@ in {
     enable = true;
 
     theme = spicePkgs.themes.Sleek;
-    colorScheme = "coral";
-
-    customColorScheme = {
-      button = "1db954";
-    };
-
-    # theme = spicePkgs.themes.catppuccin;
-    # colorScheme = "macchiato";
+    colorScheme = "deeper";
 
     enabledExtensions = with spicePkgs.extensions; [
-      fullAlbumDate
       shuffle # shuffle+ (special characters are sanitized out of ext names)
     ];
   };
