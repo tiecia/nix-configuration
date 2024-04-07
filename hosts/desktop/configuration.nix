@@ -7,7 +7,7 @@
   pkgs,
   ...
 }: let
-  firefoxpwa = import /home/tiec/Development/git/firefoxpwa/default.nix {inherit pkgs;};
+  # firefoxpwa = import /home/tiec/Development/git/firefoxpwa/default.nix {inherit pkgs;};
 in {
   imports = [
     ./hardware-configuration.nix
@@ -88,16 +88,29 @@ in {
     };
   };
 
+  # programs.firefox = {
+  #   enable = true;
+  #   nativeMessagingHosts.packages = [ firefoxpwa ];
+  # };
+
   environment.systemPackages = with pkgs; [
     # firefox
-    firefoxpwa
+
+    # (pkgs.firefox.override {nativeMessagingHosts = [firefoxpwa];})
+    # firefoxpwa
   ];
 
-  programs.firefox = {
-    nativeMessagingHosts.packages = [
-      firefoxpwa
-    ];
-  };
+  # self: super: {
+  #   firefox = super.firefox.override {
+  #     extraNativeMessagingHosts = [ firefoxpwa ];
+  #   };
+  # }
+
+  # programs.firefox = {
+  #   nativeMessagingHosts.packages = [
+  #     firefoxpwa
+  #   ];
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
