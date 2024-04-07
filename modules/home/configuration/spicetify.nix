@@ -24,7 +24,7 @@ in {
     colorScheme = "custom";
 
     customColorScheme = {
-      # text = "ebbcba";
+      text = "ebbcba";
       # subtext = "F0F0F0";
       # sidebar-text = "e0def4";
       # main = "191724";
