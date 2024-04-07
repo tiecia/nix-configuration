@@ -40,6 +40,7 @@ in {
   # hardware.opengl.enable = true;
 
   hardware.logitech.wireless.enable = true;
+  hardware.logitech.enableGraphical = true; # for solaar to be included
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
