@@ -97,12 +97,12 @@ in {
     # firefox
 
     # (pkgs.firefox.override {nativeMessagingHosts = [firefoxpwa];})
-    firefoxpwa
+    # firefoxpwa
   ];
 
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts.packages = [pkgs.firefoxpwa];
+    # nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
   # programs.firefox.nativeMessagingHosts.packages = [pkgs.firefoxpwa];
 
