@@ -19,6 +19,7 @@ in {
     enable = true;
 
     theme = spicePkgs.themes.Sleek;
+    colorScheme = "deep";
 
     # theme = spicePkgs.themes.catppuccin;
     # colorScheme = "macchiato";
