@@ -19,7 +19,7 @@ in {
     enable = true;
 
     theme = spicePkgs.themes.Sleek;
-    colorScheme = "Deep";
+    colorScheme = "nord";
 
     customColorScheme = {
       button = "1db954";
