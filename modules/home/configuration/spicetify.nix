@@ -19,7 +19,11 @@ in {
     enable = true;
 
     theme = spicePkgs.themes.Sleek;
-    colorScheme = "deep";
+    colorScheme = "Deep";
+
+    customColorScheme = {
+      button = "1db954";
+    };
 
     # theme = spicePkgs.themes.catppuccin;
     # colorScheme = "macchiato";
