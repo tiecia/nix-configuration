@@ -64,8 +64,7 @@ sudo git add -A
 echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 
 # Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch --flake ~/nix-configuration#$CONFIGURATION_HOST
-#  &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+sudo nixos-rebuild switch --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)
