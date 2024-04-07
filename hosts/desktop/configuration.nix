@@ -100,7 +100,11 @@ in {
     firefoxpwa
   ];
 
-  programs.firefox.nativeMessagingHosts.packages = [pkgs.firefoxpwa];
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts.packages = [pkgs.firefoxpwa];
+  };
+  # programs.firefox.nativeMessagingHosts.packages = [pkgs.firefoxpwa];
 
   # self: super: {
   #   firefox = super.firefox.override {
