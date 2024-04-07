@@ -18,7 +18,7 @@ in {
   programs.spicetify = {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
-    colorScheme = "frappe";
+    colorScheme = "latte";
 
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
