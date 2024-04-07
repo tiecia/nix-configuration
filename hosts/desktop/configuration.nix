@@ -88,14 +88,7 @@ in {
     };
   };
 
-  # programs.firefox = {
-  #   enable = true;
-  #   nativeMessagingHosts.packages = [ firefoxpwa ];
-  # };
-
   environment.systemPackages = with pkgs; [
-    # firefox
-
     firefoxpwa
   ];
 
@@ -103,6 +96,10 @@ in {
     enable = true;
     nativeMessagingHosts.packages = [pkgs.firefoxpwa];
   };
+
+  services.xserver.displayManager.setupCommands = ''
+    ${pkgs.numlockx}/bin/numlockx on
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
