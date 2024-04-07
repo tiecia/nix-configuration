@@ -18,6 +18,7 @@ in {
   programs.spicetify = {
     enable = true;
 
+    # https://github.com/spicetify/spicetify-themes/tree/master/Sleek
     theme = spicePkgs.themes.Sleek;
     # colorScheme = "deep";
 
