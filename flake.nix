@@ -2,6 +2,9 @@
   description = "Nixos config flake";
 
   inputs = {
+    # myNur.url = "path:../Development/git/nur-pkgs";
+    # myNur.inputs.nixpkgs.follows = "nixpkgs";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {

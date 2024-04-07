@@ -6,7 +6,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  myNur = import /home/tiec/Development/git/firefoxpwa/default.nix {inherit pkgs;};
+in {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default # Imports the home-manager module
@@ -86,9 +88,10 @@
     };
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   firefox
-  # ];
+  environment.systemPackages = with pkgs; [
+    # firefox
+    myNur
+  ];
 
   # pkgs.firefox.override = {
   #   extraNativeMessagingHosts = [
