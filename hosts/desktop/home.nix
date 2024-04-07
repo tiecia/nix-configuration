@@ -16,7 +16,7 @@
     ../../modules/home/programs/msteams.nix
     # ../../modules/home/programs/onedrive.nix
     ../../modules/home/programs/solaar.nix
-    ../../modules/home/programs/spotify.nix
+    # ../../modules/home/programs/spotify.nix
     ../../modules/home/programs/wireguard.nix
     ../../modules/home/programs/filezilla.nix
     # ../../modules/home/programs/kalc.nix
@@ -24,7 +24,7 @@
     ../../modules/home/programs/libreoffice.nix
     ../../modules/home/programs/chrome.nix
 
-    # ../../modules/home/configuration/spicetify.nix
+    ../../modules/home/configuration/spicetify.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
