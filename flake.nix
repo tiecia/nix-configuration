@@ -5,6 +5,8 @@
     # myNur.url = "path:../Development/git/nur-pkgs";
     # myNur.inputs.nixpkgs.follows = "nixpkgs";
 
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -16,6 +18,7 @@
   outputs = {
     self,
     nixpkgs,
+    spicetify-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -28,7 +31,7 @@
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs;};
+        specialArgs = {inherit inputs system pkgs spicetify-nix;};
 
         modules = [
           ./hosts/desktop/configuration.nix
