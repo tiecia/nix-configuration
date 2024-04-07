@@ -33,7 +33,7 @@ in {
       card = "0a1527";
       shadow = "000000";
       main-secondary = "06142d";
-      button = "1464b5";
+      button = "1DB954";
       button-secondary = "ffffff";
       button-active = "4a99e9";
       button-disabled = "21282f";
