@@ -19,9 +19,9 @@ in {
     enable = true;
 
     theme = spicePkgs.themes.Sleek;
-    colorScheme = "deep";
+    # colorScheme = "deep";
 
-    # colorScheme = "custom";
+    colorScheme = "custom";
 
     customColorScheme = {
       text = "000000";
