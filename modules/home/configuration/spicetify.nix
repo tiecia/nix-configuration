@@ -35,11 +35,11 @@ in {
       main-secondary = "06142d";
       button = "1DB954";
       button-secondary = "ffffff";
-      button-active = "4a99e9";
+      button-active = "1DB954";
       button-disabled = "21282f";
       nav-active = "37b778";
       play-button = "37b778";
-      tab-active = "0a1527";
+      tab-active = "1DB954";
       notification = "051024";
       notification-error = "051024";
       playback-bar = "37b778";
