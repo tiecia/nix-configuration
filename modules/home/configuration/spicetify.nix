@@ -24,7 +24,7 @@ in {
     colorScheme = "custom";
 
     customColorScheme = {
-      text = "000000";
+      text = "ffffff";
       # subtext = "F0F0F0";
       # sidebar-text = "e0def4";
       # main = "191724";
@@ -34,7 +34,7 @@ in {
       # shadow = "1f1d2e";
       # selected-row = "797979";
       button = "ff0000";
-      # button-active = "31748f";
+      button-active = "00ff00";
       # button-disabled = "555169";
       # tab-active = "ebbcba";
       # notification = "1db954";
