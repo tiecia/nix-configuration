@@ -18,7 +18,7 @@ in {
   programs.spicetify = {
     enable = true;
 
-    theme = spicePkgs.themes.text;
+    theme = spicePkgs.themes.Sleek;
 
     # theme = spicePkgs.themes.catppuccin;
     # colorScheme = "macchiato";
