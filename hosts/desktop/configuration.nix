@@ -5,6 +5,7 @@
   inputs,
   config,
   pkgs,
+  spicetify-nix,
   ...
 }: let
   # firefoxpwa = import /home/tiec/Development/git/firefoxpwa/default.nix {inherit pkgs;};
@@ -45,7 +46,7 @@ in {
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs;};
+    extraSpecialArgs = {inherit inputs pkgs spicetify-nix;};
     users = {
       tiec = import ./home.nix;
     };

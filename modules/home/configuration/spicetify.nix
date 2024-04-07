@@ -21,9 +21,9 @@ in {
     colorScheme = "mocha";
 
     enabledExtensions = with spicePkgs.extensions; [
-      fullAppDisplay
-      shuffle # shuffle+ (special characters are sanitized out of ext names)
-      hidePodcasts
+      #   fullAppDisplay
+      #   shuffle # shuffle+ (special characters are sanitized out of ext names)
+      #   hidePodcasts
     ];
   };
 }
