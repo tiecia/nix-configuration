@@ -17,11 +17,13 @@ in {
   # configure spicetify :)
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "macchiato";
+
+    theme = spicePkgs.themes.text;
+
+    # theme = spicePkgs.themes.catppuccin;
+    # colorScheme = "macchiato";
 
     enabledExtensions = with spicePkgs.extensions; [
-      fullAppDisplay
       fullAlbumDate
       shuffle # shuffle+ (special characters are sanitized out of ext names)
     ];
