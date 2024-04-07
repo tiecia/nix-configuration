@@ -7,7 +7,7 @@
   pkgs,
   ...
 }: let
-  myNur = import /home/tiec/Development/git/firefoxpwa/default.nix {inherit pkgs;};
+  firefoxpwa = import /home/tiec/Development/git/firefoxpwa/default.nix {inherit pkgs;};
 in {
   imports = [
     ./hardware-configuration.nix
@@ -90,7 +90,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     # firefox
-    myNur
+    firefoxpwa
   ];
 
   # pkgs.firefox.override = {
