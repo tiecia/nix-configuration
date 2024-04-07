@@ -19,7 +19,9 @@ in {
     enable = true;
 
     theme = spicePkgs.themes.Sleek;
-    colorScheme = "deep";
+    # colorScheme = "deep";
+
+    colorScheme = "custom";
 
     enabledExtensions = with spicePkgs.extensions; [
       shuffle # shuffle+ (special characters are sanitized out of ext names)
