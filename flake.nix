@@ -39,7 +39,7 @@
       };
 
       l390 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs;};
+        specialArgs = {inherit inputs system pkgs spicetify-nix;};
 
         modules = [
           ./hosts/l390/configuration.nix
