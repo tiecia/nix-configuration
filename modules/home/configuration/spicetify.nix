@@ -39,7 +39,7 @@ in {
       button-disabled = "21282f";
       nav-active = "37b778";
       play-button = "37b778";
-      tab-active = "061740";
+      tab-active = "1DB954";
       notification = "051024";
       notification-error = "051024";
       playback-bar = "37b778";
