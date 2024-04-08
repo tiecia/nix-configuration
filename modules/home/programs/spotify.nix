@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  spicetify-nix,
   ...
 }:
 with lib; {
@@ -15,6 +16,8 @@ with lib; {
 
   config = {
     home.packages = mkIf (config.spotify.theme == null) [pkgs.spotify];
+
+    # imports = mkIf (config.spotify.theme != null) [spicetify-nix.homeManagerModule];
 
     programs.spicetify =
       mkIf (config.spotify.theme != null) {

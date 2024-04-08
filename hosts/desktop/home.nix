@@ -24,7 +24,9 @@
     ../../modules/home/programs/libreoffice.nix
     ../../modules/home/programs/chrome.nix
 
-    ../../modules/home/configuration/spicetify.nix
+    spicetify-nix.homeManagerModule
+
+    # ../../modules/home/configuration/spicetify.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
