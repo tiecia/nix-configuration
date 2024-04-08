@@ -14,25 +14,12 @@ with lib; {
   };
 
   config = {
-    home.packages = mkIf (config.spotify.theme == null) [pkgs.hello];
-    # home.packages = mkIf (config.spotify.theme != null) {
-    #   []
-    # };
+    home.packages = mkIf (config.spotify.theme == null) [pkgs.spotify];
+
+    programs.spicetify =
+      mkIf (config.spotify.theme != null) {
+        enable = true;
+      }
+      // config.spotify.theme;
   };
-
-  # mkOptions = {
-  #   spotify.theme = {
-  #     type = types.attrs;
-  #     default = null;
-  #     description = "Use Spicetify theme";
-  #   };
-  # };
-
-  # home.packages = (lib.mkIf config.spotify.theme == null) {
-  #   [ pkgs.hello ]
-  # };
-
-  # home.packages = with pkgs; [
-  #   spotify
-  # ];
 }

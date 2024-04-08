@@ -33,7 +33,7 @@
   home.homeDirectory = "/home/tiec";
 
   spotify = {
-    # theme = {};
+    theme = import ../../modules/home/programs/spicetify/dark-blue.nix {inherit pkgs spicetify-nix;};
   };
 
   # This value determines the Home Manager release that your configuration is
