@@ -7,7 +7,7 @@
 with lib; {
   options = {
     spotify.theme = mkOption {
-      type = types.attrs;
+      type = types.anything;
       default = null;
       description = "Use Spicetify theme";
     };
