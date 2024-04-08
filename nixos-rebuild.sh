@@ -67,7 +67,7 @@ echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 sudo nixos-rebuild switch --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 
 # Get current generation metadata
-current=$(nixos-rebuild list-generations | grep current)
+current=$(nixos-rebuild list-generations --flake ~/nix-configuration#$CONFIGURATION_HOST | grep current)
 
 # Commit all changes witih the generation metadata
 sudo git commit -am "$CONFIGURATION_HOST $current"
