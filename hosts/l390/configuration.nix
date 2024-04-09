@@ -5,6 +5,7 @@
   inputs,
   config,
   pkgs,
+  spicetify-nix,
   ...
 }: {
   imports = [
@@ -34,7 +35,7 @@
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs;};
+    extraSpecialArgs = {inherit inputs pkgs spicetify-nix;};
     users = {
       tiec = import ./home.nix;
     };
