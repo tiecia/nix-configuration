@@ -16,8 +16,8 @@
     ../../modules/home/programs/msteams.nix
     ../../modules/home/programs/onedrive.nix
     ../../modules/home/programs/solaar.nix
-    ../../modules/home/programs/spotify.nix
-    # ../../modules/home/programs/spotify-old.nix
+    # ../../modules/home/programs/spotify.nix
+    ../../modules/home/programs/spotify-old.nix
     ../../modules/home/programs/wireguard.nix
     ../../modules/home/programs/filezilla.nix
     ../../modules/home/programs/libreoffice.nix
@@ -26,9 +26,9 @@
     spicetify-nix.homeManagerModule
   ];
 
-  spotify = {
-    theme = {};
-  };
+  # spotify = {
+  #   theme = {};
+  # };
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

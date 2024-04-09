@@ -7,6 +7,12 @@
 }:
 with lib; {
   options = {
+    spotify.enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Spotify";
+    };
+
     spotify.theme = mkOption {
       type = types.anything;
       default = null;

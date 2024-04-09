@@ -3,10 +3,9 @@
   pkgs,
   ...
 }: {
-  # home.packages = with pkgs; [
-  #   firefox
-  #   firefoxpwa
-  # ];
+  home.packages = with pkgs; [
+    firefox
+  ];
 
   # programs.firefox.nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
 }

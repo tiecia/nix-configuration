@@ -11,7 +11,7 @@
     ../../modules/home/programs/bitwarden.nix
     ../../modules/home/programs/cli-tools.nix
     ../../modules/home/programs/discord.nix
-    ../../modules/home/programs/firefox.nix
+    # ../../modules/home/programs/firefox.nix
     ../../modules/home/programs/git.nix
     ../../modules/home/programs/msteams.nix
     # ../../modules/home/programs/onedrive.nix
