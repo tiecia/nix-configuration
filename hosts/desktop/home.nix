@@ -36,7 +36,7 @@
 
   spotify = {
     # theme = builtins.trace "Spicetify Theme: ${builtins.toJSON spotheme}" spotheme;
-    theme = {};
+    # theme = {};
   };
 
   # This value determines the Home Manager release that your configuration is
