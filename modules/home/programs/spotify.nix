@@ -23,6 +23,6 @@ with lib; {
       mkIf (config.spotify.theme != null) {
         enable = true;
       }
-      // config.spotify.theme;
+      // builtins.trace (builtins.toJSON config.spotify.theme) config.spotify.theme;
   };
 }
