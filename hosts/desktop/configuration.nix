@@ -5,8 +5,11 @@
   inputs,
   config,
   pkgs,
+  spicetify-nix,
   ...
-}: {
+}: let
+  # firefoxpwa = import /home/tiec/Development/git/firefoxpwa/default.nix {inherit pkgs;};
+in {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default # Imports the home-manager module
@@ -29,6 +32,7 @@
     ../../modules/nixos/configuration/networking.nix
     ../../modules/nixos/configuration/bootloader.nix
     ../../modules/nixos/configuration/rebuild.nix
+    ../../modules/nixos/configuration/numlock.nix
 
     # Desktop environment
     ../../modules/nixos/desktop-environment/kde-plasma.nix
@@ -36,9 +40,12 @@
 
   # hardware.opengl.enable = true;
 
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.enableGraphical = true; # for solaar to be included
+
   # TODO: Move this to a home-manager configuration module
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs;};
+    extraSpecialArgs = {inherit inputs pkgs spicetify-nix;};
     users = {
       tiec = import ./home.nix;
     };
@@ -84,6 +91,15 @@
     sessionVariables = {
       EDITOR = "code";
     };
+  };
+
+  environment.systemPackages = with pkgs; [
+    firefoxpwa
+  ];
+
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts.packages = [pkgs.firefoxpwa];
   };
 
   # This value determines the NixOS release from which the default

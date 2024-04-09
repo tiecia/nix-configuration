@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  spicetify-nix,
   ...
 }: {
   imports = [
@@ -21,12 +22,53 @@
     # ../../modules/home/programs/kalc.nix
     # ../../modules/home/programs/wine.nix
     ../../modules/home/programs/libreoffice.nix
+    ../../modules/home/programs/chrome.nix
+
+    spicetify-nix.homeManagerModule
+
+    # ../../modules/home/configuration/spicetify.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tiec";
   home.homeDirectory = "/home/tiec";
+
+  spotify = {
+    # theme = builtins.trace "Spicetify Theme: ${builtins.toJSON spotheme}" spotheme;
+    theme = {
+      enable = true;
+
+      # https://github.com/spicetify/spicetify-themes/tree/master/Sleek
+      theme = spicetify-nix.packages.${pkgs.system}.default.themes.Sleek;
+      # colorScheme = "deep";
+
+      colorScheme = "custom";
+
+      customColorScheme = {
+        text = "ffffff";
+        subtext = "ffffff";
+        nav-active-text = "ffffff";
+        main = "020816";
+        sidebar = "051024";
+        player = "030b1e";
+        card = "0a1527";
+        shadow = "000000";
+        main-secondary = "06142d";
+        button = "1DB954";
+        button-secondary = "ffffff";
+        button-active = "1DB954";
+        button-disabled = "21282f";
+        nav-active = "37b778";
+        play-button = "37b778";
+        tab-active = "1DB954";
+        notification = "051024";
+        notification-error = "051024";
+        playback-bar = "37b778";
+        misc = "FFFFFF";
+      };
+    };
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
