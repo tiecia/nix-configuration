@@ -19,10 +19,12 @@ with lib; {
 
     # imports = mkIf (config.spotify.theme != null) [spicetify-nix.homeManagerModule];
 
+    # _ = builtins.trace "Theme: ${builtins.toJSON config.spotify.theme}" config.spotify.theme;
+
     programs.spicetify =
       mkIf (config.spotify.theme != null) {
         enable = true;
       }
-      // builtins.trace (builtins.toJSON config.spotify.theme) config.spotify.theme;
+      // builtins.trace "Theme: ${builtins.toJSON config.spotify.theme}" config.spotify.theme;
   };
 }
