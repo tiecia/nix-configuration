@@ -35,7 +35,8 @@
   home.homeDirectory = "/home/tiec";
 
   spotify = {
-    theme = import ../../modules/home/programs/spicetify/dark-blue.nix {inherit pkgs spicetify-nix;};
+    # theme = builtins.trace "Spicetify Theme: ${builtins.toJSON spotheme}" spotheme;
+    theme = {};
   };
 
   # This value determines the Home Manager release that your configuration is
