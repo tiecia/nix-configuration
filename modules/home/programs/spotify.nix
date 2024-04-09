@@ -20,7 +20,7 @@ with lib; {
     };
   };
 
-  config = {
+  config = mkIf config.spotify.enable {
     home.packages = mkIf (builtins.trace "Theme: ${builtins.toJSON config.spotify.theme}" config.spotify.theme == null) [pkgs.spotify];
 
     # imports = mkIf (config.spotify.theme != null) [spicetify-nix.homeManagerModule];
@@ -28,10 +28,9 @@ with lib; {
     # x = builtins.trace "Theme: ${builtins.toJSON config.spotify.theme}" config.spotify.theme;
 
     # programs.spicetify = mkIf (config.spotify.theme != null) config.spotify.theme;
-    programs.spicetify =
-      mkIf (config.spotify.theme != null) {
-        enable = true;
-      }
-      // config.spotify.theme;
+    programs.spicetify = mkIf (config.spotify.theme != null) {
+      enable = true;
+    };
+    # // config.spotify.theme;
   };
 }
