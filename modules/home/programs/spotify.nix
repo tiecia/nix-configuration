@@ -33,7 +33,7 @@ with lib; {
         enable = true;
 
         # https://github.com/spicetify/spicetify-themes/tree/master/Sleek
-        theme = spicePkgs.themes.Sleek;
+        theme = spicetify-nix.packages.${pkgs.system}.default.themes.Sleek;
         # colorScheme = "deep";
         colorScheme = "custom";
         customColorScheme = {
