@@ -11,7 +11,7 @@
     # colorScheme = "deep";
     colorScheme = "custom";
     customColorScheme = {
-      text = "ffffff";
+      text = "000000";
       subtext = "ffffff";
       nav-active-text = "ffffff";
       main = "020816";
