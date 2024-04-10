@@ -32,7 +32,7 @@ in
       programs.spicetify = mkMerge [
         {enable = true;}
         (mkIf (config.spotify.theme == "dark-blue") themes.dark-blue)
-        (mkIf (config.spotify.theme == "dark-red") themes.dark-red)
+        (mkIf (config.spotify.theme == "nord") themes.nord)
       ];
     };
   }

@@ -4,5 +4,5 @@
   ...
 }: {
   dark-blue = import ./dark-blue.nix {inherit pkgs spicetify-nix;};
-  dark-red = {};
+  nord = import ./nord.nix {inherit pkgs spicetify-nix;};
 }

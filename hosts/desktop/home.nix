@@ -36,7 +36,7 @@
 
   spotify = {
     enable = true;
-    theme = "dark-blue";
+    theme = "nord";
   };
 
   # This value determines the Home Manager release that your configuration is
