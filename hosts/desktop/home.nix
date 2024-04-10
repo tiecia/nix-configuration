@@ -35,6 +35,7 @@
   home.homeDirectory = "/home/tiec";
 
   spotify = {
+    enable = true;
     # theme = builtins.trace "Spicetify Theme: ${builtins.toJSON spotheme}" spotheme;
     theme = {
       enable = true;
