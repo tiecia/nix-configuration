@@ -31,6 +31,7 @@ in
 
       # programs.spicetify = mkIf (config.spotify.theme != null) config.spotify.theme;
       programs.spicetify = mkMerge [
+        {enable = true;}
         (mkIf (config.spotify.theme == "dark-blue") themes.dark-blue)
         (mkIf (config.spotify.theme == "dark-red") themes.dark-red)
       ];
