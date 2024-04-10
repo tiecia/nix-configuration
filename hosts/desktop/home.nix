@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  spicetify-nix,
   ...
 }: {
   imports = [
@@ -24,8 +23,6 @@
     # ../../modules/home/programs/wine.nix
     ../../modules/home/programs/desktop/libreoffice.nix
     ../../modules/home/programs/desktop/chrome.nix
-
-    spicetify-nix.homeManagerModule
 
     # ../../modules/home/configuration/spicetify.nix
   ];

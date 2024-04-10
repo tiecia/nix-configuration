@@ -8,6 +8,8 @@
   themes = import ./spicetify {inherit pkgs spicetify-nix;};
 in
   with lib; {
+    imports = [spicetify-nix.homeManagerModule];
+
     options = {
       # Enable option
       spotify.enable = mkOption {
