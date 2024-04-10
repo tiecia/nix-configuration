@@ -1,9 +1,17 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  home.packages = with pkgs; [
-    tree
-  ];
+}:
+with lib; {
+  options = {
+    tree.enable = mkEnableOption "Enable tree";
+  };
+
+  config = mkIf config.tree.enable {
+    home.packages = with pkgs; [
+      tree
+    ];
+  };
 }

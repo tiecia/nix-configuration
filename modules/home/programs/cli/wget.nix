@@ -1,9 +1,17 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  home.packages = with pkgs; [
-    wget
-  ];
+}:
+with lib; {
+  options = {
+    wget.enable = mkEnableOption "Enable wget";
+  };
+
+  config = mkIf config.wget.enable {
+    home.packages = with pkgs; [
+      wget
+    ];
+  };
 }
