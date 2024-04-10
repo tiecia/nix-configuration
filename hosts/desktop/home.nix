@@ -39,7 +39,7 @@
 
     # theme = import ../../modules/home/programs/spicetify/dark-blue.nix {inherit pkgs spicetify-nix;};
 
-    theme = "dark-blue";
+    theme = "dark-red";
 
     # theme = builtins.trace "Spicetify Theme: ${builtins.toJSON spotheme}" spotheme;
     # theme = {
