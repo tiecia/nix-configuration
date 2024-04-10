@@ -1,66 +1,24 @@
 {
   config,
   pkgs,
-  spicetify-nix,
   ...
 }: {
   imports = [
-    ../../modules/home/programs/vscode.nix
-    ../../modules/home/programs/git.nix
-    ../../modules/home/programs/betterbird.nix
-    ../../modules/home/programs/bitwarden.nix
-    ../../modules/home/programs/cli-tools.nix
-    ../../modules/home/programs/discord.nix
-    ../../modules/home/programs/firefox.nix
-    ../../modules/home/programs/git.nix
-    ../../modules/home/programs/msteams.nix
-    ../../modules/home/programs/onedrive.nix
-    ../../modules/home/programs/solaar.nix
-    ../../modules/home/programs/spotify.nix
-    # ../../modules/home/programs/spotify-old.nix
-    ../../modules/home/programs/wireguard.nix
-    ../../modules/home/programs/filezilla.nix
-    ../../modules/home/programs/libreoffice.nix
-    ../../modules/home/programs/kdepartitionmanager.nix
-
-    spicetify-nix.homeManagerModule
+    ../../modules/home/programs/cli
+    ../../modules/home/programs/desktop
   ];
-
-  # spotify = {
-  #   theme = {};
-  # };
 
   spotify = {
     enable = true;
-    # theme = {
-    #   # https://github.com/spicetify/spicetify-themes/tree/master/Sleek
-    #   theme = spicetify-nix.packages.${pkgs.system}.default.themes.Sleek;
-    #   # colorScheme = "deep";
-    #   colorScheme = "custom";
-    #   customColorScheme = {
-    #     text = "ffffff";
-    #     subtext = "ffffff";
-    #     nav-active-text = "ffffff";
-    #     main = "020816";
-    #     sidebar = "051024";
-    #     player = "030b1e";
-    #     card = "0a1527";
-    #     shadow = "000000";
-    #     main-secondary = "06142d";
-    #     button = "1DB954";
-    #     button-secondary = "ffffff";
-    #     button-active = "1DB954";
-    #     button-disabled = "21282f";
-    #     nav-active = "37b778";
-    #     play-button = "37b778";
-    #     tab-active = "1DB954";
-    #     notification = "051024";
-    #     notification-error = "051024";
-    #     playback-bar = "37b778";
-    #     misc = "FFFFFF";
-    #   };
-    # };
+    theme = "dark-blue";
   };
+
+  wireguard.enable = true;
+  betterbird.enable = true;
+  bitwarden.enable = true;
+  discord.enable = true;
+  filezilla.enable = true;
+  libreoffice.enable = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -80,13 +38,6 @@
   home.packages = with pkgs; [
     # hello
   ];
-
-  programs.firefox = {
-    nativeMessagingHosts.packages = [
-      # pkgs.firefoxpwa
-      pkgs.firefoxpwa-unwrapped
-    ];
-  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

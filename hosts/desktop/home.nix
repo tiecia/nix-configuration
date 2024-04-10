@@ -8,11 +8,6 @@
     ../../modules/home/programs/desktop
   ];
 
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "tiec";
-  home.homeDirectory = "/home/tiec";
-
   spotify = {
     enable = true;
     theme = "dark-blue";
@@ -29,6 +24,11 @@
   msteams.enable = true;
   solaar.enable = true;
   # wine.enable = true;
+
+  # Home Manager needs a bit of information about you and the paths it should
+  # manage.
+  home.username = "tiec";
+  home.homeDirectory = "/home/tiec";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
