@@ -18,13 +18,11 @@
     ./spotify.nix
     ./vscode.nix
     ./wine.nix
-    ./kwrite.nix
     ./vlc.nix
   ];
 
   firefox.enable = lib.mkDefault true;
   vscode.enable = lib.mkDefault true;
   kalc.enable = lib.mkDefault true;
-  kwrite.enable = lib.mkDefault true;
   vlc.enable = lib.mkDefault true;
 }
