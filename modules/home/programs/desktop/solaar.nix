@@ -1,9 +1,17 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  home.packages = with pkgs; [
-    solaar
-  ];
+}:
+with lib; {
+  options = {
+    solaar.enable = lib.mkEnableOption "Enable solaar";
+  };
+
+  config = mkIf config.solaar.enable {
+    home.packages = with pkgs; [
+      solaar
+    ];
+  };
 }

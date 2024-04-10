@@ -1,11 +1,17 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  home.packages = with pkgs; [
-    firefox
-  ];
+}:
+with lib; {
+  options = {
+    firefox.enable = lib.mkEnableOption "Enable firefox";
+  };
 
-  # programs.firefox.nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+  config = mkIf config.firefox.enable {
+    home.packages = with pkgs; [
+      firefox
+    ];
+  };
 }

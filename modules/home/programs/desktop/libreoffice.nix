@@ -1,9 +1,17 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  home.packages = with pkgs; [
-    libreoffice
-  ];
+}:
+with lib; {
+  options = {
+    libreoffice.enable = lib.mkEnableOption "Enable libreoffice";
+  };
+
+  config = mkIf config.libreoffice.enable {
+    home.packages = with pkgs; [
+      libreoffice
+    ];
+  };
 }

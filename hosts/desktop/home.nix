@@ -6,27 +6,6 @@
   imports = [
     ../../modules/home/programs/cli
     ../../modules/home/programs/desktop
-
-    ../../modules/home/programs/desktop/vscode.nix
-    # ../../modules/home/programs/desktop/git.nix
-    # ../../modules/home/programs/desktop/betterbird.nix
-    # ../../modules/home/programs/desktop/bitwarden.nix
-    # ../../modules/home/programs/cli-tools.nix
-    ../../modules/home/programs/desktop/discord.nix
-    # ../../modules/home/programs/firefox.nix
-    # ../../modules/home/programs/git.nix
-    ../../modules/home/programs/desktop/msteams.nix
-    # ../../modules/home/programs/onedrive.nix
-    ../../modules/home/programs/desktop/solaar.nix
-    ../../modules/home/programs/desktop/spotify.nix
-    # ../../modules/home/programs/wireguard.nix
-    ../../modules/home/programs/desktop/filezilla.nix
-    # ../../modules/home/programs/kalc.nix
-    # ../../modules/home/programs/wine.nix
-    ../../modules/home/programs/desktop/libreoffice.nix
-    ../../modules/home/programs/desktop/chrome.nix
-
-    # ../../modules/home/configuration/spicetify.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -42,7 +21,15 @@
   git.enable = true;
 
   betterbird.enable = true;
-  # bitwarden.enable = true;
+  bitwarden.enable = true;
+  chrome.enable = true;
+  discord.enable = true;
+  filezilla.enable = true;
+  libreoffice.enable = true;
+  msteams.enable = true;
+  solaar.enable = true;
+  # wine.enable = true;
+  # kalc.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

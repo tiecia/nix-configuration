@@ -1,31 +1,39 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      # These should always be installed
-      bbenoist.nix
+}:
+with lib; {
+  options = {
+    vscode.enable = lib.mkEnableOption "Enable vscode";
+  };
 
-      github.copilot
-      github.copilot-chat
+  config = mkIf config.vscode.enable {
+    programs.vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        # These should always be installed
+        bbenoist.nix
 
-      arrterian.nix-env-selector
-      yzhang.markdown-all-in-one
+        github.copilot
+        github.copilot-chat
 
-      # aaron-bond.better-comments
+        arrterian.nix-env-selector
+        yzhang.markdown-all-in-one
 
-      # These should eventually be moved to individual environments.
+        # aaron-bond.better-comments
 
-      # Rosepoint environment.
-      ms-vscode-remote.remote-containers
-      ms-vscode-remote.remote-ssh
-      ms-vscode-remote.remote-ssh
+        # These should eventually be moved to individual environments.
 
-      # OPL Environment
-      ms-python.python
-    ];
+        # Rosepoint environment.
+        ms-vscode-remote.remote-containers
+        ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-ssh
+
+        # OPL Environment
+        ms-python.python
+      ];
+    };
   };
 }

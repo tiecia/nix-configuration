@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./betterbird.nix
     ./bitwarden.nix
@@ -6,13 +10,16 @@
     ./discord.nix
     ./filezilla.nix
     ./firefox.nix
-    # ./kalc.nix
+    ./kalc.nix
     ./libreoffice.nix
     ./msteams.nix
     ./onedrive.nix
     ./solaar.nix
     ./spotify.nix
     ./vscode.nix
-    # ./wine.nix
+    ./wine.nix
   ];
+
+  firefox.enable = lib.mkDefault true;
+  vscode.enable = lib.mkDefault true;
 }
