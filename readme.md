@@ -76,7 +76,7 @@ Theme Names:
 * "nord"
 * "dark-blue"
 
-### Wine
+### Wine (This home-manager version might not work)
 
 Add to home.nix:
 ```

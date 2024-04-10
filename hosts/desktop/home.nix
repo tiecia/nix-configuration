@@ -23,7 +23,6 @@
   libreoffice.enable = true;
   msteams.enable = true;
   solaar.enable = true;
-  # wine.enable = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
