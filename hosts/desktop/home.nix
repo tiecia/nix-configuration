@@ -16,8 +16,8 @@
   git.enable = true;
 
   betterbird.enable = true;
-  bitwarden.enable = true;
-  chrome.enable = true;
+  # bitwarden.enable = true;
+  # chrome.enable = true;
   discord.enable = true;
   filezilla.enable = true;
   libreoffice.enable = true;
