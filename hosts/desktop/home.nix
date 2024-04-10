@@ -7,7 +7,7 @@
   imports = [
     ../../modules/home/programs/cli
     ../../modules/home/programs/desktop/vscode.nix
-    ../../modules/home/programs/desktop/git.nix
+    # ../../modules/home/programs/desktop/git.nix
     ../../modules/home/programs/desktop/betterbird.nix
     ../../modules/home/programs/desktop/bitwarden.nix
     # ../../modules/home/programs/cli-tools.nix
