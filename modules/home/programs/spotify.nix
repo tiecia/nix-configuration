@@ -9,12 +9,14 @@
 in
   with lib; {
     options = {
+      # Enable option
       spotify.enable = mkOption {
         type = types.bool;
         default = false;
         description = "Enable Spotify";
       };
 
+      # Theme option
       spotify.theme = mkOption {
         type = types.anything;
         default = null;
@@ -23,13 +25,10 @@ in
     };
 
     config = mkIf config.spotify.enable {
-      home.packages = mkIf (builtins.trace "Theme: ${builtins.toJSON config.spotify.theme}" config.spotify.theme == null) [pkgs.spotify];
+      # If no theme is specified install default spotify package.
+      home.packages = mkIf (config.spotify.theme == null) [pkgs.spotify];
 
-      # imports = mkIf (config.spotify.theme != null) [spicetify-nix.homeManagerModule];
-
-      # x = builtins.trace "Theme: ${builtins.toJSON config.spotify.theme}" config.spotify.theme;
-
-      # programs.spicetify = mkIf (config.spotify.theme != null) config.spotify.theme;
+      # If a theme is specified use spicetify and apply the theme.
       programs.spicetify = mkMerge [
         {enable = true;}
         (mkIf (config.spotify.theme == "dark-blue") themes.dark-blue)
