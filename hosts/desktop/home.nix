@@ -37,7 +37,9 @@
   spotify = {
     enable = true;
 
-    theme = import ../../modules/home/programs/spicetify/dark-blue.nix {inherit pkgs spicetify-nix;};
+    # theme = import ../../modules/home/programs/spicetify/dark-blue.nix {inherit pkgs spicetify-nix;};
+
+    theme = "dark-blue";
 
     # theme = builtins.trace "Spicetify Theme: ${builtins.toJSON spotheme}" spotheme;
     # theme = {
