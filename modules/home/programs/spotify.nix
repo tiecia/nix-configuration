@@ -28,10 +28,6 @@ with lib; {
     # x = builtins.trace "Theme: ${builtins.toJSON config.spotify.theme}" config.spotify.theme;
 
     # programs.spicetify = mkIf (config.spotify.theme != null) config.spotify.theme;
-    programs.spicetify =
-      mkIf (config.spotify.theme != null)
-      {
-        enable = true;
-      };
+    programs.spicetify = mkIf (config.spotify.theme != null) config.spotify.theme;
   };
 }
