@@ -5,10 +5,8 @@
 }: let
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
   config = {
-    enable = true;
     # https://github.com/spicetify/spicetify-themes/tree/master/Sleek
     theme = spicePkgs.themes.Sleek;
-    # colorScheme = "deep";
     colorScheme = "custom";
     customColorScheme = {
       text = "ffffff";
