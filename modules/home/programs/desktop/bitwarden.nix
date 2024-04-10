@@ -1,9 +1,17 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  home.packages = with pkgs; [
-    bitwarden
-  ];
+}:
+with lib; {
+  options = {
+    bitwarden.enable = lib.mkEnableOption "Enable bitwarden";
+  };
+
+  config = mkIf config.bitwarden.enable {
+    home.packages = with pkgs; [
+      bitwarden
+    ];
+  };
 }
