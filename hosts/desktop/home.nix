@@ -5,24 +5,25 @@
   ...
 }: {
   imports = [
-    ../../modules/home/programs/vscode.nix
-    ../../modules/home/programs/git.nix
-    ../../modules/home/programs/betterbird.nix
-    ../../modules/home/programs/bitwarden.nix
-    ../../modules/home/programs/cli-tools.nix
-    ../../modules/home/programs/discord.nix
+    ../../modules/home/programs/cli
+    ../../modules/home/programs/desktop/vscode.nix
+    ../../modules/home/programs/desktop/git.nix
+    ../../modules/home/programs/desktop/betterbird.nix
+    ../../modules/home/programs/desktop/bitwarden.nix
+    # ../../modules/home/programs/cli-tools.nix
+    ../../modules/home/programs/desktop/discord.nix
     # ../../modules/home/programs/firefox.nix
-    ../../modules/home/programs/git.nix
-    ../../modules/home/programs/msteams.nix
+    # ../../modules/home/programs/git.nix
+    ../../modules/home/programs/desktop/msteams.nix
     # ../../modules/home/programs/onedrive.nix
-    ../../modules/home/programs/solaar.nix
-    ../../modules/home/programs/spotify.nix
-    ../../modules/home/programs/wireguard.nix
-    ../../modules/home/programs/filezilla.nix
+    ../../modules/home/programs/desktop/solaar.nix
+    ../../modules/home/programs/desktop/spotify.nix
+    # ../../modules/home/programs/wireguard.nix
+    ../../modules/home/programs/desktop/filezilla.nix
     # ../../modules/home/programs/kalc.nix
     # ../../modules/home/programs/wine.nix
-    ../../modules/home/programs/libreoffice.nix
-    ../../modules/home/programs/chrome.nix
+    ../../modules/home/programs/desktop/libreoffice.nix
+    ../../modules/home/programs/desktop/chrome.nix
 
     spicetify-nix.homeManagerModule
 
@@ -38,6 +39,8 @@
     enable = true;
     theme = "nord";
   };
+
+  git.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
