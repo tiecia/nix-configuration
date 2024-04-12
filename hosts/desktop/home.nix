@@ -10,7 +10,7 @@
 
   spotify = {
     enable = true;
-    theme = "nord";
+    theme = "dark-blue";
   };
 
   git.enable = true;
