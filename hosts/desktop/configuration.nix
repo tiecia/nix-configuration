@@ -5,6 +5,7 @@
   inputs,
   config,
   pkgs,
+  lib,
   spicetify-nix,
   ...
 }: let
@@ -39,6 +40,9 @@ in {
   ];
 
   # hardware.opengl.enable = true;
+
+  # Patch for xz vulnerability
+  services.openssh.enable = lib.mkForce false;
 
   hardware.logitech.wireless.enable = true;
   hardware.logitech.enableGraphical = true; # for solaar to be included
