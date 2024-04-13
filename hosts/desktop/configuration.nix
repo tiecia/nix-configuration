@@ -37,7 +37,7 @@ in {
   services.openssh.enable = lib.mkForce false;
 
   hardware.logitech.wireless.enable = true;
-  hardware.logitech.enableGraphical = true; # for solaar to be included
+  hardware.logitech.wireless.enableGraphical = true; # for solaar to be included
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
