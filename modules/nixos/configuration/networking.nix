@@ -6,6 +6,7 @@
 }:
 with lib; {
   options = {
+    networking.enable = mkEnableOption "Enable networking";
     networking.hostname = mkOption {
       type = types.str;
       default = "nixos";
@@ -15,7 +16,7 @@ with lib; {
 
   config = {
     # Enable networking
-    networking.networkmanager.enable = true;
+    networking.networkmanager.enable = config.networking.enable;
 
     # Set the hostname
     networking.hostName = config.networking.hostname;

@@ -29,12 +29,12 @@ in {
     # ../../modules/nixos/configuration/bluetooth.nix
     ../../modules/nixos/configuration/nvidia-graphics.nix
     ../../modules/nixos/configuration/printing.nix
-    ../../modules/nixos/configuration/pipewire.nix # Sound configuration
-    ../../modules/nixos/configuration/flakes.nix
-    ../../modules/nixos/configuration/locale-en-us.nix
-    ../../modules/nixos/configuration/networking.nix
+    # ../../modules/nixos/configuration/pipewire.nix # Sound configuration
+    # ../../modules/nixos/configuration/flakes.nix
+    # ../../modules/nixos/configuration/locale-en-us.nix
+    # ../../modules/nixos/configuration/networking.nix
     # ../../modules/nixos/configuration/bootloader.nix
-    ../../modules/nixos/configuration/rebuild.nix
+    # ../../modules/nixos/configuration/rebuild.nix
     ../../modules/nixos/configuration/numlock.nix
 
     # Desktop environment
@@ -42,6 +42,10 @@ in {
   ];
 
   # hardware.opengl.enable = true;
+
+  printing.enable = true;
+  nvidia-graphics.enable = true;
+  numlock-boot.enable = true;
 
   # Patch for xz vulnerability
   services.openssh.enable = lib.mkForce false;

@@ -6,6 +6,7 @@
 }:
 with lib; {
   options = {
+    rebuild.enable = mkEnableOption "Enable the nixos-rebuild script";
     rebuild.host = mkOption {
       type = types.str;
       default = "default";
