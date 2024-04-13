@@ -27,8 +27,6 @@ in {
     ../../modules/nixos/programs/wine.nix
   ];
 
-  # hardware.opengl.enable = true;
-
   printing.enable = true;
   nvidia-graphics.enable = true;
   numlock-boot.enable = true;
