@@ -15,7 +15,14 @@ with lib; {
       onedrivegui
     ];
 
-    # services.onedrive.enable = true;
+    home.file.".config/onedrive/accounts/Personal/sync_list".source = pkgs.writeTextFile {
+      name = "sync_list";
+      text = ''
+        !/Documents/2008 Nordhavn 64 PERSEVERANCE
+        !/Documents/Backups
+
+        /Documents'';
+    };
 
     systemd.user.services.onedrive = {
       Unit = {

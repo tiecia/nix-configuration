@@ -52,14 +52,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # "~/.config/onedrive/accounts/Personal/sync_list".text = ''
-    #   !/Documents/2008 Nordhavn 64 PERSEVERANCE
-    #   !/Documents/Backups
-    #   !/Steam
-
-    #   /Documents
-    # '';
-
     ".config/onedrive/accounts/Personal/sync_list".source = pkgs.writeTextFile {
       name = "sync_list";
       text = ''
