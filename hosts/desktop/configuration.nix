@@ -34,7 +34,6 @@ in {
     ../../modules/nixos/configuration/bootloader.nix
     ../../modules/nixos/configuration/rebuild.nix
     ../../modules/nixos/configuration/numlock.nix
-    ../../modules/nixos/configuration/flatpack.nix
 
     # Desktop environment
     ../../modules/nixos/desktop-environment/kde-plasma.nix
