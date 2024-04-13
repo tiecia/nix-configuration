@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-master,
   ...
 }:
 with lib; {
@@ -10,7 +11,7 @@ with lib; {
   };
 
   config = mkIf config.msteams.enable {
-    home.packages = with pkgs; [
+    home.packages = with pkgs-master; [
       teams-for-linux
     ];
   };

@@ -4,7 +4,7 @@
   inputs = {
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
-    # nixpkgs.url = "github:nixos/nixpkgs/master";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -16,6 +16,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-master,
     spicetify-nix,
     ...
   } @ inputs: let
@@ -26,10 +27,16 @@
         allowUnfree = true;
       };
     };
+    pkgs-master = import nixpkgs-master {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs spicetify-nix;};
+        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix;};
 
         modules = [
           ./hosts/desktop/configuration.nix

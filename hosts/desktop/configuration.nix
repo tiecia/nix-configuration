@@ -5,11 +5,11 @@
   inputs,
   config,
   pkgs,
+  pkgs-master,
   lib,
   spicetify-nix,
   ...
 }: let
-  # firefoxpwa = import /home/tiec/Development/git/firefoxpwa/default.nix {inherit pkgs;};
 in {
   imports = [
     ./hardware-configuration.nix
@@ -24,18 +24,6 @@ in {
     ../../modules/nixos/programs/prism-launcher.nix
     ../../modules/nixos/programs/syncthing.nix
     ../../modules/nixos/programs/wine.nix
-
-    # Configurations
-    # ../../modules/nixos/configuration/bluetooth.nix
-    # ../../modules/nixos/configuration/nvidia-graphics.nix
-    # ../../modules/nixos/configuration/printing.nix
-    # ../../modules/nixos/configuration/pipewire.nix # Sound configuration
-    # ../../modules/nixos/configuration/flakes.nix
-    # ../../modules/nixos/configuration/locale-en-us.nix
-    # ../../modules/nixos/configuration/networking.nix
-    # ../../modules/nixos/configuration/bootloader.nix
-    # ../../modules/nixos/configuration/rebuild.nix
-    # ../../modules/nixos/configuration/numlock.nix
 
     # Desktop environment
     ../../modules/nixos/desktop-environment/kde-plasma.nix
@@ -55,7 +43,7 @@ in {
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs spicetify-nix;};
+    extraSpecialArgs = {inherit inputs pkgs pkgs-master spicetify-nix;};
     users = {
       tiec = import ./home.nix;
     };
@@ -102,15 +90,6 @@ in {
       EDITOR = "code";
     };
   };
-
-  # environment.systemPackages = with pkgs; [
-  #   firefoxpwa
-  # ];
-
-  # programs.firefox = {
-  #   enable = true;
-  #   nativeMessagingHosts.packages = [pkgs.firefoxpwa];
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
