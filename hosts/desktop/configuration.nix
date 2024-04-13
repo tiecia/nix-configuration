@@ -16,6 +16,7 @@ in {
     inputs.home-manager.nixosModules.default # Imports the home-manager module
 
     ../../modules/nixos/configuration
+    ../../modules/nixos/desktop-environment
 
     # Programs
     ../../modules/nixos/programs/kde-connect.nix
@@ -24,9 +25,6 @@ in {
     ../../modules/nixos/programs/prism-launcher.nix
     ../../modules/nixos/programs/syncthing.nix
     ../../modules/nixos/programs/wine.nix
-
-    # Desktop environment
-    ../../modules/nixos/desktop-environment/kde-plasma.nix
   ];
 
   # hardware.opengl.enable = true;
