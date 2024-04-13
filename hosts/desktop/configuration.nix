@@ -15,6 +15,8 @@ in {
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default # Imports the home-manager module
 
+    ../../modules/nixos/configuration
+
     # Programs
     ../../modules/nixos/programs/kde-connect.nix
     ../../modules/nixos/programs/docker.nix
@@ -24,14 +26,14 @@ in {
     ../../modules/nixos/programs/wine.nix
 
     # Configurations
-    ../../modules/nixos/configuration/bluetooth.nix
+    # ../../modules/nixos/configuration/bluetooth.nix
     ../../modules/nixos/configuration/nvidia-graphics.nix
     ../../modules/nixos/configuration/printing.nix
     ../../modules/nixos/configuration/pipewire.nix # Sound configuration
     ../../modules/nixos/configuration/flakes.nix
     ../../modules/nixos/configuration/locale-en-us.nix
     ../../modules/nixos/configuration/networking.nix
-    ../../modules/nixos/configuration/bootloader.nix
+    # ../../modules/nixos/configuration/bootloader.nix
     ../../modules/nixos/configuration/rebuild.nix
     ../../modules/nixos/configuration/numlock.nix
 
