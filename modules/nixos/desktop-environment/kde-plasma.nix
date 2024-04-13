@@ -18,9 +18,9 @@ with lib; {
     services.xserver.desktopManager.plasma5.enable = true;
 
     # Configure keymap in X11
-    services.xserver = {
+    services.xserver.xkb = {
       layout = "us";
-      xkbVariant = "";
+      variant = "";
     };
   };
 }
