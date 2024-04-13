@@ -55,6 +55,7 @@
     "~/.config/onedrive".text = ''
       !/Documents/2008 Nordhavn 64 PERSEVERANCE
       !/Documents/Backups
+      !/Steam
 
       /Documents
     '';
