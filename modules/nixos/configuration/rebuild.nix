@@ -23,6 +23,7 @@ with lib; {
       shellAliases = {
         edit = "code ~/nix-configuration";
         rebuild = "~/nix-configuration/nixos-rebuild.sh";
+        rb = "~/nix-configuration/nixos-rebuild.sh";
         listgens = "nix profile history --profile /nix/var/nix/profiles/system"; # https://nixos.org/manual/nix/stable/package-management/garbage-collection
         cleannix = "nix-collect-garbage -d";
 
