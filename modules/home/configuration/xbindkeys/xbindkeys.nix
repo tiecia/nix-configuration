@@ -12,7 +12,7 @@ with lib; {
   };
 
   config = mkIf config.xbindkeys.enable {
-    home.file.".xbindkeysrc".source = ./.xbindkeysrc;
+    home.file.".xbindkeysrc".source = ./xbindkeysrc;
 
     home.packages = with pkgs; [
       xbindkeys
