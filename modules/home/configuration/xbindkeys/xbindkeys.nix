@@ -24,7 +24,7 @@ with lib; {
       Unit.Description = "xbindkeys hotkey daemon";
       Service = {
         ExecStart = "${pkgs.xbindkeys}/bin/xbindkeys";
-        Restart = "always"; # Restart service if it crashes
+        # Restart = "always"; # Restart service if it crashes
       };
       Install.WantedBy = ["default.target"]; # Start service on boot
     };
