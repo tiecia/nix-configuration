@@ -53,6 +53,9 @@
 "xte 'key XF86AudioPlay'"
 b:9
 
+"xte 'key Space'"
+b:8
+
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
 #
