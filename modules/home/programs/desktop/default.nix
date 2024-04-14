@@ -13,7 +13,7 @@
     ./kalc.nix
     ./libreoffice.nix
     ./msteams.nix
-    ./onedrive.nix
+    ./onedrive/onedrive.nix
     ./solaar.nix
     ./spotify.nix
     ./vscode.nix

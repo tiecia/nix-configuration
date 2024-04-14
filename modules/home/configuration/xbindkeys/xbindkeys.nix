@@ -19,14 +19,16 @@ with lib; {
       xautomation
     ];
 
+    # Note: Automatic startup of xbindkeys is managed by Plasma under Autostart setting.
+
     # Start the service on startup
-    systemd.user.services.xbindkeys = {
-      Unit.Description = "xbindkeys hotkey daemon";
-      Service = {
-        ExecStart = "${pkgs.xbindkeys}/bin/xbindkeys";
-        # Restart = "always"; # Restart service if it crashes
-      };
-      Install.WantedBy = ["default.target"]; # Start service on boot
-    };
+    # systemd.user.services.xbindkeys = {
+    #   Unit.Description = "xbindkeys hotkey daemon";
+    #   Service = {
+    #     ExecStart = "${pkgs.xbindkeys}/bin/xbindkeys";
+    #     # Restart = "always"; # Restart service if it crashes
+    #   };
+    #   Install.WantedBy = ["default.target"]; # Start service on boot
+    # };
   };
 }

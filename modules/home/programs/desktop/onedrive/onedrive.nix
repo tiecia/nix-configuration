@@ -15,6 +15,8 @@ with lib; {
       onedrivegui
     ];
 
+    home.file.".config/onedrive/accounts/Personal/sync_list".source = ./sync_list;
+
     # home.file.".config/onedrive/accounts/Personal/sync_list".source = pkgs.writeTextFile {
     #   name = "sync_list";
     #   text = ''
