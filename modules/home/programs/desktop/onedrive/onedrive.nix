@@ -15,27 +15,9 @@ with lib; {
       onedrivegui
     ];
 
+    # https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#performing-a-selective-sync-via-sync_list-file
     home.file.".config/onedrive/accounts/Personal/sync_list".source = ./sync_list;
 
-    # home.file.".config/onedrive/accounts/Personal/sync_list".source = pkgs.writeTextFile {
-    #   name = "sync_list";
-    #   text = ''
-    #     !/Documents/2008 Nordhavn 64 PERSEVERANCE
-    #     !/Documents/Backups
-
-    #     /Documents'';
-    # };
-
-    systemd.user.services.onedrive = {
-      Unit = {
-        Description = "OneDrive Service";
-      };
-      Install = {
-        WantedBy = ["default.target"];
-      };
-      Service = {
-        ExecStart = "${pkgs.onedrive}/bin/onedrive --monitor";
-      };
-    };
+    # Note: The service is started through Plasma starting the OneDriveGUI program on startup.
   };
 }
