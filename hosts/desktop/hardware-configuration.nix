@@ -27,10 +27,10 @@
     fsType = "vfat";
   };
 
-  fileSystems."/mnt/steam" = {
-    device = "/dev/nvme0n1p2";
-    fsType = "ntfs";
-  };
+  #  fileSystems."/mnt/steam" = {
+  #    device = "/dev/nvme0n1p2";
+  #    fsType = "ntfs";
+  #  };
 
   swapDevices = [];
 
