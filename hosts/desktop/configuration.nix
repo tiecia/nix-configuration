@@ -88,6 +88,16 @@ in {
     fsType = "ntfs";
   };
 
+  fileSystems."/mnt/hdd" = {
+    device = "/dev/disk/by-uuid/9606B41606B3F4F9";
+    fsType = "ntfs";
+  };
+
+  fileSystems."/mnt/datassd" = {
+    device = "/dev/disk/by-uuid/F45A101B5A0FD96E";
+    fsType = "ntfs";
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
