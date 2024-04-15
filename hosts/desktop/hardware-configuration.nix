@@ -27,11 +27,6 @@
     fsType = "vfat";
   };
 
-  fileSystems."/mnt/steam" = {
-    device = "/dev/disk/by-uuid/C492E1D992E1D04A";
-    fsType = "ntfs";
-  };
-
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

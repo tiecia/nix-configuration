@@ -75,16 +75,17 @@ in {
       # TODO: Make a module for these
       vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
       vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
-
-      # TODO: Move these to git.nix. Need to figure out why aliases are not working with homemanager.
-      g = "git";
-      gk = "gitkraken";
     };
 
     # TODO: Move these to vscode.nix. Need to figure out why environment variables are not working with homemanager.
     sessionVariables = {
       EDITOR = "code";
     };
+  };
+
+  fileSystems."/mnt/steam" = {
+    device = "/dev/disk/by-uuid/C492E1D992E1D04A";
+    fsType = "ntfs";
   };
 
   # This value determines the NixOS release from which the default
