@@ -52,7 +52,7 @@
     parsec-bin
   ];
 
-  home.shellAliases = {
+  programs.bash.shellAliases = {
     la = "ls -a";
   };
 
