@@ -24,10 +24,6 @@
     useUserPackages = true;
   };
 
-  rebuild = {
-    host = "wsl";
-  };
-
   wsl.enable = true;
   wsl.defaultUser = "nixos";
 
