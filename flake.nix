@@ -50,6 +50,14 @@
           ./hosts/l390/configuration.nix
         ];
       };
+
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs system pkgs;};
+
+        modules = [
+          ./hosts/wsl/configuration.nix
+        ];
+      };
     };
   };
 }
