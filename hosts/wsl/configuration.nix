@@ -5,15 +5,21 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 
 {
   imports = [
     # include NixOS-WSL modules
     <nixos-wsl/modules>
 
+# ./hardware-configuration.nix
+
     inputs.home-manager.nixosModules.default # Imports the home-manager module
-  ];
+../../modules/nixos/configuration  
+];
+
+
+nixpkgs.hostPlatform = "x86_64-linux";
 
   home-manager = {
     extraSpecialArgs = {inherit inputs pkgs;};
@@ -24,12 +30,17 @@
     useUserPackages = true;
   };
 
-  rebuild = {
-    host = "wsl";
-  };
-
   wsl.enable = true;
   wsl.defaultUser = "nixos";
+
+  rebuild = {
+host = "wsl";
+};
+
+
+bluetooth.enable = lib.mkForce false;
+pipewire.enable = lib.mkForce false;
+bootloader.enable = lib.mkForce false;
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiec = {
