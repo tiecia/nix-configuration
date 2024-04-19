@@ -1,25 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
-
-{ inputs, config, lib, pkgs, ... }:
-
 {
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     # include NixOS-WSL modules
     <nixos-wsl/modules>
 
-# ./hardware-configuration.nix
+    # ./hardware-configuration.nix
 
     inputs.home-manager.nixosModules.default # Imports the home-manager module
-../../modules/nixos/configuration  
-];
+    ../../modules/nixos/configuration
+  ];
 
-
-nixpkgs.hostPlatform = "x86_64-linux";
+  nixpkgs.hostPlatform = "x86_64-linux";
 
   home-manager = {
     extraSpecialArgs = {inherit inputs pkgs;};
@@ -34,16 +35,15 @@ nixpkgs.hostPlatform = "x86_64-linux";
   wsl.defaultUser = "nixos";
 
   rebuild = {
-host = "wsl";
-};
+    host = "wsl";
+  };
 
+  bluetooth.enable = lib.mkForce false;
+  pipewire.enable = lib.mkForce false;
+  bootloader.enable = lib.mkForce false;
 
-bluetooth.enable = lib.mkForce false;
-pipewire.enable = lib.mkForce false;
-bootloader.enable = lib.mkForce false;
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tiec = {
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.nixos = {
     isNormalUser = true;
     description = "nixos";
     extraGroups = [
@@ -56,7 +56,6 @@ bootloader.enable = lib.mkForce false;
       home-manager
     ];
   };
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
