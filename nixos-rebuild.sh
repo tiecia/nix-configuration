@@ -27,15 +27,18 @@ pushd ~/nix-configuration
 nopush=0
 force=0
 update=0
+impure=0
 
 for arg in "$@"
 do
-    if [ "$arg" == "-n" ] ||[ "$arg" == "--nopush" ]; then
+    if [ "$arg" == "-n" ] || [ "$arg" == "--nopush" ]; then
         nopush=1
     elif [ "$arg" == "-f" ] || [ "$arg" == "--force" ]; then
         force=1
     elif [ "$arg" == "-u" ] || [ "$arg" == "--update" ]; then
         update=1
+    elif [ "$arg" == "-i" ] || [ "$arg" == "--impure" ]; then
+	impure=1
     fi
 done
 
@@ -64,8 +67,11 @@ sudo git add -A
 echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 
 # Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
-
+if [ $impure == 1 ]; then
+	sudo nixos-rebuild switch --impure --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+else
+	sudo nixos-rebuild switch --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+fi
 # Get current generation metadata
 current=$(nixos-rebuild list-generations --flake ~/nix-configuration#$CONFIGURATION_HOST | grep current)
 
