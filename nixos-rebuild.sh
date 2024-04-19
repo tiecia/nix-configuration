@@ -70,7 +70,7 @@ echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 # if [ $impure == 1 ]; then
 #	sudo nixos-rebuild switch --impure --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 # else
-#	sudo nixos-rebuild switch --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+	sudo nixos-rebuild switch --impure --flake ~/nix-configuration#$CONFIGURATION_HOST &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 # fi
 # Get current generation metadata
 current=$(nixos-rebuild list-generations --flake ~/nix-configuration#$CONFIGURATION_HOST | grep current)
