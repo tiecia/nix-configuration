@@ -23,6 +23,7 @@ with lib; {
         gaa = "git add -A";
         g = "git";
         gp = "git push";
+        work = "cd ~/Development/rosepoint/PlanZ/; code ~/Development/rosepoint/PlanZ/";
       };
     };
   };
