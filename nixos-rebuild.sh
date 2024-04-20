@@ -49,6 +49,8 @@ else
         options+="--dry"
     elif [ $verbose == 1 ]; then
         options+="--verbose"
+    elif [ $update == 1 ]; then
+        options+="--update"
     fi
     
     if [ $test == 1 ]; then 
@@ -62,7 +64,9 @@ fi
 current=$(nixos-rebuild list-generations --flake ~/nix-configuration#$CONFIGURATION_HOST | grep current)
 
 # Commit all changes witih the generation metadata
-sudo git commit -am "$CONFIGURATION_HOST $current"
+if [ $dry == 0 ]; then
+    sudo git commit -am "$CONFIGURATION_HOST $current"
+fi
 
 # Back to where you were
 popd
