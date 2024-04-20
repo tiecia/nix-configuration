@@ -19,6 +19,7 @@ with lib; {
       systemPackages = with pkgs; [
         alejandra # .nix formatter
         libnotify # Provides the notify-send used in my nixos-rebuild script
+        nh
       ];
       shellAliases = {
         edit = "code ~/nix-configuration";
