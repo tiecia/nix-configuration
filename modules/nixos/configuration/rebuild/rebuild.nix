@@ -31,7 +31,7 @@ with lib; {
         nixclean = "nh clean all --keep-since 4d";
         search = "nix search";
 
-        compare = "~/nix-configuration/nixos/configuration/rebuild/compare.sh";
+        compare = "~/nix-configuration/modules/nixos/configuration/rebuild/compare.sh";
 
         ns = "nix-shell";
         nsp = "nix-shell -p";
