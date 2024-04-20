@@ -67,6 +67,7 @@ in {
     packages = with pkgs; [
       # TODO: Move this to a home-manager configuration module. Then make a user module.
       home-manager
+      linuxKernel.packages.linux_zen.xone
       # hello
     ];
   };
