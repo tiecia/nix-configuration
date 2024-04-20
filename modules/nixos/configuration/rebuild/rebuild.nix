@@ -29,12 +29,12 @@ with lib; {
         rb = "~/nix-configuration/modules/nixos/configuration/rebuild/rebuild.sh";
         listgens = "nix profile history --profile /nix/var/nix/profiles/system"; # https://nixos.org/manual/nix/stable/package-management/garbage-collection
         nixclean = "nh clean all --keep-since 4d";
-        search = "nix search";
+        search = "nh search";
 
         compare = "~/nix-configuration/modules/nixos/configuration/rebuild/compare.sh";
 
         ns = "nix-shell";
-        nsp = "nix-shell -p";
+        try = "nix-shell -p";
 
         sconf = "nano ~/nix-configuration/hosts/${config.environment.sessionVariables.CONFIGURATION_HOST}/configuration.nix";
         hconf = "nano ~/nix-configuration/hosts/${config.environment.sessionVariables.CONFIGURATION_HOST}/home.nix";
