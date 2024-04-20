@@ -10,7 +10,7 @@
     ./locale-en-us.nix
     ./networking.nix
     ./pipewire.nix
-    ./rebuild.nix
+    ./rebuild/rebuild.nix
     ./numlock.nix
     ./nvidia-graphics.nix
     ./printing.nix
