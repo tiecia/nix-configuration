@@ -13,12 +13,12 @@ with lib; {
   config = mkIf config.firefox.enable {
     home.packages = with pkgs;
       mkMerge [
-        [firefox-devedition]
+        [firefox]
         (mkIf config.firefox.installPWA [firefoxpwa])
       ];
 
     programs.firefox = {
-      enable = false;
+      enable = true;
       # nativeMessagingHosts = [pkgs.firefoxpwa];
       nativeMessagingHosts = mkIf config.firefox.installPWA [pkgs.firefoxpwa];
     };
