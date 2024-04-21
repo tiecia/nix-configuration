@@ -33,7 +33,7 @@ in {
   # Patch for xz vulnerability
   services.openssh.enable = lib.mkForce false;
 
-  # microsoft-surface.ipts.enable = true;
+  microsoft-surface.ipts.enable = true;
   # config.microsoft-surface.surface-control.enable = true;
 
   hardware.logitech.wireless.enable = true;
