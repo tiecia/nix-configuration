@@ -44,7 +44,7 @@
       };
 
       l390 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs spicetify-nix;};
+        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix;};
 
         modules = [
           ./hosts/l390/configuration.nix
@@ -60,7 +60,7 @@
       };
 
       surfacebook = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs spicetify-nix;};
+        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix;};
 
         modules = [
           ./hosts/surfacebook/configuration.nix
