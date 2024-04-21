@@ -47,7 +47,7 @@ in {
   };
 
   rebuild = {
-    host = "surfacebook";
+    host = "sls";
   };
 
   networking = {

@@ -66,6 +66,14 @@
           ./hosts/surfacebook/configuration.nix
         ];
       };
+
+      sls = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix;};
+
+        modules = [
+          ./hosts/sls/configuration.nix
+        ];
+      };
     };
   };
 }

@@ -22,6 +22,8 @@ with lib; {
         arrterian.nix-env-selector
         yzhang.markdown-all-in-one
 
+        vscodevim.vim
+
         # aaron-bond.better-comments
 
         # These should eventually be moved to individual environments.
