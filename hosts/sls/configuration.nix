@@ -28,7 +28,6 @@ in {
   ];
 
   printing.enable = true;
-  numlock-boot.enable = true;
 
   # Patch for xz vulnerability
   services.openssh.enable = lib.mkForce false;
@@ -51,7 +50,7 @@ in {
   };
 
   networking = {
-    hostname = "TySurfaceBook";
+    hostname = "TyLaptopStudioNix";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

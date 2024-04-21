@@ -7,6 +7,8 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +20,7 @@
     nixpkgs,
     nixpkgs-master,
     spicetify-nix,
+    nixos-hardware,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -68,10 +71,11 @@
       };
 
       sls = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix;};
+        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix nixos-hardware;};
 
         modules = [
           ./hosts/sls/configuration.nix
+          nixos-hardware.nixosModules.microsoft-surface-common
         ];
       };
     };
