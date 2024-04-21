@@ -1,3 +1,4 @@
+# https://nixos.wiki/wiki/Nvidia
 {
   config,
   lib,
@@ -7,6 +8,27 @@
 with lib; {
   options = {
     nvidia-graphics.enable = lib.mkEnableOption "Enable Nvidia Graphics";
+    nvidia-graphics.prime = lib.mkOption {
+      type = types.enum ["offload" "sync" "off"];
+      default = "off";
+      description = ''
+        Select the Nvidia Optimus PRIME mode.
+      '';
+    };
+    nvidia-graphics.intelBusId = lib.mkOption {
+      type = types.string;
+      default = "";
+      description = ''
+        The PCI bus ID of the Intel GPU.
+      '';
+    };
+    nvidia-graphics.nvidiaBusId = lib.mkOption {
+      type = types.string;
+      default = "";
+      description = ''
+        The PCI bus ID of the Nvidia GPU.
+      '';
+    };
   };
 
   config = mkIf config.nvidia-graphics.enable {
@@ -21,6 +43,19 @@ with lib; {
     services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
     hardware.nvidia = {
+      prime = mkIf (config.nvidia-graphics.prime
+        != "off") {
+        offload = mkIf (config.nvidia-graphics.prime
+          == "offload") {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        intelBusId = config.nvidia-graphics.intelBusId;
+        nvidiaBusId = config.nvidia-graphics.nvidiaBusId;
+        # intelBusId = "PCI:0:2:0";
+        # nvidiaBusId = "PCI:243:0:0";
+      };
+
       # Modesetting is required.
       modesetting.enable = true;
 
@@ -48,8 +83,8 @@ with lib; {
       nvidiaSettings = true;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      # package = config.boot.kernelPackages.nvidiaPackages.stable;
-      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
     };
   };
 }
