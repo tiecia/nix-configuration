@@ -43,10 +43,13 @@
         allowUnfree = true;
       };
     };
+
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager;};
+    specialArgsCli = {inherit inputs system pkgs pkgs-master;};
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager;};
+        specialArgs = specialArgsDesktop;
 
         modules = [
           ./hosts/desktop/configuration.nix
