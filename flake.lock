@@ -102,12 +102,36 @@
         "type": "github"
       }
     },
+    "plasma-manager": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1713552700,
+        "narHash": "sha256-R2+GRjHFEapDa08FnuJjweAiE+5W7VKnBxNo3tC/Yzo=",
+        "owner": "pjones",
+        "repo": "plasma-manager",
+        "rev": "bd743369ef402d269885225af93064f22b640990",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pjones",
+        "repo": "plasma-manager",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
+        "plasma-manager": "plasma-manager",
         "spicetify-nix": "spicetify-nix"
       }
     },

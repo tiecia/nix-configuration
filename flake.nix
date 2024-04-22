@@ -13,6 +13,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = {
@@ -21,6 +27,7 @@
     nixpkgs-master,
     spicetify-nix,
     nixos-hardware,
+    plasma-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -39,7 +46,7 @@
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix;};
+        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager;};
 
         modules = [
           ./hosts/desktop/configuration.nix
