@@ -57,7 +57,7 @@
       };
 
       l390 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix;};
+        specialArgs = specialArgsDesktop;
 
         modules = [
           ./hosts/l390/configuration.nix
@@ -65,7 +65,7 @@
       };
 
       wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs;};
+        specialArgs = specialArgsCli;
 
         modules = [
           ./hosts/wsl/configuration.nix
@@ -73,7 +73,7 @@
       };
 
       surfacebook = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix;};
+        specialArgs = specialArgsDesktop;
 
         modules = [
           ./hosts/surfacebook/configuration.nix
@@ -81,7 +81,7 @@
       };
 
       sls = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs system pkgs pkgs-master spicetify-nix nixos-hardware;};
+        specialArgs = specialArgsDesktop;
 
         modules = [
           ./hosts/sls/configuration.nix
