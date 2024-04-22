@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  plasma-manager,
   ...
 }:
 with lib; {
@@ -10,6 +11,9 @@ with lib; {
   };
 
   config = mkIf config.plasma.enable {
+    # imports = [
+    # plasma-manager.homeManagerModules.plasma-manager
+    # ];
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
