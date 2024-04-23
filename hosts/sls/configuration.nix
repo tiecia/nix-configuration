@@ -44,7 +44,7 @@ in {
   microsoft-surface.surface-control.enable = true;
 
   environment.systemPackages = with pkgs; [
-    xorg.xf86inputsynaptics
+    # xorg.xf86inputsynaptics
   ];
 
   hardware.logitech.wireless.enable = true;
