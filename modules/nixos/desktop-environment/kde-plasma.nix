@@ -18,19 +18,19 @@ with lib; {
     services.xserver = {
       enable = true;
       desktopManager.plasma5.enable = true;
-      libinput = {
-        enable = true;
+      #   libinput = {
+      #     enable = true;
 
-        # disabling mouse acceleration
-        mouse = {
-          accelProfile = "flat";
-        };
+      #     # disabling mouse acceleration
+      #     mouse = {
+      #       accelProfile = "flat";
+      #     };
 
-        # disabling touchpad acceleration
-        touchpad = {
-          accelProfile = "flat";
-        };
-      };
+      #     # disabling touchpad acceleration
+      #     touchpad = {
+      #       accelProfile = "flat";
+      #     };
+      #   };
     };
     # services.xserver.enable = true;
 
