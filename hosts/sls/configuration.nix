@@ -43,6 +43,10 @@ in {
   microsoft-surface.ipts.enable = true;
   microsoft-surface.surface-control.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    # xorg.xf86inputsynaptics
+  ];
+
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true; # for solaar to be included
 
