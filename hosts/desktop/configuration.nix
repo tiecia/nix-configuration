@@ -88,16 +88,19 @@ in {
   fileSystems."/mnt/steam" = {
     device = "/dev/disk/by-uuid/C492E1D992E1D04A";
     fsType = "ntfs";
+    options = ["uid=1000"];
   };
 
   fileSystems."/mnt/hdd" = {
     device = "/dev/disk/by-uuid/9606B41606B3F4F9";
     fsType = "ntfs";
+    options = ["uid=1000"];
   };
 
   fileSystems."/mnt/datassd" = {
     device = "/dev/disk/by-uuid/F45A101B5A0FD96E";
     fsType = "ntfs";
+    options = ["uid=1000"];
   };
 
   # This value determines the NixOS release from which the default
