@@ -42,6 +42,8 @@ with lib; {
     # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
+    boot.kernelParams = ["nvidia-drm.modeset=1"];
+
     hardware.nvidia = {
       prime = mkIf (config.nvidia-graphics.prime != "off") {
         offload = mkIf (config.nvidia-graphics.prime == "offload") {
