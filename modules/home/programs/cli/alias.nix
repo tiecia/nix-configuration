@@ -24,7 +24,7 @@ with lib; {
         g = "git";
         gp = "git push";
         work = "cd ~/Development/rosepoint/PlanZ/; code ~/Development/rosepoint/PlanZ/";
-        unfree = "echo NIXPKGS_ALLOW_UNFREE=1";
+        unfree = "export NIXPKGS_ALLOW_UNFREE=1";
       };
     };
   };
