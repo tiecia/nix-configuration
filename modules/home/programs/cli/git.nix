@@ -15,7 +15,8 @@ with lib; {
         git
         gitkraken
         # git-credential-manager
-        git-credential-oauth
+        # git-credential-oauth
+        gh
       ];
 
       # shellAliases = {
