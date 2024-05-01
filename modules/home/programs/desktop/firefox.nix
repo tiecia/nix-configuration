@@ -19,16 +19,7 @@ with lib; {
 
     programs.firefox = {
       enable = true;
-      # nativeMessagingHosts = [pkgs.firefoxpwa];
       nativeMessagingHosts = mkIf config.firefox.installPWA [pkgs.firefoxpwa];
     };
   };
 }
-# environment.systemPackages = with pkgs; [
-#   firefoxpwa
-# ];
-# programs.firefox = {
-#   enable = true;
-#   nativeMessagingHosts.packages = [pkgs.firefoxpwa];
-# };
-

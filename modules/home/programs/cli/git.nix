@@ -14,15 +14,8 @@ with lib; {
       packages = with pkgs; [
         git
         gitkraken
-        # git-credential-manager
-        # git-credential-oauth
         gh
       ];
-
-      # shellAliases = {
-      #   g = "git";
-      #   gk = "gitkraken";
-      # };
     };
 
     programs.git = {
