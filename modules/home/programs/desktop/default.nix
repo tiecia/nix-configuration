@@ -21,6 +21,7 @@
     ./vlc.nix
     ./davinci-resolve.nix
     ./obs.nix
+    ./zoom.nix
   ];
 
   firefox.enable = lib.mkDefault true;
