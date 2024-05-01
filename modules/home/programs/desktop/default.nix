@@ -19,6 +19,8 @@
     ./vscode.nix
     ./wine.nix
     ./vlc.nix
+    ./davinci-resolve.nix
+    ./obs.nix
   ];
 
   firefox.enable = lib.mkDefault true;
