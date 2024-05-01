@@ -27,7 +27,7 @@
   # solaar.enable = true;
   onedrive.enable = true;
 
-  firefox.installPWA = false;
+  firefox.installPWA = true;
 
   xbindkeys.enable = true;
 
