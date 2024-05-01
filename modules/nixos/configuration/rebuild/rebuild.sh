@@ -68,6 +68,8 @@ if [ $dry == 0 ]; then
     sudo git commit -am "$CONFIGURATION_HOST $current"
 fi
 
+git push
+
 # Back to where you were
 popd
 
