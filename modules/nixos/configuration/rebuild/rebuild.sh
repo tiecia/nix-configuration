@@ -43,7 +43,7 @@ echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 options=""
 # Rebuild, output simplified errors, log trackebacks
 if [ $impure == 1 ]; then
-	sudo nixos-rebuild switch --impure --flake ~/nix-configuration#$CONFIGURATION_HOST 
+	sudo nixos-rebuild switch --impure --flake ./#$CONFIGURATION_HOST 
 else
     if [ $dry == 1 ]; then
         options+="--dry"
@@ -54,14 +54,14 @@ else
     fi
     
     if [ $test == 1 ]; then 
-        nh os test ~/nix-configuration -H $CONFIGURATION_HOST $options
+        nh os test ./ -H $CONFIGURATION_HOST $options
     else
-        nh os switch ~/nix-configuration -H $CONFIGURATION_HOST $options    
+        nh os switch ./ -H $CONFIGURATION_HOST $options    
     fi
 fi
 
 # Get current generation metadata
-current=$(nixos-rebuild list-generations --flake ~/nix-configuration#$CONFIGURATION_HOST | grep current)
+current=$(nixos-rebuild list-generations --flake ./#$CONFIGURATION_HOST | grep current)
 
 # Commit all changes witih the generation metadata
 if [ $dry == 0 ]; then
@@ -69,6 +69,8 @@ if [ $dry == 0 ]; then
 fi
 
 git push
+
+sudo chown -R $USER ./
 
 # Back to where you were
 popd
