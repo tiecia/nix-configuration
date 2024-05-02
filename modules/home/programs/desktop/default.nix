@@ -9,7 +9,7 @@
     ./chrome.nix
     ./discord.nix
     ./filezilla.nix
-    ./firefox.nix
+    ./firefox/firefox.nix
     ./kalc.nix
     ./libreoffice.nix
     ./msteams.nix

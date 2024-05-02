@@ -21,5 +21,7 @@ with lib; {
       enable = true;
       nativeMessagingHosts = mkIf config.firefox.installPWA [pkgs.firefoxpwa];
     };
+
+    home.file.".local/share/firefoxpwa/config.json".source = mkIf config.firefox.installPWA ./config.json;
   };
 }
