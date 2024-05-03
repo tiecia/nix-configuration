@@ -12,26 +12,20 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default # Imports the home-manager module
 
-    # Programs
-    ../../modules/nixos/programs/kde-connect.nix
-    ../../modules/nixos/programs/docker.nix
-    ../../modules/nixos/programs/steam.nix
-    ../../modules/nixos/programs/syncthing.nix
-    ../../modules/nixos/programs/wine.nix
-
-    # Configurations
-    ../../modules/nixos/configuration/bluetooth.nix
-    ../../modules/nixos/configuration/printing.nix
-    ../../modules/nixos/configuration/pipewire.nix # Sound configuration
-    ../../modules/nixos/configuration/flakes.nix
-    ../../modules/nixos/configuration/locale-en-us.nix
-    ../../modules/nixos/configuration/networking.nix
-    ../../modules/nixos/configuration/bootloader.nix
-    ../../modules/nixos/configuration/rebuild.nix
-
-    # Desktop environment
-    ../../modules/nixos/desktop-environment/kde-plasma.nix
+    ../../modules/nixos/configuration
+    ../../modules/nixos/desktop-environment
+    ../../modules/nixos/programs
   ];
+
+  # Programs
+  kde-connect.enable = true;
+  docker.enable = true;
+  steam.enable = true;
+  syncthing.enable = true;
+  wine.enable = true;
+
+  # Configurations
+  printing.enable = true;
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
