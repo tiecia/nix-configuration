@@ -11,7 +11,7 @@ with lib; {
 
   config = mkIf config.wireguard.enable {
     home.packages = with pkgs; [
-      wireguard
+      wireguard-tools
     ];
   };
 }
