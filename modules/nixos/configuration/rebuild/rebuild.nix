@@ -28,7 +28,7 @@ with lib; {
         rebuild = "~/nix-configuration/modules/nixos/configuration/rebuild/rebuild.sh";
         rb = "~/nix-configuration/modules/nixos/configuration/rebuild/rebuild.sh";
         listgens = "nix profile history --profile /nix/var/nix/profiles/system"; # https://nixos.org/manual/nix/stable/package-management/garbage-collection
-        nixclean = "nh clean all --keep-since 4d";
+        nixclean = "nh clean all --keep-since 4d --keep 10";
         search = "nh search";
 
         compare = "~/nix-configuration/modules/nixos/configuration/rebuild/compare.sh";
