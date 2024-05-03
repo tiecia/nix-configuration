@@ -1,25 +1,33 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  environment.systemPackages = with pkgs; [
-    kdeconnect
-  ];
+}:
+with lib; {
+  options = {
+    kde-connect.enable = mkEnableOption "Enable kde-connect";
+  };
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
+  config = mkIf config.kde-connect.enable {
+    environment.systemPackages = with pkgs; [
+      kdeconnect
     ];
-    allowedUDPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
+
+    networking.firewall = {
+      enable = true;
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
+      ];
+    };
   };
 }

@@ -1,28 +1,36 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
-  environment.systemPackages = with pkgs; [
-    # support both 32- and 64-bit applications
-    wineWowPackages.stable
+}:
+with lib; {
+  options = {
+    wine.enable = mkEnableOption "Enable wine";
+  };
 
-    # support 32-bit only
-    wine
+  config = mkIf config.wine.enable {
+    environment.systemPackages = with pkgs; [
+      # support both 32- and 64-bit applications
+      wineWowPackages.stable
 
-    # support 64-bit only
-    (wine.override {wineBuild = "wine64";})
+      # support 32-bit only
+      wine
 
-    # support 64-bit only
-    wine64
+      # support 64-bit only
+      (wine.override {wineBuild = "wine64";})
 
-    # wine-staging (version with experimental features)
-    wineWowPackages.staging
+      # support 64-bit only
+      wine64
 
-    # winetricks (all versions)
-    winetricks
+      # wine-staging (version with experimental features)
+      wineWowPackages.staging
 
-    # native wayland support (unstable)
-    wineWowPackages.waylandFull
-  ];
+      # winetricks (all versions)
+      winetricks
+
+      # native wayland support (unstable)
+      wineWowPackages.waylandFull
+    ];
+  };
 }

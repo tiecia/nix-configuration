@@ -17,25 +17,23 @@ in {
 
     ../../modules/nixos/configuration
     ../../modules/nixos/desktop-environment
-
-    # Programs
-    ../../modules/nixos/programs/kde-connect.nix
-    ../../modules/nixos/programs/docker.nix
-    ../../modules/nixos/programs/steam.nix
-    ../../modules/nixos/programs/prism-launcher.nix
-    ../../modules/nixos/programs/syncthing.nix
-    ../../modules/nixos/programs/wine.nix
+    ../../modules/nixos/programs
   ];
 
   printing.enable = true;
   nvidia-graphics.enable = true;
   numlock-boot.enable = true;
 
-  # Patch for xz vulnerability
-  services.openssh.enable = lib.mkForce false;
-
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true; # for solaar to be included
+
+  # Programs
+  kde-connect.enable = true;
+  docker.enable = true;
+  steam.enable = true;
+  prism-launcher.enable = true;
+  syncthing.enable = true;
+  wine.enable = true;
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
