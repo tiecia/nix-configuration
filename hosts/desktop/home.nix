@@ -28,6 +28,7 @@
   msteams.enable = true;
   solaar.enable = true;
   onedrive.enable = true;
+  wireguard.enable = true;
 
   obs.enable = true;
   davinci-resolve.enable = true;
