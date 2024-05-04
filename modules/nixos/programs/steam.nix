@@ -17,7 +17,7 @@ with lib; {
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
-      gamescopeSession.args = ["-w 1920 -h 1080 -W 2560 -H 1080"];
+      gamescopeSession.args = ["-w 1920 -h 1080 -W 2560 -H 1080 -b"];
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       package = pkgs.steam.override {
