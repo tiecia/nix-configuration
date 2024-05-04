@@ -30,10 +30,15 @@ in {
   # Programs
   kde-connect.enable = true;
   docker.enable = true;
-  steam.enable = true;
   prism-launcher.enable = true;
   syncthing.enable = true;
   wine.enable = true;
+
+  steam = {
+    enable = true;
+    enableGamescope = true;
+    gamescopeArgs = ["-w 1920 -h 1080 -W 2560 -H 1080 -b"];
+  };
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
