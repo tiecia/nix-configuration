@@ -17,20 +17,12 @@ with lib; {
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
-      # gamescopeSession.args = ["-w 1920 -h 1080 -W 2560 -H 1080 -f"];
+      gamescopeSession.args = ["-w 1920 -h 1080 -W 2560 -H 1080 -f"];
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       package = pkgs.steam.override {
         extraPkgs = pkgs:
           with pkgs; [
-            xorg.libXcursor
-            xorg.libXi
-            xorg.libXinerama
-            xorg.libXScrnSaver
-            libpng
-            libpulseaudio
-            libvorbis
-            stdenv.cc.cc.lib
             libkrb5
             keyutils
           ];
