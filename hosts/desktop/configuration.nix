@@ -37,7 +37,7 @@ in {
   steam = {
     enable = true;
     enableGamescope = true;
-    gamescopeArgs = ["-w 1920 -h 1080 -W 2560 -H 1080 -b"];
+    gamescopeArgs = ["-w 1920 -h 1080 -W 2560 -H 1080 -f"];
   };
 
   # TODO: Move this to a home-manager configuration module
