@@ -26,13 +26,6 @@ with lib; {
       gamescopeSession.args = mkIf config.steam.enableGamescope config.steam.gamescopeArgs;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-      # package = pkgs.steam.override {
-      # extraPkgs = pkgs:
-      # with pkgs; [
-      # libkrb5
-      # keyutils
-      # ];
-      # };
     };
 
     programs.gamemode.enable = true;
