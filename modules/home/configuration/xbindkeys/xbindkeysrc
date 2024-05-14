@@ -50,6 +50,8 @@
 # "xterm"
 #   control + b:2
 
+# To figure out the key id use the xorg.xev program.
+
 "xte 'key XF86AudioPlay'"
 b:9
 
