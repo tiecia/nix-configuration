@@ -58,8 +58,10 @@ with lib; {
         reverseSync.enable = mkIf (config.nvidia-graphics.prime == "sync") true;
         allowExternalGpu = mkIf (config.nvidia-graphics.prime == "sync") false;
 
-        intelBusId = config.nvidia-graphics.intelBusId;
-        nvidiaBusId = config.nvidia-graphics.nvidiaBusId;
+        # intelBusId = config.nvidia-graphics.intelBusId;
+        # nvidiaBusId = config.nvidia-graphics.nvidiaBusId;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:243:0:0";
       };
 
       # Modesetting is required.
