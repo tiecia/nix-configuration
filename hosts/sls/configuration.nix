@@ -25,7 +25,7 @@ in {
 
   nvidia-graphics = {
     enable = true;
-    prime = "offload";
+    prime = "sync";
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:243:0:0";
   };
