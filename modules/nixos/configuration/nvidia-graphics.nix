@@ -32,10 +32,6 @@ with lib; {
   };
 
   config = mkIf config.nvidia-graphics.enable {
-    environment.systemPackages = mkIf (config.nvidia-graphics.prime != "off") [
-      pkgs.gnomeExtensions.prime-helper
-    ];
-
     # Enable OpenGL
     hardware.opengl = {
       enable = true;
