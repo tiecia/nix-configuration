@@ -21,7 +21,9 @@ in {
     ../../modules/nixos/programs
   ];
 
-  hyprland.enable = true;
+  plasma.enable = lib.mkForce false;
+  programs.hyprland.enable = true;
+  # hyprland.enable = true;
 
   printing.enable = true;
 
