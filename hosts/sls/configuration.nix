@@ -21,6 +21,8 @@ in {
     ../../modules/nixos/programs
   ];
 
+  hyprland.enable = true;
+
   printing.enable = true;
 
   nvidia-graphics = {
