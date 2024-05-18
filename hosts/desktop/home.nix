@@ -38,10 +38,11 @@
 
   xbindkeys.enable = true;
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = pkgs.hyprland;
-  };
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   package = pkgs.hyprland;
+  #   systemd.enable = true;
+  # };
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

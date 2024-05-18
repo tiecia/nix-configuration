@@ -20,6 +20,12 @@ in {
     ../../modules/nixos/programs
   ];
 
+  specialisation = {
+    hyprland.configuration = {
+      hyprland.enable = true;
+    };
+  };
+
   printing.enable = true;
   nvidia-graphics.enable = true;
   numlock-boot.enable = true;
