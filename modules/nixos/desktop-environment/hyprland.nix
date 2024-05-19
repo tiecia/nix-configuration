@@ -32,6 +32,9 @@ with lib; {
       NIXOS_OZONE_WL = "1";
     };
 
-    environment.systemPackages = [pkgs.kitty];
+    environment.systemPackages = with pkgs; [
+      kitty
+      waybar
+    ];
   };
 }

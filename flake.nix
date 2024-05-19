@@ -30,7 +30,7 @@
     spicetify-nix,
     nixos-hardware,
     plasma-manager,
-    # hyprland,
+    hyprland,
     ...
   } @ inputs: let
     system = "x86_64-linux";
