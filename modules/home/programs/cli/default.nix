@@ -11,6 +11,7 @@
     ./alias.nix
     ./vim.nix
     ./jq.nix
+    ./unzip.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -20,4 +21,5 @@
   alias.enable = lib.mkDefault true;
   vim.enable = lib.mkDefault true;
   jq.enable = lib.mkDefault true;
+  unzip.enable = lib.mkDefault true;
 }
