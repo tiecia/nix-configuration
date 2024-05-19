@@ -37,6 +37,7 @@ with lib; {
       waybar
       rofi-wayland
       hello
+      pavucontrol
     ];
   };
 }
