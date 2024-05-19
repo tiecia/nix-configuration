@@ -35,6 +35,7 @@ with lib; {
     environment.systemPackages = with pkgs; [
       kitty
       waybar
+      rofi-wayland
     ];
   };
 }
