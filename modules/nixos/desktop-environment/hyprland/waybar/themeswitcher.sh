@@ -62,6 +62,6 @@ read -ra array <<< "$input"
 if [ "$choice" ]; then
     echo "Loading waybar theme..."
     echo "${listThemes[$choice+1]}" > ~/.cache/.themestyle.sh
-    $waybar_config_root/launch.sh
+    bash $waybar_config_root/launch.sh
     notify-send "Waybar Theme changed" "to ${array[$choice]}"
 fi

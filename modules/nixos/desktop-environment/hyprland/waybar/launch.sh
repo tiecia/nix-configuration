@@ -12,7 +12,7 @@ waybar_config_root="$HOME/nix-configuration/modules/nixos/desktop-environment/hy
 
 # Check if waybar-disabled file exists
 if [ -f $HOME/.cache/waybar-disabled ] ;then 
-    killall waybar
+    # killall waybar
     pkill waybar
     exit 1 
 fi
@@ -20,7 +20,7 @@ fi
 # ----------------------------------------------------- 
 # Quit all running waybar instances
 # ----------------------------------------------------- 
-killall waybar
+# killall waybar
 pkill waybar
 sleep 0.2
 
