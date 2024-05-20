@@ -12,6 +12,7 @@
     ./vim.nix
     ./jq.nix
     ./unzip.nix
+    ./replace.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -22,4 +23,5 @@
   vim.enable = lib.mkDefault true;
   jq.enable = lib.mkDefault true;
   unzip.enable = lib.mkDefault true;
+  replace.enable = lib.mkDefault true;
 }
