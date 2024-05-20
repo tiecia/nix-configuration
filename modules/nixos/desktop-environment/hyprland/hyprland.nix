@@ -33,6 +33,10 @@ with lib; {
       NIXOS_OZONE_WL = "1";
     };
 
+    fonts.packages = with pkgs; [
+      nerdfonts
+    ];
+
     environment.systemPackages = with pkgs; [
       kitty
       (pkgs.waybar.overrideAttrs (oldAttrs: {
@@ -40,18 +44,6 @@ with lib; {
       }))
       rofi-wayland
       pavucontrol
-      # nerdfonts
-      # (nerdfonts.override {fonts = ["FiraCode"];})
-      font-awesome
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      liberation_ttf
-      fira-code
-      fira-code-symbols
-      mplus-outline-fonts.githubRelease
-      dina-font
-      proggyfonts
     ];
   };
 }
