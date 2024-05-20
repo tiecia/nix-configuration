@@ -44,6 +44,7 @@ with lib; {
       }))
       rofi-wayland
       pavucontrol
+      dolphin
     ];
   };
 }
