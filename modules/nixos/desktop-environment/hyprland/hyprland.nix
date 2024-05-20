@@ -39,7 +39,8 @@ with lib; {
       rofi-wayland
       pavucontrol
       # nerdfonts
-      (nerdfonts.override {fonts = ["FiraCode"];})
+      # (nerdfonts.override {fonts = ["FiraCode"];})
+      font-awesome
     ];
   };
 }
