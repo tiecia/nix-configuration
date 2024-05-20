@@ -37,8 +37,8 @@ with lib; {
       kitty
       waybar
       rofi-wayland
-      hello
       pavucontrol
+      nerdfonts
     ];
   };
 }

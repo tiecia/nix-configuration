@@ -11,7 +11,7 @@ with lib; {
 
   config = mkIf config.replace.enable {
     home.packages = with pkgs; [
-      # Program is repalce-literal
+      # Program is replace-literal
       replace
     ];
   };
