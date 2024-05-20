@@ -35,7 +35,9 @@ with lib; {
 
     environment.systemPackages = with pkgs; [
       kitty
-      waybar
+      (pkgs.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+      }))
       rofi-wayland
       pavucontrol
       # nerdfonts
