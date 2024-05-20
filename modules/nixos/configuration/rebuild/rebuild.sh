@@ -14,6 +14,7 @@ impure=0
 dry=0
 test=0
 verbose=0
+nopush=0
 
 for arg in "$@"
 do
@@ -27,6 +28,8 @@ do
     	test=1
     elif [ "$arg" == "-v" ] || [ "$arg" == "--verbose" ]; then
     	verbose=1
+    elif [ "$arg" == "-n" ] || [ "$arg" == "--nopush" ]; then
+	nopush=1
     fi
 done
 
@@ -77,7 +80,9 @@ if [ $dry == 0 ]; then
     sudo git commit -am "$CONFIGURATION_HOST $current"
 fi
 
-git push
+if [ nopush == 0 ]; then
+  git push
+fi
 
 sudo chown -R $USER ./
 
