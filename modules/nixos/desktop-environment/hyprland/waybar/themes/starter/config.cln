@@ -10,26 +10,34 @@
 //
 {
     // General Settings
+
+    // Position TOP
     "layer": "top",
-    "margin-top": 14,
     "margin-bottom": 0,
+
+    // Position BOTTOM
+    // "position": "bottom",
+    // "margin-top": 0,
+    // "margin-bottom": 14,
+    
     "layer": "top",
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
 
     // Load Modules
-    "include": ["~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/modules.json"],
+    "include": ["~/dotfiles/waybar/themes/starter/modules.json"],
 
     // Modules Left
     "modules-left": [
         "custom/appmenu",
-        "group/links",
-        "group/settings",
+        "custom/settings",
+        "custom/waybarthemes",
+        "custom/wallpaper",
         //"wlr/taskbar",
         "group/quicklinks",
         "hyprland/window",
-        "custom/empty"
+        "custom/starter"
     ],
 
     // Modules Center

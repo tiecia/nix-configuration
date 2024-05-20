@@ -43,7 +43,7 @@
     // Waybar Themes
     "custom/waybarthemes": {
         "format": "Themes",
-        "on-click": "~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/themeswitcher.sh",
+        "on-click": "~/dotfiles/waybar/themeswitcher.sh",
         "tooltip": false
     },
     "sway/mode": {

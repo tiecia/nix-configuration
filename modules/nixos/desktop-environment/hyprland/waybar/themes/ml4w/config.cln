@@ -19,7 +19,7 @@
     "spacing": 0,
 
     // Load Modules
-    "include": ["~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/modules.json"],
+    "include": ["~/dotfiles/waybar/modules.json"],
 
     // Modules Left
     "modules-left": [

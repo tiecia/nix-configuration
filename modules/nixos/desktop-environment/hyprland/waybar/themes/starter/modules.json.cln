@@ -94,7 +94,7 @@
     // Waybar Themes
     "custom/waybarthemes": {
         "format": "",
-        "on-click": "~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/themeswitcher.sh",
+        "on-click": "~/dotfiles/waybar/themeswitcher.sh",
         "tooltip": false
     },
     
