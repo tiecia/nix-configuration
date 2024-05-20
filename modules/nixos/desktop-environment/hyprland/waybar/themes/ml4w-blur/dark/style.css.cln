@@ -1,7 +1,8 @@
 /* -----------------------------------------------------
  * Import Pywal colors 
  * ----------------------------------------------------- */
-@import '../../../../../../../../../.cache/wal/colors-waybar.css';
+
+@import '../../../../../../../../../../.cache/wal/colors-waybar.css';
 
 @define-color backgroundlight @color8;
 @define-color backgrounddark #FFFFFF;
@@ -14,3 +15,7 @@
 @define-color iconcolor @color8;
 
 @import '../style.css';
+
+window#waybar {
+    background-color: rgba(255,255,255,0.1);
+}

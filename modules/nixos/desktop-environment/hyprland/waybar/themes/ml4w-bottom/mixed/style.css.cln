@@ -1,7 +1,7 @@
 /* -----------------------------------------------------
  * Import Pywal colors 
  * ----------------------------------------------------- */
-@import '../../../../../../../../../.cache/wal/colors-waybar.css';
+@import '../../../../../.cache/wal/colors-waybar.css';
 
 @define-color backgroundlight @color8;
 @define-color backgrounddark #FFFFFF;
@@ -11,6 +11,6 @@
 @define-color textcolor1 @color8;
 @define-color textcolor2 #FFFFFF;
 @define-color textcolor3 #FFFFFF;
-@define-color iconcolor @color8;
+@define-color iconcolor #FFFFFF;
 
-@import '../style.css';
+@import '../../ml4w/style.css';
