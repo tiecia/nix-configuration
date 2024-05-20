@@ -38,7 +38,8 @@ with lib; {
       waybar
       rofi-wayland
       pavucontrol
-      nerdfonts
+      # nerdfonts
+      (nerdfonts.override {fonts = ["FiraCode"];})
     ];
   };
 }
