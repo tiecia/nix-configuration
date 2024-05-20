@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./kde-plasma.nix
-    ./hyprland.nix
+    ./hyprland/hyprland.nix
   ];
 
   plasma.enable = lib.mkDefault true;

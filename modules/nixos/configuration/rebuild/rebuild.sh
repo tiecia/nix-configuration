@@ -47,10 +47,19 @@ if [ $impure == 1 ]; then
 else
     if [ $dry == 1 ]; then
         options+="--dry"
-    elif [ $verbose == 1 ]; then
+    fi
+
+    if [ $verbose == 1 ]; then
         options+="--verbose"
-    elif [ $update == 1 ]; then
+    fi
+    
+    if [ $update == 1 ]; then
         options+="--update"
+    fi
+
+    if [[ ! -z $SPECIALISATION ]]; then
+	echo "Using specialisation \"$SPECIALISATION\""
+	options+="-s $SPECIALISATION"
     fi
     
     if [ $test == 1 ]; then 
