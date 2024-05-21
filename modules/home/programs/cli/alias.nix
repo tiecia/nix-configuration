@@ -27,6 +27,7 @@ with lib; {
         unfree = "export NIXPKGS_ALLOW_UNFREE=1";
         home = "cd ~";
         open = "bash ~/nix-configuration/modules/home/programs/cli/scripts/open.sh";
+        ".." = "cd ..";
       };
     };
   };
