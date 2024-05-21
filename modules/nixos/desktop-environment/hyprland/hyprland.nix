@@ -46,6 +46,7 @@ with lib; {
       pavucontrol
       dolphin
       hyprshot
+      blueman
     ];
   };
 }
