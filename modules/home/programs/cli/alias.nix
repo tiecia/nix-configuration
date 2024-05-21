@@ -26,7 +26,7 @@ with lib; {
         work = "cd ~/Development/rosepoint/PlanZ/; code ~/Development/rosepoint/PlanZ/";
         unfree = "export NIXPKGS_ALLOW_UNFREE=1";
         home = "cd ~";
-        open = "bash ./scripts/open.sh";
+        open = "bash ~/nix-configuration/modules/home/programs/cli/scripts/open.sh";
       };
     };
   };
