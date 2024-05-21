@@ -22,6 +22,11 @@
 
     # hyprland.url = "github:hyprwm/Hyprland";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
+    };
   };
 
   outputs = {
@@ -32,6 +37,7 @@
     nixos-hardware,
     plasma-manager,
     hyprland,
+    split-monitor-workspaces,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -48,7 +54,7 @@
       };
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager hyprland;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager hyprland split-monitor-workspaces;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master;};
   in {
     nixosConfigurations = {
