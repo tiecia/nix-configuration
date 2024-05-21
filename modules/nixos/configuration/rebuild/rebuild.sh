@@ -49,20 +49,20 @@ if [ $impure == 1 ]; then
 	sudo nixos-rebuild switch --impure --flake ./#$CONFIGURATION_HOST 
 else
     if [ $dry == 1 ]; then
-        options+="--dry"
+        options+="--dry "
     fi
 
     if [ $verbose == 1 ]; then
-        options+="--verbose"
+        options+="--verbose "
     fi
     
     if [ $update == 1 ]; then
-        options+="--update"
+        options+="--update "
     fi
 
     if [[ ! -z $SPECIALISATION ]]; then
 	echo "Using specialisation \"$SPECIALISATION\""
-	options+="-s $SPECIALISATION"
+	options+="-s $SPECIALISATION "
     fi
     
     if [ $test == 1 ]; then 

@@ -20,7 +20,8 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
   outputs = {
@@ -47,7 +48,7 @@
       };
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager hyprland;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master;};
   in {
     nixosConfigurations = {
