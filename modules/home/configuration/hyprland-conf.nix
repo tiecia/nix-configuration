@@ -12,6 +12,10 @@ with lib; {
   config = mkIf config.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      settings = {
+        "$mainMod" = "SUPER";
+        bind = "$mainMod, F, exec, firefox";
+      };
     };
   };
 }
