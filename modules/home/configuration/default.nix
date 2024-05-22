@@ -5,6 +5,6 @@
 }: {
   imports = [
     ./xbindkeys/xbindkeys.nix
-    ./hyprland-conf.nix
+    ./hyprland/hyprland-conf.nix
   ];
 }
