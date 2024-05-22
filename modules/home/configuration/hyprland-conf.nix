@@ -17,5 +17,9 @@ with lib; {
         bind = "$mainMod, F, exec, firefox";
       };
     };
+
+    home.packages = with pkgs; [
+      hello
+    ];
   };
 }

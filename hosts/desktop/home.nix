@@ -12,6 +12,7 @@
     # plasma-manager.homeManagerModules.plasma-manager
   ];
 
+  # TODO: Do this only on the hyprland spesliaisation
   hyprland-conf.enable = true;
 
   spotify = {
