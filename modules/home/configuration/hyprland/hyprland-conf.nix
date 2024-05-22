@@ -29,6 +29,16 @@ in
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "hyprshot -m region --clipboard-only";
 
+          # Some default env vars.
+          env = [
+            "XCURSOR_SIZE,24"
+            "QT_QPA_PLATFORMTHEME,qt5ct" # change to qt6ct if you have that
+          ];
+
+          input = {
+            kb_variant = "us";
+          };
+
           "$mainMod" = "SUPER";
           bind = "$mainMod, F, exec, firefox";
         };
