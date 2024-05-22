@@ -12,6 +12,8 @@
     # plasma-manager.homeManagerModules.plasma-manager
   ];
 
+  hyprland-conf.enable = true;
+
   spotify = {
     enable = true;
     theme = "dark-blue";

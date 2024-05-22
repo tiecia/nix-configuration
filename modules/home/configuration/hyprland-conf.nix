@@ -6,10 +6,10 @@
 }:
 with lib; {
   options = {
-    hyprland.enable = mkEnableOption "Enable hyprland";
+    hyprland-conf.enable = mkEnableOption "Enable hyprland configuration";
   };
 
-  config = mkIf config.hyprland.enable {
+  config = mkIf config.hyprland-conf.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
