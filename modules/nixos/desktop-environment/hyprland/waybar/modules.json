@@ -213,13 +213,19 @@
         "spacing": 10
     },
 
+    // Date
+    "clock#date": {
+        "format": "{:%a, %m-%d-%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
     // Clock
     "clock": {
-        "format": "{:%H:%M %a}",
+        "format": "{:%I:%M %p}",
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         // START CLOCK FORMAT
-        "format-alt": "{:%Y-%m-%d}"
+        // "format-alt": "{:%d-%m-%Y}"
         // END CLOCK FORMAT
     },
 

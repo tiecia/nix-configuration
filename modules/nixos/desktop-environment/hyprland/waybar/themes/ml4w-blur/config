@@ -14,7 +14,7 @@
     "margin-top": 0,
     "margin-bottom": 0,
     "layer": "top",
-    "margin-left": 0,
+    "margin-left": 10,
     "margin-right": 0,    
     "spacing": 0,
 
@@ -23,11 +23,11 @@
 
     // Modules Left
     "modules-left": [
-        "custom/appmenu",
-        "group/links",
-        "group/settings",
+        //"custom/appmenu",
+        //"group/links",
+        //"group/settings",
         //"wlr/taskbar",
-        "group/quicklinks",
+        //"group/quicklinks",
         "hyprland/window",
         "custom/empty"
     ],
@@ -39,17 +39,18 @@
 
     // Modules Right    
     "modules-right": [
-        "custom/updates",
+        // "custom/updates",
         "pulseaudio",
         "bluetooth",
         "battery", 
         "network",
         "group/hardware",
         "custom/cliphist",
-        "idle_inhibitor",
+        // "idle_inhibitor",
         "tray",
         "custom/exit",
-        "custom/ml4w-welcome",
-        "clock"
+        // "custom/ml4w-welcome",
+        "clock",
+	"clock#date"
     ]
 }

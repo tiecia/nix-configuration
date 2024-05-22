@@ -47,6 +47,7 @@ with lib; {
       dolphin
       hyprshot
       blueman
+      wlogout
     ];
   };
 }
