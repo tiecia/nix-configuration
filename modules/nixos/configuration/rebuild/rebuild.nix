@@ -32,7 +32,7 @@ with lib; {
         cleannix = "nh clean all --keep 10";
         search = "nh search";
 
-        compare = "~/nix-configuration/modules/nixos/configuration/rebuild/compare.sh";
+        compare = "bash ~/nix-configuration/modules/nixos/configuration/rebuild/compare.sh";
 
         ns = "nix-shell";
         try = "nix-shell -p";
