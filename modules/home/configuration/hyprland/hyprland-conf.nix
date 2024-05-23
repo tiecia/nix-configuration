@@ -77,7 +77,7 @@ in
             "col.shadow" = "rgba(1a1a1aee)";
           };
 
-          animation = {
+          animations = {
             enabled = "yes";
 
             bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
