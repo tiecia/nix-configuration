@@ -103,14 +103,14 @@ in
             # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
             # Move window position with mainMod + Ctrl_L + left/right
-            "$mainMod Ctrl_L, right, swapnext"
-            "$mainMod Ctrl_L, left, swapprev"
+            "$mainMod Ctrl_L, right, swapnext,"
+            "$mainMod Ctrl_L, left, swapnext, prev"
           ];
 
           bindm = [
             # Scroll through existing workspaces with mainMod + scroll
-            "$mainMod, mouse_down, workspace, e+1"
-            "$mainMod, mouse_up, workspace, e-1"
+            # "$mainMod, mouse_down, workspace, e+1"
+            # "$mainMod, mouse_up, workspace, e-1"
 
             # Move/resize windows with mainMod + LMB/RMB and dragging
             "$mainMod, mouse:272, movewindow"
