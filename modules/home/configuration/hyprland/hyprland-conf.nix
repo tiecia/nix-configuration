@@ -43,6 +43,7 @@ in
           "$mainMod" = "SUPER";
           bind = [
             # See https://wiki.hyprland.org/Configuring/Binds/ for more
+            "$mainMod, Q, exec, $terminal"
             "$mainMod, F, exec, firefox"
             "$mainMod, C, killactive,"
             "$mainMod, M, exit,"
