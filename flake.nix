@@ -42,8 +42,6 @@
     nixos-hardware,
     plasma-manager,
     hyprland,
-    split-monitor-workspaces,
-    hyprsplit,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -60,7 +58,7 @@
       };
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager hyprland split-monitor-workspaces hyprsplit;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager hyprland;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master;};
   in {
     nixosConfigurations = {
