@@ -203,7 +203,7 @@ in
           windowrulev2 = "suppressevent maximize, class:.*";
         };
         plugins = [
-          hyprsplit.packages.${pkgs.system}.hyprsplit
+          # hyprsplit.packages.${pkgs.system}.hyprsplit
           # split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         ];
       };
