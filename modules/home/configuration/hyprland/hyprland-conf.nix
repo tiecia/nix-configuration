@@ -40,7 +40,7 @@ in
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "hyprshot -m region --clipboard-only";
 
-          "$mainMod" = "SUPER";
+          "$mainMod" = "Super";
           bind = [
             # See https://wiki.hyprland.org/Configuring/Binds/ for more
             "$mainMod, Q, exec, $terminal"
