@@ -27,7 +27,7 @@ in
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 
-          exec-once = ''${startupScript}/bin/start'';
+          exec-once = ''${startupScript}/bin/startup'';
 
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           "$config-root" = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
