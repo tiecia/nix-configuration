@@ -87,16 +87,16 @@ in
             "$mainMod, 0, split-workspace, 10"
 
             # Move active window to a workspace with mainMod + SHIFT + [0-9]
-            "$mainMod TAB, 1, split-movetoworkspace, 1"
-            "$mainMod TAB, 2, split-movetoworkspace, 2"
-            "$mainMod TAB, 3, split-movetoworkspace, 3"
-            "$mainMod TAB, 4, split-movetoworkspace, 4"
-            "$mainMod TAB, 5, split-movetoworkspace, 5"
-            "$mainMod TAB, 6, split-movetoworkspace, 6"
-            "$mainMod TAB, 7, split-movetoworkspace, 7"
-            "$mainMod TAB, 8, split-movetoworkspace, 8"
-            "$mainMod TAB, 9, split-movetoworkspace, 9"
-            "$mainMod TAB, 0, split-movetoworkspace, 10"
+            "$mainMod&Tab, 1, split-movetoworkspace, 1"
+            "$mainMod&Tab, 2, split-movetoworkspace, 2"
+            "$mainMod&Tab, 3, split-movetoworkspace, 3"
+            "$mainMod&Tab, 4, split-movetoworkspace, 4"
+            "$mainMod&Tab, 5, split-movetoworkspace, 5"
+            "$mainMod&Tab, 6, split-movetoworkspace, 6"
+            "$mainMod&Tab, 7, split-movetoworkspace, 7"
+            "$mainMod&Tab, 8, split-movetoworkspace, 8"
+            "$mainMod&Tab, 9, split-movetoworkspace, 9"
+            "$mainMod&Tab, 0, split-movetoworkspace, 10"
 
             # Example special workspace (scratchpad)
             "$mainMod, S, togglespecialworkspace, magic"
