@@ -2,11 +2,14 @@
   config,
   lib,
   pkgs,
+  split-monitor-workspaces,
+  hyprsplit,
   ...
 }: let
   startupScript = pkgs.pkgs.writeShellScriptBin "startup" ''
     bash ~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/launch.sh
   '';
+  # plugins = inputs.hyprland-plugins.packages."${pkgs.system}";
 in
   with lib; {
     options = {
@@ -199,6 +202,10 @@ in
           # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
           windowrulev2 = "suppressevent maximize, class:.*";
         };
+        plugins = [
+          hyprsplit.packages.${pkgs.system}.hyprsplit
+          # split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+        ];
       };
 
       home.packages = with pkgs; [

@@ -8,6 +8,8 @@
   pkgs-master,
   lib,
   spicetify-nix,
+  split-monitor-workspaces,
+  hyprsplit,
   ...
 }: let
 in {
@@ -48,7 +50,7 @@ in {
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs pkgs-master spicetify-nix;};
+    extraSpecialArgs = {inherit inputs pkgs pkgs-master spicetify-nix split-monitor-workspaces hyprsplit;};
     users = {
       tiec = import ./home.nix;
     };
