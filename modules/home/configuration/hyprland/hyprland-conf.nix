@@ -3,7 +3,6 @@
   lib,
   pkgs,
   inputs,
-  # split-monitor-workspaces,
   ...
 }: let
   startupScript = pkgs.pkgs.writeShellScriptBin "startup" ''
