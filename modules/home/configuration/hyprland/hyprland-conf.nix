@@ -18,7 +18,7 @@ in
         enable = true;
         settings = {
           monitor = [
-            "DP-1,2560x1080@144,0x0,1 # Main Ultrawide"
+            "DP-1,2560x1080@144,0x0,1" # Main Ultrawide
             "HDMI-A-1,2560x1080@60,0x-1080,1" #Top Ultrawide
             "HDMI-A-2,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
             "DP-2,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
@@ -107,16 +107,15 @@ in
 
           input = {
             kb_layout = "us";
-            kb_variant = "";
-            kb_model = "";
+
             kb_options = "ctrl:nocaps";
-            kb_rules = "";
+
             follow_mouse = "1";
             touchpad = {
               natural_scroll = "no";
             };
 
-            sensitivity = "-0.5";
+            sensitivity = "-0.5"; # -1.0 to 1.0, 0 means no modification.
           };
 
           general = {
