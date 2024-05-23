@@ -103,8 +103,10 @@ in
             # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
             # Move window position with mainMod + Ctrl_L + left/right
-            "$mainMod Ctrl_L, right, swapnext,"
-            "$mainMod Ctrl_L, left, swapnext, prev"
+            "$mainMod Ctrl_L, left, movewindow, l"
+            "$mainMod Ctrl_L, right, movewindow, r"
+            "$mainMod Ctrl_L, up, movewindow, u"
+            "$mainMod Ctrl_L, down, movewindow, d"
           ];
 
           bindm = [
