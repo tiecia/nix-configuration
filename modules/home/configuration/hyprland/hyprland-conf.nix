@@ -29,6 +29,9 @@ in
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "hyprshot -m region --clipboard-only";
 
+          "$mainMod" = "SUPER";
+          bind = "$mainMod, F, exec, firefox";
+
           # Some default env vars.
           env = [
             "XCURSOR_SIZE,24"
@@ -61,9 +64,6 @@ in
             allow_tearing = "false";
           };
 
-          "$mainMod" = "SUPER";
-          bind = "$mainMod, F, exec, firefox";
-
           decoration = {
             rounding = "10";
             blur = {
@@ -91,6 +91,30 @@ in
               "workspaces, 1, 6, default"
             ];
           };
+
+          dwindle = {
+            pseudotile = "yes";
+            preserve_split = "yes";
+          };
+
+          master = {
+            new_is_master = "true";
+          };
+
+          gestures = {
+            workspace_swipe = "off";
+          };
+
+          misc = {
+            force_default_wallpaper = "1";
+          };
+
+          device = {
+            name = "epic-mouse-v1";
+            sensitivity = "-0.5";
+          };
+
+          windowrulev2 = "suppressevent maximize, class:.*";
         };
       };
 
