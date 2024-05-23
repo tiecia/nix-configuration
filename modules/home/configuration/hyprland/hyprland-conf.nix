@@ -27,6 +27,14 @@ in
             "DP-2,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
           ];
 
+          plugin = {
+            split-monitor-workspaces = {
+              count = "5";
+              keep_focused = "0";
+              enable_notifications = "0";
+            };
+          };
+
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 
@@ -79,16 +87,16 @@ in
             "$mainMod, 0, workspace, 10"
 
             # Move active window to a workspace with mainMod + SHIFT + [0-9]
-            "$mainMod SHIFT, 1, movetoworkspace, 1"
-            "$mainMod SHIFT, 2, movetoworkspace, 2"
-            "$mainMod SHIFT, 3, movetoworkspace, 3"
-            "$mainMod SHIFT, 4, movetoworkspace, 4"
-            "$mainMod SHIFT, 5, movetoworkspace, 5"
-            "$mainMod SHIFT, 6, movetoworkspace, 6"
-            "$mainMod SHIFT, 7, movetoworkspace, 7"
-            "$mainMod SHIFT, 8, movetoworkspace, 8"
-            "$mainMod SHIFT, 9, movetoworkspace, 9"
-            "$mainMod SHIFT, 0, movetoworkspace, 10"
+            "$mainMod SHIFT, 1, split-movetoworkspace, 1"
+            "$mainMod SHIFT, 2, split-movetoworkspace, 2"
+            "$mainMod SHIFT, 3, split-movetoworkspace, 3"
+            "$mainMod SHIFT, 4, split-movetoworkspace, 4"
+            "$mainMod SHIFT, 5, split-movetoworkspace, 5"
+            "$mainMod SHIFT, 6, split-movetoworkspace, 6"
+            "$mainMod SHIFT, 7, split-movetoworkspace, 7"
+            "$mainMod SHIFT, 8, split-movetoworkspace, 8"
+            "$mainMod SHIFT, 9, split-movetoworkspace, 9"
+            "$mainMod SHIFT, 0, split-movetoworkspace, 10"
 
             # Example special workspace (scratchpad)
             "$mainMod, S, togglespecialworkspace, magic"

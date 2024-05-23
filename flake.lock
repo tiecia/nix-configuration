@@ -144,26 +144,6 @@
         "type": "github"
       }
     },
-    "hyprsplit": {
-      "inputs": {
-        "hyprland": [
-          "hyprland"
-        ]
-      },
-      "locked": {
-        "lastModified": 1716146576,
-        "narHash": "sha256-qE17ArU5ksaBK5FGq+YeJDetJlyuu3JovYpPxlnYkaM=",
-        "owner": "shezdy",
-        "repo": "hyprsplit",
-        "rev": "d02a61319d515251a34db76f9506aea8b3916d0f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "shezdy",
-        "repo": "hyprsplit",
-        "type": "github"
-      }
-    },
     "hyprwayland-scanner": {
       "inputs": {
         "nixpkgs": [
@@ -311,7 +291,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "hyprsplit": "hyprsplit",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-master": "nixpkgs-master",
