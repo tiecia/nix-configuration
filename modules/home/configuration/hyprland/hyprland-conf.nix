@@ -2,8 +2,8 @@
   config,
   lib,
   pkgs,
-  split-monitor-workspaces,
-  hyprsplit,
+  inputs,
+  # split-monitor-workspaces,
   ...
 }: let
   startupScript = pkgs.pkgs.writeShellScriptBin "startup" ''
@@ -19,6 +19,7 @@ in
     config = mkIf config.hyprland-conf.enable {
       wayland.windowManager.hyprland = {
         enable = true;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         settings = {
           monitor = [
             "DP-1,2560x1080@144,0x0,1" # Main Ultrawide
@@ -204,7 +205,7 @@ in
         };
         plugins = [
           # hyprsplit.packages.${pkgs.system}.hyprsplit
-          # split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+          inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         ];
       };
 
