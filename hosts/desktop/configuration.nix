@@ -23,6 +23,7 @@ in {
   specialisation = {
     hyprland.configuration = {
       hyprland.enable = true;
+      plasma.enable = lib.mkOverride false;
     };
   };
 
