@@ -23,6 +23,7 @@ in {
 
   # plasma.enable = lib.mkForce false;
 
+  plasma.enable = true;
   # programs.hyprland.enable = true;
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   # hyprland.enable = true;

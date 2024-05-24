@@ -17,6 +17,8 @@
     ../../modules/nixos/programs
   ];
 
+  plasma.enable = true;
+
   # Programs
   kde-connect.enable = true;
   docker.enable = true;

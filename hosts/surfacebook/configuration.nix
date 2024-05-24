@@ -20,6 +20,8 @@ in {
     ../../modules/nixos/programs
   ];
 
+  plasma.enable = true;
+
   printing.enable = true;
   numlock-boot.enable = true;
 
