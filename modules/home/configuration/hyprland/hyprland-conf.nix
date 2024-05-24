@@ -62,7 +62,6 @@ in
             "$mainMod, V, togglefloating,"
             "$mainMod, SUPER_L, exec, $menu"
             "$mainMod, R, exec, $menu-all"
-            "$mainMod, P, pseudo," # dwindle
             "$mainMod, J, togglesplit," # dwindle
 
             "$mainMod, B, exec, $waybar-switch"
@@ -227,6 +226,7 @@ in
 
       home.packages = with pkgs; [
         # hello
+        xwaylandvideobridge
       ];
     };
   }
