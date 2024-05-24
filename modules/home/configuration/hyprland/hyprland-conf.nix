@@ -108,7 +108,7 @@ in
             "$mainMod Ctrl_L, down, movewindow, d"
 
             # Move to desktop system specific config
-            "$mainMod, P, swapactiveworkspaces, 0 1"
+            "$mainMod, P, swapactiveworkspaces, 0 2"
           ];
 
           bindm = [
