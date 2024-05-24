@@ -226,7 +226,7 @@ in
 
       home.packages = with pkgs; [
         # hello
-        # xwaylandvideobridge
+        xwaylandvideobridge
       ];
     };
   }
