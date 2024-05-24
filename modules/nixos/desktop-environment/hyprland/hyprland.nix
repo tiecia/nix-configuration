@@ -22,11 +22,17 @@ with lib; {
       };
     };
 
+    services.pipewire = {
+      enable = true;
+      wireplumber.enable = true;
+    };
+
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
+
     environment.sessionVariables = {
       SPECIALISATION = "hyprland";
       WLR_NO_HARDWARE_CURSORS = "1";
