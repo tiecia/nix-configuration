@@ -21,10 +21,10 @@ in
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         settings = {
           monitor = [
-            "DP-1,2560x1080@144,0x0,1" # Main Ultrawide
+            "DP-2,2560x1080@144,0x0,1" # Main Ultrawide
             "HDMI-A-1,2560x1080@60,0x-1080,1" #Top Ultrawide
             "HDMI-A-2,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
-            "DP-2,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
+            "DP-1,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
           ];
 
           plugin = {
@@ -226,7 +226,7 @@ in
 
       home.packages = with pkgs; [
         # hello
-        xwaylandvideobridge
+        # xwaylandvideobridge
       ];
     };
   }
