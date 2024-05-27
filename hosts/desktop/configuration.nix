@@ -23,6 +23,9 @@ in {
   specialisation = {
     plasma.configuration = {
       plasma.enable = true;
+      environment.sessionVariables = {
+        SPECIALISATION = "plasma";
+      };
     };
 
     hyprland.configuration = {
