@@ -30,6 +30,9 @@ in {
 
     hyprland.configuration = {
       hyprland.enable = true;
+      environment.sessionVariables = {
+        SPECIALISATION = "hyprland";
+      };
     };
   };
 
