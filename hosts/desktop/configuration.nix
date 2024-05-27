@@ -33,7 +33,7 @@ in {
       environment.sessionVariables = {
         SPECIALISATION = "hyprland";
       };
-      nvidia-graphics.enable = lib.mkForce false;
+      # nvidia-graphics.enable = lib.mkForce false;
     };
   };
 
