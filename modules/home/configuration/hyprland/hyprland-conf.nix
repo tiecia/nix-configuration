@@ -111,6 +111,7 @@ in
             "$mainMod, P, swapactiveworkspaces, 0 3"
 
             ",XF86AudioMute, exec, playerctl play-pause"
+            "$mainMod, L, exec, playerctl play-pause"
           ];
 
           bindm = [
