@@ -55,6 +55,8 @@ in
           "$media-prev" = "playerctl previous";
 
           "$mainMod" = "Super";
+
+          # Use the program "wev" to get key names
           bind = [
             # See https://wiki.hyprland.org/Configuring/Binds/ for more
             "$mainMod, Q, exec, $terminal"
@@ -117,7 +119,7 @@ in
             ",XF86AudiNext, exec, $media-next"
             ",XF86AudioPrev, exec, $media-prev"
             ",XF86AudioMute, exec, $media-mute"
-            "$mainMod Ctrl_L Alt_L, Ctrl_R, exec, $media-playpause"
+            "$mainMod Ctrl_L Alt_L, slash, exec, $media-playpause" #Bind "/" key
             "$mainMod Ctrl_L Alt_L, left, exec, $media-prev"
             "$mainMod Ctrl_L Alt_L, right, exec, $media-next"
             ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
