@@ -109,6 +109,8 @@ in
 
             # Move to desktop system specific config
             "$mainMod, P, swapactiveworkspaces, 0 3"
+
+            ",XF86AudioMute, exec, playerctl play-pause"
           ];
 
           bindm = [
@@ -236,6 +238,7 @@ in
       home.packages = with pkgs; [
         # hello
         xwaylandvideobridge
+        playerctl
       ];
     };
   }
