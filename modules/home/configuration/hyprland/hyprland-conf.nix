@@ -51,6 +51,8 @@ in
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "hyprshot -m region --clipboard-only";
           "$media-playpause" = "playerctl play-pause";
+          "$media-next" = "playerctl next";
+          "$media-prev" = "playerctl previous";
 
           "$mainMod" = "Super";
           bind = [
@@ -111,9 +113,14 @@ in
             # Move to desktop system specific config
             "$mainMod, P, swapactiveworkspaces, 0 3"
 
-            ",XF86AudioMute, exec, $media-playpause"
-            "$mainMod, L, exec, $media-playpause"
-            ",mouse:276, exec, $media-playpause"
+            ",XF86AudioPlay, exec, $media-playpause"
+            ",XF86AudiNext, exec, $media-next"
+            ",XF86AudioPrev, exec, $media-prev"
+            ",XF86AudioMute, exec, $media-mute"
+            "$mainMod Ctrl_L Alt_L, Ctrl_R, exec, $media-playpause"
+            "$mainMod Ctrl_L Alt_L, left, exec, $media-prev"
+            "$mainMod Ctrl_L Alt_L, right, exec, $media-next"
+            ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
           ];
 
           bindm = [
