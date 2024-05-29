@@ -111,8 +111,8 @@ in
             # Move to desktop system specific config
             "$mainMod, P, swapactiveworkspaces, 0 3"
 
-            ",XF86AudioMute, exec, media-playpause"
-            "$mainMod, L, exec, media-playpause"
+            ",XF86AudioMute, exec, $media-playpause"
+            "$mainMod, L, exec, $media-playpause"
             ",mouse:76, exec, $media-playpause"
           ];
 
