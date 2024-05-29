@@ -50,6 +50,7 @@ in
           "$menu-all" = "rofi-script show run";
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "hyprshot -m region --clipboard-only";
+          "$media-playpause" = "playerctl play-pause";
 
           "$mainMod" = "Super";
           bind = [
@@ -110,8 +111,8 @@ in
             # Move to desktop system specific config
             "$mainMod, P, swapactiveworkspaces, 0 3"
 
-            ",XF86AudioMute, exec, playerctl play-pause"
-            "$mainMod, L, exec, playerctl play-pause"
+            ",XF86AudioMute, exec, media-playpause"
+            "$mainMod, L, exec, media-playpause"
           ];
 
           bindm = [
@@ -122,6 +123,7 @@ in
             # Move/resize windows with mainMod + LMB/RMB and dragging
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
+            ",mouse:76, exec, $media-playpause"
           ];
 
           # Some default env vars.
