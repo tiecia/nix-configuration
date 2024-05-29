@@ -138,7 +138,7 @@ in
           # Some default env vars.
           env = [
             "XCURSOR_SIZE,24"
-            "QT_QPA_PLATFORMTHEME,qt6ct" # change to qt6ct if you have that
+            "QT_QPA_PLATFORMTHEME,qt5ct" # change to qt6ct if you have that
             "ELECTRON_OZONE_PLATFORM_HINT,auto"
           ];
 
@@ -239,13 +239,11 @@ in
         ];
       };
 
-      # modules = {
       qt = {
         enable = true;
         platformTheme.name = "kde";
         style.name = "breeze";
       };
-      # };
 
       fonts.fontconfig.enable = true;
 
