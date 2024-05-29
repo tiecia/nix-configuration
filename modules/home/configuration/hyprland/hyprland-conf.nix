@@ -113,7 +113,7 @@ in
 
             ",XF86AudioMute, exec, $media-playpause"
             "$mainMod, L, exec, $media-playpause"
-            ",mouse:76, exec, $media-playpause"
+            ",mouse:276, exec, $media-playpause"
           ];
 
           bindm = [
