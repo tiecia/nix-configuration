@@ -113,6 +113,7 @@ in
 
             ",XF86AudioMute, exec, media-playpause"
             "$mainMod, L, exec, media-playpause"
+            ",mouse:76, exec, $media-playpause"
           ];
 
           bindm = [
@@ -123,7 +124,6 @@ in
             # Move/resize windows with mainMod + LMB/RMB and dragging
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
-            ",mouse:76, exec, $media-playpause"
           ];
 
           # Some default env vars.
