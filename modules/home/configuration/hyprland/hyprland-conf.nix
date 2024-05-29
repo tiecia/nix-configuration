@@ -118,10 +118,10 @@ in
             ",XF86AudioPlay, exec, $media-playpause"
             ",XF86AudiNext, exec, $media-next"
             ",XF86AudioPrev, exec, $media-prev"
-            ",XF86AudioMute, exec, $media-mute"
             "$mainMod Ctrl_L Alt_L, slash, exec, $media-playpause" #Bind "/" key
             "$mainMod Ctrl_L Alt_L, left, exec, $media-prev"
             "$mainMod Ctrl_L Alt_L, right, exec, $media-next"
+
             ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
           ];
 
@@ -248,9 +248,19 @@ in
       # };
 
       home.packages = with pkgs; [
-        # hello
+        (pkgs.waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+        }))
+        kitty
+        rofi-wayland
+        pavucontrol
+        dolphin
+        hyprshot
+        blueman
+        wlogout
         xwaylandvideobridge
         playerctl
+        wev
       ];
     };
   }
