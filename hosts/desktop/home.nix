@@ -34,7 +34,6 @@
   wireguard.enable = true;
 
   obs.enable = true;
-  davinci-resolve.enable = true;
   zoom.enable = true;
 
   firefox.installPWA = true;
