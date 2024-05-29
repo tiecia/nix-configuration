@@ -38,8 +38,8 @@ with lib; {
       NIXOS_OZONE_WL = "1";
     };
 
-    fonts.packages = with pkgs; [
-      nerdfonts
-    ];
+    # fonts.packages = with pkgs; [
+    #  nerdfonts
+    # ];
   };
 }

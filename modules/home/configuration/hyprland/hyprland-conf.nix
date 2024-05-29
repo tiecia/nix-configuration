@@ -247,7 +247,11 @@ in
       };
       # };
 
+      fonts.fontconfig.enable = true;
+
       home.packages = with pkgs; [
+        nerdfonts
+
         (pkgs.waybar.overrideAttrs (oldAttrs: {
           mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
         }))
