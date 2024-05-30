@@ -269,6 +269,7 @@ in
         xwaylandvideobridge
         playerctl
         wev
+        networkmanagerapplet
       ];
     };
   }
