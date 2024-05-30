@@ -222,7 +222,7 @@ in
 
           misc = {
             # See https://wiki.hyprland.org/Configuring/Variables/ for more
-            # force_default_wallpaper = "1";
+            force_default_wallpaper = "0";
           };
 
           # Example per-input-device config
