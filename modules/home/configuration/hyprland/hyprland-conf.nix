@@ -18,11 +18,13 @@
 in
   with lib; {
     options = {
-      hyprland-conf.enable = mkEnableOption "Enable hyprland configuration";
-      hyprland-conf.monitor = mkOption {
-        type = types.listOf types.str;
-        default = ",preferred,auto,auto";
-        description = "Hyprland 'monitor' option";
+      hyprland-conf = {
+        enable = mkEnableOption "Enable hyprland configuration";
+        monitor = mkOption {
+          type = types.listOf types.str;
+          default = ",preferred,auto,auto";
+          description = "Hyprland 'monitor' option";
+        };
       };
     };
 
