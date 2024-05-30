@@ -254,6 +254,7 @@ in
 
       home.packages = with pkgs; [
         nerdfonts
+        font-awesome
 
         (pkgs.waybar.overrideAttrs (oldAttrs: {
           mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];

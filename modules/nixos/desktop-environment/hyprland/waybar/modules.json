@@ -346,13 +346,13 @@
         "format": "{icon}   {volume}%",
         "format-bluetooth": "{volume}%  {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": "Muted",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
             "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
+            "hands-free": "HF",
+            "headset": "HS",
             "phone": " ",
             "portable": " ",
             "car": " ",
@@ -364,7 +364,7 @@
 
     // Bluetooth
     "bluetooth": {
-        "format": " {status}",
+        "format": "  {status}",
         "format-disabled": "",
         "format-off": "",
         "interval": 30,
