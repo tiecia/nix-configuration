@@ -240,7 +240,7 @@ in
         };
         plugins = [
           # hyprsplit.packages.${pkgs.system}.hyprsplit
-          inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+          # inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         ];
       };
 
