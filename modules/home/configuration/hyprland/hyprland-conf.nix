@@ -54,8 +54,8 @@ in
 
           "$terminal" = "kitty";
           "$fileManager" = "dolphin";
-          "$menu" = "rofi -show drun";
-          "$menu-all" = "rofi show run";
+          "$menu" = "rofi -show drun -show-icons";
+          "$menu-all" = "rofi show run -show-icons";
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "grim -l 0 -g \"$(slurp)\" - | wl-copy";
           "$media-playpause" = "playerctl play-pause";
