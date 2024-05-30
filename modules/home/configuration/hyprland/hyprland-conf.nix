@@ -8,11 +8,11 @@
   startupScript = pkgs.pkgs.writeShellScriptBin "startup" ''
     bash ~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/launch.sh
 
-    swww img ~/nix-configuration/wallpapers/cpu-city-1280x800
+    swww-daemon &
+
+    swww img ~/nix-configuration/wallpapers/abstract-lines.jpg
 
     dunst
-
-    # waybar > ~/waybar.log
   '';
   # plugins = inputs.hyprland-plugins.packages."${pkgs.system}";
 in
@@ -260,6 +260,13 @@ in
       xdg.portal = {
         enable = true;
         extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      };
+
+      programs.bash = {
+        enable = true;
+        shellAliases = {
+          hypr-startup = "bash ${startupScript}/bin/startup";
+        };
       };
 
       home.packages = with pkgs; [
