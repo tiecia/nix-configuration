@@ -358,8 +358,8 @@
             "car": " ",
             "default": [" ", " ", " "]
         },
-        // "on-click": "pavucontrol"
-        "on-click": "kitty"
+        "on-click": "pavucontrol"
+        // "on-click": "kitty"
     },
 
     // Bluetooth

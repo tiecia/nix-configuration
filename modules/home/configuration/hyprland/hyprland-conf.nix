@@ -232,6 +232,10 @@ in
           # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
           # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
           windowrulev2 = "suppressevent maximize, class:.*";
+
+          debug = {
+            disable_logs = false;
+          };
         };
         plugins = [
           # hyprsplit.packages.${pkgs.system}.hyprsplit
