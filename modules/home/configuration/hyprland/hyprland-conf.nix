@@ -252,6 +252,11 @@ in
 
       fonts.fontconfig.enable = true;
 
+      xdg.portal = {
+        enable = true;
+        extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      };
+
       home.packages = with pkgs; [
         nerdfonts
         font-awesome
