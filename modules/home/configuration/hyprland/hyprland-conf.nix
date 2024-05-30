@@ -55,7 +55,7 @@ in
           "$menu" = "rofi -show drun";
           "$menu-all" = "rofi-script show run";
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
-          "$screenshot-region" = "grim -l 0 -g '$(slurp)' - | wl-copy";
+          "$screenshot-region" = "grim -l 0 -g \"$(slurp)\" - | wl-copy";
           # "$screenshot-region" = "hyprshot -m region --clipboard-only";
           "$media-playpause" = "playerctl play-pause";
           "$media-next" = "playerctl next";
