@@ -28,7 +28,7 @@ with lib; {
         home = "cd ~";
         open = "bash ~/nix-configuration/modules/home/programs/cli/scripts/open.sh";
         ".." = "cd ..";
-        hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
+        # hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
         dup = "(kitty $PWD &) &> /dev/null";
       };
     };

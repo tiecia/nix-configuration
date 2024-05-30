@@ -266,6 +266,7 @@ in
         enable = true;
         shellAliases = {
           hypr-startup = "bash ${startupScript}/bin/startup";
+          hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
         };
       };
 
