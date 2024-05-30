@@ -33,13 +33,6 @@ in
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         settings = {
-          #monitor = [
-          #  "DP-2,2560x1080@144,0x0,1" # Main Ultrawide
-          #  "HDMI-A-1,2560x1080@60,0x-1080,1" #Top Ultrawide
-          #  "HDMI-A-2,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
-          #  "DP-1,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
-          #];
-
           monitor = config.hyprland-conf.monitor;
 
           plugin = {
@@ -62,7 +55,7 @@ in
           "$terminal" = "kitty";
           "$fileManager" = "dolphin";
           "$menu" = "rofi -show drun";
-          "$menu-all" = "rofi-script show run";
+          "$menu-all" = "rofi show run";
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "grim -l 0 -g \"$(slurp)\" - | wl-copy";
           "$media-playpause" = "playerctl play-pause";
