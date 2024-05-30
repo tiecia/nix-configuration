@@ -19,6 +19,11 @@ in
   with lib; {
     options = {
       hyprland-conf.enable = mkEnableOption "Enable hyprland configuration";
+      hyprland-conf.monitor = mkOption {
+        type = types.listOf types.str;
+        default = ",preferred,auto,auto";
+        description = "Hyprland 'monitor' option";
+      };
     };
 
     config = mkIf config.hyprland-conf.enable {
@@ -26,12 +31,14 @@ in
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         settings = {
-          monitor = [
-            "DP-2,2560x1080@144,0x0,1" # Main Ultrawide
-            "HDMI-A-1,2560x1080@60,0x-1080,1" #Top Ultrawide
-            "HDMI-A-2,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
-            "DP-1,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
-          ];
+          #monitor = [
+          #  "DP-2,2560x1080@144,0x0,1" # Main Ultrawide
+          #  "HDMI-A-1,2560x1080@60,0x-1080,1" #Top Ultrawide
+          #  "HDMI-A-2,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
+          #  "DP-1,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
+          #];
+
+          monitor = config.hyprland-conf.monitor;
 
           plugin = {
             split-monitor-workspaces = {
