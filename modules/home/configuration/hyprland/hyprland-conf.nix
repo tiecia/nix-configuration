@@ -7,7 +7,7 @@
 }: let
   startupScript = pkgs.pkgs.writeShellScriptBin "startup" ''
     # bash ~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/launch.sh
-    waybar
+    waybar > ~/waybar.log
   '';
   # plugins = inputs.hyprland-plugins.packages."${pkgs.system}";
 in
