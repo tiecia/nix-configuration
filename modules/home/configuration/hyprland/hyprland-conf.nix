@@ -275,6 +275,7 @@ in
         playerctl
         wev
         networkmanagerapplet
+        swww # Wallpaper
       ];
     };
   }
