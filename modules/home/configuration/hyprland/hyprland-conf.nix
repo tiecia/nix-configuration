@@ -12,7 +12,7 @@
 
     swww img ~/nix-configuration/wallpapers/abstract-lines.jpg
 
-    dunst
+    #dunst
   '';
   # plugins = inputs.hyprland-plugins.packages."${pkgs.system}";
 in
@@ -272,6 +272,8 @@ in
         };
       };
 
+      services.dunst.enable = true;
+
       home.packages = with pkgs; [
         nerdfonts
         font-awesome
@@ -290,7 +292,7 @@ in
         wev
         networkmanagerapplet
         swww # Wallpaper
-        dunst
+        #dunst
 
         # Screenshot tools
         grim # Screenshot grabber
