@@ -8,6 +8,8 @@
   startupScript = pkgs.pkgs.writeShellScriptBin "startup" ''
     bash ~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/launch.sh
 
+    swww img ~/nix-configuration/wallpapers/cpu-city-1280x800
+
     dunst
 
     # waybar > ~/waybar.log
