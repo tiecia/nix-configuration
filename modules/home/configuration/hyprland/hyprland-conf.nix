@@ -56,7 +56,6 @@ in
           "$menu-all" = "rofi-script show run";
           "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "grim -l 0 -g \"$(slurp)\" - | wl-copy";
-          # "$screenshot-region" = "hyprshot -m region --clipboard-only";
           "$media-playpause" = "playerctl play-pause";
           "$media-next" = "playerctl next";
           "$media-prev" = "playerctl previous";
@@ -274,7 +273,6 @@ in
         rofi-wayland
         pavucontrol
         dolphin
-        hyprshot
         blueman
         wlogout
         xwaylandvideobridge
@@ -285,9 +283,9 @@ in
         dunst
 
         # Screenshot tools
-        grim
-        slurp
-        wl-clipboard
+        grim # Screenshot grabber
+        slurp # Region selector
+        wl-clipboard # Copy image to clipboard
       ];
     };
   }
