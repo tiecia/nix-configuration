@@ -10,6 +10,11 @@
     ../../modules/home/programs/desktop
   ];
 
+  # TODO: Do this only in hyprland specialisation
+  hyprland-conf = {
+    enable = true;
+  };
+
   spotify = {
     enable = true;
     theme = "nord";

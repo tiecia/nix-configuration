@@ -14,7 +14,7 @@
         "on-click": "activate",
         "active-only": true,
         "all-outputs": false,
-        "format": "{}",
+        "format": "{name}",
         "format-icons": {
 			"urgent": "",
 			"active": "",

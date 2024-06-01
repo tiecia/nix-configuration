@@ -12,7 +12,7 @@
     # plasma-manager.homeManagerModules.plasma-manager
   ];
 
-  # TODO: Do this only on the hyprland spesliaisation
+  # TODO: Do this only on the hyprland specialisation
   hyprland-conf = {
     enable = true;
     monitor = [
