@@ -23,15 +23,15 @@ in {
 
   # plasma.enable = lib.mkForce false;
 
-  #plasma.enable = true;
+  plasma.enable = true;
 
   specialisation = {
-    plasma.configuration = {
-      plasma.enable = true;
-      environment.sessionVariables = {
-        SPECIALISATION = "plasma";
-      };
-    };
+    #plasma.configuration = {
+    #  plasma.enable = true;
+    #  environment.sessionVariables = {
+    #    SPECIALISATION = "plasma";
+    #  };
+    #};
 
     hyprland.configuration = {
       hyprland.enable = true;
