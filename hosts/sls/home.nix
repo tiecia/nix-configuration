@@ -13,7 +13,7 @@
   # TODO: Do this only in hyprland specialisation
   hyprland-conf = {
     enable = true;
-    monitor = ",2400x1600,0x0,1";
+    monitor = ",2400x1600,0x0,1.5";
   };
 
   spotify = {
