@@ -149,8 +149,8 @@ in
                     in
                       builtins.toString (x + 1 - (c * config.hyprland-conf.numWorkspaces));
                   in [
-                    "$mainMod, ${toString ws}, split:workspace, ${toString (x + 1)}"
-                    "$mainMod SHIFT, ${ws}, split:movetoworkspace, ${toString (x + 1)}"
+                    "$mainMod, ${toString (x + 1)}, split:workspace, ${toString (x + 1)}"
+                    "$mainMod SHIFT, ${toString (x + 1)}, split:movetoworkspace, ${toString (x + 1)}"
                   ]
                 )
                 config.hyprland-conf.numWorkspaces)
