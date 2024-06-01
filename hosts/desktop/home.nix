@@ -24,6 +24,7 @@
     extraBind = [
       "Super, P, split:swapactiveworkspaces, 0 3"
     ];
+    numWorkspaces = 5;
   };
 
   spotify = {
