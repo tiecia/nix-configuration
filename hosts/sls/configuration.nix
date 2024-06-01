@@ -29,14 +29,14 @@ in {
     plasma.configuration = {
       plasma.enable = true;
       environment.sessionVariables = {
-        SPESIALISATION = "plasma";
+        SPECIALISATION = "plasma";
       };
     };
 
     hyprland.configuration = {
       hyprland.enable = true;
       environment.sessionVariables = {
-        SPESIALISATION = "hyprland";
+        SPECIALISATION = "hyprland";
       };
     };
   };
