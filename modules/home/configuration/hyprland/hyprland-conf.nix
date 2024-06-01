@@ -37,7 +37,7 @@ in
         };
         mouse = {
           sensitivity = mkOption {
-            type = types.anything;
+            type = types.either types.int types.float;
             default = 0;
             description = "Mouse sensitivity";
           };
