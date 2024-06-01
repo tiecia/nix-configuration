@@ -81,7 +81,7 @@ if [ $dry == 0 ]; then
 fi
 
 if [ $nopush == 0 ]; then
-  git push
+  # git push
 fi
 
 sudo chown -R $USER ./
