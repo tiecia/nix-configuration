@@ -95,19 +95,6 @@ in
               "$mainMod, up, movefocus, u"
               "$mainMod, down, movefocus, d"
 
-              # Switch workspaces with mainMod + [0-9]
-              #"$mainMod, 1, split:workspace, 1"
-              #"$mainMod, 2, split:workspace, 2"
-              #"$mainMod, 3, split:workspace, 3"
-              #"$mainMod, 4, split:workspace, 4"
-              #"$mainMod, 5, split:workspace, 5"
-              #"$mainMod, 6, split:workspace, 6"
-              #"$mainMod, 7, split:workspace, 7"
-              #"$mainMod, 8, split:workspace, 8"
-              #"$mainMod, 9, split:workspace, 9"
-              #"$mainMod, 0, split:workspace, 10"
-
-              # Move active window to a workspace with mainMod + SHIFT + [0-9]
               #"$mainMod SHIFT, 1, split:movetoworkspace, 1"
               #"$mainMod SHIFT, 2, split:movetoworkspace, 2"
               #"$mainMod SHIFT, 3, split:movetoworkspace, 3"
