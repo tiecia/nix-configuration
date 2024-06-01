@@ -21,6 +21,9 @@
       "HDMI-A-2,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
       "DP-1,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
     ];
+    extraBind = [
+      "Super, P, split:swapactiveworkspaces, 0 3"
+    ];
   };
 
   spotify = {

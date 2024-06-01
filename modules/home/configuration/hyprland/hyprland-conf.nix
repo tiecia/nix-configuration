@@ -25,6 +25,11 @@ in
           default = ",preferred,auto,auto";
           description = "Hyprland 'monitor' option";
         };
+        extraBind = mkOption {
+          type = types.listOf types.str;
+          default = [];
+          description = "Extra binds to add to config";
+        };
       };
     };
 
@@ -63,73 +68,75 @@ in
           "$mainMod" = "Super";
 
           # Use the program "wev" to get key names
-          bind = [
-            # See https://wiki.hyprland.org/Configuring/Binds/ for more
-            "$mainMod, Q, exec, $terminal"
-            "$mainMod, F, exec, firefox"
-            "$mainMod, C, killactive,"
-            "$mainMod, M, exit,"
-            "$mainMod, E, exec, $fileManager"
-            "$mainMod, V, togglefloating,"
-            "$mainMod, SUPER_L, exec, $menu"
-            "$mainMod, R, exec, $menu-all"
-            "$mainMod, J, togglesplit," # dwindle
+          bind =
+            [
+              # See https://wiki.hyprland.org/Configuring/Binds/ for more
+              "$mainMod, Q, exec, $terminal"
+              "$mainMod, F, exec, firefox"
+              "$mainMod, C, killactive,"
+              "$mainMod, M, exit,"
+              "$mainMod, E, exec, $fileManager"
+              "$mainMod, V, togglefloating,"
+              "$mainMod, SUPER_L, exec, $menu"
+              "$mainMod, R, exec, $menu-all"
+              "$mainMod, J, togglesplit," # dwindle
 
-            "$mainMod, B, exec, $waybar-switch"
-            "$mainMod&Shift_L, S, exec, $screenshot-region"
+              "$mainMod, B, exec, $waybar-switch"
+              "$mainMod&Shift_L, S, exec, $screenshot-region"
 
-            # Move focus with mainMod + arrow keys
-            "$mainMod, left, movefocus, l"
-            "$mainMod, right, movefocus, r"
-            "$mainMod, up, movefocus, u"
-            "$mainMod, down, movefocus, d"
+              # Move focus with mainMod + arrow keys
+              "$mainMod, left, movefocus, l"
+              "$mainMod, right, movefocus, r"
+              "$mainMod, up, movefocus, u"
+              "$mainMod, down, movefocus, d"
 
-            # Switch workspaces with mainMod + [0-9]
-            "$mainMod, 1, split:workspace, 1"
-            "$mainMod, 2, split:workspace, 2"
-            "$mainMod, 3, split:workspace, 3"
-            "$mainMod, 4, split:workspace, 4"
-            "$mainMod, 5, split:workspace, 5"
-            "$mainMod, 6, split:workspace, 6"
-            "$mainMod, 7, split:workspace, 7"
-            "$mainMod, 8, split:workspace, 8"
-            "$mainMod, 9, split:workspace, 9"
-            "$mainMod, 0, split:workspace, 10"
+              # Switch workspaces with mainMod + [0-9]
+              "$mainMod, 1, split:workspace, 1"
+              "$mainMod, 2, split:workspace, 2"
+              "$mainMod, 3, split:workspace, 3"
+              "$mainMod, 4, split:workspace, 4"
+              "$mainMod, 5, split:workspace, 5"
+              "$mainMod, 6, split:workspace, 6"
+              "$mainMod, 7, split:workspace, 7"
+              "$mainMod, 8, split:workspace, 8"
+              "$mainMod, 9, split:workspace, 9"
+              "$mainMod, 0, split:workspace, 10"
 
-            # Move active window to a workspace with mainMod + SHIFT + [0-9]
-            "$mainMod SHIFT, 1, split:movetoworkspace, 1"
-            "$mainMod SHIFT, 2, split:movetoworkspace, 2"
-            "$mainMod SHIFT, 3, split:movetoworkspace, 3"
-            "$mainMod SHIFT, 4, split:movetoworkspace, 4"
-            "$mainMod SHIFT, 5, split:movetoworkspace, 5"
-            "$mainMod SHIFT, 6, split:movetoworkspace, 6"
-            "$mainMod SHIFT, 7, split:movetoworkspace, 7"
-            "$mainMod SHIFT, 8, split:movetoworkspace, 8"
-            "$mainMod SHIFT, 9, split:movetoworkspace, 9"
-            "$mainMod SHIFT, 0, split:movetoworkspace, 10"
+              # Move active window to a workspace with mainMod + SHIFT + [0-9]
+              "$mainMod SHIFT, 1, split:movetoworkspace, 1"
+              "$mainMod SHIFT, 2, split:movetoworkspace, 2"
+              "$mainMod SHIFT, 3, split:movetoworkspace, 3"
+              "$mainMod SHIFT, 4, split:movetoworkspace, 4"
+              "$mainMod SHIFT, 5, split:movetoworkspace, 5"
+              "$mainMod SHIFT, 6, split:movetoworkspace, 6"
+              "$mainMod SHIFT, 7, split:movetoworkspace, 7"
+              "$mainMod SHIFT, 8, split:movetoworkspace, 8"
+              "$mainMod SHIFT, 9, split:movetoworkspace, 9"
+              "$mainMod SHIFT, 0, split:movetoworkspace, 10"
 
-            # Example special workspace (scratchpad)
-            "$mainMod, S, togglespecialworkspace, magic"
-            # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+              # Example special workspace (scratchpad)
+              "$mainMod, S, togglespecialworkspace, magic"
+              # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
-            # Move window position with mainMod + Ctrl_L + left/right
-            "$mainMod Ctrl_L, left, movewindow, l"
-            "$mainMod Ctrl_L, right, movewindow, r"
-            "$mainMod Ctrl_L, up, movewindow, u"
-            "$mainMod Ctrl_L, down, movewindow, d"
+              # Move window position with mainMod + Ctrl_L + left/right
+              "$mainMod Ctrl_L, left, movewindow, l"
+              "$mainMod Ctrl_L, right, movewindow, r"
+              "$mainMod Ctrl_L, up, movewindow, u"
+              "$mainMod Ctrl_L, down, movewindow, d"
 
-            # Move to desktop system specific config
-            "$mainMod, P, split:swapactiveworkspaces, 0 3"
+              # Move to desktop system specific config
+              # "$mainMod, P, split:swapactiveworkspaces, 0 3"
 
-            ",XF86AudioPlay, exec, $media-playpause"
-            ",XF86AudiNext, exec, $media-next"
-            ",XF86AudioPrev, exec, $media-prev"
-            "$mainMod Ctrl_L Alt_L, slash, exec, $media-playpause" #Bind "/" key
-            "$mainMod Ctrl_L Alt_L, left, exec, $media-prev"
-            "$mainMod Ctrl_L Alt_L, right, exec, $media-next"
+              ",XF86AudioPlay, exec, $media-playpause"
+              ",XF86AudiNext, exec, $media-next"
+              ",XF86AudioPrev, exec, $media-prev"
+              "$mainMod Ctrl_L Alt_L, slash, exec, $media-playpause" #Bind "/" key
+              "$mainMod Ctrl_L Alt_L, left, exec, $media-prev"
+              "$mainMod Ctrl_L Alt_L, right, exec, $media-next"
 
-            ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
-          ];
+              ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
+            ]
+            ++ config.hyprland-conf.extraBind;
 
           bindm = [
             # Scroll through existing workspaces with mainMod + scroll
