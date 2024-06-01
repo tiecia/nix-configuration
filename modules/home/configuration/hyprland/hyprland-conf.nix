@@ -141,18 +141,20 @@ in
 
               ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
             ]
-            # ++ (
-            #   builtins.concatLists (builtins.genList (
-            #     x: let
-            #       ws = let
-            #         c = (x + 1) / config.hyprland-conf.numWorkspaces;
-            #       in
-            #         builtins.toString (x + 1 - (c * config.hyprland-conf.numWorkspaces));
-            #     in [
-            #       "$mainMod, ${ws}, split:workspace, ${toString (x + 1)}"
-            #       "$mainMod SHIFT, ${ws}, split:movetoworkspace, ${toString (x + 1)}"
-            #     ]
-            #   ) config.hyprland-conf.numWorkspaces)
+            ++ (
+              builtins.concatLists (builtins.genList (
+                  x: let
+                    ws = let
+                      c = (x + 1) / config.hyprland-conf.numWorkspaces;
+                    in
+                      builtins.toString (x + 1 - (c * config.hyprland-conf.numWorkspaces));
+                  in [
+                    "$mainMod, ${ws}, split:workspace, ${toString (x + 1)}"
+                    "$mainMod SHIFT, ${ws}, split:movetoworkspace, ${toString (x + 1)}"
+                  ]
+                )
+                config.hyprland-conf.numWorkspaces)
+            )
             ++ config.hyprland-conf.extraBind;
 
           bindm = [
