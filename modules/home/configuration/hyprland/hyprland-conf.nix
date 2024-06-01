@@ -35,6 +35,13 @@ in
           default = 10;
           description = "Number of workspaces per monitor";
         };
+        mouse = {
+          sensitivity = mkOption {
+            type = types.anything;
+            default = 0;
+            description = "Mouse sensitivity";
+          };
+        };
       };
     };
 
@@ -168,10 +175,10 @@ in
 
             follow_mouse = "1";
             touchpad = {
-              natural_scroll = "no";
+              natural_scroll = "yes";
             };
 
-            sensitivity = "-0.5"; # -1.0 to 1.0, 0 means no modification.
+            sensitivity = "${toString config.hyprland-conf.mouse.sensitivity}"; # -1.0 to 1.0, 0 means no modification.
           };
 
           general = {
