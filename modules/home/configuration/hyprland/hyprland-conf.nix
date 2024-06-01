@@ -36,11 +36,6 @@ in
           monitor = config.hyprland-conf.monitor;
 
           plugin = {
-            #split-monitor-workspaces = {
-            #  count = "5";
-            #  keep_focused = "0";
-            #  enable_notifications = "0";
-            #};
             hyprsplit = {
               num_workspaces = 5;
             };
@@ -124,7 +119,7 @@ in
             "$mainMod Ctrl_L, down, movewindow, d"
 
             # Move to desktop system specific config
-            "$mainMod, P, swapactiveworkspaces, 0 3"
+            "$mainMod, P, split:swapactiveworkspaces, 0 3"
 
             ",XF86AudioPlay, exec, $media-playpause"
             ",XF86AudiNext, exec, $media-next"
@@ -250,7 +245,6 @@ in
         };
         plugins = [
           inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
-          # inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
         ];
       };
 
