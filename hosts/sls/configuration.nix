@@ -23,25 +23,23 @@ in {
 
   # plasma.enable = lib.mkForce false;
 
-  plasma.enable = true;
-
-  #  specialisation = {
-  #
-  #plasma.configuration = {
   #plasma.enable = true;
-  #environment.sessionVariables = {
-  #SPESIALISATION = "plasma";
-  #};
-  #};
-  #
-  #hyprland.configuration = {
-  #hyprland.enable = true;
-  #environment.sessionVariables = {
-  #SPESIALISATION = "hyprland";
-  #};
-  #};
 
-  #  };
+  specialisation = {
+    plasma.configuration = {
+      plasma.enable = true;
+      environment.sessionVariables = {
+        SPESIALISATION = "plasma";
+      };
+    };
+
+    hyprland.configuration = {
+      hyprland.enable = true;
+      environment.sessionVariables = {
+        SPESIALISATION = "hyprland";
+      };
+    };
+  };
 
   # programs.hyprland.enable = true;
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
