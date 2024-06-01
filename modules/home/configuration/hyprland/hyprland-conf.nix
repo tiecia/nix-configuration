@@ -21,12 +21,12 @@ in
       hyprland-conf = {
         enable = mkEnableOption "Enable hyprland configuration";
         monitor = mkOption {
-          type = types.listOf types.str;
+          type = types.either types.str (types.listOf types.str);
           default = ",preferred,auto,auto";
           description = "Hyprland 'monitor' option";
         };
         extraBind = mkOption {
-          type = types.listOf types.str;
+          type = types.either types.str (types.listOf types.str);
           default = [];
           description = "Extra binds to add to config";
         };
