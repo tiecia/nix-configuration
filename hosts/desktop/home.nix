@@ -25,6 +25,7 @@
       "Super, P, split:swapactiveworkspaces, 0 3"
     ];
     numWorkspaces = 5;
+    mouse.sensitivity = -0.5;
   };
 
   spotify = {
