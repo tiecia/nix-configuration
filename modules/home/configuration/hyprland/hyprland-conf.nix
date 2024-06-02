@@ -166,6 +166,8 @@ in
             "XCURSOR_SIZE,24"
             "QT_QPA_PLATFORMTHEME,qt5ct" # change to qt6ct if you have that
             "ELECTRON_OZONE_PLATFORM_HINT,auto"
+            "WLR_NO_HARDWARE_CURSORS,1"
+            "NIXOS_OZONE_WL,1"
           ];
 
           input = {
