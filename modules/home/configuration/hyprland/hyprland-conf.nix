@@ -260,9 +260,9 @@ in
               "float,class:(betterbird),title:^(Write:)"
               "float,class:(pavucontrol)"
               "float,class:(.blueman-manager-wrapped)"
-              "monitor 2,title:(Spotify Premium)"
-              "monitor 2,class:(discord)" # Discord native app
-              "monitor 2,title:^(Discord)" # Discord PWA
+              #"monitor 2,title:(Spotify Premium)"
+              #"monitor 2,class:(discord)" # Discord native app
+              #"monitor 2,title:^(Discord)" # Discord PWA
             ]
             ++ config.hyprland-conf.extraWindowrulev2;
 
