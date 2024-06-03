@@ -111,6 +111,7 @@ in
               "$mainMod, S, togglespecialworkspace, magic"
               # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
               "Alt_L, Tab, workspace, previous"
+              "$mainMod Alt_L, F, fullscreen"
 
               # Move window position with mainMod + Ctrl_L + left/right
               "$mainMod Ctrl_L, left, movewindow, l"
@@ -260,9 +261,6 @@ in
               "float,class:(betterbird),title:^(Write:)"
               "float,class:(pavucontrol)"
               "float,class:(.blueman-manager-wrapped)"
-              #"monitor 2,title:(Spotify Premium)"
-              #"monitor 2,class:(discord)" # Discord native app
-              #"monitor 2,title:^(Discord)" # Discord PWA
             ]
             ++ config.hyprland-conf.extraWindowrulev2;
 
