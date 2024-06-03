@@ -105,7 +105,7 @@ in
               # Example special workspace (scratchpad)
               "$mainMod, S, togglespecialworkspace, magic"
               # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
-              "Alt_L, Tab, previous,"
+              "Alt_L, Tab, workspace, previous"
 
               # Move window position with mainMod + Ctrl_L + left/right
               "$mainMod Ctrl_L, left, movewindow, l"
