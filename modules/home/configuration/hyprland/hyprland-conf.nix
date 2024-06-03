@@ -106,6 +106,7 @@ in
               "$mainMod, S, togglespecialworkspace, magic"
               # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
               "Alt_L, Tab, workspace, previous"
+              "$mainMod, Tab, split:movetoworkspace, +1"
 
               # Move window position with mainMod + Ctrl_L + left/right
               "$mainMod Ctrl_L, left, movewindow, l"
