@@ -255,6 +255,8 @@ in
             "float,class:(pavucontrol)"
             "float,class:(.blueman-manager-wrapped)"
             "monitor 2,title:(Spotify Premium)"
+            "monitor 2,class:(discord)" # Discord native app
+            "monitor 2,title:^(Discord)" # Discord PWA
           ];
 
           debug = {
