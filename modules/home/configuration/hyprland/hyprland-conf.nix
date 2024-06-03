@@ -12,7 +12,7 @@
 
     swww img ~/nix-configuration/wallpapers/abstract-lines.jpg
 
-    #dunst
+    dunst
   '';
   # plugins = inputs.hyprland-plugins.packages."${pkgs.system}";
 in
