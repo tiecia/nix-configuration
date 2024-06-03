@@ -30,6 +30,11 @@ in
           default = [];
           description = "Extra binds to add to config";
         };
+        extraWindowrulev2 = mkOption {
+          type = types.listOf types.str;
+          default = [];
+          description = "Extra windowrulev2 optios to add to config";
+        };
         numWorkspaces = mkOption {
           type = types.int;
           default = 10;
@@ -106,7 +111,6 @@ in
               "$mainMod, S, togglespecialworkspace, magic"
               # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
               "Alt_L, Tab, workspace, previous"
-              "$mainMod, Tab, split:movetoworkspace, +1"
 
               # Move window position with mainMod + Ctrl_L + left/right
               "$mainMod Ctrl_L, left, movewindow, l"
@@ -250,15 +254,17 @@ in
           # Example windowrule v2
           # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
           # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-          windowrulev2 = [
-            "suppressevent maximize, class:.*"
-            "float,class:(betterbird),title:^(Write:)"
-            "float,class:(pavucontrol)"
-            "float,class:(.blueman-manager-wrapped)"
-            "monitor 2,title:(Spotify Premium)"
-            "monitor 2,class:(discord)" # Discord native app
-            "monitor 2,title:^(Discord)" # Discord PWA
-          ];
+          windowrulev2 =
+            [
+              "suppressevent maximize, class:.*"
+              "float,class:(betterbird),title:^(Write:)"
+              "float,class:(pavucontrol)"
+              "float,class:(.blueman-manager-wrapped)"
+              "monitor 2,title:(Spotify Premium)"
+              "monitor 2,class:(discord)" # Discord native app
+              "monitor 2,title:^(Discord)" # Discord PWA
+            ]
+            ++ config.hyprland-conf.extraWindowrulev2;
 
           debug = {
             disable_logs = false;
