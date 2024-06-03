@@ -249,7 +249,10 @@ in
           # Example windowrule v2
           # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
           # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-          windowrulev2 = "suppressevent maximize, class:.*";
+          windowrulev2 = [
+            "suppressevent maximize, class:.*"
+            "float,class:(betterbird),title:^(Write:*)$"
+          ];
 
           debug = {
             disable_logs = false;
