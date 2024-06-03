@@ -252,6 +252,8 @@ in
           windowrulev2 = [
             "suppressevent maximize, class:.*"
             "float,class:(betterbird),title:^(Write:)"
+            "float,class:(pavucontrol)"
+            "float,class:(.blueman-manager-wrapped)"
           ];
 
           debug = {
