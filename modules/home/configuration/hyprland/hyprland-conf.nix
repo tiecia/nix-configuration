@@ -254,6 +254,7 @@ in
             "float,class:(betterbird),title:^(Write:)"
             "float,class:(pavucontrol)"
             "float,class:(.blueman-manager-wrapped)"
+            "monitor 2,title:(Spotify Premium)"
           ];
 
           debug = {
