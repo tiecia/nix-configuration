@@ -151,10 +151,6 @@ in
             "$mainMod, mouse:273, resizewindow"
           ];
 
-          #binds = [
-          #"allow_workspace_cycles" = "true"
-          #];
-
           # Some default env vars.
           env = [
             "XCURSOR_SIZE,24"
