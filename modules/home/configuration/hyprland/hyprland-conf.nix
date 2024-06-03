@@ -102,20 +102,10 @@ in
               "$mainMod, up, movefocus, u"
               "$mainMod, down, movefocus, d"
 
-              #"$mainMod SHIFT, 1, split:movetoworkspace, 1"
-              #"$mainMod SHIFT, 2, split:movetoworkspace, 2"
-              #"$mainMod SHIFT, 3, split:movetoworkspace, 3"
-              #"$mainMod SHIFT, 4, split:movetoworkspace, 4"
-              #"$mainMod SHIFT, 5, split:movetoworkspace, 5"
-              #"$mainMod SHIFT, 6, split:movetoworkspace, 6"
-              #"$mainMod SHIFT, 7, split:movetoworkspace, 7"
-              #"$mainMod SHIFT, 8, split:movetoworkspace, 8"
-              #"$mainMod SHIFT, 9, split:movetoworkspace, 9"
-              #"$mainMod SHIFT, 0, split:movetoworkspace, 10"
-
               # Example special workspace (scratchpad)
               "$mainMod, S, togglespecialworkspace, magic"
               # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+              "Alt_L, Tab, previous,"
 
               # Move window position with mainMod + Ctrl_L + left/right
               "$mainMod Ctrl_L, left, movewindow, l"
@@ -160,6 +150,10 @@ in
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
           ];
+
+          #binds = [
+          #"allow_workspace_cycles" = "true"
+          #];
 
           # Some default env vars.
           env = [
