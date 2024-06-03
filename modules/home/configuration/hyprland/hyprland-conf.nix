@@ -251,7 +251,7 @@ in
           # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
           windowrulev2 = [
             "suppressevent maximize, class:.*"
-            "float,class:(betterbird),title:^(Write:*)$"
+            "float,class:(betterbird),title:^(Write:)"
           ];
 
           debug = {
