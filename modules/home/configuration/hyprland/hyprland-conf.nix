@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  startupScript = pkgs.pkgs.writeShellScriptBin "startup" ''
+  waybarStartupScript = pkgs.pkgs.writeShellScriptBin "waybarStartup" ''
     bash ~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/launch.sh
 
     swww-daemon &
@@ -13,6 +13,10 @@
     swww img ~/nix-configuration/wallpapers/abstract-lines.jpg
 
     dunst
+  '';
+
+  agsStartupScript = pkgs.pkgs.writeShellScriptBin "agsStartup" ''
+    ags -b hypr
   '';
   # plugins = inputs.hyprland-plugins.packages."${pkgs.system}";
 in
@@ -49,7 +53,7 @@ in
         };
         widgets = mkOption {
           type = types.enum ["waybar" "ags"];
-          default = "waybar2";
+          default = "waybar";
         };
       };
     };
@@ -70,7 +74,8 @@ in
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 
-          exec-once = ''${startupScript}/bin/startup'';
+          # exec-once = ''${startupScript}/bin/startup'';
+          exec-once = mkIf (config.hyprland-conf.widgets == "waybar") ''${waybarStartupScript}/bin/waybarStartup'';
 
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           "$config-root" = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
@@ -293,7 +298,7 @@ in
       programs.bash = {
         enable = true;
         shellAliases = {
-          hypr-startup = "bash ${startupScript}/bin/startup";
+          hypr-startup = "bash ${waybarStartupScript}/bin/waybarStartupScript";
           hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
         };
       };
