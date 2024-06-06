@@ -75,7 +75,10 @@ in
           # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 
           # exec-once = ''${startupScript}/bin/startup'';
-          exec-once = mkIf (config.hyprland-conf.widgets == "waybar") ''${waybarStartupScript}/bin/waybarStartup'';
+          # exec-once = ''
+          #   ${mkIf (config.hyprland-conf.widgets == "waybar") ''${waybarStartupScript}/bin/waybarStartup''}
+          #   ${mkIf (config.hyprland-conf.widgets == "ags") ''${agsStartupScript}/bin/agsStartup''}
+          # '';
 
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           "$config-root" = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
@@ -297,10 +300,17 @@ in
 
       programs.bash = {
         enable = true;
-        shellAliases = {
-          hypr-startup = "bash ${waybarStartupScript}/bin/waybarStartupScript";
-          hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
-        };
+        shellAliases = lib.mkMerge [
+          {
+            hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
+          }
+          # mkIf
+          # (config.hyprland-conf.widgets == "waybar")
+          # {hypr-startup = "bash ${waybarStartupScript}/bin/waybarStartupScript";}
+          # mkIf
+          # (config.hyprland-conf.widgets == "ags")
+          # {hypr-startup = "bash ${agsStartupScript}/bin/agsStartupScript";}
+        ];
       };
 
       services.dunst.enable = true;
