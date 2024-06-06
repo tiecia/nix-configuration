@@ -80,6 +80,8 @@ in
           #   ${mkIf (config.hyprland-conf.widgets == "ags") ''${agsStartupScript}/bin/agsStartup''}
           # '';
 
+          exec-once = ''${agsStartupScript}/bin/agsStartup'';
+
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           "$config-root" = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
           "$rofi-script" = "bash $config_root/../rofi.sh";
