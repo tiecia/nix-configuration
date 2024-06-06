@@ -47,6 +47,10 @@ in
             description = "Mouse sensitivity";
           };
         };
+        widgets = mkOption {
+          type = types.enum ["waybar" "ags"];
+          default = "waybar";
+        };
       };
     };
 
