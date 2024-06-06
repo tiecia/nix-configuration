@@ -38,6 +38,8 @@
     theme = "dark-blue";
   };
 
+  ags.enable = true;
+
   git.enable = true;
 
   betterbird.enable = true;
