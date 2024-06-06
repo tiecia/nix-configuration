@@ -49,7 +49,7 @@ in
         };
         widgets = mkOption {
           type = types.enum ["waybar" "ags"];
-          default = "waybar";
+          default = "waybar2";
         };
       };
     };
