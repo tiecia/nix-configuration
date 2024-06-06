@@ -80,7 +80,8 @@ in
           #   ${mkIf (config.hyprland-conf.widgets == "ags") ''${agsStartupScript}/bin/agsStartup''}
           # '';
 
-          exec-once = ''${agsStartupScript}/bin/agsStartup'';
+          exec-once = ''${waybarStartupScript}/bin/waybarStartup'';
+          # exec-once = ''${agsStartupScript}/bin/agsStartup'';
 
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           "$config-root" = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
