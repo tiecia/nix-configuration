@@ -296,7 +296,7 @@ in
 
       services.dunst.enable = true;
 
-      ags.enable = true;
+      ags.enable = false;
 
       home.packages = with pkgs; [
         nerdfonts
