@@ -5,6 +5,6 @@
 }: {
   imports = [
     ./hyprland-conf.nix
-    # ./ags.nix
+    ./ags.nix
   ];
 }
