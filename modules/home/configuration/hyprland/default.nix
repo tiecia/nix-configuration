@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./xbindkeys/xbindkeys.nix
-    ./hyprland
+    ./hyprland-conf.nix
+    # ./ags.nix
   ];
 }

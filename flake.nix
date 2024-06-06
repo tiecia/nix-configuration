@@ -27,6 +27,9 @@
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
+
+    matugen.url = "github:InioX/matugen?ref=v2.2.0";
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = {
