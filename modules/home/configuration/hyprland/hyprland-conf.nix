@@ -5,22 +5,22 @@
   inputs,
   ...
 }: let
-  waybarStartupScript = pkgs.pkgs.writeShellScriptBin "waybarStartup" ''
-    bash ~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/launch.sh
-
-    swww-daemon &
-
-    swww img ~/nix-configuration/wallpapers/abstract-lines.jpg
-
-    dunst
-  '';
-
-  agsStartupScript = pkgs.pkgs.writeShellScriptBin "agsStartup" ''
-    ags -b hypr
-  '';
+  # waybarStartupScript = pkgs.pkgs.writeShellScriptBin "waybarStartup" ''
+  # bash ~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/launch.sh
+  # swww-daemon &
+  # swww img ~/nix-configuration/wallpapers/abstract-lines.jpg
+  # dunst
+  # '';
+  # agsStartupScript = pkgs.pkgs.writeShellScriptBin "agsStartup" ''
+  # ags -b hypr
+  # '';
   # plugins = inputs.hyprland-plugins.packages."${pkgs.system}";
 in
   with lib; {
+    imports = [
+      ./waybar.nix
+    ];
+
     options = {
       hyprland-conf = {
         enable = mkEnableOption "Enable hyprland configuration";
@@ -59,6 +59,8 @@ in
     };
 
     config = mkIf config.hyprland-conf.enable {
+      widgets.waybar.enable = true;
+
       wayland.windowManager.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -80,7 +82,7 @@ in
           #   ${mkIf (config.hyprland-conf.widgets == "ags") ''${agsStartupScript}/bin/agsStartup''}
           # '';
 
-          exec-once = ''${waybarStartupScript}/bin/waybarStartup'';
+          # exec-once = ''${waybarStartupScript}/bin/waybarStartup'';
           # exec-once = ''${agsStartupScript}/bin/agsStartup'';
 
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -89,9 +91,9 @@ in
 
           "$terminal" = "kitty";
           "$fileManager" = "dolphin";
-          "$menu" = "rofi -show drun -show-icons";
-          "$menu-all" = "rofi show run -show-icons";
-          "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
+          # "$menu" = "rofi -show drun -show-icons";
+          # "$menu-all" = "rofi show run -show-icons";
+          # "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "grim -l 0 -g \"$(slurp)\" - | wl-copy";
           "$media-playpause" = "playerctl play-pause";
           "$media-next" = "playerctl next";
@@ -109,11 +111,11 @@ in
               "$mainMod, M, exit,"
               "$mainMod, E, exec, $fileManager"
               "$mainMod, V, togglefloating,"
-              "$mainMod, SUPER_L, exec, $menu"
-              "$mainMod, R, exec, $menu-all"
+              # "$mainMod, SUPER_L, exec, $menu"
+              # "$mainMod, R, exec, $menu-all"
               "$mainMod, J, togglesplit," # dwindle
 
-              "$mainMod, B, exec, $waybar-switch"
+              # "$mainMod, B, exec, $waybar-switch"
               "$mainMod&Shift_L, S, exec, $screenshot-region"
 
               # Move focus with mainMod + arrow keys
