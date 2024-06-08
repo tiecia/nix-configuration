@@ -55,7 +55,7 @@
       programs.bash = {
         enable = true;
         shellAliases = {
-          widget-startup = "${pkgs.bash}/bin/bash ${startupScript}/bin/bash";
+          widget-startup = "${pkgs.bash}/bin/bash ${startupScript}/bin/startupScript";
         };
       };
     };
