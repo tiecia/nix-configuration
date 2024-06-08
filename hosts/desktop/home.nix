@@ -12,6 +12,10 @@
     # plasma-manager.homeManagerModules.plasma-manager
   ];
 
+  nix.settings = {
+    warn-dirty = false;
+  };
+
   # TODO: Do this only on the hyprland specialisation
   hyprland-conf = {
     enable = true;
