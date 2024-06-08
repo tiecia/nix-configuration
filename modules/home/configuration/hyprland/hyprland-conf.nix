@@ -294,24 +294,14 @@ in
       ags.enable = true;
 
       home.packages = with pkgs; [
-        nerdfonts
-        font-awesome
-
         (pkgs.waybar.overrideAttrs (oldAttrs: {
           mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
         }))
         kitty
-        # rofi-wayland
-        # pavucontrol
         dolphin
-        # blueman
-        # wlogout
         xwaylandvideobridge
         playerctl # Media player CLI controls
         wev
-        # networkmanagerapplet
-        # swww # Wallpaper
-        #dunst
 
         # Screenshot tools
         grim # Screenshot grabber

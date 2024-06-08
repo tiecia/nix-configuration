@@ -47,7 +47,14 @@
         };
       };
 
+      services.dunst.enable = true; # Not sure why dunst isn't working.
+
+      fonts.fontconfig.enable = true;
+
       home.packages = with pkgs; [
+        nerdfonts
+        font-awesome
+
         pavucontrol
         blueman
         wlogout
