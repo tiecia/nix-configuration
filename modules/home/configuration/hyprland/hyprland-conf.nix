@@ -57,18 +57,18 @@ in
     config = let
       options = config.hyprland-conf;
     in
-      mkIf config.hyprland-conf.enable {
+      mkIf options.enable {
         widgets.waybar.enable = true;
 
         wayland.windowManager.hyprland = {
           enable = true;
           package = inputs.hyprland.packages.${pkgs.system}.hyprland;
           settings = {
-            monitor = config.hyprland-conf.monitor;
+            monitor = options.monitor;
 
             plugin = {
               hyprsplit = {
-                num_workspaces = config.hyprland-conf.numWorkspaces;
+                num_workspaces = options.numWorkspaces;
               };
             };
 
@@ -132,17 +132,17 @@ in
                 builtins.concatLists (builtins.genList (
                     x: let
                       ws = let
-                        c = (x + 1) / config.hyprland-conf.numWorkspaces;
+                        c = (x + 1) / options.numWorkspaces;
                       in
-                        builtins.toString (x + 1 - (c * config.hyprland-conf.numWorkspaces));
+                        builtins.toString (x + 1 - (c * options.numWorkspaces));
                     in [
                       "$mainMod, ${toString (x + 1)}, split:workspace, ${toString (x + 1)}"
                       "$mainMod SHIFT, ${toString (x + 1)}, split:movetoworkspace, ${toString (x + 1)}"
                     ]
                   )
-                  config.hyprland-conf.numWorkspaces)
+                  options.numWorkspaces)
               )
-              ++ config.hyprland-conf.extraBind;
+              ++ options.extraBind;
 
             bindm = [
               # Scroll through existing workspaces with mainMod + scroll
@@ -173,7 +173,7 @@ in
                 natural_scroll = "yes";
               };
 
-              sensitivity = "${toString config.hyprland-conf.mouse.sensitivity}"; # -1.0 to 1.0, 0 means no modification.
+              sensitivity = "${toString options.mouse.sensitivity}"; # -1.0 to 1.0, 0 means no modification.
             };
 
             general = {
@@ -257,7 +257,7 @@ in
                 "suppressevent maximize, class:.*"
                 "float,class:(betterbird),title:^(Write:)"
               ]
-              ++ config.hyprland-conf.extraWindowrulev2;
+              ++ options.extraWindowrulev2;
 
             debug = {
               disable_logs = false;
