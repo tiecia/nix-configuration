@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hyprland-conf.nix
-    ./ags.nix
+    ./ags-widgets.nix
+    ./waybar-widgets.nix
   ];
 }
