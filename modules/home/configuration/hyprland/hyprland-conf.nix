@@ -5,16 +5,6 @@
   inputs,
   ...
 }: let
-  # waybarStartupScript = pkgs.pkgs.writeShellScriptBin "waybarStartup" ''
-  # bash ~/nix-configuration/modules/nixos/desktop-environment/hyprland/waybar/launch.sh
-  # swww-daemon &
-  # swww img ~/nix-configuration/wallpapers/abstract-lines.jpg
-  # dunst
-  # '';
-  # agsStartupScript = pkgs.pkgs.writeShellScriptBin "agsStartup" ''
-  # ags -b hypr
-  # '';
-  # plugins = inputs.hyprland-plugins.packages."${pkgs.system}";
 in
   with lib; {
     options = {
@@ -58,7 +48,8 @@ in
       options = config.hyprland-conf;
     in
       mkIf options.enable {
-        widgets.waybar.enable = true;
+        # widgets.waybar.enable = true;
+        widgets.ags.enable = true;
 
         wayland.windowManager.hyprland = {
           enable = true;
