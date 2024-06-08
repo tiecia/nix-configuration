@@ -76,24 +76,11 @@ in
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 
-          # exec-once = ''${startupScript}/bin/startup'';
-          # exec-once = ''
-          #   ${mkIf (config.hyprland-conf.widgets == "waybar") ''${waybarStartupScript}/bin/waybarStartup''}
-          #   ${mkIf (config.hyprland-conf.widgets == "ags") ''${agsStartupScript}/bin/agsStartup''}
-          # '';
-
-          # exec-once = ''${waybarStartupScript}/bin/waybarStartup'';
-          # exec-once = ''${agsStartupScript}/bin/agsStartup'';
-
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           "$config-root" = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
-          # "$rofi-script" = "bash $config_root/../rofi.sh";
 
           "$terminal" = "kitty";
           "$fileManager" = "dolphin";
-          # "$menu" = "rofi -show drun -show-icons";
-          # "$menu-all" = "rofi show run -show-icons";
-          # "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
           "$screenshot-region" = "grim -l 0 -g \"$(slurp)\" - | wl-copy";
           "$media-playpause" = "playerctl play-pause";
           "$media-next" = "playerctl next";
@@ -111,11 +98,8 @@ in
               "$mainMod, M, exit,"
               "$mainMod, E, exec, $fileManager"
               "$mainMod, V, togglefloating,"
-              # "$mainMod, SUPER_L, exec, $menu"
-              # "$mainMod, R, exec, $menu-all"
               "$mainMod, J, togglesplit," # dwindle
 
-              # "$mainMod, B, exec, $waybar-switch"
               "$mainMod&Shift_L, S, exec, $screenshot-region"
 
               # Move focus with mainMod + arrow keys
@@ -126,7 +110,7 @@ in
 
               # Example special workspace (scratchpad)
               "$mainMod, S, togglespecialworkspace, magic"
-              # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+              "$mainMod Ctrl_L, S, movetoworkspace, special:magic"
               "Alt_L, Tab, workspace, previous"
               "$mainMod Alt_L, F, fullscreen"
 
@@ -135,9 +119,6 @@ in
               "$mainMod Ctrl_L, right, movewindow, r"
               "$mainMod Ctrl_L, up, movewindow, u"
               "$mainMod Ctrl_L, down, movewindow, d"
-
-              # Move to desktop system specific config
-              # "$mainMod, P, split:swapactiveworkspaces, 0 3"
 
               ",XF86AudioPlay, exec, $media-playpause"
               ",XF86AudiNext, exec, $media-next"
