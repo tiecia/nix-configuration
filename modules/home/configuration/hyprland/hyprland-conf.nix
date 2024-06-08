@@ -87,7 +87,7 @@ in
 
           # See https://wiki.hyprland.org/Configuring/Keywords/ for more
           "$config-root" = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
-          "$rofi-script" = "bash $config_root/../rofi.sh";
+          # "$rofi-script" = "bash $config_root/../rofi.sh";
 
           "$terminal" = "kitty";
           "$fileManager" = "dolphin";
@@ -276,8 +276,6 @@ in
             [
               "suppressevent maximize, class:.*"
               "float,class:(betterbird),title:^(Write:)"
-              "float,class:(pavucontrol)"
-              "float,class:(.blueman-manager-wrapped)"
             ]
             ++ config.hyprland-conf.extraWindowrulev2;
 
@@ -305,17 +303,9 @@ in
 
       programs.bash = {
         enable = true;
-        shellAliases = lib.mkMerge [
-          {
-            hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
-          }
-          # mkIf
-          # (config.hyprland-conf.widgets == "waybar")
-          # {hypr-startup = "bash ${waybarStartupScript}/bin/waybarStartupScript";}
-          # mkIf
-          # (config.hyprland-conf.widgets == "ags")
-          # {hypr-startup = "bash ${agsStartupScript}/bin/agsStartupScript";}
-        ];
+        shellAliases = {
+          hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
+        };
       };
 
       services.dunst.enable = true;
@@ -331,15 +321,15 @@ in
         }))
         kitty
         # rofi-wayland
-        pavucontrol
+        # pavucontrol
         dolphin
-        blueman
-        wlogout
+        # blueman
+        # wlogout
         xwaylandvideobridge
-        playerctl
+        playerctl # Media player CLI controls
         wev
-        networkmanagerapplet
-        swww # Wallpaper
+        # networkmanagerapplet
+        # swww # Wallpaper
         #dunst
 
         # Screenshot tools
