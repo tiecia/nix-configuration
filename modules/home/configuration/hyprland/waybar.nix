@@ -25,9 +25,9 @@
 
     mainMod = "SUPER"; # Get this from parent config?
 
-    waybar-theme-command = "bash ${config-root}/waybar/themeswitcher.sh";
+    waybar-theme-command = "${pkgs.bash}/bin/bash ${config-root}/waybar/themeswitcher.sh";
     menu-command = "${pkgs.rofi-wayland}/bin/rofi -show drun -show-icons";
-    menu-all-command = "${pkgs.rofi-wayland} -show run --show-icons";
+    menu-all-command = "${pkgs.rofi-wayland}/bin/rofi -show run --show-icons";
   in
     lib.mkIf options.enable {
       wayland.windowManager.hyprland = {
