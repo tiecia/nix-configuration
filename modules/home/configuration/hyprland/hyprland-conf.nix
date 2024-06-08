@@ -330,7 +330,7 @@ in
           mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
         }))
         kitty
-        rofi-wayland
+        # rofi-wayland
         pavucontrol
         dolphin
         blueman

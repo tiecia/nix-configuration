@@ -25,7 +25,7 @@
 
     mainMod = "SUPER"; # Get this from parent config?
 
-    waybar-theme-command = "${pkgs.bash}/bin/bash ${config-root}/waybar/themeswitcher.sh";
+    waybar-theme-command = "${pkgs.bash}/bin/bash ${config-root}/waybar/themeswitcher.sh"; # Move this script to nix
     menu-command = "${pkgs.rofi-wayland}/bin/rofi -show drun -show-icons";
     menu-all-command = "${pkgs.rofi-wayland}/bin/rofi -show run --show-icons";
   in
@@ -33,10 +33,6 @@
       wayland.windowManager.hyprland = {
         settings = {
           exec-once = ''${startupScript}/bin/startupScript'';
-
-          # "$waybar-switch" = "bash $config-root/waybar/themeswitcher.sh";
-          # "$menu" = "rofi -show drun -show-icons";
-          # "$menu-all" = "rofi show run -show-icons";
 
           bind = [
             "${mainMod}, SUPER_L, exec, ${menu-command}"
