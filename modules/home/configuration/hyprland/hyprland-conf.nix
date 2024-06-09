@@ -46,9 +46,13 @@ in
 
     config = let
       options = config.hyprland-conf;
-      config-root = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
       terminal = "${pkgs.kitty}/bin/kitty";
       fileManager = "${pkgs.dolphin}/bin/dolphin";
+      # Screenshot
+      # grim = "${pkgs.grim}/bin/grim";
+      # slurp = "${pkgs.slurp}/bin/slurp";
+      # copy = "${pkgs.wl-clipboard}/bin/wl-copy";
+      # screenshot-region = "${grim} -l 0 -g \"$(${slurp})\" - | ${copy}";
     in
       mkIf options.enable {
         # widgets.waybar.enable = true;
@@ -66,14 +70,6 @@ in
               };
             };
 
-            # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-            # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
-
-            # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-            "$config-root" = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
-
-            "$terminal" = "kitty";
-            "$fileManager" = "dolphin";
             "$screenshot-region" = "grim -l 0 -g \"$(slurp)\" - | wl-copy";
             "$media-playpause" = "playerctl play-pause";
             "$media-next" = "playerctl next";
