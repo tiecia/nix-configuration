@@ -46,6 +46,9 @@ in
 
     config = let
       options = config.hyprland-conf;
+      config-root = "~/nix-configuration/modules/nixos/desktop-environment/hyprland";
+      terminal = "${pkgs.kitty}/bin/kitty";
+      fileManager = "${pkgs.dolphin}/bin/dolphin";
     in
       mkIf options.enable {
         # widgets.waybar.enable = true;
@@ -82,11 +85,11 @@ in
             bind =
               [
                 # See https://wiki.hyprland.org/Configuring/Binds/ for more
-                "$mainMod, Q, exec, $terminal"
+                "$mainMod, Q, exec, ${terminal}"
                 "$mainMod, F, exec, firefox"
                 "$mainMod, C, killactive,"
                 "$mainMod, M, exit,"
-                "$mainMod, E, exec, $fileManager"
+                "$mainMod, E, exec, ${fileManager}"
                 "$mainMod, V, togglefloating,"
                 "$mainMod, J, togglesplit," # dwindle
 
