@@ -16,14 +16,18 @@
   config = let
     options = config.widgets.ags;
     startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
-      #${pkgs.ags}/bin/ags -b hypr
+      #${pkgs.ags}/bin/ags -b hypr # Why does calling pkgs.ags not work?
       ags -b hypr
     '';
+    mainMod = "Super"; # Inherit this from parent config?
   in
     lib.mkIf options.enable {
       wayland.windowManager.hyprland = {
         settings = {
           exec-once = ''${startupScript}/bin/startupScript'';
+          bind = [
+            "${mainMod},${mainMod}_L, exec, ags -t launcher"
+          ];
         };
       };
 
