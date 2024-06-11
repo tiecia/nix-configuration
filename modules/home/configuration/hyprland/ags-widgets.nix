@@ -16,7 +16,8 @@
   config = let
     options = config.widgets.ags;
     startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
-      ${pkgs.ags}/bin/ags -b hypr
+      #${pkgs.ags}/bin/ags -b hypr
+      ags -b hypr
     '';
   in
     lib.mkIf options.enable {
