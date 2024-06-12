@@ -55,8 +55,8 @@ in
       # screenshot-region = "${grim} -l 0 -g \"$(${slurp})\" - | ${copy}";
     in
       mkIf options.enable {
-        #widgets.waybar.enable = true;
-        widgets.ags.enable = true;
+        widgets.waybar.enable = true;
+        #widgets.ags.enable = true;
 
         wayland.windowManager.hyprland = {
           enable = true;
