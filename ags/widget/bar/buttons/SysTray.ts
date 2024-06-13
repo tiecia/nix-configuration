@@ -24,6 +24,8 @@ const SysTrayItem = (item: TrayItem) => PanelButton({
         })
 
         self.connect("destroy", () => menu.disconnect(id))
+
+        print(`Icon path ${JSON.stringify(item.bind("icon"), null, 4)}`);
     },
 
     on_primary_click: btn => item.menu?.popup_at_widget(

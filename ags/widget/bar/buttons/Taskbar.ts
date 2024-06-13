@@ -26,8 +26,7 @@ const AppItem = (address: string) => {
     const btn = PanelButton({
         class_name: "panel-button",
         tooltip_text: Utils.watch(client.title, hyprland, () =>
-            "Tooltip",
-            // hyprland.getClient(address)?.title || "",
+            hyprland.getClient(address)?.title || "",
         ),
         on_primary_click: () => focus(address),
         on_middle_click: () => app && launchApp(app),
