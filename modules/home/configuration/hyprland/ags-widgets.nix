@@ -26,7 +26,7 @@
         settings = {
           exec-once = ''${startupScript}/bin/startupScript'';
           bind = [
-            "${mainMod},${mainMod}_L, exec, ags -t launcher"
+            "${mainMod},${mainMod}_L, exec, ags -b hypr -t launcher"
           ];
         };
       };
