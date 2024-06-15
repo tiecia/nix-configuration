@@ -17,11 +17,20 @@ const DummyItem = (address: string) => Widget.Box({
 })
 
 const AppItem = (address: string) => {
+    print("Address: " + address);
     const client = hyprland.getClient(address)
-    if (!client || client.class === "")
-        return DummyItem(address)
+    if (!client || client.class === "") {
+        return DummyItem(address)    
+    }
 
-    const app = apps.list.find(app => app.match(client.class))
+    const app = apps.list.find(app => {
+        return app.icon_name == client.class // The icon name seems to always be the same as the class name, so we compare against that.
+    });
+
+    // print("App: " + JSON.stringify(app, null, 4));
+    print("Class name: " + client.class);
+    print("App name: " + app?.name);
+    print("Icon name: " + app?.icon_name);
 
     const btn = PanelButton({
         class_name: "panel-button",
