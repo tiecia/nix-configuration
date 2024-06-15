@@ -5,9 +5,6 @@
   inputs,
   ...
 }: let
-  nvidiaEnvVars = lib.mkIf config.nvidia-graphics.enable [
-    "LIBVA_DRIVER_NAME,nvidia"
-  ];
 in
   with lib; {
     options = {
@@ -152,10 +149,19 @@ in
               "XCURSOR_SIZE,24"
               "QT_QPA_PLATFORMTHEME,qt5ct" # change to qt6ct if you have that
               "ELECTRON_OZONE_PLATFORM_HINT,auto"
-              "WLR_NO_HARDWARE_CURSORS,1"
+              # "WLR_NO_HARDWARE_CURSORS,1"
               "NIXOS_OZONE_WL,1"
+
+              # These variables were are recomended by the Hyprland docs for getting Nvidia to work https://wiki.hyprland.org/Nvidia/
+              "XDG_SESSION_TYPE,wayland"
+              "LIBVA_DRIVER_NAME,nvidia"
+              "GBM_BACKEND,nvidia-drm"
+              "__GLX_VENDOR_LIBRARY_NAME,nvidia"
             ];
-            # ++ nvidiaEnvVars;
+
+            cursor = {
+              no_hardware_cursors = "true";
+            };
 
             input = {
               kb_layout = "us";
