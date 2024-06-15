@@ -16,8 +16,8 @@
   config = let
     options = config.widgets.ags;
     startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
-      #${pkgs.ags}/bin/ags -b hypr # Why does calling pkgs.ags not work?
-      ags -b hypr
+      #${pkgs.ags}/bin/ags # Why does calling pkgs.ags not work?
+      ags
     '';
     mainMod = "Super"; # Inherit this from parent config?
   in
@@ -26,7 +26,7 @@
         settings = {
           exec-once = ''${startupScript}/bin/startupScript'';
           bind = [
-            "${mainMod},${mainMod}_L, exec, ags -b hypr -t launcher"
+            "${mainMod},${mainMod}_L, exec, ags -t launcher"
           ];
         };
       };
