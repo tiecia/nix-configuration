@@ -60,7 +60,7 @@ const AppItem = (app: Application) => {
         }),
         on_clicked: () => {
             App.closeWindow("launcher")
-            print(JSON.stringify(app, null, 4));
+            // print(JSON.stringify(app, null, 4));
             launchApp(app)
         },
     })

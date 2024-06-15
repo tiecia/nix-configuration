@@ -17,20 +17,31 @@ const DummyItem = (address: string) => Widget.Box({
 })
 
 const AppItem = (address: string) => {
-    print("Address: " + address);
+    // print("Address: " + address);
     const client = hyprland.getClient(address)
     if (!client || client.class === "") {
         return DummyItem(address)    
     }
 
+    // print(JSON.stringify(client, null, 4));
+
+    // print(JSON.stringify(apps.list, null, 4));
+
     const app = apps.list.find(app => {
-        return app.icon_name == client.class // The icon name seems to always be the same as the class name, so we compare against that.
+        return app.name == client.class
     });
 
     // print("App: " + JSON.stringify(app, null, 4));
-    print("Class name: " + client.class);
-    print("App name: " + app?.name);
-    print("Icon name: " + app?.icon_name);
+    // print("Client title: " + client.title);
+    // print("Class name: " + client.class);
+    // print("App name: " + app?.name);
+    // print("Icon name: " + app?.icon_name);
+
+    let other;
+
+    if(client.class == "GitKraken") {
+        other = "gitkraken";
+    }
 
     const btn = PanelButton({
         class_name: "panel-button",
@@ -42,7 +53,7 @@ const AppItem = (address: string) => {
         child: Widget.Icon({
             size: iconSize.bind(),
             icon: monochrome.bind().as(m => icon(
-                (app?.icon_name || client.class) + (m ? "-symbolic" : ""),
+                (app?.icon_name || other || client.class) + (m ? "-symbolic" : ""),
                 icons.fallback.executable + (m ? "-symbolic" : ""),
             )),
         }),
