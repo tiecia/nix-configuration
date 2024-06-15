@@ -306,6 +306,8 @@ in
           grim # Screenshot grabber
           slurp # Region selector
           wl-clipboard # Copy image to clipboard
+
+          nvidia-vaapi-driver
         ];
       };
   }
