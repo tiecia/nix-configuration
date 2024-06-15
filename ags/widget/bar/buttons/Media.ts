@@ -83,7 +83,7 @@ export default () => {
         btn.on_scroll_up = () => { player.next() }
         btn.on_scroll_down = () => { player.previous() }
         btn.on_hover = () => { revealer.reveal_child = true }
-        btn.on_hover_lost = () => { revealer.reveal_child = false }
+        btn.on("leave-notify-event", () => { revealer.reveal_child = false });
     }
 
     return btn

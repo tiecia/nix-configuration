@@ -82,7 +82,7 @@ const options = mkOptions(OPTIONS, {
                 "media",
                 "expander",
                 "systray",
-                "colorpicker",
+                // "colorpicker",
                 "screenrecord",
                 "system",
                 "battery",
@@ -96,7 +96,7 @@ const options = mkOptions(OPTIONS, {
             },
             label: {
                 colored: opt(false),
-                label: opt(" Applications"),
+                label: opt(""),
             },
             action: opt(() => App.toggleWindow("launcher")),
         },

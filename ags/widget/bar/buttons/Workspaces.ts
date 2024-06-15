@@ -10,18 +10,19 @@ const dispatch = (arg: string | number) => {
 }
 
 const Workspaces = (ws: number, monitor: number) => Widget.Box({
-    children: range(ws || 7).map(i => Widget.Label({
-        attribute: i*(monitor+1),
-        vpack: "center",
-        label: `${i*(monitor+1)}`,
-        setup: self => self.hook(hyprland, () => {
-            self.toggleClassName("active", hyprland.active.workspace.id === i*(monitor+1))
-            self.toggleClassName("occupied", (hyprland.getWorkspace(i*(monitor+1))?.windows || 0) > 0)
-        }),
-    })),
+    children: range(ws || 7).map(i => {
+        let localNum = i+(monitor*ws);
+        return Widget.Label({
+            attribute: localNum,
+            vpack: "center",
+            label: `${localNum}`,
+            setup: self => self.hook(hyprland, () => {
+                self.toggleClassName("active", hyprland.active.workspace.id === localNum)
+                self.toggleClassName("occupied", (hyprland.getWorkspace(localNum)?.windows || 0) > 0)
+            }),
+        })
+    }),
     setup: box => {
-        print("Creating workspace widget with num workspaces: " + ws);
-        print("Monitor: " + monitor);
         if (ws === 0) {
             box.hook(hyprland.active.workspace, () => box.children.map(btn => {
                 btn.visible = hyprland.workspaces.some(ws => ws.id === btn.attribute)
