@@ -5,6 +5,9 @@
   inputs,
   ...
 }: let
+  nvidiaEnvVars = lib.mkIf config.nvidia-graphics.enable [
+    "LIBVA_DRIVER_NAME,nvidia"
+  ];
 in
   with lib; {
     options = {
@@ -152,6 +155,7 @@ in
               "WLR_NO_HARDWARE_CURSORS,1"
               "NIXOS_OZONE_WL,1"
             ];
+            # ++ nvidiaEnvVars;
 
             input = {
               kb_layout = "us";
