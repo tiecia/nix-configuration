@@ -109,8 +109,8 @@ export default {
         recording: "media-record-symbolic",
     },
     notifications: {
-        noisy: "org.gnome.Settings-notifications-symbolic",
-        silent: "notifications-disabled-symbolic",
+        noisy: "notification-active-symbolic",
+        silent: "notification-disabled2-symbolic",
         message: "notification-message-symbolic",
     },
     trash: {
