@@ -311,6 +311,7 @@ in
           wl-clipboard # Copy image to clipboard
 
           nvidia-vaapi-driver
+          ffmpeg
         ];
       };
   }
