@@ -160,6 +160,10 @@ in
 
               # This is used by nvidia-vaapi-driver
               "NVD_BACKEND,direct"
+
+              # These vars force Firefox to use the nvidia-vaapi-driver for hardware acceleration.
+              "MOZ_DISABLE_RDD_SANDBOX,1"
+              "LIBVA_DRIVER_NAME,nvidia"
             ];
 
             cursor = {
@@ -310,7 +314,7 @@ in
           slurp # Region selector
           wl-clipboard # Copy image to clipboard
 
-          # nvidia-vaapi-driver
+          nvidia-vaapi-driver
           ffmpeg
         ];
       };
