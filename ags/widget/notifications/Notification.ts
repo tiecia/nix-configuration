@@ -2,7 +2,7 @@ import { type Notification } from "types/service/notifications"
 import GLib from "gi://GLib"
 import icons from "lib/icons"
 
-const time = (time: number, format = "%H:%M") => GLib.DateTime
+const time = (time: number, format = "%-I:%M %p") => GLib.DateTime
     .new_from_unix_local(time)
     .format(format)
 
