@@ -6,6 +6,15 @@ function up(up: number) {
     return `uptime: ${h}:${m < 10 ? "0" + m : m}`
 }
 
+function updateCurrentDate(self) {
+    let date = new Date()
+    if(self.get_date()[1] != date.getMonth() || self.get_date()[0] != date.getFullYear()) {
+        self.select_day(0)
+    } else {
+        self.select_day(date.getDay())
+    }
+}
+
 export default () => Widget.Box({
     vertical: true,
     class_name: "date-column vertical",
@@ -16,7 +25,7 @@ export default () => Widget.Box({
             children: [
                 Widget.Label({
                     class_name: "clock",
-                    label: clock.bind().as(t => t.format("%H:%M")!),
+                    label: clock.bind().as(t => t.format("%-I:%M %p")!),
                 }),
                 Widget.Label({
                     class_name: "uptime",
@@ -30,6 +39,9 @@ export default () => Widget.Box({
                 Widget.Calendar({
                     hexpand: true,
                     hpack: "center",
+                    setup: self => {
+                        self.on("month-changed", () => updateCurrentDate(self))
+                    }
                 }),
             ],
         }),
