@@ -111,7 +111,7 @@ export default {
     notifications: {
         noisy: "org.gnome.Settings-notifications-symbolic",
         silent: "notifications-disabled-symbolic",
-        message: "chat-bubbles-symbolic",
+        message: "notification-message-symbolic",
     },
     trash: {
         full: "user-trash-full-symbolic",

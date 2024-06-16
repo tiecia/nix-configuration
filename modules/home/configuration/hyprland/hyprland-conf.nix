@@ -300,6 +300,7 @@ in
         # ags.enable = true;
 
         home.packages = with pkgs; [
+          gnome.adwaita-icon-theme
           (pkgs.waybar.overrideAttrs (oldAttrs: {
             mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
           }))
