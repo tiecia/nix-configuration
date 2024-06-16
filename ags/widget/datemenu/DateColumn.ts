@@ -10,8 +10,8 @@ function updateCurrentDate(self) {
     let date = new Date()
     if (self.get_date()[1] != date.getMonth() || self.get_date()[0] != date.getFullYear()) {
         self.select_day(0)
-    } else if(self.get_date()[1] != date.getMonth() || self.get_date()[0] != date.getFullYear()) {
-        self.select_day(date.getDay())
+    } else if(self.get_date()[1] == date.getMonth() && self.get_date()[0] == date.getFullYear()) {
+        self.select_day(date.getDate())
     }
 }
 
