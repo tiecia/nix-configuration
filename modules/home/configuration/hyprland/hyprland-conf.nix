@@ -149,7 +149,7 @@ in
               "XCURSOR_SIZE,24"
               "QT_QPA_PLATFORMTHEME,qt5ct" # change to qt6ct if you have that
               "ELECTRON_OZONE_PLATFORM_HINT,auto"
-              # "WLR_NO_HARDWARE_CURSORS,1"
+              # "WLR_NO_HARDWARE_CURSORS,1" # This has been deprecated in favor of the cursor variable.
               "NIXOS_OZONE_WL,1"
 
               # These variables were are recomended by the Hyprland docs for getting Nvidia to work https://wiki.hyprland.org/Nvidia/

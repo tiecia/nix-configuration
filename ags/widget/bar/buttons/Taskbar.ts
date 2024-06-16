@@ -27,8 +27,9 @@ const AppItem = (address: string) => {
 
     // print(JSON.stringify(apps.list, null, 4));
 
+    // Note: This seems to match most programs, not all though.
     const app = apps.list.find(app => {
-        return app.name == client.class
+        return app.name.toLowerCase() == client.class.toLowerCase()
     });
 
     // print("App: " + JSON.stringify(app, null, 4));

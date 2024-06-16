@@ -21,7 +21,13 @@ export default ({ address, size: [w, h], class: c, title }: Client) => Widget.Bu
             min-height: ${(v / 100) * h}px;
         `),
         icon: monochrome.bind().as(m => {
-            const app = apps.list.find(app => app.match(c))
+            // Note: This seems to match most programs, not all though.
+            const app = apps.list.find(app => app.name.toLowerCase() == c.toLowerCase());
+
+            if(c == "GitKraken") {
+                return "gitkraken";
+            }
+
             if (!app)
                 return icons.fallback.executable + (m ? "-symbolic" : "")
 
