@@ -87,7 +87,7 @@ export default () => PanelButton({
     on_scroll_up: () => audio.speaker.volume += 0.02,
     on_scroll_down: () => audio.speaker.volume -= 0.02,
     child: Widget.Box([
-        ProfileIndicator(),
+        // ProfileIndicator(),
         ModeIndicator(),
         DNDIndicator(),
         BluetoothIndicator(),

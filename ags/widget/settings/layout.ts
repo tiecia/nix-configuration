@@ -139,6 +139,7 @@ export default [
             Row({ opt: qs.avatar.size, title: "Avatar Size" }),
             Row({ opt: qs.media.monochromeIcon, title: "Media Monochrome Icons" }),
             Row({ opt: qs.media.coverSize, title: "Media Cover Art Size" }),
+            Row({ opt: qs.showBrightness, title: "Show Screen Brightness Control" }),
         ),
         Group("On Screen Indicator",
             Row({ opt: osd.progress.vertical, title: "Vertical" }),

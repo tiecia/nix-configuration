@@ -194,6 +194,7 @@ const options = mkOptions(OPTIONS, {
             monochromeIcon: opt(true),
             coverSize: opt(100),
         },
+        showBrightness: opt(true),
     },
 
     datemenu: {

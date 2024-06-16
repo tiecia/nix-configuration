@@ -1,5 +1,8 @@
 import icons from "lib/icons"
+import options from "options"
 import brightness from "service/brightness"
+
+const { showBrightness } = options.quicksettings;
 
 const BrightnessSlider = () => Widget.Slider({
     draw_value: false,
@@ -8,7 +11,7 @@ const BrightnessSlider = () => Widget.Slider({
     on_change: ({ value }) => brightness.screen = value,
 })
 
-export const Brightness = () => Widget.Box({
+export const Brightness = () => showBrightness.getValue() ? Widget.Box({
     class_name: "brightness",
     children: [
         Widget.Button({
@@ -20,4 +23,4 @@ export const Brightness = () => Widget.Box({
         }),
         BrightnessSlider(),
     ],
-})
+}) : null;
