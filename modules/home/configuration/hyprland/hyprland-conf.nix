@@ -104,17 +104,17 @@ in
                 "$mainMod Alt_L, F, fullscreen"
 
                 # Move window position with mainMod + Ctrl_L + left/right
-                "$mainMod Ctrl_L, left, movewindow, l"
-                "$mainMod Ctrl_L, right, movewindow, r"
-                "$mainMod Ctrl_L, up, movewindow, u"
-                "$mainMod Ctrl_L, down, movewindow, d"
+                "$mainMod SHIFT, left, movewindow, l"
+                "$mainMod SHIFT, right, movewindow, r"
+                "$mainMod SHIFT, up, movewindow, u"
+                "$mainMod SHIFT, down, movewindow, d"
 
                 ",XF86AudioPlay, exec, $media-playpause"
                 ",XF86AudiNext, exec, $media-next"
                 ",XF86AudioPrev, exec, $media-prev"
-                "$mainMod Ctrl_L Alt_L, slash, exec, $media-playpause" #Bind "/" key
-                "$mainMod Ctrl_L Alt_L, left, exec, $media-prev"
-                "$mainMod Ctrl_L Alt_L, right, exec, $media-next"
+                "$mainMod Ctrl_L, slash, exec, $media-playpause" #Binds the "/" key
+                "$mainMod Ctrl_L, left, exec, $media-prev"
+                "$mainMod Ctrl_L, right, exec, $media-next"
 
                 ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
               ]
