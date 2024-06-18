@@ -33,7 +33,7 @@
       "monitor 2,class:(discord)" # Discord native app
       "monitor 2,title:^(Discord)" # Discord PWA
     ];
-    mouse.sensitivity = -0.5;
+    mouse.sensitivity = -0.4;
   };
 
   spotify = {
