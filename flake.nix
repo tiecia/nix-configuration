@@ -30,6 +30,8 @@
 
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
     ags.url = "github:Aylur/ags";
+
+    nvim-test.url = "git+file:///home/tiec/nix-configuration/nixvim-config/";
   };
 
   outputs = {
