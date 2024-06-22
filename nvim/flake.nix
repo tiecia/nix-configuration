@@ -37,7 +37,5 @@
         # Lets you run `nix run .` to start nixvim
         default = nvim;
       };
-
-      devShells.default = import ./shell.nix {inherit pkgs;};
     });
 }
