@@ -31,7 +31,6 @@
     enable = true;
     settings.mirage = true;
   };
-  # colorschemes.dracula.enable = true;
 
   extraConfigVim = ''
     autocmd BufRead,BufNewFile *.pl set filetype=prolog
