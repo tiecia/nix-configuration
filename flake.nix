@@ -1,10 +1,7 @@
 {
   description = "Nixos config flake";
 
-  inputs = 
-  let
-
-  in {
+  inputs = {
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
@@ -23,9 +20,11 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    # hyprland.url = "github:hyprwm/Hyprland";
+    # NOTE: hyprland and hyprsplit must be updated together
+    # A couple of commits after v1.41.0
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=8055b1c00a102f5419e40f5eddfb6ee8be693f33";
 
+    # v1.41.1
     hyprsplit = {
       url = "github:shezdy/hyprsplit?rev=9acac9b62eef71ff60234140229a97a232a92ef4";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
