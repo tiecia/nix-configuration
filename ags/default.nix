@@ -21,6 +21,7 @@
   networkmanager,
   gtk3,
   which,
+  matugen,
 }: let
   name = "asztal";
 
@@ -35,7 +36,7 @@
     fzf
     brightnessctl
     swww
-    inputs.matugen.packages.${system}.default
+    # inputs.matugen.packages.${system}.default
     slurp
     wf-recorder
     wl-clipboard
@@ -45,6 +46,7 @@
     pavucontrol
     networkmanager
     gtk3
+    matugen
   ];
 
   addBins = list: builtins.concatStringsSep ":" (builtins.map (p: "${p}/bin") list);

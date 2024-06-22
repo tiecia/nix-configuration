@@ -37,7 +37,7 @@
         fd
         brightnessctl
         swww
-        inputs.matugen.packages.${system}.default
+        # inputs.matugen.packages.${system}.default
         slurp
         wf-recorder
         wl-clipboard
@@ -47,6 +47,7 @@
         pavucontrol
         networkmanager
         gtk3
+        matugen
       ];
 
       programs.ags = {

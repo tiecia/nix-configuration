@@ -2,8 +2,6 @@
   description = "Nixos config flake";
 
   inputs = {
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
-
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -13,6 +11,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     # NOTE: hyprland and hyprsplit must be updated together
     # A couple of commits after v1.41.0
@@ -24,7 +24,7 @@
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
 
-    matugen.url = "github:InioX/matugen?ref=v2.2.0";
+    # matugen.url = "github:InioX/matugen?ref=v2.3.0"; # Used by ags module. If I create a flake for that module we can remove this from here.
     ags.url = "github:Aylur/ags?ref=v1.8.2";
 
     custom-nvim.url = "path:./nvim/";
