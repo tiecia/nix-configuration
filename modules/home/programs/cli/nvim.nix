@@ -11,8 +11,8 @@ with lib; {
   };
 
   config = let
-    #custom-nvim = inputs.custom-nvim.packages.${system}.default;
-    custom-nvim = inputs.custom-nvim;
+    custom-nvim = inputs.custom-nvim.packages.${"x86_64-linux"}.default;
+    #custom-nvim = inputs.custom-nvim;
   in
     mkIf config.nvim.enable {
       home.packages = [
