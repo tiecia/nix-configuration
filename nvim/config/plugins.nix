@@ -8,5 +8,9 @@
     };
 
     markdown-preview.enable = true;
+
+    harpoon = {
+      enable = true;
+    };
   };
 }
