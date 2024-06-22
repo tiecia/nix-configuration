@@ -1,7 +1,10 @@
 {
   description = "Nixos config flake";
 
-  inputs = {
+  inputs = 
+  let
+
+  in {
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
@@ -21,7 +24,7 @@
     };
 
     # hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=9e781040d9067c2711ec2e9f5b47b76ef70762b3";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=8055b1c00a102f5419e40f5eddfb6ee8be693f33";
 
     hyprsplit = {
       url = "github:shezdy/hyprsplit?rev=9acac9b62eef71ff60234140229a97a232a92ef4";
