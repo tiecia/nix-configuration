@@ -4,14 +4,12 @@
   pkgs,
   system,
   inputs,
-  # plasma-manager,
   ...
 }: {
   imports = [
     ../../modules/home/configuration
     ../../modules/home/programs/cli
     ../../modules/home/programs/desktop
-    # plasma-manager.homeManagerModules.plasma-manager
   ];
 
   nix.settings = {

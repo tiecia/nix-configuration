@@ -14,12 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    plasma-manager = {
-      url = "github:pjones/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     # NOTE: hyprland and hyprsplit must be updated together
     # A couple of commits after v1.41.0
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=8055b1c00a102f5419e40f5eddfb6ee8be693f33";
@@ -42,7 +36,6 @@
     nixpkgs-master,
     spicetify-nix,
     nixos-hardware,
-    plasma-manager,
     hyprland,
     ...
   } @ inputs: let
@@ -60,7 +53,7 @@
       };
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix plasma-manager hyprland;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix hyprland;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master;};
   in {
     nixosConfigurations = {
