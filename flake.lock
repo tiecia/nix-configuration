@@ -26,7 +26,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-X4AbqOcsXXT3dzOU0oMD7MfKu4WST0bhPIRoPOQ9JKE=",
+        "narHash": "sha256-7syenVS79f2Wl7DKatUj+COQy9wHZtvBTijPnhsZXFs=",
         "path": "./nvim/",
         "type": "path"
       },
@@ -386,6 +386,7 @@
       "original": {
         "owner": "shezdy",
         "repo": "hyprsplit",
+        "rev": "9acac9b62eef71ff60234140229a97a232a92ef4",
         "type": "github"
       }
     },
