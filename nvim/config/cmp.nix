@@ -30,6 +30,10 @@
 
     cmp_luasnip = {enable = true;};
 
+    cmp-cmdline = {
+      enable = true;
+    };
+
     cmp = {
       enable = true;
 

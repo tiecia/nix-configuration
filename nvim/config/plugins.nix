@@ -2,7 +2,11 @@
   plugins = {
     comment = {
       enable = true;
-      padding = " ";
+      settings = {
+        padding = true;
+      };
     };
+
+    markdown-preview.enable = true;
   };
 }
