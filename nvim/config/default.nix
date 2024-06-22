@@ -27,7 +27,11 @@
     nvim-remote-containers
   ];
 
-  colorschemes.dracula.enable = true;
+  colorschemes.ayu = {
+    enable = true;
+    settings.mirage = true;
+  };
+  # colorschemes.dracula.enable = true;
 
   extraConfigVim = ''
     autocmd BufRead,BufNewFile *.pl set filetype=prolog
@@ -41,6 +45,11 @@
       key = "<C-n>";
       action = "<CMD>NvimTreeToggle<CR>";
       options.desc = "Toggle NvimTree";
+    }
+    {
+      key = "<C-f>";
+      action = "<CMD>Telescope live_grep<CR>";
+      options.desc = "Global file grep";
     }
     {
       key = "<leader>c";
