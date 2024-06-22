@@ -10,7 +10,7 @@
         pyright.enable = true;
         marksman.enable = true;
         dockerls.enable = true;
-        csharp.enable = true;
+        csharp-ls.enable = true;
 
         kotlin-language-server.enable = true;
 
