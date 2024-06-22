@@ -31,7 +31,7 @@
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
     ags.url = "github:Aylur/ags";
 
-    custom-nvim.url = "path:./nvim/"; # TODO: Make relative path not needed
+    custom-nvim.url = "path:./nvim/";
   };
 
   outputs = {
