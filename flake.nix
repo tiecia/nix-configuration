@@ -21,7 +21,7 @@
     };
 
     # hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=8055b1c00a102f5419e40f5eddfb6ee8be693f33";
 
     hyprsplit = {
       url = "github:shezdy/hyprsplit?rev=9acac9b62eef71ff60234140229a97a232a92ef4";
