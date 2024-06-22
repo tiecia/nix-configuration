@@ -20,6 +20,8 @@ in {
     ../../modules/nixos/programs
   ];
 
+  hyprland.enable = true;
+
   specialisation = {
     plasma.configuration = {
       plasma.enable = true;
@@ -28,12 +30,12 @@ in {
       };
     };
 
-    hyprland.configuration = {
-      hyprland.enable = true;
-      environment.sessionVariables = {
-        SPECIALISATION = "hyprland";
-      };
-    };
+    # hyprland.configuration = {
+    #   hyprland.enable = true;
+    #   environment.sessionVariables = {
+    #    SPECIALISATION = "hyprland";
+    #   };
+    # };
   };
 
   printing.enable = true;
