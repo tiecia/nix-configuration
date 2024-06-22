@@ -31,7 +31,7 @@
     };
 
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:Aylur/ags?ref=v1.8.2";
 
     custom-nvim.url = "path:./nvim/";
   };
