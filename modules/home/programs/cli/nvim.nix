@@ -17,7 +17,7 @@ with lib; {
     mkIf config.nvim.enable {
       home.packages = [
         custom-nvim
-        pkgs.ripgrep
+        pkgs.ripgrep # Needed for telescope
       ];
 
       programs.bash = {
