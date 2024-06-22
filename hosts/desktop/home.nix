@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  system,
   inputs,
   # plasma-manager,
   ...
@@ -88,8 +89,6 @@
     devenv
     parsec-bin
     gamescope
-
-    inputs.nvim-test.packages.${system}.default
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

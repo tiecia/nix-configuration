@@ -1,20 +1,29 @@
 {
   config,
   lib,
-  pkgs,
+  inputs,
   ...
 }:
 with lib; {
   options = {
-    vim.enable = mkEnableOption "Enable nvim";
+    nvim.enable = mkEnableOption "Enable nvim";
   };
 
-  config = mkIf config.vim.enable {
-    imports = [
-      ../../../../nvim
-    ];
-    home.packages = with pkgs; [
-      nixvim
-    ];
-  };
+  config = let
+    #custom-nvim = inputs.custom-nvim.packages.${system}.default;
+    custom-nvim = inputs.custom-nvim;
+  in
+    mkIf config.nvim.enable {
+      home.packages = [
+        custom-nvim
+      ];
+
+      programs.bash = {
+        enable = true;
+        shellAliases = {
+          vi = "${custom-nvim}/bin/nvim";
+          v = "${custom-nvim}/bin/nvim";
+        };
+      };
+    };
 }
