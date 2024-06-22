@@ -24,7 +24,6 @@
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
 
-    # matugen.url = "github:InioX/matugen?ref=v2.3.0"; # Used by ags module. If I create a flake for that module we can remove this from here.
     ags.url = "github:Aylur/ags?ref=v1.8.2";
 
     custom-nvim.url = "path:./nvim/";
