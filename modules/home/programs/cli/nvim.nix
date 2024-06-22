@@ -3,6 +3,7 @@
   lib,
   inputs,
   system,
+  pkgs,
   ...
 }:
 with lib; {
@@ -16,6 +17,7 @@ with lib; {
     mkIf config.nvim.enable {
       home.packages = [
         custom-nvim
+        pkgs.ripgrep
       ];
 
       programs.bash = {
