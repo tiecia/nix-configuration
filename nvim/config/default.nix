@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./plugins.nix
     ./bufferline.nix
     ./cmp.nix
     ./copilot-chat.nix
@@ -73,7 +74,7 @@
     {
       key = "<leader>ce";
       action = "<CMD>CopilotChatExplain<CR>";
-      options.desc = "Give an explanation for the selected code";
+      options.desc = "Givt e an explanation for the selected code";
     }
     {
       key = "<leader>cd";

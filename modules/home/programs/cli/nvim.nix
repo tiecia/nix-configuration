@@ -11,8 +11,7 @@ with lib; {
   };
 
   config = let
-    custom-nvim = inputs.custom-nvim.packages.${"x86_64-linux"}.default;
-    #custom-nvim = inputs.custom-nvim;
+    custom-nvim = inputs.custom-nvim.packages.${"x86_64-linux"}.default; # TODO: Figure out how to use system variable
   in
     mkIf config.nvim.enable {
       home.packages = [
