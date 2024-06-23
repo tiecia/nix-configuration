@@ -77,7 +77,14 @@ in {
     hostname = "TyLaptopStudioNix";
   };
 
-  services.upower.enable = true; # Needed for battery module in AGS
+  services = {
+    upower.enable = true; # Needed for battery module in AGS
+    logind.extraConfig = ''
+      HandlePowerKey=ignore
+      HandleLidSwitch=suspend
+      HandleLidSwitchExternalPower=ignore
+    '';
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiec = {
