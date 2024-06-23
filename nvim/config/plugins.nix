@@ -13,10 +13,10 @@
       enable = true;
       enableTelescope = true;
       keymaps = {
-        addFile = "<S-j>";
-        toggleQuickMenu = "<S-k>";
-        navNext = "<S-l>";
-        navPrev = "<S-h>";
+        addFile = "<A-j>";
+        toggleQuickMenu = "<A-k>";
+        navNext = "<A-l>";
+        navPrev = "<A-h>";
         navFile = {
           "1" = "<C-h>";
           "2" = "<C-j>";
