@@ -260,7 +260,7 @@ in
             # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
             device = [
               {
-                name = "microsoft-surface-045e:09af-touchpad";
+                name = "microsoft-surface-045e:09af-mouse";
                 sensitivity = "0.5"; # -1.0 to 1.0
               }
             ];
