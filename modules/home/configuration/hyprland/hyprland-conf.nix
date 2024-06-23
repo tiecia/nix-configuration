@@ -144,6 +144,10 @@ in
               "$mainMod, mouse:273, resizewindow"
             ];
 
+            binds = {
+              allow_workspace_cycles = true;
+            };
+
             # Some default env vars.
             env = [
               "XCURSOR_SIZE,24"
@@ -178,7 +182,7 @@ in
               follow_mouse = "1";
               touchpad = {
                 natural_scroll = "yes";
-                scroll_factor = "0.6";
+                scroll_factor = "0.8";
               };
 
               sensitivity = "${toString options.mouse.sensitivity}"; # -1.0 to 1.0, 0 means no modification.
@@ -241,6 +245,7 @@ in
             gestures = {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
               workspace_swipe = "on";
+              
             };
 
             misc = {
