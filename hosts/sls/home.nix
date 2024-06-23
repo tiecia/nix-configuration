@@ -14,6 +14,9 @@
   hyprland-conf = {
     enable = true;
     monitor = ",2400x1600@120,0x0,1";
+    mouse = {
+      sensitivity = 1.2;
+    };
   };
 
   spotify = {
