@@ -126,7 +126,7 @@ const options = mkOptions(OPTIONS, {
         systray: {
             ignore: opt([
                 "KDE Connect Indicator",
-                "spotify-client",
+                // "spotify-client",
             ]),
         },
         media: {
