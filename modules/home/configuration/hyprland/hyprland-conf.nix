@@ -261,7 +261,7 @@ in
             device = [
               {
                 name = "microsoft-surface-045e:09af-mouse";
-                sensitivity = "0.5"; # -1.0 to 1.0
+                sensitivity = "-1.0"; # -1.0 to 1.0
               }
             ];
 
