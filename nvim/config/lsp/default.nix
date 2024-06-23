@@ -4,7 +4,8 @@
       enable = true;
       servers = {
         bashls.enable = true;
-        clangd.enable = true;
+        # clangd.enable = true;
+        ccls.enable = true;
         cssls.enable = true;
         html.enable = true;
         pyright.enable = true;

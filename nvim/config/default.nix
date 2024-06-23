@@ -25,6 +25,7 @@
 
   extraPlugins = with pkgs.vimPlugins; [
     nvim-remote-containers
+    neomake
   ];
 
   colorschemes.ayu = {
