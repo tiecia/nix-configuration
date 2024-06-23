@@ -7,8 +7,9 @@ const battery = await Service.import("battery")
 const { image, size } = options.quicksettings.avatar
 
 function up(up: number) {
-    const h = Math.floor(up / 60)
-    const m = Math.floor(up % 60)
+    print(up);
+    const h = Math.floor(up / 3600)
+    const m = Math.floor(up % 3600 / 60)
     return `${h}h ${m < 10 ? "0" + m : m}m`
 }
 
@@ -30,7 +31,7 @@ const SysButton = (action: Action) => Widget.Button({
 
 export const Header = () => Widget.Box(
     { class_name: "header horizontal" },
-    Avatar(),
+    // Avatar(),
     Widget.Box({
         vertical: true,
         vpack: "center",
@@ -42,10 +43,13 @@ export const Header = () => Widget.Box(
                     Widget.Label({ label: battery.bind("percent").as(p => `${p}%`) }),
                 ],
             }),
-            Widget.Box([
-                Widget.Icon({ icon: icons.ui.time }),
-                Widget.Label({ label: uptime.bind().as(up) }),
-            ]),
+            Widget.Box({
+                visible: battery.bind("available"),
+                children: [
+                    Widget.Icon({ icon: icons.ui.time }),
+                    Widget.Label({ label: battery.bind("time-remaining").as(up)}),
+                ]
+            }),
         ],
     }),
     Widget.Box({ hexpand: true }),
