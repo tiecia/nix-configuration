@@ -17,7 +17,7 @@
         # nixd.enable = true;
         nil-ls = {
           enable = true;
-          settings.nix.flake.autoEvalInputs = true;
+          settings.nix.flake.autoEvalInputs = false;
         };
 
         prolog-ls.enable = true;
