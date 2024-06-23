@@ -160,8 +160,8 @@ in
               # These variables were are recomended by the Hyprland docs for getting Nvidia to work https://wiki.hyprland.org/Nvidia/
               # "XDG_SESSION_TYPE,wayland"
               # "LIBVA_DRIVER_NAME,nvidia"
-              # "GBM_BACKEND,nvidia-drm"
-              "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+              "GBM_BACKEND,nvidia-drm"
+              # "__GLX_VENDOR_LIBRARY_NAME,nvidia" # Assigning this variable is problematic for electron apps when not using nvidia
 
               # This is used by nvidia-vaapi-driver
               "NVD_BACKEND,direct"
