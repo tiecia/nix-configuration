@@ -180,6 +180,8 @@ in
               kb_options = "ctrl:nocaps";
 
               follow_mouse = "1";
+              accel_profile = "flat";
+              force_no_accel = true;
               touchpad = {
                 natural_scroll = "yes";
                 scroll_factor = "0.8";
