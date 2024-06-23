@@ -258,10 +258,12 @@ in
 
             # Example per-input-device config
             # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-            device = {
-              name = "epic-mouse-v1";
-              sensitivity = "-0.5";
-            };
+            device = [
+              {
+                name = "microsoft-surface-045e:09af-touchpad";
+                sensitivity = "0.5"; # -1.0 to 1.0
+              }
+            ];
 
             # Example windowrule v1
             # windowrule = float, ^(kitty)$
