@@ -22,6 +22,7 @@
     ./davinci-resolve.nix
     ./obs.nix
     ./zoom.nix
+    ./arduino-ide.nix
   ];
 
   firefox.enable = lib.mkDefault true;
