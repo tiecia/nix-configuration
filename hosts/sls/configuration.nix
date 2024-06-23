@@ -32,10 +32,6 @@ in {
     };
   };
 
-  # programs.hyprland.enable = true;
-  # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  # hyprland.enable = true;
-
   printing.enable = true;
 
   nvidia-graphics = {

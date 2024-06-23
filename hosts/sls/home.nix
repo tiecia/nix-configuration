@@ -41,6 +41,14 @@
     enable = true;
   };
 
+  # This is where we can configure programs differently for this host.
+  programs = {
+    home-manager.enable = true;
+    kitty = {
+      font.size = 20;
+    };
+  };
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tiec";
@@ -107,7 +115,4 @@
     # # environment.
     # MY_ENV_VAR = "some value";
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
