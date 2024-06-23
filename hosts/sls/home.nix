@@ -25,12 +25,12 @@
 
   betterbird.enable = true;
   bitwarden.enable = true;
-  # chrome.enable = true;
+  chrome.enable = true;
   discord.enable = true;
   filezilla.enable = true;
   libreoffice.enable = true;
   msteams.enable = true;
-  # solaar.enable = true;
+  solaar.enable = true;
   onedrive.enable = true;
 
   firefox.installPWA = true;
@@ -48,7 +48,7 @@
       enable = true; # Kitty is installed by Hyprland so we need to enable it here for options.
       font = {
         size = 17;
-        name = "DejaVu Sans";
+        name = "DejaVu Sans"; # The home manager module requires the font name to be set.
       };
     };
   };
