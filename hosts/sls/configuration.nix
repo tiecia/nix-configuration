@@ -21,22 +21,13 @@ in {
     ../../modules/nixos/programs
   ];
 
-  # plasma.enable = lib.mkForce false;
-
-  plasma.enable = true;
+  hyprland.enable = true;
 
   specialisation = {
-    #plasma.configuration = {
-    #  plasma.enable = true;
-    #  environment.sessionVariables = {
-    #    SPECIALISATION = "plasma";
-    #  };
-    #};
-
-    hyprland.configuration = {
-      hyprland.enable = true;
+    plasma.configuration = {
+      plasma.enable = true;
       environment.sessionVariables = {
-        SPECIALISATION = "hyprland";
+        SPECIALISATION = "plasma";
       };
     };
   };
