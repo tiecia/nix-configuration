@@ -45,7 +45,11 @@
   programs = {
     home-manager.enable = true;
     kitty = {
-      font.size = 20;
+      enable = true; # Kitty is installed by Hyprland so we need to enable it here for options.
+      font = {
+        size = 20;
+        name = "DejaVu Sans";
+      };
     };
   };
 
