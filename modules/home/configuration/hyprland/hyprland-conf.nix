@@ -245,7 +245,7 @@ in
             gestures = {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
               workspace_swipe = "on";
-              
+              workspace_swipe_forever = true;
             };
 
             misc = {
