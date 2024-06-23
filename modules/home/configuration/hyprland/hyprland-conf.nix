@@ -178,6 +178,7 @@ in
               follow_mouse = "1";
               touchpad = {
                 natural_scroll = "yes";
+                scroll_factor = "0.6";
               };
 
               sensitivity = "${toString options.mouse.sensitivity}"; # -1.0 to 1.0, 0 means no modification.
