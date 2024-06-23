@@ -1,5 +1,5 @@
 if [ -z $@ ]; then
   echo "No file name provided"
 else
-  vi $(find -iname $@)
+  nvim $(find -iname $@)
 fi
