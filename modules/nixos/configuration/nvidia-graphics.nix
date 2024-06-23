@@ -6,23 +6,23 @@
   ...
 }:
 with lib; {
-  options = {
-    nvidia-graphics.enable = lib.mkEnableOption "Enable Nvidia Graphics";
-    nvidia-graphics.prime = lib.mkOption {
+  options.nvidia-graphics = {
+    enable = lib.mkEnableOption "Enable Nvidia Graphics";
+    prime = lib.mkOption {
       type = types.enum ["offload" "sync" "off"];
       default = "off";
       description = ''
         Select the Nvidia Optimus PRIME mode.
       '';
     };
-    nvidia-graphics.intelBusId = lib.mkOption {
+    intelBusId = lib.mkOption {
       type = types.string;
       default = "";
       description = ''
         The PCI bus ID of the Intel GPU.
       '';
     };
-    nvidia-graphics.nvidiaBusId = lib.mkOption {
+    nvidiaBusId = lib.mkOption {
       type = types.string;
       default = "";
       description = ''
