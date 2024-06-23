@@ -168,8 +168,8 @@ in
               "NVD_BACKEND,direct"
 
               # These vars force Firefox to use the nvidia-vaapi-driver for hardware acceleration.
-              "MOZ_DISABLE_RDD_SANDBOX,1"
-              "LIBVA_DRIVER_NAME,nvidia"
+              # "MOZ_DISABLE_RDD_SANDBOX,1"
+              # "LIBVA_DRIVER_NAME,nvidia"
             ];
 
             cursor = {
