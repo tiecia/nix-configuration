@@ -47,7 +47,7 @@
     kitty = {
       enable = true; # Kitty is installed by Hyprland so we need to enable it here for options.
       font = {
-        size = 20;
+        size = 15;
         name = "DejaVu Sans";
       };
     };
