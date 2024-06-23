@@ -181,7 +181,7 @@ in
 
               follow_mouse = "1";
               accel_profile = "flat";
-              force_no_accel = true; # Remove if having trouble with mouse cursor sync
+              # force_no_accel = true; # Remove if having trouble with mouse cursor sync
               touchpad = {
                 natural_scroll = "yes";
                 scroll_factor = "0.8";
