@@ -258,12 +258,12 @@ in
 
             # Example per-input-device config
             # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-            device = [
-              {
-                name = "microsoft-surface-045e:09af-trackpad";
-                sensitivity = "1.0"; # -1.0 to 1.0
-              }
-            ];
+            # device = [
+            #   {
+            #     name = "microsoft-surface-045e:09af-trackpad";
+            #     sensitivity = "1.0"; # -1.0 to 1.0
+            #   }
+            # ];
 
             # Example windowrule v1
             # windowrule = float, ^(kitty)$
