@@ -102,7 +102,7 @@ in {
 
     # TODO: Move these to vscode.nix. Need to figure out why environment variables are not working with homemanager.
     sessionVariables = {
-      EDITOR = "code";
+      EDITOR = "vi";
     };
   };
 
