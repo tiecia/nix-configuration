@@ -158,17 +158,17 @@ in
               "NIXOS_OZONE_WL,1"
 
               # These variables were are recomended by the Hyprland docs for getting Nvidia to work https://wiki.hyprland.org/Nvidia/
-              "XDG_SESSION_TYPE,wayland"
-              "LIBVA_DRIVER_NAME,nvidia"
-              "GBM_BACKEND,nvidia-drm"
-              "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+              # "XDG_SESSION_TYPE,wayland"
+              # "LIBVA_DRIVER_NAME,nvidia"
+              # "GBM_BACKEND,nvidia-drm"
+              # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
 
               # This is used by nvidia-vaapi-driver
               # "NVD_BACKEND,direct"
 
               # These vars force Firefox to use the nvidia-vaapi-driver for hardware acceleration.
-              "MOZ_DISABLE_RDD_SANDBOX,1"
-              "LIBVA_DRIVER_NAME,nvidia"
+              # "MOZ_DISABLE_RDD_SANDBOX,1"
+              # "LIBVA_DRIVER_NAME,nvidia"
             ];
 
             cursor = {
