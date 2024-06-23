@@ -246,6 +246,7 @@ in
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
               workspace_swipe = "on";
               workspace_swipe_forever = true;
+              workspace_swipe_cancel_ratio = 0.3;
             };
 
             misc = {
