@@ -160,8 +160,8 @@ in
               # These variables were are recomended by the Hyprland docs for getting Nvidia to work https://wiki.hyprland.org/Nvidia/
               "XDG_SESSION_TYPE,wayland"
               # Some of these are problematic on non-nvidia systems, they don't seem to do anything on nvidia systems to I am disabling them for now.
-              "LIBVA_DRIVER_NAME,nvidia"
-              # "GBM_BACKEND,nvidia-drm"
+              "LIBVA_DRIVER_NAME,nvidia" # This fixes electron apps taking a long time to start.
+              "GBM_BACKEND,nvidia-drm"
               # "__GLX_VENDOR_LIBRARY_NAME,nvidia"
 
               # This is used by nvidia-vaapi-driver
