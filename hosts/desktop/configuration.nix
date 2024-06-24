@@ -38,6 +38,11 @@ in {
     # };
   };
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [5000 1883];
+  };
+
   printing.enable = true;
   nvidia-graphics.enable = true;
   numlock-boot.enable = true;
