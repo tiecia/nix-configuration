@@ -84,6 +84,7 @@ in {
       "networkmanager"
       "wheel"
       "docker" # Gives tiec account access to the docker socket
+      "dialout"
     ];
     packages = with pkgs; [
       # TODO: Move this to a home-manager configuration module. Then make a user module.
