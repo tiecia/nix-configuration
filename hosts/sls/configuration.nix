@@ -86,8 +86,6 @@ in {
     '';
   };
 
-  boot.kernelParams = ["button.lid_init_state=open"];
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiec = {
     isNormalUser = true;
