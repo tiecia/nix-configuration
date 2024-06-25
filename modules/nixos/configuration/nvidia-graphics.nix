@@ -43,6 +43,8 @@ with lib; {
     services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
     boot.kernelParams = [
+      "nvidia-drm.modeset=1"
+
       # Recommended for by https://wiki.hyprland.org/Nvidia/ for nvidia-vaapi-driver
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # This parameter is causing suspend issues on laptop
     ];
