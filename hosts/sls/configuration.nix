@@ -35,10 +35,11 @@ in {
   printing.enable = true;
 
   nvidia-graphics = {
-    enable = false;
+    enable = true;
     prime = "offload";
     intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:243:0:0";
+    nvidiaBusId = "PCI:242:0:0";
+    # nvidiaBusId = "PCI:243:0:0";
   };
 
   microsoft-surface.ipts.enable = true;
