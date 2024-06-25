@@ -35,7 +35,7 @@ in {
   printing.enable = true;
 
   nvidia-graphics = {
-    enable = true;
+    enable = false;
     prime = "offload";
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:243:0:0";
