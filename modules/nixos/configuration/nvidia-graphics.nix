@@ -42,6 +42,11 @@ with lib; {
     # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
+    boot.kernelParams = [
+      # Recommended for by https://wiki.hyprland.org/Nvidia/ for nvidia-vaapi-driver
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # This parameter is causing suspend issues on laptop
+    ];
+
     hardware.nvidia = {
       prime = mkIf (config.nvidia-graphics.prime != "off") {
         offload = mkIf (config.nvidia-graphics.prime == "offload") {
