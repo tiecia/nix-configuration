@@ -39,6 +39,7 @@ in {
   #   prime = "offload";
   #   intelBusId = "PCI:0:2:0";
   #   nvidiaBusId = "PCI:243:0:0";
+  # };
 
   microsoft-surface.ipts.enable = true;
   microsoft-surface.surface-control.enable = true;
