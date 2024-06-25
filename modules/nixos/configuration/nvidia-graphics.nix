@@ -44,7 +44,7 @@ with lib; {
 
     boot.kernelParams = [
       # Recommended for by https://wiki.hyprland.org/Nvidia/ for nvidia-vaapi-driver
-      # "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # This parameter is causing suspend issues on laptop
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # This parameter is causing suspend issues on laptop
     ];
 
     hardware.nvidia = {
