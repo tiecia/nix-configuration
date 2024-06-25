@@ -314,7 +314,7 @@ in
           slurp # Region selector
           wl-clipboard # Copy image to clipboard
 
-          nvidia-vaapi-driver
+          # nvidia-vaapi-driver
           ffmpeg
         ];
       };
