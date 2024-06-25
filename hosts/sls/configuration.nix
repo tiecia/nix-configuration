@@ -48,13 +48,6 @@ in {
     # xorg.xf86inputsynaptics
   ];
 
-  boot.kernelParams = [
-    "nvidia-drm.modeset=1"
-
-    # Recommended for by https://wiki.hyprland.org/Nvidia/ for nvidia-vaapi-driver
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1" # This parameter is causing suspend issues on laptop
-  ];
-
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true; # for solaar to be included
 
