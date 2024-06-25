@@ -39,7 +39,6 @@ in {
   #   prime = "offload";
   #   intelBusId = "PCI:0:2:0";
   #   nvidiaBusId = "PCI:243:0:0";
-  # };
 
   microsoft-surface.ipts.enable = true;
   microsoft-surface.surface-control.enable = true;
@@ -79,11 +78,14 @@ in {
 
   services = {
     upower.enable = true; # Needed for battery module in AGS
-    logind.extraConfig = ''
-      HandlePowerKey=suspend
-      HandleLidSwitch=suspend
-      HandleLidSwitchExternalPower=ignore
-    '';
+    logind = {
+      extraConfig = ''
+        HandlePowerKey=suspend
+        HandleLidSwitch=suspend
+        HandleLidSwitchExternalPower=ignore
+      '';
+      lidSwitch = "suspend";
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
