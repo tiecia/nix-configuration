@@ -24,6 +24,7 @@ in {
 
   specialisation = {
     plasma.configuration = {
+      hyprland.enable = lib.mkForce false;
       plasma.enable = true;
       environment.sessionVariables = {
         SPECIALISATION = "plasma";
