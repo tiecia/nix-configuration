@@ -46,7 +46,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     # xorg.xf86inputsynaptics
-    # surface-control
+    surface-control
   ];
 
   hardware.logitech.wireless.enable = true;
