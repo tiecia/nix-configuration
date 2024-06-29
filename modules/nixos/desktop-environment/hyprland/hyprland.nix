@@ -22,31 +22,31 @@ with lib; {
       xserver = {
         enable = true;
         libinput.enable = true;
-        # displayManager.gdm = {
-        #   enable = true;
-        #   wayland = true;
-        # };
+        displayManager.gdm = {
+          enable = true;
+          wayland = true;
+        };
       };
 
       gnome.gnome-keyring.enable = true;
     };
 
-    services.greetd = {
-      enable = true;
-      settings = rec {
-        initial_session = {
-          # command = "${pkgs.sway}/bin/sway";
-          command = pkgs.writeShellScriptBin "greeter" ''
-            export XKB_DEFAULT_LAYOUT=${config.services.xserver.xkb.layout}
-            export XCURSOR_THEME=Qogir
-            export GTK_USE_PORTAL=0
-            ${pkgs.sway}/bin/sway
-          '';
-          user = "myuser";
-        };
-        default_session = initial_session;
-      };
-    };
+    # services.greetd = {
+    #   enable = true;
+    #   settings = rec {
+    #     initial_session = {
+    #       # command = "${pkgs.sway}/bin/sway";
+    #       command = pkgs.writeShellScriptBin "greeter" ''
+    #         export XKB_DEFAULT_LAYOUT=${config.services.xserver.xkb.layout}
+    #         export XCURSOR_THEME=Qogir
+    #         export GTK_USE_PORTAL=0
+    #         ${pkgs.sway}/bin/sway
+    #       '';
+    #       user = "myuser";
+    #     };
+    #     default_session = initial_session;
+    #   };
+    # };
 
     security = {
       polkit.enable = true;
