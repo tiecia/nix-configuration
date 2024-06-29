@@ -25,6 +25,7 @@ in {
 
   specialisation = {
     plasma.configuration = {
+      hyprland.enable = lib.mkForce false;
       plasma.enable = true;
       environment.sessionVariables = {
         SPECIALISATION = "plasma";
@@ -32,6 +33,7 @@ in {
     };
 
     gnome.configuration = {
+      hyprland.enable = lib.mkForce false;
       gnome.enable = true;
       environment.sessionVariables = {
         SPECIALISATION = "gnome";
