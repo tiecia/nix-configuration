@@ -30,6 +30,13 @@ in {
         SPECIALISATION = "plasma";
       };
     };
+
+    gnome.configuration = {
+      gnome.enable = true;
+      environment.sessionVariables = {
+        SPECIALISATION = "gnome";
+      };
+    };
   };
 
   printing.enable = true;
