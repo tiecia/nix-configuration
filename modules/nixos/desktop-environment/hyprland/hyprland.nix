@@ -18,17 +18,43 @@ with lib; {
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
 
-    services.xserver = {
-      enable = true;
-      libinput.enable = true;
-      displayManager.gdm = {
+    services = {
+      xserver = {
         enable = true;
-        wayland = true;
+        libinput.enable = true;
+        displayManager.gdm = {
+          enable = true;
+          wayland = true;
+        };
+      };
+
+      gnome.gnome-keyring.enable = true;
+    };
+
+    security = {
+      polkit.enable = true;
+      pam.services.ags = {};
+
+      rtkit.enable = true; # Pipewire uses this to get process scheduling priority
+    };
+
+    systemd = {
+      user.services.polkit-gnome-authentication-agent-1 = {
+        description = "polkit-gnome-authentication-agent-1";
+        wantedBy = ["graphical-session.target"];
+        wants = ["graphical-session.target"];
+        after = ["graphical-session.target"];
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
       };
     };
 
     sound.enable = true;
-    security.rtkit.enable = true; # Pipewire uses this to get process scheduling priority
     services.pipewire = {
       enable = true;
       alsa.enable = true;
