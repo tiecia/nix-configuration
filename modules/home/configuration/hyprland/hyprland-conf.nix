@@ -154,6 +154,9 @@ in
               "XCURSOR_SIZE,24"
               "QT_QPA_PLATFORMTHEME,qt5ct" # change to qt6ct if you have that
               "ELECTRON_OZONE_PLATFORM_HINT,auto"
+
+              "GTK_USE_PORTAL,0"
+
               # "WLR_NO_HARDWARE_CURSORS,1" # This has been deprecated in favor of the cursor variable.
               "NIXOS_OZONE_WL,1"
 
