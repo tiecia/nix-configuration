@@ -14,6 +14,7 @@ with lib; {
       packages = with pkgs; [
         git
         gitkraken
+        gh
       ];
     };
 
