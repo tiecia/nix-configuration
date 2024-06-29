@@ -24,6 +24,7 @@ in {
 
   specialisation = {
     plasma.configuration = {
+      hyprland.enable = lib.mkForce false;
       plasma.enable = true;
       environment.sessionVariables = {
         SPECIALISATION = "plasma";
@@ -36,6 +37,17 @@ in {
     #    SPECIALISATION = "hyprland";
     #   };
     # };
+  };
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged
+    # programs here, NOT in environment.systemPackages
+  ];
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [5000 1883];
   };
 
   printing.enable = true;
@@ -84,6 +96,7 @@ in {
       "networkmanager"
       "wheel"
       "docker" # Gives tiec account access to the docker socket
+      "dialout"
     ];
     packages = with pkgs; [
       # TODO: Move this to a home-manager configuration module. Then make a user module.
