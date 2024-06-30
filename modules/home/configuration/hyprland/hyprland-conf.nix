@@ -27,7 +27,7 @@ in
         };
         numWorkspaces = mkOption {
           type = types.int;
-          default = 12;
+          default = 9;
           description = "Number of workspaces per monitor";
         };
         mouse = {
