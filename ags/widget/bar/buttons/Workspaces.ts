@@ -10,7 +10,9 @@ const dispatch = (arg: string | number) => {
 }
 
 const Workspaces = (ws: number, monitor: number) => Widget.Box({
-    children: range(ws || 12).map(i => {
+    children: range(ws || 7).map(i => {
+        print("i", i);
+        print("ws", ws);
         let localNum = i+(monitor*ws);
         return Widget.Label({
             attribute: localNum,
