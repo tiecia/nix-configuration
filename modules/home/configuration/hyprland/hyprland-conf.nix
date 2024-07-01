@@ -47,7 +47,7 @@ in
     config = let
       options = config.hyprland-conf;
       terminal = "${pkgs.kitty}/bin/kitty";
-      fileManager = "${pkgs.dolphin}/bin/dolphin";
+      fileManager = "${pkgs.gnome.nautilus}/bin/nautilus";
       # Screenshot
       # grim = "${pkgs.grim}/bin/grim";
       # slurp = "${pkgs.slurp}/bin/slurp";
@@ -305,7 +305,7 @@ in
             mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
           }))
           kitty
-          dolphin
+          # dolphin
           xwaylandvideobridge
           playerctl # Media player CLI controls
           wev
