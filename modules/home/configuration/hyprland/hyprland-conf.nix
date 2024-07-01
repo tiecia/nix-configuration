@@ -128,8 +128,7 @@ in
                         then "-"
                         else if x == 12
                         then "="
-                        # else toString (x + 1);
-                        else toString x;
+                        else toString (x + 1);
                     in [
                       "$mainMod, ${key}, split:workspace, ${key}"
                       "$mainMod SHIFT, ${key}, split:movetoworkspace, ${key}"
