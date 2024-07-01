@@ -296,10 +296,9 @@ in
             extraPortals = [pkgs.xdg-desktop-portal-gtk];
           };
           mimeApps = {
-            enable = true;
+            # enable = true;
             defaultApplications = {
-              "application/pdf" = ["firefox.desktop"];
-              ".pdf" = ["firefox.desktop"];
+              "application/pdf" = ["zathura.desktop" "firefox.desktop"];
             };
           };
         };
@@ -332,6 +331,8 @@ in
 
           # nvidia-vaapi-driver
           ffmpeg
+
+          zathura
         ];
       };
   }
