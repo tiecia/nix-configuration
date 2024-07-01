@@ -131,8 +131,8 @@ in
                         else toString (x + 1);
                       # key = x;
                     in [
-                      "$mainMod, ${key}, split:workspace, ${key}"
-                      "$mainMod SHIFT, ${key}, split:movetoworkspace, ${key}"
+                      "$mainMod, ${key}, split:workspace, ${toString (x + 1)}"
+                      "$mainMod SHIFT, ${key}, split:movetoworkspace, ${toString (x + 1)}"
                     ]
                   )
                   options.numWorkspaces)
