@@ -299,6 +299,7 @@ in
             enable = true;
             defaultApplications = {
               "application/pdf" = ["firefox.desktop"];
+              ".pdf" = ["firefox.desktop"];
             };
           };
         };
