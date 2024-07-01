@@ -299,7 +299,7 @@ in
           mimeApps = {
             # enable = true;
             defaultApplications = {
-              "application/pdf" = ["zathura.desktop" "firefox.desktop"];
+              "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.desktop"];
             };
           };
         };
