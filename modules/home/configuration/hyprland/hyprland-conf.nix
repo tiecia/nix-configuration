@@ -118,12 +118,12 @@ in
 
                 ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
 
-                # "$mainMod, 0, split:workspace, 10"
-                # "$mainMod SHIFT, 0, split:workspace, 10"
-                # "$mainMod, -, split:workspace, 11"
-                # "$mainMod SHIFT, -, split:workspace, 11"
-                # "$mainMod, =, split:workspace, 12"
-                # "$mainMod SHIFT, =, split:workspace, 12"
+                "$mainMod, 0, split:workspace, 10"
+                "$mainMod SHIFT, 0, split:workspace, 10"
+                "$mainMod, -, split:workspace, 11"
+                "$mainMod SHIFT, -, split:workspace, 11"
+                "$mainMod, =, split:workspace, 12"
+                "$mainMod SHIFT, =, split:workspace, 12"
               ]
               ++ (
                 builtins.concatLists (builtins.genList (
