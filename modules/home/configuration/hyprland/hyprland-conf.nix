@@ -27,7 +27,7 @@ in
         };
         numWorkspaces = mkOption {
           type = types.int;
-          default = 12;
+          default = 9;
           description = "Number of workspaces per monitor";
         };
         mouse = {
@@ -121,7 +121,6 @@ in
               ++ (
                 builtins.concatLists (builtins.genList (
                     x: let
-                      # key = toString (x + 1);
                       key =
                         if x == 10
                         then "0"
@@ -131,8 +130,8 @@ in
                         then "="
                         else toString (x + 1);
                     in [
-                      "$mainMod, ${key}, split:workspace, ${key}"
-                      "$mainMod SHIFT, ${key}, split:movetoworkspace, ${key}"
+                      "$mainMod, ${key}, split:workspace, ${toString (x + 1)}"
+                      "$mainMod SHIFT, ${key}, split:movetoworkspace, ${toString (x + 1)}"
                     ]
                   )
                   options.numWorkspaces)
