@@ -122,11 +122,11 @@ in
                 builtins.concatLists (builtins.genList (
                     x: let
                       key =
-                        if x == 10
+                        if x == 9
                         then "0"
-                        else if x == 11
+                        else if x == 10
                         then "-"
-                        else if x == 12
+                        else if x == 11
                         then "="
                         else toString (x + 1);
                       # key = x;
