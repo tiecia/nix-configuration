@@ -117,6 +117,13 @@ in
                 "$mainMod Ctrl_L, right, exec, $media-next"
 
                 ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
+
+                # "$mainMod, 0, split:workspace, 10"
+                # "$mainMod SHIFT, 0, split:workspace, 10"
+                # "$mainMod, -, split:workspace, 11"
+                # "$mainMod SHIFT, -, split:workspace, 11"
+                # "$mainMod, =, split:workspace, 12"
+                # "$mainMod SHIFT, =, split:workspace, 12"
               ]
               ++ (
                 builtins.concatLists (builtins.genList (
@@ -130,8 +137,8 @@ in
                         then "="
                         else toString (x + 1);
                     in [
-                      "$mainMod, ${key}, split:workspace, ${toString (x + 1)}"
-                      "$mainMod SHIFT, ${key}, split:movetoworkspace, ${toString (x + 1)}"
+                      "$mainMod, ${key}, split:workspace, ${key}"
+                      "$mainMod SHIFT, ${key}, split:movetoworkspace, ${key}"
                     ]
                   )
                   options.numWorkspaces)
