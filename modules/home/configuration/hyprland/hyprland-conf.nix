@@ -264,7 +264,7 @@ in
               [
                 "suppressevent maximize, class:.*"
                 "float,class:(betterbird),title:^(Write:)"
-                "float,class:(org.gnome.Nautilus)"
+                "float,class:(org.gnome.Nautilus), size 80% 80%"
               ]
               ++ options.extraWindowrulev2;
 
