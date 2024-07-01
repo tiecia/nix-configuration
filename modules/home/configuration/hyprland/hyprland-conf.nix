@@ -41,6 +41,10 @@ in
           type = types.enum ["waybar" "ags"];
           default = "waybar";
         };
+        wallpaper = mkOption {
+          type = types.str;
+          default = "../../../../wallpapers/abstract-lines.jpg";
+        };
       };
     };
 
