@@ -290,9 +290,17 @@ in
 
         # fonts.fontconfig.enable = true;
 
-        xdg.portal = {
-          enable = true;
-          extraPortals = [pkgs.xdg-desktop-portal-gtk];
+        xdg = {
+          portal = {
+            enable = true;
+            extraPortals = [pkgs.xdg-desktop-portal-gtk];
+          };
+          mimeApps = {
+            enable = true;
+            defaultApplications = {
+              "application/pdf" = ["firefox.desktop"];
+            };
+          };
         };
 
         programs.bash = {
