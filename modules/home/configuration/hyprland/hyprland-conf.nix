@@ -347,7 +347,9 @@ in
           # nvidia-vaapi-driver
           ffmpeg
 
-          zathura
+          zathura # PDF viewer
+
+          udiskie # Automatically mounts removable media
         ];
       };
   }
