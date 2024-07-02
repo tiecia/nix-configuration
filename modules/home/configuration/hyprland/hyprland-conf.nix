@@ -74,6 +74,7 @@ in
               };
             };
 
+            "$screenshot" = "grim -l 0 - | wl-copy";
             "$screenshot-region" = "grim -l 0 -g \"$(slurp)\" - | wl-copy";
             "$media-playpause" = "playerctl play-pause";
             "$media-next" = "playerctl next";
@@ -94,6 +95,7 @@ in
                 "$mainMod, J, togglesplit," # dwindle
 
                 "$mainMod&Shift_L, S, exec, $screenshot-region"
+                ", Print, exec, $screenshot"
 
                 # Move focus with mainMod + arrow keys
                 "$mainMod, left, movefocus, l"
@@ -150,8 +152,8 @@ in
             binde = [
               ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
               ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-              ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%"
-              ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%"
+              ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+              ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
             ];
 
             bindm = [
