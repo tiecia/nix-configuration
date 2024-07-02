@@ -354,6 +354,8 @@ in
           ffmpeg
 
           zathura # PDF viewer
+
+          udiskie
         ];
       };
   }
