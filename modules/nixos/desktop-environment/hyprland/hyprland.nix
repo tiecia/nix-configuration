@@ -31,6 +31,11 @@ with lib; {
       gnome.gnome-keyring.enable = true;
     };
 
+    services = {
+      gvfs.enable = true;
+      udisks2.enable = true;
+    };
+
     # services.greetd = {
     #   enable = true;
     #   settings = rec {
