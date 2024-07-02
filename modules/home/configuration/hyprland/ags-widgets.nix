@@ -18,7 +18,8 @@
     startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
       #${pkgs.ags}/bin/ags # Why does calling pkgs.ags not work?
       ags
-      udiskie &
+      # udiskie &
+      ${pkgs.udiskie}/bin/udiskie &
     '';
     mainMod = "Super"; # Inherit this from parent config?
   in
