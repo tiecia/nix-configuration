@@ -121,9 +121,6 @@ in
                 "$mainMod Ctrl_L, right, exec, $media-next"
 
                 ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
-
-                ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-                ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
               ]
               ++ (
                 builtins.concatLists (builtins.genList (
@@ -145,6 +142,11 @@ in
                   options.numWorkspaces)
               )
               ++ options.extraBind;
+
+            binde = [
+              ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+              ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+            ];
 
             bindm = [
               # Scroll through existing workspaces with mainMod + scroll
