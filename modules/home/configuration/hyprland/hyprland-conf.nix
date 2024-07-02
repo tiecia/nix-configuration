@@ -113,6 +113,9 @@ in
                 "$mainMod SHIFT, up, movewindow, u"
                 "$mainMod SHIFT, down, movewindow, d"
 
+                ",XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+                ",XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
                 ",XF86AudioPlay, exec, $media-playpause"
                 ",XF86AudiNext, exec, $media-next"
                 ",XF86AudioPrev, exec, $media-prev"
@@ -143,9 +146,12 @@ in
               )
               ++ options.extraBind;
 
+            # Executes repeatedly while the key is held down
             binde = [
               ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
               ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+              ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%"
+              ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%"
             ];
 
             bindm = [
@@ -328,6 +334,7 @@ in
           # dolphin
           xwaylandvideobridge
           playerctl # Media player CLI controls
+          pulseaudio # Used as CLI tool to adjust volume
           wev
 
           # Screenshot tools
