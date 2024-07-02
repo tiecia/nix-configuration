@@ -326,6 +326,12 @@ in
 
         # services.dunst.enable = true;
 
+        services = {
+          udiskie = {
+            enable = true;
+          };
+        };
+
         # ags.enable = true;
 
         home.packages = with pkgs; [
@@ -348,8 +354,6 @@ in
           ffmpeg
 
           zathura # PDF viewer
-
-          udiskie # Automatically mounts removable media
         ];
       };
   }
