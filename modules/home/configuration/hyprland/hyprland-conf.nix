@@ -310,9 +310,10 @@ in
           };
           mime.enable = true;
           mimeApps = {
-            # enable = true;
+            enable = true;
             defaultApplications = {
-              "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.desktop"];
+              # "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.desktop"];
+              "image/*" = ["swappy.desktop"];
             };
           };
         };
