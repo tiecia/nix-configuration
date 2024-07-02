@@ -357,6 +357,7 @@ in
           zathura # PDF viewer
 
           udiskie
+          qview
         ];
       };
   }
