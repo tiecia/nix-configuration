@@ -350,6 +350,7 @@ in
 
               "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
               "image/*" = ["swappy.desktop"];
+              "image/jpg" = ["swappy.desktop"];
               # "image/*" = ["com.interversehq.qView.desktop"];
             };
           };
