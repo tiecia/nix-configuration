@@ -348,7 +348,8 @@ in
               "application/x-extension-xhtml" = ["firefox.desktop"];
               "application/x-extension-xht" = ["firefox.desktop"];
 
-              "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
+              "application/pdf" = ["firefox.service"];
+              # "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
             };
           };
         };
