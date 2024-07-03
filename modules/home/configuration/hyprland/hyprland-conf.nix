@@ -318,6 +318,8 @@ in
               "x-scheme-handler/http" = ["firefox.desktop"];
               "x-scheme-handler/https" = ["firefox.desktop"];
               "x-scheme-handler/chrome" = ["firefox.desktop"];
+              "x-scheme-handler/about" = ["firefox.desktop"];
+              "x-scheme-handler/unknown" = ["firefox.desktop"];
               "text/html" = ["firefox.desktop"];
               "application/x-extension-htm" = ["firefox.desktop"];
               "application/x-extension-html" = ["firefox.desktop"];
@@ -325,6 +327,8 @@ in
               "application/xhtml+xml" = ["firefox.desktop"];
               "application/x-extension-xhtml" = ["firefox.desktop"];
               "application/x-extension-xht" = ["firefox.desktop"];
+
+              "application/pdf" = ["firefox.desktop"];
             };
 
             defaultApplications = {
@@ -334,8 +338,8 @@ in
               "text/html" = ["firefox.desktop"];
               "x-scheme-handler/http" = ["firefox.desktop"];
               "x-scheme-handler/https" = ["firefox.desktop"];
-              "x-scheme-handler/about" = ["google-chrome.desktop"];
-              "x-scheme-handler/unknown" = ["google-chrome.desktop"];
+              "x-scheme-handler/about" = ["firefox.desktop"];
+              "x-scheme-handler/unknown" = ["firefox.desktop"];
               "x-scheme-handler/chrome" = ["firefox.desktop"];
               "application/x-extension-htm" = ["firefox.desktop"];
               "application/x-extension-html" = ["firefox.desktop"];
@@ -344,7 +348,7 @@ in
               "application/x-extension-xhtml" = ["firefox.desktop"];
               "application/x-extension-xht" = ["firefox.desktop"];
 
-              "application/pdf" = ["org.pwmt.zathura.desktop"];
+              "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
             };
           };
         };
