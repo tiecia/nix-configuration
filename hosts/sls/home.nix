@@ -23,6 +23,7 @@
   };
 
   git.enable = true;
+  wireguard.enable = true;
 
   betterbird.enable = true;
   bitwarden.enable = true;

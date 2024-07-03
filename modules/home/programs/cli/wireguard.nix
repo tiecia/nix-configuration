@@ -13,5 +13,13 @@ with lib; {
     home.packages = with pkgs; [
       wireguard-tools
     ];
+
+    programs.bash = {
+      enable = true;
+      shellAliases = {
+        vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
+        vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
+      };
+    };
   };
 }
