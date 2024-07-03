@@ -304,6 +304,7 @@ in
         # fonts.fontconfig.enable = true;
 
         xdg = {
+          enable = true;
           portal = {
             enable = true;
             extraPortals = [pkgs.xdg-desktop-portal-gtk];
