@@ -349,7 +349,8 @@ in
               "application/x-extension-xht" = ["firefox.desktop"];
 
               "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
-              "image/*" = ["com.interversehq.qView.desktop"];
+              "image/*" = ["swappy.desktop"];
+              # "image/*" = ["com.interversehq.qView.desktop"];
             };
           };
         };
