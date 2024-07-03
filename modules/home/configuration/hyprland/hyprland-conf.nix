@@ -368,7 +368,7 @@ in
         services = {
           udiskie = {
             enable = true;
-            tray = "auto";
+            tray = "never";
           };
         };
 
