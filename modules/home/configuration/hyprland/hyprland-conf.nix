@@ -398,6 +398,7 @@ in
 
           udiskie
           qview
+          samba
         ];
       };
   }
