@@ -202,7 +202,8 @@ in
             input = {
               kb_layout = "us";
 
-              kb_options = "ctrl:nocaps";
+              kb_options = "caps:swapescape";
+              # kb_options = "ctrl:nocaps";
 
               follow_mouse = "1";
               accel_profile = "flat";
