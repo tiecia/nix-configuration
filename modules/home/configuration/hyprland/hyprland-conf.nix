@@ -308,6 +308,14 @@ in
             enable = true;
             extraPortals = [pkgs.xdg-desktop-portal-gtk];
           };
+          mime.enable = true;
+          mimeApps = {
+            enable = true;
+            defaultApplications = {
+              # "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.desktop"];
+              "image/*" = ["com.interversehq.qView.desktop"];
+            };
+          };
         };
 
         programs.bash = {
