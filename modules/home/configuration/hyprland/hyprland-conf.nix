@@ -349,7 +349,7 @@ in
               "application/x-extension-xht" = ["firefox.desktop"];
 
               "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
-              "image/*" = ["qview.desktop"];
+              "image/*" = ["com.interversehq.qView.desktop"];
             };
           };
         };
