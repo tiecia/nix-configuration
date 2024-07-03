@@ -398,7 +398,8 @@ in
 
           udiskie
           qview
-          gnome.gvfs
+          # gnome.gvfs
+          gvfs
         ];
       };
   }
