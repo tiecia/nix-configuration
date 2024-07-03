@@ -312,8 +312,8 @@ in
           mimeApps = {
             enable = true;
             defaultApplications = {
-              "application/pdf" = ["firefox.desktop"];
-              "image/*" = ["com.interversehq.qView.desktop"];
+              "application/pdf" = ["org.pwmt.zathura.desktop"];
+              # "image/*" = ["com.interversehq.qView.desktop"];
             };
           };
         };
