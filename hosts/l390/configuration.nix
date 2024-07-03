@@ -25,6 +25,7 @@
   steam.enable = true;
   syncthing.enable = true;
   wine.enable = true;
+  wireguard.enable = true;
 
   # Configurations
   printing.enable = true;
@@ -64,10 +65,6 @@
 
   environment = {
     shellAliases = {
-      # TODO: Make a module for these
-      vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
-      vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
-
       # TODO: Move these to git.nix. Need to figure out why aliases are not working with homemanager.
       g = "git";
       gk = "gitkraken";

@@ -117,12 +117,6 @@ in {
   };
 
   environment = {
-    shellAliases = {
-      # TODO: Make a module for these
-      # vpntvup = "sudo wg-quick up ~/TVWireguard.conf";
-      # vpntvdown = "sudo wg-quick down ~/TVWireguard.conf";
-    };
-
     # TODO: Move these to vscode.nix. Need to figure out why environment variables are not working with homemanager.
     sessionVariables = {
       EDITOR = "vi";
