@@ -398,7 +398,7 @@ in
 
           udiskie
           qview
-          samba
+          gnome.gvfs
         ];
       };
   }
