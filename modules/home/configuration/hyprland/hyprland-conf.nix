@@ -169,6 +169,7 @@ in
 
             binds = {
               allow_workspace_cycles = true;
+              scroll_event_delay = 0;
             };
 
             # Some default env vars.

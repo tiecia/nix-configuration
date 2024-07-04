@@ -41,6 +41,10 @@ in {
     };
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+  ];
+
   printing.enable = true;
 
   # nvidia-graphics = {
