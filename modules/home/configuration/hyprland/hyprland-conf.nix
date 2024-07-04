@@ -109,6 +109,10 @@ in
                 "Alt_L, Tab, workspace, previous"
                 "$mainMod Alt_L, F, fullscreen"
 
+                # Scroll through existing workspaces with mainMod + scroll
+                "$mainMod, mouse_down, workspace, e+1"
+                "$mainMod, mouse_up, workspace, e-1"
+
                 # Move window position with mainMod + Ctrl_L + left/right
                 "$mainMod SHIFT, left, movewindow, l"
                 "$mainMod SHIFT, right, movewindow, r"
@@ -157,10 +161,6 @@ in
             ];
 
             bindm = [
-              # Scroll through existing workspaces with mainMod + scroll
-              "$mainMod, mouse_down, workspace, e+1"
-              "$mainMod, mouse_up, workspace, e-1"
-
               # Move/resize windows with mainMod + LMB/RMB and dragging
               "$mainMod, mouse:272, movewindow"
               "$mainMod, mouse:273, resizewindow"
