@@ -15,18 +15,15 @@
 
   config = let
     options = config.widgets.ags;
-    startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
-      #${pkgs.ags}/bin/ags # Why does calling pkgs.ags not work?
+    widgetStartupScript = pkgs.pkgs.writeShellScriptBin "widgetStartupScript" ''
       ags
-      # udiskie &
-      ${pkgs.udiskie}/bin/udiskie &
     '';
     mainMod = "Super"; # Inherit this from parent config?
   in
     lib.mkIf options.enable {
       wayland.windowManager.hyprland = {
         settings = {
-          exec-once = ''${startupScript}/bin/startupScript'';
+          # exec-once = lib.mkAfter ''${widgetStartupScript}/bin/widgetStartupScript'';
           bind = [
             "${mainMod},${mainMod}_L, exec, ags -t launcher"
           ];
@@ -62,7 +59,7 @@
       programs.bash = {
         enable = true;
         shellAliases = {
-          widget-startup = "${pkgs.bash}/bin/bash ${startupScript}/bin/startupScript";
+          widget-startup = "${pkgs.bash}/bin/bash ${widgetStartupScript}/bin/widgetStartupScript";
         };
       };
     };

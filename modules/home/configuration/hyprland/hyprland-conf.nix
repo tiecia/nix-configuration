@@ -52,6 +52,10 @@ in
       options = config.hyprland-conf;
       terminal = "${pkgs.kitty}/bin/kitty";
       fileManager = "${pkgs.gnome.nautilus}/bin/nautilus";
+
+      startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
+        ${pkgs.udiskie}/bin/udiskie &
+      '';
       # Screenshot
       # grim = "${pkgs.grim}/bin/grim";
       # slurp = "${pkgs.slurp}/bin/slurp";
@@ -67,6 +71,8 @@ in
           package = inputs.hyprland.packages.${pkgs.system}.hyprland;
           settings = {
             monitor = options.monitor;
+
+            exec-once = ''${startupScript}/bin/startupScript'';
 
             plugin = {
               hyprsplit = {
@@ -169,7 +175,6 @@ in
 
             binds = {
               allow_workspace_cycles = true;
-              scroll_event_delay = 0;
             };
 
             # Some default env vars.
@@ -362,6 +367,7 @@ in
           enable = true;
           shellAliases = {
             hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
+            hypr-startup = ''${pkgs.bash}/bin/bash ${startupScript}/bin/startupScript'';
           };
         };
 
