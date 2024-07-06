@@ -61,7 +61,7 @@ in
 
         swww-daemon &
 
-        swww img ~/nix-configuration/wallpapers/cartoon_rain_cloud-wallpaper-2560x1600.jpg
+        swww img options.wallpaper
       '';
       # Screenshot
       # grim = "${pkgs.grim}/bin/grim";
