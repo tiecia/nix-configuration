@@ -61,7 +61,7 @@ in
 
         swww-daemon &
 
-        swww img options.wallpaper
+        swww img ${options.wallpaper}
       '';
       # Screenshot
       # grim = "${pkgs.grim}/bin/grim";
