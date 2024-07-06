@@ -43,7 +43,7 @@ in
         };
         wallpaper = mkOption {
           type = types.str;
-          default = "../../../../wallpapers/abstract-lines.jpg";
+          default = "~/nix-configuration/wallpapers/abstract-lines.jpg";
         };
       };
     };
