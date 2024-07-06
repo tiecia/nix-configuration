@@ -14,7 +14,7 @@
   hyprland-conf = {
     enable = true;
     monitor = ",2400x1600@120,0x0,1";
-    wallpaper = "../../wallpapers/cartoon_rain_cloud-wallpaper-2560x1600.jpg";
+    # wallpaper = "../../wallpapers/cartoon_rain_cloud-wallpaper-2560x1600.jpg";
   };
 
   spotify = {
