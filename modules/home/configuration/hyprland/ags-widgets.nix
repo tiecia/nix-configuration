@@ -23,7 +23,7 @@
     lib.mkIf options.enable {
       wayland.windowManager.hyprland = {
         settings = {
-          exec-once = lib.mkAfter ''${widgetStartupScript}/bin/widgetStartupScript'';
+          # exec-once = lib.mkAfter ''${widgetStartupScript}/bin/widgetStartupScript'';
           bind = [
             "${mainMod},${mainMod}_L, exec, ags -t launcher"
           ];

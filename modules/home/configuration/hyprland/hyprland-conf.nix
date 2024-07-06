@@ -72,7 +72,7 @@ in
           settings = {
             monitor = options.monitor;
 
-            exec-once = lib.mkForce ''${startupScript}/bin/startupScript'';
+            # exec-once = lib.mkOrder ''${startupScript}/bin/startupScript'';
 
             plugin = {
               hyprsplit = {
