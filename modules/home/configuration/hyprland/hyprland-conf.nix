@@ -54,7 +54,14 @@ in
       fileManager = "${pkgs.gnome.nautilus}/bin/nautilus";
 
       startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
+        # TODO: Move to ags-widgets.nix
+        ags
+
         ${pkgs.udiskie}/bin/udiskie &
+
+        swww-daemon &
+
+        swww img ~/nix-configuration/wallpapers/cartoon_rain_cloud-wallpaper-2560x1600.jpg
       '';
       # Screenshot
       # grim = "${pkgs.grim}/bin/grim";
@@ -72,8 +79,7 @@ in
           settings = {
             monitor = options.monitor;
 
-            # exec-once = lib.mkOrder ''${startupScript}/bin/startupScript'';
-            exec-once = "";
+            exec-once = lib.mkAfter ''${startupScript}/bin/startupScript'';
 
             plugin = {
               hyprsplit = {
