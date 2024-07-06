@@ -125,8 +125,8 @@ in
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
                 "$mainMod, mouse_up, workspace, e-1"
-                "$mainMod mouse_down, right, workspace, e+1"
-                "$mainMod mouse_up, left, workspace, e-1"
+                "$mainMod Ctrl_L, right, workspace, e+1"
+                "$mainMod Ctrl_l, left, workspace, e-1"
 
                 # Move window position with mainMod + Ctrl_L + left/right
                 "$mainMod SHIFT, left, movewindow, l"
