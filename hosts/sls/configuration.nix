@@ -95,7 +95,7 @@ in {
   services = {
     upower.enable = true; # Needed for battery module in AGS
     logind = {
-      lidSwitch = "suspend";
+      lidSwitch = "poweroff";
     };
   };
 
