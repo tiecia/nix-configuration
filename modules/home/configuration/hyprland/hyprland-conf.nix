@@ -183,7 +183,7 @@ in
             ];
 
             bindl = [
-              ",switch:[Lid Switch],exec,notify-send 'Lid Switch'"
+              ",switch:[3821c1b0],exec,notify-send Lid"
             ];
 
             # binds = [
