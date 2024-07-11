@@ -182,15 +182,15 @@ in
               "$mainMod Alt_L, mouse:272, resizewindow"
             ];
 
-            binds = [
-              ",mouse:275&mouse_down, workspace, e+1"
-              ",mouse:275&mouse_up, workspace, e-1"
-            ];
-
-            # binds = {
-            #   allow_workspace_cycles = true;
+            # binds = [
             #
-            # };
+            #   ",mouse:275&mouse_down, workspace, e+1"
+            #   ",mouse:275&mouse_up, workspace, e-1"
+            # ];
+
+            binds = {
+              allow_workspace_cycles = true;
+            };
 
             # Some default env vars.
             env = [
