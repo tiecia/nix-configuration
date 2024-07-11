@@ -95,11 +95,6 @@ in {
   services = {
     upower.enable = true; # Needed for battery module in AGS
     logind = {
-      extraConfig = ''
-        HandlePowerKey=suspend
-        HandleLidSwitch=suspend
-        HandleLidSwitchExternalPower=ignore
-      '';
       lidSwitch = "suspend";
     };
   };
