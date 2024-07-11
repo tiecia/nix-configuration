@@ -169,10 +169,10 @@ in
 
             # Executes repeatedly while the key is held down
             binde = [
-              ",XF86MonBrightnessUp, exec, brightnessctl set 1%+"
-              ",XF86MonBrightnessDown, exec, brightnessctl set 1%-"
-              ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%"
-              ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%"
+              ",XF86MonBrightnessUp, exec, brightnessctl set 2%+"
+              ",XF86MonBrightnessDown, exec, brightnessctl set 2%-"
+              ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +2%"
+              ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -2%"
             ];
 
             bindm = [
