@@ -182,6 +182,10 @@ in
               "$mainMod Alt_L, mouse:272, resizewindow"
             ];
 
+            bindl = [
+              ",switch:[Lid Switch],exec,notify-send 'Lid Switch'"
+            ];
+
             # binds = [
             #
             #   ",mouse:275&mouse_down, workspace, e+1"
