@@ -184,6 +184,7 @@ in
 
             bindl = [
               ",switch:[3821c1b0],exec,notify-send Lid"
+              ",switch:[Microsoft Surface POS Tablet Mode Switch],exec,notify-send tablet"
             ];
 
             # binds = [
