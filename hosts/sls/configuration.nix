@@ -90,7 +90,6 @@ in {
 
   networking = {
     hostname = "TyLaptopStudioNix";
-    firewall.allowedTCPPorts = [3000];
   };
 
   services = {
