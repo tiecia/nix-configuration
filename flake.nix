@@ -42,7 +42,6 @@
     self,
     nixpkgs,
     nixpkgs-master,
-    spicetify-nix,
     nixos-hardware,
     hyprland,
     ...
@@ -61,7 +60,7 @@
       };
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master spicetify-nix hyprland;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master hyprland;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master;};
   in {
     nixosConfigurations = {

@@ -7,7 +7,6 @@
   pkgs,
   pkgs-master,
   lib,
-  spicetify-nix,
   nixos-hardware,
   ...
 }: let
@@ -75,7 +74,7 @@ in {
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs pkgs-master spicetify-nix;};
+    extraSpecialArgs = {inherit inputs pkgs pkgs-master;};
     users = {
       tiec = import ./home.nix;
     };

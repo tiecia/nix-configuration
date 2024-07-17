@@ -2,9 +2,10 @@
   config,
   lib,
   pkgs,
-  spicetify-nix,
+  inputs,
   ...
 }: let
+  spicetify-nix = inputs.spicetify-nix;
   themes = import ./spicetify {inherit pkgs spicetify-nix;};
 in
   with lib; {
