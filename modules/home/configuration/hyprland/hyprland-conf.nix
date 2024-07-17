@@ -277,10 +277,10 @@ in
 
               animation = [
                 "windows, 1, 1, myBezier"
-                "windowsOut, 1, 1, default, popin 80%"
+                "windowsOut, 1, 2, default, popin 80%"
                 "border, 1, 10, default"
                 "borderangle, 1, 8, default"
-                "fade, 1, 7, default"
+                "fade, 1, 2, default"
                 "workspaces, 1, 1, default"
               ];
             };
