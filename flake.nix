@@ -24,6 +24,11 @@
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
 
+    hyprdock = {
+      url = "github:DashieTM/hyprdock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ags.url = "github:Aylur/ags?ref=v1.8.2";
 
     custom-nvim.url = "path:./nvim/";
