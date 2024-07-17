@@ -8,7 +8,7 @@
   themes = import ./spicetify {inherit pkgs spicetify-nix;};
 in
   with lib; {
-    imports = [spicetify-nix.homeManagerModule];
+    imports = [spicetify-nix.homeManagerModules.default];
 
     options = {
       # Enable option

@@ -3,10 +3,10 @@
   spicetify-nix,
   ...
 }: let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
   config = {
     # https://github.com/spicetify/spicetify-themes/tree/master/Sleek
-    theme = spicePkgs.themes.Sleek;
+    theme = spicePkgs.themes.sleek;
     colorScheme = "custom";
     customColorScheme = {
       text = "D8DEE9";

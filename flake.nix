@@ -12,7 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # NOTE: hyprland and hyprsplit must be updated together
     # A couple of commits after v1.41.2
