@@ -9,6 +9,8 @@
     }
 
     .content {
+        min-width: 700px;
+
         .title {
             margin-right: $spacing;
             color: $fg;
