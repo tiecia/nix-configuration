@@ -311,7 +311,7 @@ in
                 "float,class:(org.gnome.Nautilus)"
                 "size 80% 80%,class:(org.gnome.Nautilus)"
                 "float,title:(Picture-in-Picture)"
-                "pin title:(Picture-in-Picture)"
+                "pin, title:(Picture-in-Picture)"
               ]
               ++ options.extraWindowrulev2;
 
