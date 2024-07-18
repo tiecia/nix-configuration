@@ -104,7 +104,7 @@ in
                 "$mainMod, C, killactive,"
                 "$mainMod, E, exec, ${fileManager}"
                 "$mainMod, V, togglefloating,"
-                "$mainMod, J, togglesplit," # dwindle
+                "$mainMod, T, togglesplit," # dwindle
 
                 "$mainMod&Shift_L, S, exec, $screenshot-region"
                 ", Print, exec, $screenshot"
@@ -114,6 +114,11 @@ in
                 "$mainMod, right, movefocus, r"
                 "$mainMod, up, movefocus, u"
                 "$mainMod, down, movefocus, d"
+
+                "$mainMod, h, movefocus, l"
+                "$mainMod, l, movefocus, r"
+                "$mainMod, k, movefocus, u"
+                "$mainMod, j, movefocus, d"
 
                 # Example special workspace (scratchpad)
                 "$mainMod, S, togglespecialworkspace, magic"
@@ -132,6 +137,11 @@ in
                 "$mainMod SHIFT, right, movewindow, r"
                 "$mainMod SHIFT, up, movewindow, u"
                 "$mainMod SHIFT, down, movewindow, d"
+
+                "$mainMod SHIFT, h, movewindow, l"
+                "$mainMod SHIFT, l, movewindow, r"
+                "$mainMod SHIFT, k, movewindow, u"
+                "$mainMod SHIFT, j, movewindow, d"
 
                 ",XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
                 ",XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
