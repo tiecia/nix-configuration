@@ -310,7 +310,7 @@ in
                 "float,class:(betterbird),title:^(Write:)"
                 "float,class:(org.gnome.Nautilus)"
                 "size 80% 80%,class:(org.gnome.Nautilus)"
-                "float,class:(Picture-in-Picture)"
+                "float,title:(Picture-in-Picture)"
               ]
               ++ options.extraWindowrulev2;
 
