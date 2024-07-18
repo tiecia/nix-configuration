@@ -300,6 +300,7 @@ in
             misc = {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
               force_default_wallpaper = "0";
+              initial_workspace_tracking = 2;
             };
 
             # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
