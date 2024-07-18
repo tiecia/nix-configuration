@@ -13,6 +13,8 @@
         dockerls.enable = true;
         csharp-ls.enable = true;
 
+        eslint.enable = true;
+
         kotlin-language-server.enable = true;
 
         # nixd.enable = true;
