@@ -102,7 +102,6 @@ in
                 "$mainMod, Q, exec, ${terminal}"
                 "$mainMod, F, exec, firefox"
                 "$mainMod, C, killactive,"
-                "$mainMod, M, exit,"
                 "$mainMod, E, exec, ${fileManager}"
                 "$mainMod, V, togglefloating,"
                 "$mainMod, J, togglesplit," # dwindle

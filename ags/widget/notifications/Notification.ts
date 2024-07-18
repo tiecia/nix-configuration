@@ -64,7 +64,6 @@ export default (notification: Notification) => {
                                 justification: "left",
                                 hexpand: true,
                                 max_width_chars: 24,
-                                truncate: "end",
                                 wrap: true,
                                 label: notification.summary.trim(),
                                 use_markup: true,
