@@ -130,9 +130,11 @@ in
                 "$mainMod, mouse_down, workspace, e+1"
                 "$mainMod, mouse_up, workspace, e-1"
                 "$mainMod Ctrl_L, right, workspace, e+1"
-                "$mainMod Ctrl_l, left, workspace, e-1"
+                "$mainMod Ctrl_L, left, workspace, e-1"
                 "$mainMod Ctrl_L, l, workspace, e+1"
-                "$mainMod Ctrl_l, h, workspace, e-1"
+                "$mainMod Ctrl_L, j, workspace, e+1"
+                "$mainMod Ctrl_L, h, workspace, e-1"
+                "$mainMod Ctrl_L, k, workspace, e-1"
 
                 # Move window position with mainMod + Ctrl_L + left/right
                 "$mainMod SHIFT, left, movewindow, l"
@@ -155,7 +157,9 @@ in
                 "$mainMod Alt_L, left, exec, $media-prev"
                 "$mainMod Alt_L, right, exec, $media-next"
                 "$mainMod Alt_L, h, exec, $media-prev"
+                "$mainMod Alt_L, j, exec, $media-prev"
                 "$mainMod Alt_L, l, exec, $media-next"
+                "$mainMod Alt_L, k, exec, $media-next"
 
                 ",mouse:276, exec, $media-playpause" # Logitech MX Master side button play pause
               ]
