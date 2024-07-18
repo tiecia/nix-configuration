@@ -11,8 +11,6 @@ const dispatch = (arg: string | number) => {
 
 const Workspaces = (ws: number, monitor: number) => Widget.Box({
     children: range(ws || 7).map(i => {
-        print("i", i);
-        print("ws", ws);
         let localNum = i+(monitor*ws);
         return Widget.Label({
             attribute: localNum,
@@ -24,12 +22,33 @@ const Workspaces = (ws: number, monitor: number) => Widget.Box({
             }),
         })
     }),
+
     setup: box => {
+        // let workspaces = hyprland.workspaces;
+        // print("Monitor: " + monitor)
+        // print(JSON.stringify(workspaces, null, 4));
+        // let children = [];
+        // workspaces.forEach(workspace => {
+        //   if(workspace.monitor == monitor) {
+        //     children.push(Widget.Label({
+        //       attribute: children.length,
+        //       vpack: "center",
+        //       label: `${children.length}`,
+        //       setup: self => self.hook(hyprland, () => {
+        //           self.toggleClassName("active", hyprland.active.workspace.id === workspace.id)
+        //           self.toggleClassName("occupied", (hyprland.getWorkspace(workspace.id)?.windows || 0) > 0)
+        //       }),
+        //     }));
+        //   }
+        // });
+        // box.children = children;
+
         if (ws === 0) {
             box.hook(hyprland.active.workspace, () => box.children.map(btn => {
                 btn.visible = hyprland.workspaces.some(ws => ws.id === btn.attribute)
             }))
         }
+
     },
 })
 
