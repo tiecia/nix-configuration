@@ -132,9 +132,9 @@ in
                 "$mainMod Ctrl_L, right, workspace, e+1"
                 "$mainMod Ctrl_L, left, workspace, e-1"
                 "$mainMod Ctrl_L, l, workspace, e+1"
-                "$mainMod Ctrl_L, j, workspace, e+1"
+                "$mainMod Ctrl_L, k, workspace, e+1"
                 "$mainMod Ctrl_L, h, workspace, e-1"
-                "$mainMod Ctrl_L, k, workspace, e-1"
+                "$mainMod Ctrl_L, j, workspace, e-1"
 
                 # Move window position with mainMod + Ctrl_L + left/right
                 "$mainMod SHIFT, left, movewindow, l"
