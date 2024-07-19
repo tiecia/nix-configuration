@@ -28,7 +28,7 @@
     };
 
     hyprdock = {
-      url = "github:DashieTM/hyprdock";
+      url = "github:DashieTM/hyprdock?rev=8d07dbdf446e6b21528cc994547cc8f173a70330";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
