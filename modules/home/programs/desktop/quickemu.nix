@@ -27,8 +27,8 @@ in
       programs.bash = {
         enable = true;
         shellAliases = {
-          windows11-setup = "bash ${windows11-setup}";
-          windows11 = "bash ${windows11}";
+          windows11-setup = "bash ${windows11-setup}/bin/windows11-setup";
+          windows11 = "bash ${windows11}/bin/windows11";
         };
       };
     };
