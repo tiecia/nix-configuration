@@ -14,6 +14,7 @@
   # TODO: Do this only in hyprland specialisation
   hyprland-conf = {
     enable = true;
+    laptop = true;
     monitor = ",2400x1600@120,0x0,1";
     wallpaper = "~/nix-configuration/wallpapers/cloud-binary-0-1-rain.jpg";
   };
