@@ -45,6 +45,7 @@ in
           type = types.str;
           default = "~/nix-configuration/wallpapers/abstract-lines.jpg";
         };
+        laptop = mkEnableOption "Laptop configuration";
       };
     };
 
@@ -422,32 +423,34 @@ in
 
         # ags.enable = true;
 
-        home.packages = with pkgs; [
-          (pkgs.waybar.overrideAttrs (oldAttrs: {
-            mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-          }))
-          kitty
-          # dolphin
-          xwaylandvideobridge
-          playerctl # Media player CLI controls
-          pulseaudio # Used as CLI tool to adjust volume
-          wev
+        home.packages = with pkgs;
+          [
+            (pkgs.waybar.overrideAttrs (oldAttrs: {
+              mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+            }))
+            kitty
+            # dolphin
+            xwaylandvideobridge
+            playerctl # Media player CLI controls
+            pulseaudio # Used as CLI tool to adjust volume
+            wev
 
-          # Screenshot tools
-          grim # Screenshot grabber
-          slurp # Region selector
-          wl-clipboard # Copy image to clipboard
+            # Screenshot tools
+            grim # Screenshot grabber
+            slurp # Region selector
+            wl-clipboard # Copy image to clipboard
 
-          # nvidia-vaapi-driver
-          ffmpeg
+            # nvidia-vaapi-driver
+            ffmpeg
 
-          zathura # PDF viewer
+            zathura # PDF viewer
 
-          udiskie
-          qview
-          gvfs # Needed for network mounts in nautilus
-
-          inputs.hyprdock.packages.${pkgs.system}.hyprdock
-        ];
+            udiskie
+            qview
+            gvfs # Needed for network mounts in nautilus
+          ]
+          ++ lists.optionals options.laptop [
+            inputs.hyprdock.packages.${pkgs.system}.hyprdock
+          ];
       };
   }
