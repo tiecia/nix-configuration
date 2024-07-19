@@ -447,7 +447,7 @@ in
           qview
           gvfs # Needed for network mounts in nautilus
 
-          inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
+          inputs.hyprdock.packages.${pkgs.system}.hyprdock
         ];
       };
   }
