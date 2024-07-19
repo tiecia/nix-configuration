@@ -7,7 +7,7 @@
   configDir = config.home.homeDirectory + "/.quickemu";
   windows11-setup = pkgs.writeShellScriptBin "windows11-setup" ''
     mkdir -p ${configDir}
-    cd ${configDir}
+    cd ${configDir} || exit
     quickget windows 11
     quickemu --vm windows-11.conf --shortcut
   '';
