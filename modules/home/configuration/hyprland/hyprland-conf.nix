@@ -78,7 +78,7 @@ in
           enable = true;
           package = inputs.hyprland.packages.${pkgs.system}.hyprland;
           settings = {
-            monitor = options.monitor;
+            inherit (options) monitor;
 
             exec-once = lib.mkAfter ''${startupScript}/bin/startupScript'';
 
