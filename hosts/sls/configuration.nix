@@ -89,6 +89,10 @@ in {
 
   networking = {
     hostname = "TyLaptopStudioNix";
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [8080];
+    };
   };
 
   services = {
