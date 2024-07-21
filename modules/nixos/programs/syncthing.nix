@@ -24,10 +24,7 @@ in
           overrideFolders = false;
 
           settings.gui = {
-            user = secrets.user;
-            password = secrets.password;
-            # user = "ty";
-            # password = "uda8BYJ^Qu5N&R";
+            inherit (secrets) user password;
           };
         };
       };
