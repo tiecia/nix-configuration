@@ -35,6 +35,11 @@
     ags.url = "github:Aylur/ags?ref=v1.8.2";
 
     custom-nvim.url = "path:./nvim/";
+
+    private = {
+      url = "path:/home/tiec/private/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

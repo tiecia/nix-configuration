@@ -1,10 +1,11 @@
 {
   config,
   lib,
-  pkgs,
+  inputs,
   ...
 }: let
   username = "tiec";
+  secrets = import "${inputs.private}/secrets/syncthing.nix";
 in
   with lib; {
     options = {
@@ -23,8 +24,10 @@ in
           overrideFolders = false;
 
           settings.gui = {
-            user = "ty";
-            password = "uda8BYJ^Qu5N&R";
+            user = secrets.user;
+            password = secrets.password;
+            # user = "ty";
+            # password = "uda8BYJ^Qu5N&R";
           };
         };
       };
