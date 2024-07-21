@@ -37,6 +37,13 @@ in
                 path = "/home/${username}/Documents";
                 devices = ["sls" "vault" "sls-win" "TyDesktopNix" "TyDesktopWin" "backup"];
                 id = "nmeir-v2pux";
+                versioning = {
+                  type = "staggered";
+                  params = {
+                    cleanInterval = "3600";
+                    maxAge = "2592000";
+                  };
+                };
               };
             };
           };
