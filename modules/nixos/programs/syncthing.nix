@@ -33,6 +33,11 @@ in
                 devices = ["sls" "vault"];
                 id = "ehghj-uy2xj";
               };
+              "documents" = {
+                path = "/home/${username}/Documents";
+                devices = ["sls" "vault"];
+                id = "nmeir-v2pux";
+              };
             };
           };
         };
