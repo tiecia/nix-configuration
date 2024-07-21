@@ -24,8 +24,8 @@ in
           overrideDevices = false;
           overrideFolders = false;
 
-          settings.gui = {
-            inherit (secrets) user password;
+          settings = {
+            inherit (secrets) gui devices;
           };
         };
       };
