@@ -26,7 +26,7 @@ const DeviceItem = (device: BluetoothDevice) => Widget.Box({
         Widget.Icon(device.icon_name + "-symbolic"),
         Widget.Label(device.name),
         Widget.Label({
-            label: `${device.battery_percentage}%`,
+            label: ` ${device.battery_percentage}%`,
             visible: device.bind("battery_percentage").as(p => p > 0),
         }),
         Widget.Box({ hexpand: true }),
