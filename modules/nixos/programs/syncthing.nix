@@ -30,13 +30,13 @@ in
             folders = {
               "prism" = {
                 path = "/home/${username}/games/minecraft/prism";
-                devices = ["vault"];
-                # devices = ["sls" "vault"];
+                # devices = ["vault"];
+                devices = ["sls" "vault" "sls-win" "TyDesktopNix" "TyDesktopWin" "SteamDeck"];
                 id = "ehghj-uy2xj";
               };
               "documents" = {
                 path = "/home/${username}/Documents";
-                devices = ["vault"];
+                devices = ["sls" "vault" "sls-win" "TyDesktopNix" "TyDesktopWin"];
                 id = "nmeir-v2pux";
               };
             };
