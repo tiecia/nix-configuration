@@ -4,6 +4,7 @@
   inputs,
   ...
 }: let
+  # TODO: Get this from home manager
   username = "tiec";
   secrets = import "${inputs.private}/secrets/syncthing.nix";
 in
