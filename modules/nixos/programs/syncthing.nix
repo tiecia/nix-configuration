@@ -26,6 +26,14 @@ in
 
           settings = {
             inherit (secrets) gui devices;
+
+            folders = {
+              "prism" = {
+                path = "/home/${username}/games/minecraft/prism";
+                devices = ["sls" "vault"];
+                id = "ehghj-uy2xj";
+              };
+            };
           };
         };
       };
