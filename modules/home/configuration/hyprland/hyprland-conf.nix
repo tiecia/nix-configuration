@@ -152,7 +152,7 @@ in
                 ",XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
                 ",XF86AudioPlay, exec, $media-playpause"
-                ",XF86AudiNext, exec, $media-next"
+                ",XF86AudioNext, exec, $media-next"
                 ",XF86AudioPrev, exec, $media-prev"
                 "$mainMod Alt_L, slash, exec, $media-playpause" #Binds the "/" key
                 "$mainMod Alt_L, left, exec, $media-prev"
