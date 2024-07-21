@@ -35,7 +35,7 @@ in
               };
               "documents" = {
                 path = "/home/${username}/Documents";
-                devices = ["sls" "vault" "sls-win" "TyDesktopNix" "TyDesktopWin"];
+                devices = ["sls" "vault" "sls-win" "TyDesktopNix" "TyDesktopWin" "backup"];
                 id = "nmeir-v2pux";
               };
             };
