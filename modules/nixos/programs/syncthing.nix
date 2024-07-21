@@ -30,7 +30,6 @@ in
             folders = {
               "prism" = {
                 path = "/home/${username}/games/minecraft/prism";
-                # devices = ["vault"];
                 devices = ["sls" "vault" "sls-win" "TyDesktopNix" "TyDesktopWin" "SteamDeck"];
                 id = "ehghj-uy2xj";
               };
@@ -42,6 +41,10 @@ in
             };
           };
         };
+      };
+      networking.firewall = {
+        allowedTCPPorts = [22000];
+        allowedUDPPorts = [22000 21027];
       };
     };
   }
