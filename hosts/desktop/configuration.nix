@@ -62,7 +62,7 @@ in {
   prism-launcher.enable = true;
   syncthing.enable = true;
   wine.enable = true;
-  wireguard.enable = true;
+  # wireguard.enable = true;
 
   steam = {
     enable = true;

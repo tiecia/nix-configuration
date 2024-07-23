@@ -34,6 +34,7 @@
       "monitor 2,title:^(Discord)" # Discord PWA
     ];
     mouse.sensitivity = -0.6;
+    wallpaper = "~/nix-configuration/wallpapers/black-sand-1.png";
   };
 
   spotify = {

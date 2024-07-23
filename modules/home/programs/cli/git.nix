@@ -20,8 +20,8 @@ with lib; {
 
     programs.git = {
       enable = true;
-      userName = "tiecia";
       userEmail = "ty.cia@outlook.com";
+      userName = "tiecia";
       aliases = {
         co = "checkout";
         cm = "commit";
