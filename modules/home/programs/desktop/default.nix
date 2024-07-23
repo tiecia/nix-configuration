@@ -25,6 +25,8 @@
     ./arduino-ide.nix
     ./cheese.nix
     ./quickemu.nix
+    ./inkscape.nix
+    ./gimp.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -33,4 +35,6 @@
   vlc.enable = lib.mkDefault true;
   cheese.enable = lib.mkDefault true;
   quickemu.enable = lib.mkDefault true;
+  gimp.enable = true;
+  inkscape.enable = true;
 }
