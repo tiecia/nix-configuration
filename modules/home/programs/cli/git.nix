@@ -18,6 +18,16 @@ with lib; {
       ];
     };
 
+    # programs.bash = {
+    #   enable = true;
+    #   shellAliases = {
+    #     co = "checkout";
+    #     cm = "commit";
+    #     st = "status";
+    #     pu = "push";
+    #   };
+    # };
+
     programs.git = {
       enable = true;
       userEmail = "ty.cia@outlook.com";
@@ -28,6 +38,11 @@ with lib; {
         st = "status";
         pu = "push";
       };
+    };
+
+    programs.gh = {
+      enable = true;
+      gitCredentialHelper.enable = true;
     };
   };
 }

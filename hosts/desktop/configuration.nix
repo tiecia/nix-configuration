@@ -78,6 +78,7 @@ in {
     };
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "hmbackup";
   };
 
   rebuild = {
