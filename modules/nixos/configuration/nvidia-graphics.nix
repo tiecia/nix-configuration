@@ -152,6 +152,14 @@ with lib; {
       vulkan-tools
     ];
 
+    nixpkgs.overlays = [
+      (_: final: {
+        wlroots_0_16 =
+          final.wlroots_0_16.overrideAttrs
+          (_: {patches = [./wlroots-nvidia.patch];});
+      })
+    ];
+
     nix = {
       settings = {
         substituters = [
