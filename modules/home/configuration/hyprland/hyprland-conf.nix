@@ -327,6 +327,7 @@ in
                 "suppressevent maximize, class:.*"
                 "float,class:(betterbird),title:^(Write:)"
                 "float,class:(org.gnome.Nautilus)"
+                "float,class:(steam)"
                 "size 80% 80%,class:(org.gnome.Nautilus)"
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
