@@ -27,6 +27,7 @@
     ./quickemu.nix
     ./inkscape.nix
     ./gimp.nix
+    ./wpsoffice.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -37,4 +38,5 @@
   quickemu.enable = lib.mkDefault true;
   gimp.enable = true;
   inkscape.enable = true;
+  wpsoffice.enable = true;
 }
