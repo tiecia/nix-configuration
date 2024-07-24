@@ -329,7 +329,8 @@ in
                 "float,class:(org.gnome.Nautilus)"
                 "size 80% 80%,class:(org.gnome.Nautilus)"
                 "float,class:(steam)"
-                "size 60% 60%,class:(steam)"
+                "size 80% 80%,class:(steam)"
+                "size 40% 80%,title:(Friends List)"
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
               ]
