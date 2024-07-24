@@ -49,7 +49,6 @@
   chrome.enable = true;
   discord.enable = true;
   filezilla.enable = true;
-  libreoffice.enable = true;
   msteams.enable = true;
   solaar.enable = true;
   onedrive.enable = true;

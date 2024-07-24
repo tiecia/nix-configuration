@@ -18,7 +18,6 @@
   bitwarden.enable = true;
   discord.enable = true;
   filezilla.enable = true;
-  libreoffice.enable = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

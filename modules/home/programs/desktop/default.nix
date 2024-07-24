@@ -11,7 +11,7 @@
     ./filezilla.nix
     ./firefox/firefox.nix
     ./kalc.nix
-    ./libreoffice.nix
+    # ./libreoffice.eix
     ./msteams.nix
     ./onedrive/onedrive.nix
     ./solaar.nix
@@ -36,7 +36,7 @@
   vlc.enable = lib.mkDefault true;
   cheese.enable = lib.mkDefault true;
   quickemu.enable = lib.mkDefault true;
-  gimp.enable = true;
-  inkscape.enable = true;
-  wpsoffice.enable = true;
+  gimp.enable = lib.mkDefault true;
+  inkscape.enable = lib.mkDefault true;
+  wpsoffice.enable = lib.mkDefault true;
 }
