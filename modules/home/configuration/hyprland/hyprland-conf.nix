@@ -37,10 +37,6 @@ in
             description = "Mouse sensitivity";
           };
         };
-        widgets = mkOption {
-          type = types.enum ["waybar" "ags"];
-          default = "waybar";
-        };
         wallpaper = mkOption {
           type = types.str;
           default = "~/nix-configuration/wallpapers/abstract-lines.jpg";
@@ -71,7 +67,6 @@ in
       # screenshot-region = "${grim} -l 0 -g \"$(${slurp})\" - | ${copy}";
     in
       mkIf options.enable {
-        #widgets.waybar.enable = true;
         widgets.ags.enable = true;
 
         wayland.windowManager.hyprland = {
@@ -428,9 +423,6 @@ in
 
         home.packages = with pkgs;
           [
-            (pkgs.waybar.overrideAttrs (oldAttrs: {
-              mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-            }))
             kitty
             # dolphin
             xwaylandvideobridge
