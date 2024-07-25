@@ -26,7 +26,7 @@ in
         enable = true;
         shellAliases = {
           windows11-setup = "bash ${windows11-setup}/bin/windows11-setup";
-          windows11 = "quickemu --vm ${configDir}/windows-11.conf";
+          windows11 = "quickemu --vm ${configDir}/windows-11.conf --display spice";
         };
       };
     };
