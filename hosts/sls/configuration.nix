@@ -91,7 +91,7 @@ in {
     hostname = "TyLaptopStudioNix";
     firewall = {
       enable = true;
-      allowedTCPPorts = [8080];
+      allowedTCPPorts = [8080 3000];
     };
   };
 
