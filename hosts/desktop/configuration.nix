@@ -44,6 +44,8 @@ in {
     # programs here, NOT in environment.systemPackages
   ];
 
+  programs.gnupg.agent.enable = true;
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [5000 1883];
