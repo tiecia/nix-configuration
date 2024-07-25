@@ -328,6 +328,10 @@ in
                 "float,class:(betterbird),title:^(Write:)"
                 "float,class:(org.gnome.Nautilus)"
                 "size 80% 80%,class:(org.gnome.Nautilus)"
+                "float,class:(steam)"
+                "size 40% 80%,title:(Friends List)"
+                "size 40% 80%,title:(Steam Settings)"
+                "size 80% 80%,class:(steam)"
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
               ]

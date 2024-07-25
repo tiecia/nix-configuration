@@ -18,16 +18,31 @@ with lib; {
       ];
     };
 
+    # programs.bash = {
+    #   enable = true;
+    #   shellAliases = {
+    #     co = "checkout";
+    #     cm = "commit";
+    #     st = "status";
+    #     pu = "push";
+    #   };
+    # };
+
     programs.git = {
       enable = true;
-      userName = "tiecia";
       userEmail = "ty.cia@outlook.com";
+      userName = "tiecia";
       aliases = {
         co = "checkout";
         cm = "commit";
         st = "status";
         pu = "push";
       };
+    };
+
+    programs.gh = {
+      enable = true;
+      gitCredentialHelper.enable = true;
     };
   };
 }

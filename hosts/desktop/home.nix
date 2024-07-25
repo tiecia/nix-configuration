@@ -34,6 +34,7 @@
       "monitor 2,title:^(Discord)" # Discord PWA
     ];
     mouse.sensitivity = -0.6;
+    wallpaper = "~/nix-configuration/wallpapers/black-sand-1.png";
   };
 
   spotify = {
@@ -48,7 +49,6 @@
   chrome.enable = true;
   discord.enable = true;
   filezilla.enable = true;
-  libreoffice.enable = true;
   msteams.enable = true;
   solaar.enable = true;
   onedrive.enable = true;
@@ -69,6 +69,7 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
+
   home.username = "tiec";
   home.homeDirectory = "/home/tiec";
 
