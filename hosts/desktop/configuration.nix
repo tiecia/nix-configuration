@@ -72,6 +72,8 @@ in {
     gamescopeArgs = ["-w 1920 -h 1080 -W 2560 -H 1080 -f"];
   };
 
+  services.samba.enable = true;
+
   # TODO: Move this to a home-manager configuration module
   home-manager = {
     extraSpecialArgs = {inherit inputs pkgs pkgs-master;};
