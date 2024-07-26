@@ -29,9 +29,9 @@
       "Super, P, split:swapactiveworkspaces, 0 3"
     ];
     extraWindowrulev2 = [
-      "monitor 2,title:(Spotify Premium)"
-      "monitor 2,class:(discord)" # Discord native app
-      "monitor 2,title:^(Discord)" # Discord PWA
+      # "monitor 2,title:(Spotify Premium)"
+      # "monitor 2,class:(discord)" # Discord native app
+      # "monitor 2,title:^(Discord)" # Discord PWA
     ];
     mouse.sensitivity = -0.6;
     wallpaper = "~/nix-configuration/wallpapers/black-sand-1.png";
