@@ -6,7 +6,8 @@
   ...
 }: let
   show-spotify = pkgs.writeShellScriptBin "show-spotify" ''
-
+    spotify &
+    hyprctl togglespecialworkspace spotify
   '';
 in {
   wayland.windowManager.hyprland = {
