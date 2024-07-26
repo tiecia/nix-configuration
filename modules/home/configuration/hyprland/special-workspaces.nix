@@ -4,11 +4,16 @@
   lib,
   config,
   ...
-}: {
+}: let
+  show-spotify = pkgs.writeShellScriptBin "show-spotify" ''
+
+  '';
+in {
   wayland.windowManager.hyprland = {
     settings = {
       bind = [
-        "$mainMod, S, togglespecialworkspace, spotify"
+        "$mainMod, S, exec, ${show-spotify}/bin/show-spotify"
+        # "$mainMod, S, togglespecialworkspace, spotify"
         "$mainMod Shift_L, S, movetoworkspace, special:spotify"
       ];
     };
