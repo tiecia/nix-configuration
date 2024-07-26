@@ -130,14 +130,6 @@ in
                 "Alt_L, Tab, workspace, previous"
                 "$mainMod Alt_L, F, fullscreen"
 
-                # Program special workspaces
-                "$mainMod, D, togglespecialworkspace, discord"
-                "$mainMod Shift_L, D, movetoworkspace, special:discord"
-                "$mainMod, B, togglespecialworkspace, betterbird"
-                "$mainMod Shift_L, B, movetoworkspace, special:betterbird"
-                "$mainMod, G, togglespecialworkspace, gitkraken"
-                "$mainMod Shift_L, G, movetoworkspace, special:gitkraken"
-
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
                 "$mainMod, mouse_up, workspace, e-1"
@@ -345,8 +337,6 @@ in
                 "size 80% 80%,class:(steam)"
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
-
-                "workspace special:spotify, title:(Spotify Premium)"
               ]
               ++ options.extraWindowrulev2;
 
