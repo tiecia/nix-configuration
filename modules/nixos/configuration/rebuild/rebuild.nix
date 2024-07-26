@@ -39,8 +39,8 @@ with lib; {
         ns = "nix-shell";
         try = "nix-shell -p";
 
-        conf = "nano ~/nix-configuration/hosts/${host}/configuration.nix";
-        home = "nano ~/nix-configuration/hosts/${host}/home.nix";
+        conf = "nvim ~/nix-configuration/hosts/${host}/configuration.nix";
+        home = "nvim ~/nix-configuration/hosts/${host}/home.nix";
         nxrs = "sudo nixos-rebuild switch --flake ~/nix-configuration/#${host}";
         nxrt = "sudo nixos-rebuild test --flake ~/nix-configuration/#${host}";
       };
