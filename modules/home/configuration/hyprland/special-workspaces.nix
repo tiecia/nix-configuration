@@ -9,14 +9,22 @@
     spotify &
     hyprctl dispatch togglespecialworkspace spotify
   '';
+
   show-discord = pkgs.writeShellScriptBin "show-discord" ''
-    discord &
+    str=$(hyprctl clients | grep "FFPWA-01HZ3KX1QST5T15ECH5S0EDXQC")
+
+    if [ -z "$str" ] && [ "$str" != " " ]; then
+      firefoxpwa site launch 01HZ3KX1QST5T15ECH5S0EDXQC &
+      # discord &
+    fi
     hyprctl dispatch togglespecialworkspace discord
   '';
+
   show-betterbird = pkgs.writeShellScriptBin "show-betterbird" ''
     betterbird &
     hyprctl dispatch togglespecialworkspace betterbird
   '';
+
   show-gitkraken = pkgs.writeShellScriptBin "show-gitkraken" ''
     gitkraken &
     hyprctl dispatch togglespecialworkspace gitkraken
