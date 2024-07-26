@@ -14,7 +14,9 @@ with lib; {
     };
   };
 
-  config = {
+  config = let
+    inherit (config.rebuild) host;
+  in {
     environment = {
       systemPackages = with pkgs; [
         alejandra # .nix formatter
@@ -37,14 +39,14 @@ with lib; {
         ns = "nix-shell";
         try = "nix-shell -p";
 
-        sconf = "nano ~/nix-configuration/hosts/${config.environment.sessionVariables.CONFIGURATION_HOST}/configuration.nix";
-        hconf = "nano ~/nix-configuration/hosts/${config.environment.sessionVariables.CONFIGURATION_HOST}/home.nix";
-        nxrs = "sudo nixos-rebuild switch --flake ~/nix-configuration/#${config.environment.sessionVariables.CONFIGURATION_HOST}";
-        nxrt = "sudo nixos-rebuild test --flake ~/nix-configuration/#${config.environment.sessionVariables.CONFIGURATION_HOST}";
+        conf = "nano ~/nix-configuration/hosts/${host}/configuration.nix";
+        home = "nano ~/nix-configuration/hosts/${host}/home.nix";
+        nxrs = "sudo nixos-rebuild switch --flake ~/nix-configuration/#${host}";
+        nxrt = "sudo nixos-rebuild test --flake ~/nix-configuration/#${host}";
       };
 
       sessionVariables = {
-        CONFIGURATION_HOST = config.rebuild.host;
+        CONFIGURATION_HOST = host;
       };
     };
   };
