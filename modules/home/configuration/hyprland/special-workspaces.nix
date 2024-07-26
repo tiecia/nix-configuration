@@ -30,32 +30,40 @@
     hyprctl dispatch togglespecialworkspace gitkraken
   '';
 in {
-  wayland.windowManager.hyprland = {
-    settings = {
-      bind = [
-        "$mainMod, S, exec, ${show-spotify}/bin/show-spotify"
-        "$mainMod Shift_L, S, movetoworkspace, special:spotify"
+  options = {
+    special-workspaces = {
+      enable = lib.mkEnableOption "Enable special workspaces";
+    };
+  };
 
-        "$mainMod, D, exec, ${show-discord}/bin/show-discord"
-        "$mainMod Shift_L, D, movetoworkspace, special:discord"
+  config = lib.mkIf config.special-workspaces.enable {
+    wayland.windowManager.hyprland = {
+      settings = {
+        bind = [
+          "$mainMod, S, exec, ${show-spotify}/bin/show-spotify"
+          "$mainMod Shift_L, S, movetoworkspace, special:spotify"
 
-        "$mainMod, B, exec, ${show-betterbird}/bin/show-betterbird"
-        "$mainMod Shift_L, B, movetoworkspace, special:betterbird"
+          "$mainMod, D, exec, ${show-discord}/bin/show-discord"
+          "$mainMod Shift_L, D, movetoworkspace, special:discord"
 
-        "$mainMod, G, exec, ${show-gitkraken}/bin/show-gitkraken"
-        "$mainMod Shift_L, G, movetoworkspace, special:gitkraken"
-      ];
+          "$mainMod, B, exec, ${show-betterbird}/bin/show-betterbird"
+          "$mainMod Shift_L, B, movetoworkspace, special:betterbird"
 
-      windowrulev2 = [
-        "workspace special:spotify, title:(Spotify Premium)"
+          "$mainMod, G, exec, ${show-gitkraken}/bin/show-gitkraken"
+          "$mainMod Shift_L, G, movetoworkspace, special:gitkraken"
+        ];
 
-        "workspace special:discord, class:(discord)" # Discord native app
-        "workspace special:discord, title:^(Discord)" # Discord PWA
+        windowrulev2 = [
+          "workspace special:spotify, title:(Spotify Premium)"
 
-        "workspace special:betterbird, class:(betterbird)"
+          "workspace special:discord, class:(discord)" # Discord native app
+          "workspace special:discord, title:^(Discord)" # Discord PWA
 
-        "workspace special:gitkraken, class:(GitKraken)"
-      ];
+          "workspace special:betterbird, class:(betterbird)"
+
+          "workspace special:gitkraken, class:(GitKraken)"
+        ];
+      };
     };
   };
 }

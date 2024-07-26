@@ -76,6 +76,7 @@ in
     in
       mkIf options.enable {
         widgets.ags.enable = true;
+        special-workspaces.enable = true;
 
         wayland.windowManager.hyprland = {
           enable = true;
