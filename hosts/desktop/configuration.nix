@@ -52,7 +52,7 @@ in {
   };
 
   printing.enable = true;
-  # nvidia-graphics.enable = true;
+  nvidia-graphics.enable = true;
   numlock-boot.enable = true;
 
   hardware.logitech.wireless.enable = true;
