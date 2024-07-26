@@ -7,6 +7,10 @@
 }: let
 in
   with lib; {
+    imports = [
+      ./special-workspaces.nix
+    ];
+
     options = {
       hyprland-conf = {
         enable = mkEnableOption "Enable hyprland configuration";
@@ -128,8 +132,6 @@ in
                 "$mainMod Alt_L, F, fullscreen"
 
                 # Program special workspaces
-                "$mainMod, S, togglespecialworkspace, spotify"
-                "$mainMod Shift_L, S, movetoworkspace, special:spotify"
                 "$mainMod, D, togglespecialworkspace, discord"
                 "$mainMod Shift_L, D, movetoworkspace, special:discord"
                 "$mainMod, B, togglespecialworkspace, betterbird"
