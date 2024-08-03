@@ -29,6 +29,15 @@
     gitkraken &
     hyprctl dispatch togglespecialworkspace gitkraken
   '';
+
+  show-notion = pkgs.writeShellScriptBin "show-notion" ''
+    str=$(hyprctl clients | grep "FFPWA-01HXCTAGSEC8Z53A6Y9TFXNM7M")
+
+    if [ -z "$str" ] && [ "$str" != " " ]; then
+      firefoxpwa site launch 01HXCTAGSEC8Z53A6Y9TFXNM7M &
+    fi
+    hyprctl dispatch togglespecialworkspace notion
+  '';
 in {
   options = {
     special-workspaces = {
@@ -51,6 +60,9 @@ in {
 
           "$mainMod, G, exec, ${show-gitkraken}/bin/show-gitkraken"
           "$mainMod Shift_L, G, movetoworkspace, special:gitkraken"
+
+          "$mainMod, N, exec, ${show-notion}/bin/show-notion"
+          "$mainMod Shift_L, G, movetoworkspace, special:notion"
         ];
 
         windowrulev2 = [
@@ -62,6 +74,8 @@ in {
           "workspace special:betterbird, class:(betterbird)"
 
           "workspace special:gitkraken, class:(GitKraken)"
+
+          "workspace special:notion, initialClass:(Notion)"
         ];
       };
     };

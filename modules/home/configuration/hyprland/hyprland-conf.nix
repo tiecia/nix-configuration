@@ -410,11 +410,21 @@ in
           };
         };
 
-        programs.bash = {
-          enable = true;
-          shellAliases = {
-            hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
-            hypr-startup = ''${pkgs.bash}/bin/bash ${startupScript}/bin/startupScript'';
+        programs = {
+          bash = {
+            enable = true;
+            shellAliases = {
+              hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
+              hypr-startup = ''${pkgs.bash}/bin/bash ${startupScript}/bin/startupScript'';
+            };
+          };
+
+          kitty = {
+            enable = true;
+            font = {
+              size = 17;
+              name = "DejaVu Sans";
+            };
           };
         };
 
