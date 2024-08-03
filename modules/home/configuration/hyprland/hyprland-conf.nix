@@ -31,7 +31,7 @@ in
         };
         numWorkspaces = mkOption {
           type = types.int;
-          default = 12;
+          default = 10;
           description = "Number of workspaces per monitor";
         };
         mouse = {
@@ -179,7 +179,6 @@ in
                         else if x == 11
                         then "="
                         else toString (x + 1);
-                      # key = x;
                     in [
                       "$mainMod, ${key}, split:workspace, ${toString (x + 1)}"
                       "$mainMod SHIFT, ${key}, split:movetoworkspace, ${toString (x + 1)}"
