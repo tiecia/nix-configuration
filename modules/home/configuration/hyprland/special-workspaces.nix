@@ -75,7 +75,7 @@ in {
 
           "workspace special:gitkraken, class:(GitKraken)"
 
-          "workspace special:notion, initialClass:(Notion)"
+          "workspace special:notion, initialTitle:(Notion)"
         ];
       };
     };
