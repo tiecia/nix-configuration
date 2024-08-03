@@ -19,9 +19,9 @@ with lib; {
     };
 
     services = {
+      libinput.enable = true;
       xserver = {
         enable = true;
-        libinput.enable = true;
         displayManager.gdm = {
           enable = true;
           wayland = true;
