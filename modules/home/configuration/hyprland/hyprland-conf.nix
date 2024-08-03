@@ -422,7 +422,7 @@ in
           kitty = {
             enable = true;
             font = {
-              size = 14;
+              size = 12;
               name = "DejaVu Sans";
             };
           };

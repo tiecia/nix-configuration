@@ -50,7 +50,7 @@
     kitty = {
       enable = true; # Kitty is installed by Hyprland so we need to enable it here for options.
       font = {
-        size = 17;
+        size = lib.mkForce 17;
       };
     };
   };
