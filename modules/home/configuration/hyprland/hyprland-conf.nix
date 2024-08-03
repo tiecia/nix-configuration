@@ -56,7 +56,7 @@ in
     config = let
       options = config.hyprland-conf;
       terminal = "${pkgs.kitty}/bin/kitty";
-      fileManager = "${pkgs.gnome.nautilus}/bin/nautilus";
+      fileManager = "${pkgs.nautilus}/bin/nautilus";
 
       startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
         # TODO: Move to ags-widgets.nix
@@ -422,7 +422,7 @@ in
           kitty = {
             enable = true;
             font = {
-              size = 17;
+              size = 14;
               name = "DejaVu Sans";
             };
           };

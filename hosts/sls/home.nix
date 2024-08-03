@@ -51,7 +51,6 @@
       enable = true; # Kitty is installed by Hyprland so we need to enable it here for options.
       font = {
         size = 17;
-        name = "DejaVu Sans"; # The home manager module requires the font name to be set.
       };
     };
   };
