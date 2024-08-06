@@ -29,6 +29,7 @@
     ./gimp.nix
     ./wpsoffice.nix
     ./figma.nix
+    ./winapps.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -40,5 +41,6 @@
   gimp.enable = lib.mkDefault true;
   inkscape.enable = lib.mkDefault true;
   wpsoffice.enable = lib.mkDefault true;
-  figma.enable = true;
+  figma.enable = lib.mkDefault true;
+  winapps.enable = lib.mkDefault true;
 }
