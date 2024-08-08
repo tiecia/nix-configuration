@@ -78,6 +78,6 @@ async function setupHyprland() {
 }
 
 export default function init() {
-    options.handler(deps, setupHyprland)
-    setupHyprland()
+    // options.handler(deps, setupHyprland)
+    // setupHyprland()
 }

@@ -271,6 +271,8 @@ in
               border_size = "0";
               # "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
               # "col.inactive_border" = "rgba(595959aa)";
+              "col.active_border" = "0xff0000ff";
+              "col.inactive_border" = "rgba(595959aa)";
 
               layout = "master";
               # layout = "dwindle";
@@ -315,6 +317,10 @@ in
               # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
               pseudotile = "yes";
               preserve_split = "yes";
+            };
+
+            master = {
+              # no_gaps_when_only
             };
 
             gestures = {
