@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-master,
   ...
 }:
 with lib; {
@@ -13,7 +14,7 @@ with lib; {
   config = mkIf config.firefox.enable {
     home = {
       packages = mkMerge [
-        [pkgs.firefox]
+        [pkgs-master.firefox]
         (mkIf config.firefox.installPWA [pkgs.firefoxpwa])
       ];
 
@@ -27,6 +28,7 @@ with lib; {
     };
 
     programs.firefox = {
+      package = pkgs-master.firefox;
       enable = true;
       nativeMessagingHosts = mkIf config.firefox.installPWA [pkgs.firefoxpwa];
     };
