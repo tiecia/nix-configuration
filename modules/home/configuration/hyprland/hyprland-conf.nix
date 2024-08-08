@@ -339,6 +339,8 @@ in
                 "size 80% 80%,class:(steam)"
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
+
+                "opacity 0.5, class(kittye"
               ]
               ++ options.extraWindowrulev2;
 
