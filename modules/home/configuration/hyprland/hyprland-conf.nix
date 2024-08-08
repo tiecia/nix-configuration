@@ -59,6 +59,8 @@ in
       fileManager = "${pkgs.nautilus}/bin/nautilus";
 
       startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
+        dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
         # TODO: Move to ags-widgets.nix
         ags
 
@@ -361,7 +363,7 @@ in
           enable = true;
           portal = {
             enable = true;
-            extraPortals = [pkgs.xdg-desktop-portal-gtk];
+            extraPortals = [pkgs.xdg-desktop-portal-hyprland];
           };
           mimeApps = {
             enable = true;
