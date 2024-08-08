@@ -267,7 +267,7 @@ in
 
             general = {
               gaps_in = "2";
-              gaps_out = "0";
+              gaps_out = "1";
               border_size = "0";
               "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
               "col.inactive_border" = "rgba(595959aa)";
@@ -340,7 +340,7 @@ in
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
 
-                "opacity 0.9, class:(kitty)"
+                "opacity 0.85, class:(kitty)"
               ]
               ++ options.extraWindowrulev2;
 
