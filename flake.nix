@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
@@ -46,6 +47,7 @@
     self,
     nixpkgs,
     nixpkgs-master,
+    nixpkgs-stable,
     nixos-hardware,
     hyprland,
     ...
@@ -63,9 +65,15 @@
         allowUnfree = true;
       };
     };
+    pkgs-stable = import nixpkgs-stable {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master hyprland;};
-    specialArgsCli = {inherit inputs system pkgs pkgs-master;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland;};
+    specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable;};
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
