@@ -340,7 +340,7 @@ in
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
 
-                "opacity 0.8, class:(kitty)"
+                "opacity 0.9, class:(kitty)"
               ]
               ++ options.extraWindowrulev2;
 
