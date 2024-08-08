@@ -278,7 +278,7 @@ in
               # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
               allow_tearing = "false";
 
-              resize_on_corner = "true";
+              resize_on_border = "true";
             };
 
             decoration = {
