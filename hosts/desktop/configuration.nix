@@ -6,6 +6,7 @@
   config,
   pkgs,
   pkgs-master,
+  pkgs-stable,
   lib,
   ...
 }: let
@@ -76,7 +77,7 @@ in {
 
   # TODO: Move this to a home-manager configuration module
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs pkgs-master;};
+    extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable;};
     users = {
       tiec = import ./home.nix;
     };
