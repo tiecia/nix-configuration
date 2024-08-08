@@ -315,11 +315,11 @@ in
               # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
               pseudotile = "yes";
               preserve_split = "yes";
-              no_gaps_when_only = 2;
+              no_gaps_when_only = 0;
             };
 
             master = {
-              no_gaps_when_only = 2;
+              no_gaps_when_only = 0;
             };
 
             gestures = {
