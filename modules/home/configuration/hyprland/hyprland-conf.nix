@@ -269,8 +269,8 @@ in
               gaps_in = "2";
               gaps_out = "10";
               border_size = "1";
-              "col.active_border" = "rgba(ff0000ee) rgba(00ff00ee) 90deg";
-              # "col.active_border" = "rgba(0a43d1ee) rgba(05a0eeee) 90deg";
+              # "col.active_border" = "rgba(ff0000ee) rgba(00ff00ee) 90deg";
+              "col.active_border" = "rgba(0a43d1ee) rgba(05a0eeee) 90deg";
               "col.inactive_border" = "rgba(595959aa)";
 
               layout = "master";
