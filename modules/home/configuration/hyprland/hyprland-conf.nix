@@ -377,7 +377,7 @@ in
           style.name = "breeze";
         };
 
-        # fonts.fontconfig.enable = true;
+        fonts.fontconfig.enable = true;
 
         xdg = {
           enable = true;
