@@ -79,7 +79,7 @@ in {
     image = ../../wallpapers/alena-aenami-escape-hd.jpg;
     polarity = "dark";
     targets = {
-      gnome.enable = false;
+      gnome.enable = lib.mkForce false;
     };
     cursor = {
       package = pkgs.bibata-cursors;
