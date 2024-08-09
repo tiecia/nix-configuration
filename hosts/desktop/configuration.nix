@@ -75,7 +75,7 @@ in {
 
   stylix = {
     enable = true;
-    image = ../../wallpapers/black-sand-1.png;
+    image = ../../wallpapers/alena-aenami-escape-hd.jpg;
     polarity = "dark";
   };
 
