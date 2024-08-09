@@ -87,6 +87,11 @@ in {
     };
   };
 
+  fonts.packages = with pkgs; [
+    helvetica-neue-lt-std
+    liberation-fonts
+  ];
+
   services.samba.enable = true;
 
   # TODO: Move this to a home-manager configuration module
