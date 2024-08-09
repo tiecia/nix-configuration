@@ -76,6 +76,7 @@ in {
   stylix = {
     enable = true;
     image = ../../wallpapers/alena-aenami-lights1k1.jpg;
+    polarity = "dark";
   };
 
   services.samba.enable = true;
