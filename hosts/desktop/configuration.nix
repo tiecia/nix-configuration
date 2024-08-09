@@ -74,7 +74,7 @@ in {
   };
 
   stylix = {
-    enable = true;
+    enable = false;
     image = ../../wallpapers/alena-aenami-aenami-dawn.jpg;
     polarity = "dark";
   };

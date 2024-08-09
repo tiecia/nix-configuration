@@ -447,7 +447,7 @@ in
             enable = true;
             font = {
               size = 12;
-              # name = "DejaVu Sans";
+              name = "DejaVu Sans";
             };
           };
         };
