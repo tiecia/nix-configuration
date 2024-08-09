@@ -42,6 +42,12 @@
     theme = "dark-blue";
   };
 
+  stylix = {
+    targets = {
+      vscode.enable = false;
+    };
+  };
+
   git.enable = true;
 
   betterbird.enable = true;
