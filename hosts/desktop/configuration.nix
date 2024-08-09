@@ -75,8 +75,8 @@ in {
 
   stylix = {
     enable = true;
-    image = ../../wallpapers/alena-aenami-away-1k.jpg;
-    # image = ../../wallpapers/alena-aenami-escape-hd.jpg;
+    # image = ../../wallpapers/alena-aenami-away-1k.jpg;
+    image = ../../wallpapers/alena-aenami-escape-hd.jpg;
     polarity = "dark";
   };
 
