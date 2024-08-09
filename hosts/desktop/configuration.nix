@@ -90,6 +90,7 @@ in {
   fonts.packages = with pkgs; [
     helvetica-neue-lt-std
     liberation_ttf
+    aileron
   ];
 
   services.samba.enable = true;
