@@ -83,7 +83,7 @@ in {
     };
     cursor = {
       package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Classic";
+      name = "Bibata-Modern-Classic";
     };
   };
 
