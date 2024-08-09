@@ -89,7 +89,7 @@ in {
 
   fonts.packages = with pkgs; [
     helvetica-neue-lt-std
-    liberation-fonts
+    liberation_ttf
   ];
 
   services.samba.enable = true;
