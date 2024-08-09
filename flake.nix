@@ -35,6 +35,8 @@
 
     ags.url = "github:Aylur/ags?ref=v1.8.2";
 
+    stylix.url = "github:danth/stylix";
+
     custom-nvim.url = "path:./nvim/";
 
     private = {
@@ -50,6 +52,7 @@
     nixpkgs-stable,
     nixos-hardware,
     hyprland,
+    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -80,6 +83,7 @@
         specialArgs = specialArgsDesktop;
 
         modules = [
+          stylix.nixosModules.stylix
           ./hosts/desktop/configuration.nix
         ];
       };

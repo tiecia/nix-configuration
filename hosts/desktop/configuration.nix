@@ -73,6 +73,11 @@ in {
     gamescopeArgs = ["-w 1920 -h 1080 -W 2560 -H 1080 -f"];
   };
 
+  stylix = {
+    enable = true;
+    image = ../../wallpapers/alena-aenami-lights1k1.jpg;
+  };
+
   services.samba.enable = true;
 
   # TODO: Move this to a home-manager configuration module

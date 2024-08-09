@@ -66,9 +66,9 @@ in
 
         ${pkgs.udiskie}/bin/udiskie &
 
-        swww-daemon &
+        # swww-daemon &
 
-        swww img ${options.wallpaper}
+        # swww img ${options.wallpaper}
       '';
       # Screenshot
       # grim = "${pkgs.grim}/bin/grim";
@@ -269,8 +269,8 @@ in
               gaps_in = "5";
               gaps_out = "10";
               border_size = "1";
-              "col.active_border" = "rgba(0a43d1ee) rgba(05a0eeee) 90deg";
-              "col.inactive_border" = "rgba(595959aa)";
+              # "col.active_border" = "rgba(0a43d1ee) rgba(05a0eeee) 90deg";
+              # "col.inactive_border" = "rgba(595959aa)";
 
               layout = "master";
               # layout = "dwindle";
@@ -291,7 +291,7 @@ in
               drop_shadow = "yes";
               shadow_range = "4";
               shadow_render_power = "3";
-              "col.shadow" = "rgba(1a1a1aee)";
+              # "col.shadow" = "rgba(1a1a1aee)";
             };
 
             animations = {
@@ -364,6 +364,11 @@ in
             inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
           ];
         };
+
+        # stylix = {
+        #   enable = true;
+        #   image = "~/nix-configuration/wallpapers/alena-aenami-lights1k1.jpg";
+        # };
 
         qt = {
           enable = true;
@@ -442,7 +447,7 @@ in
             enable = true;
             font = {
               size = 12;
-              name = "DejaVu Sans";
+              # name = "DejaVu Sans";
             };
           };
         };
