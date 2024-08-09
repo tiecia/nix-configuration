@@ -28,10 +28,10 @@
     neomake
   ];
 
-  # colorschemes.ayu = {
-  #   enable = true;
-  #   settings.mirage = true;
-  # };
+  colorschemes.ayu = {
+    enable = true;
+    settings.mirage = true;
+  };
 
   extraConfigVim = ''
     autocmd BufRead,BufNewFile *.pl set filetype=prolog
