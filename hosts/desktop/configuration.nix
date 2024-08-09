@@ -74,8 +74,8 @@ in {
   };
 
   stylix = {
-    enable = false;
-    image = ../../wallpapers/alena-aenami-lights1k1.jpg;
+    enable = true;
+    image = ../../wallpapers/alena-aenami-aenami-dawn.jpg;
     polarity = "dark";
   };
 
