@@ -78,6 +78,13 @@ in {
     # image = ../../wallpapers/alena-aenami-away-1k.jpg;
     image = ../../wallpapers/alena-aenami-escape-hd.jpg;
     polarity = "dark";
+    targets = {
+      gnome.enable = false;
+    };
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
   };
 
   services.samba.enable = true;
