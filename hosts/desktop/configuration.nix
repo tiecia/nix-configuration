@@ -74,7 +74,7 @@ in {
   };
 
   stylix = {
-    enable = true;
+    enable = false;
     image = ../../wallpapers/alena-aenami-lights1k1.jpg;
     polarity = "dark";
   };
