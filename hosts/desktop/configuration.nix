@@ -75,7 +75,7 @@ in {
 
   stylix = {
     enable = true;
-    image = ../../wallpapers/alena-aenami-aenami-dawn.jpg;
+    image = ../../wallpapers/black-sand-1.png;
     polarity = "dark";
   };
 
