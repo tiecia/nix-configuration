@@ -352,6 +352,7 @@ in
                 "pin, title:(Picture-in-Picture)"
 
                 "opacity 0.85, class:(kitty)"
+                "opacity 0.90, class:(org.gnome.Nautilus)"
                 "noborder, onworkspace:w[t1]"
               ]
               ++ options.extraWindowrulev2;
