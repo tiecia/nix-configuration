@@ -466,9 +466,6 @@ in
 
         home.packages = with pkgs;
           [
-            (pkgs.waybar.overrideAttrs (oldAttrs: {
-              mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-            }))
             kitty
             # dolphin
             xwaylandvideobridge
@@ -489,6 +486,8 @@ in
             udiskie
             qview
             gvfs # Needed for network mounts in nautilus
+
+            aileron
           ]
           ++ lists.optionals options.laptop [
             inputs.hyprdock.packages.${pkgs.system}.hyprdock
