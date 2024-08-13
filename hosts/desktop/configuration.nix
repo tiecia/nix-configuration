@@ -76,7 +76,7 @@ in {
   stylix = {
     enable = true;
     # image = ../../wallpapers/alena-aenami-away-1k.jpg;
-    image = ../../wallpapers/alena-aenami-escape-hd.jpg;
+    image = ../../wallpapers/alena-aenami-lights1k1.jpg;
     polarity = "dark";
     targets = {
       gnome.enable = lib.mkForce false;
