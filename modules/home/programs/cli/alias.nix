@@ -13,8 +13,9 @@ with lib; {
     programs.bash = {
       enable = true;
       shellAliases = {
-        la = "ls -la";
-        l = "ls";
+        ls = "eza";
+        la = "eza -la";
+        l = "eza";
         c = "clear";
         h = "history";
         gcm = "git commit -m";

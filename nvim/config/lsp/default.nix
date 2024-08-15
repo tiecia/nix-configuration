@@ -11,7 +11,8 @@
         pyright.enable = true;
         marksman.enable = true;
         dockerls.enable = true;
-        csharp-ls.enable = true;
+        # csharp-ls.enable = true;
+        omnisharp.enable = true;
 
         eslint.enable = true;
 
