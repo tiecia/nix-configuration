@@ -131,7 +131,7 @@ in
                 # "$mainMod, S, togglespecialworkspace, magic"
                 # "$mainMod Ctrl_L, S, movetoworkspace, special:magic"
                 "Alt_L, Tab, workspace, previous"
-                "$mainMod Alt_L, F, fullscreen"
+                "$mainMod, code:95, fullscreen"
 
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
