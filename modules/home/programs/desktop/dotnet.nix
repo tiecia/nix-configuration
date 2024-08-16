@@ -15,8 +15,8 @@ in {
   config = lib.mkIf config.dotnet.enable {
     home.packages = [
       pkgs.jetbrains.rider
-      pkgs.dotnet-sdk_8
-      # pkgs.dotnet-sdk_7
+      # pkgs.dotnet-sdk_8
+      pkgs.dotnet-sdk_7
     ];
   };
 }
