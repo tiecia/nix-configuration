@@ -9,7 +9,7 @@ with lib; {
     steam.enable = mkEnableOption "Enable steam";
     steam.enableGamescope = mkEnableOption "Enable gamescope for steam";
     steam.gamescopeArgs = mkOption {
-      type = types.listOf types.string;
+      type = types.listOf types.str;
       default = [""];
       description = "Arguments to pass to gamescope";
     };
