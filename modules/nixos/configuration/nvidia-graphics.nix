@@ -21,14 +21,14 @@ with lib; {
       '';
     };
     intelBusId = lib.mkOption {
-      type = types.string;
+      type = types.str;
       default = "";
       description = ''
         The PCI bus ID of the Intel GPU.
       '';
     };
     nvidiaBusId = lib.mkOption {
-      type = types.string;
+      type = types.str;
       default = "";
       description = ''
         The PCI bus ID of the Nvidia GPU.
