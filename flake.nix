@@ -116,6 +116,7 @@
         specialArgs = specialArgsDesktop;
 
         modules = [
+          stylix.nixosModules.stylix
           ./hosts/sls/configuration.nix
           nixos-hardware.nixosModules.microsoft-surface-common
         ];
