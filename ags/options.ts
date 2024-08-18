@@ -113,7 +113,7 @@ const options = mkOptions(OPTIONS, {
             low: opt(30),
         },
         workspaces: {
-            workspaces: opt(12),
+            workspaces: opt(10),
         },
         taskbar: {
             iconSize: opt(0),

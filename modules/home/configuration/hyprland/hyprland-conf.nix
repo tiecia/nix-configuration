@@ -7,6 +7,10 @@
 }: let
 in
   with lib; {
+    imports = [
+      ./special-workspaces.nix
+    ];
+
     options = {
       hyprland-conf = {
         enable = mkEnableOption "Enable hyprland configuration";
@@ -27,7 +31,7 @@ in
         };
         numWorkspaces = mkOption {
           type = types.int;
-          default = 12;
+          default = 10;
           description = "Number of workspaces per monitor";
         };
         mouse = {
@@ -48,17 +52,19 @@ in
     config = let
       options = config.hyprland-conf;
       terminal = "${pkgs.kitty}/bin/kitty";
-      fileManager = "${pkgs.gnome.nautilus}/bin/nautilus";
+      fileManager = "${pkgs.nautilus}/bin/nautilus";
 
       startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
+        dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
         # TODO: Move to ags-widgets.nix
         ags
 
         ${pkgs.udiskie}/bin/udiskie &
 
-        swww-daemon &
+        # swww-daemon &
 
-        swww img ${options.wallpaper}
+        # swww img ${options.wallpaper}
       '';
       # Screenshot
       # grim = "${pkgs.grim}/bin/grim";
@@ -68,6 +74,7 @@ in
     in
       mkIf options.enable {
         widgets.ags.enable = true;
+        special-workspaces.enable = true;
 
         wayland.windowManager.hyprland = {
           enable = true;
@@ -102,7 +109,7 @@ in
                 "$mainMod, V, togglefloating,"
                 "$mainMod, T, togglesplit," # dwindle
 
-                "$mainMod&Shift_L, S, exec, $screenshot-region"
+                "$mainMod&Ctrl_L, S, exec, $screenshot-region"
                 ", Print, exec, $screenshot"
 
                 # Move focus with mainMod + arrow keys
@@ -117,10 +124,10 @@ in
                 "$mainMod, j, movefocus, d"
 
                 # Example special workspace (scratchpad)
-                "$mainMod, S, togglespecialworkspace, magic"
-                "$mainMod Ctrl_L, S, movetoworkspace, special:magic"
+                # "$mainMod, S, togglespecialworkspace, magic"
+                # "$mainMod Ctrl_L, S, movetoworkspace, special:magic"
                 "Alt_L, Tab, workspace, previous"
-                "$mainMod Alt_L, F, fullscreen"
+                "$mainMod, code:95, fullscreen"
 
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
@@ -170,7 +177,6 @@ in
                         else if x == 11
                         then "="
                         else toString (x + 1);
-                      # key = x;
                     in [
                       "$mainMod, ${key}, split:workspace, ${toString (x + 1)}"
                       "$mainMod SHIFT, ${key}, split:movetoworkspace, ${toString (x + 1)}"
@@ -256,16 +262,19 @@ in
             };
 
             general = {
-              gaps_in = "2";
-              gaps_out = "0";
-              border_size = "0";
-              "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-              "col.inactive_border" = "rgba(595959aa)";
+              gaps_in = "5";
+              gaps_out = "10";
+              border_size = "1";
+              # "col.active_border" = "rgba(0a43d1ee) rgba(05a0eeee) 90deg";
+              # "col.inactive_border" = "rgba(595959aa)";
 
-              layout = "dwindle";
+              layout = "master";
+              # layout = "dwindle";
 
               # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
               allow_tearing = "false";
+
+              resize_on_border = "true";
             };
 
             decoration = {
@@ -278,7 +287,7 @@ in
               drop_shadow = "yes";
               shadow_range = "4";
               shadow_render_power = "3";
-              "col.shadow" = "rgba(1a1a1aee)";
+              # "col.shadow" = "rgba(1a1a1aee)";
             };
 
             animations = {
@@ -302,6 +311,14 @@ in
               # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
               pseudotile = "yes";
               preserve_split = "yes";
+              no_gaps_when_only = 0;
+              special_scale_factor = 0.95;
+            };
+
+            master = {
+              no_gaps_when_only = 0;
+              new_on_top = true;
+              special_scale_factor = 0.95;
             };
 
             gestures = {
@@ -329,6 +346,10 @@ in
                 "size 80% 80%,class:(steam)"
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
+
+                "opacity 0.85, class:(kitty)"
+                "opacity 0.90, class:(org.gnome.Nautilus)"
+                "noborder, onworkspace:w[t1]"
               ]
               ++ options.extraWindowrulev2;
 
@@ -341,19 +362,28 @@ in
           ];
         };
 
+        # stylix = {
+        #   enable = true;
+        #   image = "~/nix-configuration/wallpapers/alena-aenami-lights1k1.jpg";
+        # };
+
         qt = {
           enable = true;
           platformTheme.name = "kde";
           style.name = "breeze";
         };
 
-        # fonts.fontconfig.enable = true;
+        fonts.fontconfig.enable = true;
 
         xdg = {
           enable = true;
           portal = {
             enable = true;
-            extraPortals = [pkgs.xdg-desktop-portal-gtk];
+            extraPortals = [
+              pkgs.xdg-desktop-portal-hyprland
+              pkgs.xdg-desktop-portal-gtk
+            ];
+            config.common.default = "*"; # This forces the desktop portal config to use the pre-version 1.17 config.
           };
           mimeApps = {
             enable = true;
@@ -402,11 +432,21 @@ in
           };
         };
 
-        programs.bash = {
-          enable = true;
-          shellAliases = {
-            hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
-            hypr-startup = ''${pkgs.bash}/bin/bash ${startupScript}/bin/startupScript'';
+        programs = {
+          bash = {
+            enable = true;
+            shellAliases = {
+              hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
+              hypr-startup = ''${pkgs.bash}/bin/bash ${startupScript}/bin/startupScript'';
+            };
+          };
+
+          kitty = {
+            enable = true;
+            font = {
+              size = 12;
+              # name = "DejaVu Sans";
+            };
           };
         };
 
@@ -443,6 +483,8 @@ in
             udiskie
             qview
             gvfs # Needed for network mounts in nautilus
+
+            aileron
           ]
           ++ lists.optionals options.laptop [
             inputs.hyprdock.packages.${pkgs.system}.hyprdock

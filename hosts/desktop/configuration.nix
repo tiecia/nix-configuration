@@ -6,6 +6,7 @@
   config,
   pkgs,
   pkgs-master,
+  pkgs-stable,
   lib,
   ...
 }: let
@@ -44,6 +45,8 @@ in {
     # programs here, NOT in environment.systemPackages
   ];
 
+  programs.gnupg.agent.enable = true;
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [5000 1883];
@@ -70,9 +73,31 @@ in {
     gamescopeArgs = ["-w 1920 -h 1080 -W 2560 -H 1080 -f"];
   };
 
+  stylix = {
+    enable = true;
+    # image = ../../wallpapers/alena-aenami-away-1k.jpg;
+    image = ../../wallpapers/alena-aenami-lights1k1.jpg;
+    polarity = "dark";
+    targets = {
+      gnome.enable = lib.mkForce false;
+    };
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+    };
+  };
+
+  fonts.packages = with pkgs; [
+    helvetica-neue-lt-std
+    liberation_ttf
+    # aileron
+  ];
+
+  services.samba.enable = true;
+
   # TODO: Move this to a home-manager configuration module
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs pkgs-master;};
+    extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable;};
     users = {
       tiec = import ./home.nix;
     };

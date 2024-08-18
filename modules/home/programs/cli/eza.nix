@@ -6,12 +6,12 @@
 }:
 with lib; {
   options = {
-    cheese.enable = lib.mkEnableOption "Enable cheese";
+    eza.enable = mkEnableOption "Enable eza";
   };
 
-  config = mkIf config.cheese.enable {
+  config = mkIf config.eza.enable {
     home.packages = with pkgs; [
-      cheese
+      eza
     ];
   };
 }

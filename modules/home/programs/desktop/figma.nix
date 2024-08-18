@@ -6,12 +6,12 @@
 }:
 with lib; {
   options = {
-    cheese.enable = lib.mkEnableOption "Enable cheese";
+    figma.enable = lib.mkEnableOption "Enable figma";
   };
 
-  config = mkIf config.cheese.enable {
+  config = mkIf config.figma.enable {
     home.packages = with pkgs; [
-      cheese
+      figma-linux
     ];
   };
 }

@@ -21,14 +21,14 @@ with lib; {
       '';
     };
     intelBusId = lib.mkOption {
-      type = types.string;
+      type = types.str;
       default = "";
       description = ''
         The PCI bus ID of the Intel GPU.
       '';
     };
     nvidiaBusId = lib.mkOption {
-      type = types.string;
+      type = types.str;
       default = "";
       description = ''
         The PCI bus ID of the Nvidia GPU.
@@ -37,10 +37,8 @@ with lib; {
   };
 
   config = mkIf config.nvidia-graphics.enable {
-    # Enable OpenGL
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
-      driSupport32Bit = true;
 
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
@@ -146,7 +144,7 @@ with lib; {
     environment.systemPackages = with pkgs; [
       clinfo
       gwe
-      nvtop-nvidia
+      nvtopPackages.nvidia
       virtualglLib
       vulkan-loader
       vulkan-tools

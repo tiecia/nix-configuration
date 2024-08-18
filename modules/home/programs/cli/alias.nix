@@ -13,8 +13,9 @@ with lib; {
     programs.bash = {
       enable = true;
       shellAliases = {
-        la = "ls -la";
-        l = "ls";
+        ls = "eza";
+        la = "eza -la";
+        l = "eza";
         c = "clear";
         h = "history";
         gcm = "git commit -m";
@@ -25,10 +26,8 @@ with lib; {
         gp = "git push";
         work = "cd ~/development/rosepoint/PlanZ/; code ~/Development/rosepoint/PlanZ/";
         unfree = "export NIXPKGS_ALLOW_UNFREE=1";
-        home = "cd ~";
         open = "bash ~/nix-configuration/modules/home/programs/cli/scripts/open.sh";
         ".." = "cd ..";
-        # hypr = "vi ~/nix-configuration/modules/home/configuration/hyprland/hyprland-conf.nix";
         dup = "(kitty $PWD &) &> /dev/null";
       };
     };
