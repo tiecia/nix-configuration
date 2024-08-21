@@ -12,6 +12,7 @@ with lib; {
     ./pipewire.nix
     ./bluetooth.nix
     ./logitech.nix
+    ./environment-variables.nix
   ];
 
   options = {
