@@ -72,17 +72,17 @@ in {
   #   backupFileExtension = "backup";
   # };
 
-  rebuild = {
-    host = "sls";
-  };
+  rebuild.host = "sls";
 
-  networking = {
-    hostname = "TyLaptopStudioNix";
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [8080 3000];
-    };
-  };
+  networking.hostName = lib.mkForce "TyLaptopStudioNix";
+
+  # networking = {
+  #   hostname = "TyLaptopStudioNix";
+  #   firewall = {
+  #     enable = true;
+  #     allowedTCPPorts = [8080 3000];
+  #   };
+  # };
 
   services = {
     upower.enable = true; # Needed for battery module in AGS

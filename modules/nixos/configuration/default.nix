@@ -19,7 +19,6 @@
   bootloader.enable = lib.mkDefault true;
   flakes.enable = lib.mkDefault true;
   locale-en-us.enable = lib.mkDefault true;
-  networking.enable = lib.mkDefault true;
   rebuild.enable = lib.mkDefault true;
   dynamic-linking.enable = lib.mkDefault true;
 
