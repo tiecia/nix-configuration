@@ -8,7 +8,7 @@
     ./flakes.nix
     ./locale-en-us.nix
     ./networking.nix
-    ./rebuild/rebuild.nix
+    ./rebuild.nix
     ./numlock.nix
     ./dynamic-linking.nix
     ./home-manager.nix
