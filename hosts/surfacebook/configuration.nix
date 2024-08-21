@@ -21,61 +21,9 @@ in {
 
   plasma.enable = true;
 
-  printing.enable = true;
-  numlock-boot.enable = true;
-
-  hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true; # for solaar to be included
-
-  # Programs
-  kde-connect.enable = true;
-  docker.enable = true;
-  steam.enable = true;
-  prism-launcher.enable = true;
-  syncthing.enable = true;
-  wine.enable = true;
-  wireguard.enable = true;
-
-  # TODO: Move this to a home-manager configuration module
-  home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs pkgs-master;};
-    users = {
-      tiec = import ./home.nix;
-    };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
-
-  rebuild = {
-    host = "surfacebook";
-  };
-
-  networking = {
-    hostname = "TySurfaceBook";
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tiec = {
-    isNormalUser = true;
-    description = "tiec";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker" # Gives tiec account access to the docker socket
-    ];
-    packages = with pkgs; [
-      # TODO: Move this to a home-manager configuration module. Then make a user module.
-      home-manager
-      # hello
-    ];
-  };
-
-  environment = {
-    # TODO: Move these to vscode.nix. Need to figure out why environment variables are not working with homemanager.
-    sessionVariables = {
-      EDITOR = "vi";
-    };
-  };
+  home-manager.users.tiec = import ./home.nix;
+  rebuild.host = "surfacebook";
+  networking.hostname = "TySurfaceBook";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

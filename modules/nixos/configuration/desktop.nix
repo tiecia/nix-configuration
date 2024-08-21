@@ -13,6 +13,7 @@ with lib; {
     ./bluetooth.nix
     ./logitech.nix
     ./environment-variables.nix
+    ./fonts.nix
   ];
 
   options = {
@@ -20,11 +21,15 @@ with lib; {
   };
 
   config = mkIf config.desktop-configuration.enable {
-    stylix.enable = lib.mkDefault true;
     pipewire.enable = lib.mkDefault true;
     bluetooth.enable = lib.mkDefault true;
     printing.enable = lib.mkDefault true;
     nvidia-graphics.enable = lib.mkDefault true;
-    logitech.enable = true;
+    logitech.enable = lib.mkDefault true;
+    kde-connect.enable = lib.mkDefault true;
+    steam.enable = lib.mkDefault true;
+    prism-launcher.enable = lib.mkDefault true;
+    syncthing.enable = lib.mkDefault true;
+    wine.enable = lib.mkDefault true;
   };
 }

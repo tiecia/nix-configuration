@@ -10,7 +10,8 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker" # Gives tiec account access to the docker socket
+      "docker" # Gives account access to the docker socket
+      "dialout" # Gives account access to serial ports
     ];
     packages = with pkgs; [
       home-manager

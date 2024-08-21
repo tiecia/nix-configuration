@@ -17,6 +17,7 @@ with lib; {
 
   # config = mkIf config.stylix.enable {
   stylix = {
+    enable = lib.mkDefault true;
     image = lib.mkDefault ../../../wallpapers/alena-aenami-lights1k1.jpg;
     polarity = "dark";
 

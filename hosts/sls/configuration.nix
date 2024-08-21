@@ -20,9 +20,21 @@ in {
     ../../modules/nixos/programs
   ];
 
-  laptop-configuration.enable = lib.mkForce true;
+  home-manager.users.tiec = import ./home.nix;
+  rebuild.host = "sls";
+  networking.hostName = lib.mkForce "TyLaptopStudioNix";
 
+  laptop-configuration.enable = lib.mkForce true;
   hyprland.enable = true;
+  surface.enable = lib.mkForce true;
+  nvidia-graphics.enable = lib.mkForce false;
+
+  # nvidia-graphics = {
+  #   enable = false;
+  #   prime = "offload";
+  #   intelBusId = "PCI:0:2:0";
+  #   nvidiaBusId = "PCI:243:0:0";
+  # };
 
   specialisation = {
     plasma.configuration = {
@@ -41,45 +53,6 @@ in {
       };
     };
   };
-
-  surface.enable = lib.mkForce true;
-
-  nvidia-graphics.enable = lib.mkForce false;
-
-  # nvidia-graphics = {
-  #   enable = false;
-  #   prime = "offload";
-  #   intelBusId = "PCI:0:2:0";
-  #   nvidiaBusId = "PCI:243:0:0";
-  # };
-
-  # Programs
-  kde-connect.enable = true;
-  docker.enable = true;
-  steam.enable = true;
-  prism-launcher.enable = true;
-  syncthing.enable = true;
-  wine.enable = true;
-
-  home-manager.users.tiec = import ./home.nix;
-  rebuild.host = "sls";
-  networking.hostName = lib.mkForce "TyLaptopStudioNix";
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.tiec = {
-  #   isNormalUser = true;
-  #   description = "tiec";
-  #   extraGroups = [
-  #     "networkmanager"
-  #     "wheel"
-  #     "docker" # Gives tiec account access to the docker socket
-  #   ];
-  #   packages = with pkgs; [
-  #     # TODO: Move this to a home-manager configuration module. Then make a user module.
-  #     home-manager
-  #     # hello
-  #   ];
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

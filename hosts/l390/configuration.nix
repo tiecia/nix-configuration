@@ -18,62 +18,9 @@
 
   plasma.enable = true;
 
-  # Programs
-  kde-connect.enable = true;
-  docker.enable = true;
-  steam.enable = true;
-  syncthing.enable = true;
-  wine.enable = true;
-  wireguard.enable = true;
-
-  # Configurations
-  printing.enable = true;
-
-  # TODO: Move this to a home-manager configuration module
-  home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs;};
-    users = {
-      tiec = import ./home.nix;
-    };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
-
-  rebuild = {
-    host = "l390";
-  };
-
-  networking = {
-    hostname = "TyYogaL390";
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tiec = {
-    isNormalUser = true;
-    description = "tiec";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker" # Gives tiec account access to the docker socket
-    ];
-    packages = with pkgs; [
-      # TODO: Move this to a home-manager configuration module. Then make a user module.
-      home-manager
-    ];
-  };
-
-  environment = {
-    shellAliases = {
-      # TODO: Move these to git.nix. Need to figure out why aliases are not working with homemanager.
-      g = "git";
-      gk = "gitkraken";
-    };
-
-    # TODO: Move these to vscode.nix. Need to figure out why environment variables are not working with homemanager.
-    sessionVariables = {
-      EDITOR = "vi";
-    };
-  };
+  home-manager.users.tiec = import ./home.nix;
+  rebuild.host = "l390";
+  networking.hostName = "TyYogaL390";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

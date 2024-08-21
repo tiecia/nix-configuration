@@ -20,7 +20,20 @@ in {
     ../../modules/nixos/programs
   ];
 
+  # TODO: Move this to a home-manager configuration module
+  home-manager.users.tiec = import ./home.nix;
+  rebuild.host = "desktop";
+  networking.hostName = "TyDesktopNix";
+
   hyprland.enable = true;
+
+  services.samba.enable = lib.mkForce true;
+
+  steam = {
+    enable = true;
+    enableGamescope = true;
+    gamescopeArgs = ["-w 1920 -h 1080 -W 2560 -H 1080 -f"];
+  };
 
   specialisation = {
     plasma.configuration = {
@@ -31,130 +44,33 @@ in {
       };
     };
 
-    # hyprland.configuration = {
-    #   hyprland.enable = true;
-    #   environment.sessionVariables = {
-    #    SPECIALISATION = "hyprland";
-    #   };
-    # };
-  };
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged
-    # programs here, NOT in environment.systemPackages
-  ];
-
-  programs.gnupg.agent.enable = true;
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [5000 1883];
-  };
-
-  printing.enable = true;
-  nvidia-graphics.enable = true;
-  numlock-boot.enable = true;
-
-  hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true; # for solaar to be included
-
-  # Programs
-  kde-connect.enable = true;
-  docker.enable = true;
-  prism-launcher.enable = true;
-  syncthing.enable = true;
-  wine.enable = true;
-  # wireguard.enable = true;
-
-  steam = {
-    enable = true;
-    enableGamescope = true;
-    gamescopeArgs = ["-w 1920 -h 1080 -W 2560 -H 1080 -f"];
-  };
-
-  stylix = {
-    enable = true;
-    # image = ../../wallpapers/alena-aenami-away-1k.jpg;
-    image = ../../wallpapers/alena-aenami-lights1k1.jpg;
-    polarity = "dark";
-    targets = {
-      gnome.enable = lib.mkForce false;
-    };
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+    gnome.configuration = {
+      hyprland.enable = lib.mkForce false;
+      gnome.enable = true;
+      environment.sessionVariables = {
+        SPECIALISATION = "gnome";
+      };
     };
   };
 
-  fonts.packages = with pkgs; [
-    helvetica-neue-lt-std
-    liberation_ttf
-    # aileron
-  ];
-
-  services.samba.enable = true;
-
-  # TODO: Move this to a home-manager configuration module
-  home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable;};
-    users = {
-      tiec = import ./home.nix;
+  fileSystems = {
+    "/mnt/steam" = {
+      device = "/dev/disk/by-uuid/C492E1D992E1D04A";
+      fsType = "ntfs";
+      options = ["uid=1000"];
     };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "backup";
-  };
 
-  rebuild = {
-    host = "desktop";
-  };
-
-  networking = {
-    hostname = "TyDesktopNix";
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tiec = {
-    isNormalUser = true;
-    description = "tiec";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker" # Gives tiec account access to the docker socket
-      "dialout"
-    ];
-    packages = with pkgs; [
-      # TODO: Move this to a home-manager configuration module. Then make a user module.
-      home-manager
-      linuxKernel.packages.linux_zen.xone
-      # hello
-    ];
-  };
-
-  environment = {
-    # TODO: Move these to vscode.nix. Need to figure out why environment variables are not working with homemanager.
-    sessionVariables = {
-      EDITOR = "vi";
+    "/mnt/hdd" = {
+      device = "/dev/disk/by-uuid/9606B41606B3F4F9";
+      fsType = "ntfs";
+      options = ["uid=1000"];
     };
-  };
 
-  fileSystems."/mnt/steam" = {
-    device = "/dev/disk/by-uuid/C492E1D992E1D04A";
-    fsType = "ntfs";
-    options = ["uid=1000"];
-  };
-
-  fileSystems."/mnt/hdd" = {
-    device = "/dev/disk/by-uuid/9606B41606B3F4F9";
-    fsType = "ntfs";
-    options = ["uid=1000"];
-  };
-
-  fileSystems."/mnt/datassd" = {
-    device = "/dev/disk/by-uuid/F45A101B5A0FD96E";
-    fsType = "ntfs";
-    options = ["uid=1000"];
+    "/mnt/datassd" = {
+      device = "/dev/disk/by-uuid/F45A101B5A0FD96E";
+      fsType = "ntfs";
+      options = ["uid=1000"];
+    };
   };
 
   # This value determines the NixOS release from which the default
