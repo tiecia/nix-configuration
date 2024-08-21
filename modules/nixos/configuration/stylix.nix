@@ -18,7 +18,8 @@ with lib; {
   # config = mkIf config.stylix.enable {
   stylix = {
     enable = lib.mkDefault true;
-    image = lib.mkDefault ../../../wallpapers/alena-aenami-lights1k1.jpg;
+    # image = lib.mkDefault ../../../wallpapers/alena-aenami-lights1k1.jpg;
+    image = lib.mkDefault ../../../wallpapers/alena-aenami-away-1k.jpg;
     polarity = "dark";
 
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
