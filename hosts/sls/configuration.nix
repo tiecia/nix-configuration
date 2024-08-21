@@ -36,15 +36,15 @@ in {
   #   nvidiaBusId = "PCI:243:0:0";
   # };
 
-  services.create_ap = {
-    enable = true;
-    settings = {
-      INTERNET_IFACE = "lo";
-      WIFI_IFACE = "wlp242s0";
-      SSID = "devenv";
-      PASSPHRASE = "devenv1234";
-    };
-  };
+  # services.create_ap = {
+  #   enable = true;
+  #   settings = {
+  #     INTERNET_IFACE = "lo";
+  #     WIFI_IFACE = "wlp242s0";
+  #     SSID = "devenv";
+  #     PASSPHRASE = "devenv1234";
+  #   };
+  # };
 
   specialisation = {
     plasma.configuration = {
