@@ -40,11 +40,7 @@ in {
     };
   };
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-  ];
-
-  printing.enable = true;
+  nvidia-graphics.enable = lib.mkForce false;
 
   # nvidia-graphics = {
   #   enable = false;
@@ -53,16 +49,9 @@ in {
   #   nvidiaBusId = "PCI:243:0:0";
   # };
 
-  # microsoft-surface.ipts.enable = true;
-  # microsoft-surface.surface-control.enable = true;
-
   environment.systemPackages = with pkgs; [
-    # xorg.xf86inputsynaptics
     surface-control
   ];
-
-  hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true; # for solaar to be included
 
   # Programs
   kde-connect.enable = true;
