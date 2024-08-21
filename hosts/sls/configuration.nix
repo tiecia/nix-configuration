@@ -66,20 +66,20 @@ in {
   networking.hostName = lib.mkForce "TyLaptopStudioNix";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tiec = {
-    isNormalUser = true;
-    description = "tiec";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker" # Gives tiec account access to the docker socket
-    ];
-    packages = with pkgs; [
-      # TODO: Move this to a home-manager configuration module. Then make a user module.
-      home-manager
-      # hello
-    ];
-  };
+  # users.users.tiec = {
+  #   isNormalUser = true;
+  #   description = "tiec";
+  #   extraGroups = [
+  #     "networkmanager"
+  #     "wheel"
+  #     "docker" # Gives tiec account access to the docker socket
+  #   ];
+  #   packages = with pkgs; [
+  #     # TODO: Move this to a home-manager configuration module. Then make a user module.
+  #     home-manager
+  #     # hello
+  #   ];
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

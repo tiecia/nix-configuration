@@ -12,6 +12,7 @@
     ./numlock.nix
     ./dynamic-linking.nix
     ./home-manager.nix
+    ./users.nix
 
     ./desktop.nix # Configuration to enable for desktop systems
     ./laptop.nix
