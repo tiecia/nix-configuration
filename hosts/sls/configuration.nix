@@ -44,20 +44,6 @@ in {
   programs.nix-ld.libraries = with pkgs; [
   ];
 
-  stylix = {
-    enable = true;
-    # image = ../../wallpapers/alena-aenami-away-1k.jpg;
-    image = ../../wallpapers/alena-aenami-lights1k1.jpg;
-    polarity = "dark";
-    targets = {
-      gnome.enable = lib.mkForce false;
-    };
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-    };
-  };
-
   printing.enable = true;
 
   # nvidia-graphics = {

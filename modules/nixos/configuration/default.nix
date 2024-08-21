@@ -14,6 +14,7 @@
     ./numlock.nix
     ./nvidia-graphics.nix
     ./printing.nix
+    ./stylix.nix
   ];
 
   bluetooth.enable = lib.mkDefault true;
@@ -23,4 +24,5 @@
   networking.enable = lib.mkDefault true;
   pipewire.enable = lib.mkDefault true;
   rebuild.enable = lib.mkDefault true;
+  stylix.enable = lib.mkDefault true;
 }
