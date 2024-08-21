@@ -40,6 +40,8 @@ in {
     };
   };
 
+  surface.enable = lib.mkForce true;
+
   nvidia-graphics.enable = lib.mkForce false;
 
   # nvidia-graphics = {
@@ -49,10 +51,6 @@ in {
   #   nvidiaBusId = "PCI:243:0:0";
   # };
 
-  environment.systemPackages = with pkgs; [
-    surface-control
-  ];
-
   # Programs
   kde-connect.enable = true;
   docker.enable = true;
@@ -61,16 +59,18 @@ in {
   syncthing.enable = true;
   wine.enable = true;
 
+  home-manager.users.tiec = import ./home.nix;
+
   # TODO: Move this to a home-manager configuration module
-  home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs pkgs-master;};
-    users = {
-      tiec = import ./home.nix;
-    };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "backup";
-  };
+  # home-manager = {
+  #   extraSpecialArgs = {inherit inputs pkgs pkgs-master;};
+  #   users = {
+  #     tiec = import ./home.nix;
+  #   };
+  #   useGlobalPkgs = true;
+  #   useUserPackages = true;
+  #   backupFileExtension = "backup";
+  # };
 
   rebuild = {
     host = "sls";

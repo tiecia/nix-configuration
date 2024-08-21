@@ -11,6 +11,7 @@
     ./rebuild/rebuild.nix
     ./numlock.nix
     ./dynamic-linking.nix
+    ./home-manager.nix
 
     ./desktop.nix # Configuration to enable for desktop systems
   ];
