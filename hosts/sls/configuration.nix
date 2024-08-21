@@ -20,6 +20,8 @@ in {
     ../../modules/nixos/programs
   ];
 
+  laptop-configuration.enable = lib.mkForce true;
+
   hyprland.enable = true;
 
   specialisation = {
@@ -60,38 +62,8 @@ in {
   wine.enable = true;
 
   home-manager.users.tiec = import ./home.nix;
-
-  # TODO: Move this to a home-manager configuration module
-  # home-manager = {
-  #   extraSpecialArgs = {inherit inputs pkgs pkgs-master;};
-  #   users = {
-  #     tiec = import ./home.nix;
-  #   };
-  #   useGlobalPkgs = true;
-  #   useUserPackages = true;
-  #   backupFileExtension = "backup";
-  # };
-
   rebuild.host = "sls";
-
   networking.hostName = lib.mkForce "TyLaptopStudioNix";
-
-  # networking = {
-  #   hostname = "TyLaptopStudioNix";
-  #   firewall = {
-  #     enable = true;
-  #     allowedTCPPorts = [8080 3000];
-  #   };
-  # };
-
-  services = {
-    upower.enable = true; # Needed for battery module in AGS
-    logind = {
-      lidSwitch = "suspend";
-      powerKey = "suspend";
-      powerKeyLongPress = "poweroff";
-    };
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tiec = {
@@ -110,7 +82,6 @@ in {
   };
 
   environment = {
-    # TODO: Move these to vscode.nix. Need to figure out why environment variables are not working with homemanager.
     sessionVariables = {
       EDITOR = "vi";
     };

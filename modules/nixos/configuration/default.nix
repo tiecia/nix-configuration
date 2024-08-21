@@ -14,6 +14,7 @@
     ./home-manager.nix
 
     ./desktop.nix # Configuration to enable for desktop systems
+    ./laptop.nix
   ];
 
   bootloader.enable = lib.mkDefault true;
@@ -23,4 +24,5 @@
   dynamic-linking.enable = lib.mkDefault true;
 
   desktop-configuration.enable = lib.mkDefault true; # Configuration to enable for desktop systems
+  laptop-configuration.enable = lib.mkDefault false;
 }

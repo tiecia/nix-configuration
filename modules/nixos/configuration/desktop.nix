@@ -12,7 +12,6 @@ with lib; {
     ./pipewire.nix
     ./bluetooth.nix
     ./logitech.nix
-    ./surface.nix
   ];
 
   options = {
@@ -26,7 +25,5 @@ with lib; {
     printing.enable = lib.mkDefault true;
     nvidia-graphics.enable = lib.mkDefault true;
     logitech.enable = true;
-
-    surface.enable = lib.mkDefault false;
   };
 }
