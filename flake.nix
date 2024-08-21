@@ -56,12 +56,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-      };
-    };
+
     pkgs-master = import nixpkgs-master {
       inherit system;
       config = {
@@ -73,6 +68,17 @@
       config = {
         allowUnfree = true;
       };
+    };
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+      overlays = [
+        (final: prev: {
+          inherit (pkgs-master) ceph;
+        })
+      ];
     };
 
     specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland;};
