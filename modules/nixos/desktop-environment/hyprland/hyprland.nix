@@ -22,10 +22,10 @@ with lib; {
       libinput.enable = true;
       xserver = {
         enable = true;
-        displayManager.gdm = {
-          enable = true;
-          wayland = true;
-        };
+        # displayManager.gdm = {
+        #   enable = true;
+        #   wayland = true;
+        # };
       };
 
       gnome.gnome-keyring.enable = true;
@@ -55,7 +55,10 @@ with lib; {
 
     security = {
       polkit.enable = true;
-      pam.services.ags = {};
+      pam.services = {
+        ags = {};
+        hyprlock = {}; # Gives the homemanager-enabled hyperlock elevated privilages to work
+      };
 
       rtkit.enable = true; # Pipewire uses this to get process scheduling priority
     };
