@@ -603,7 +603,7 @@ in
                 ignore_systemd_inhibit = false; # whether to ignore systemd-inhibit --what=idle inhibitors
               };
               listener = {
-                timeout = 15; # in seconds
+                timeout = 600; # in seconds (10 minutes)
                 on-timeout = "systemctl suspend"; # command to run when timeout has passed
                 # on-resume = "notify-send 'Welcome back!'"; # command to run when activity is detected after timeout has fired.
               };
