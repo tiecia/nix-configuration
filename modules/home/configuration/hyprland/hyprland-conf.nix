@@ -516,10 +516,10 @@ in
                   text = "cmd[update:1000] echo \"<b><big> $(date +\"%B %-d, %Y\") </big></b>\"";
                   # text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
                   # text = "$TIME";
-                  font_size = 32;
+                  font_size = 24;
                   font_family = "JetBrains Mono Nerd Font 10";
                   color = "rgb(200, 200, 200)";
-                  position = "0, 0";
+                  position = "0, -16";
                   valign = "center";
                   halign = "center";
                 }
