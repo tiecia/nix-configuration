@@ -79,7 +79,9 @@ in
         wayland.windowManager.hyprland = {
           enable = true;
           package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-          systemd.variables = ["--all"];
+
+          # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
+          systemd.variables = ["--all"]; # Fixes an issue where some programs don't work in systemd services started by homemanager.
           settings = {
             inherit (options) monitor;
 
@@ -507,10 +509,24 @@ in
                 ignore_systemd_inhibit = false; # whether to ignore systemd-inhibit --what=idle inhibitors
               };
               listener = {
-                timeout = 5; # in seconds
+                timeout = 30; # in seconds
                 on-timeout = "notify-send 'You are idle!'"; # command to run when timeout has passed
                 on-resume = "notify-send 'Welcome back!'"; # command to run when activity is detected after timeout has fired.
               };
+
+              # general = {
+              #   lock_cmd = "notify-send 'lock!'";
+              #   unlock_cmd = "notify-send 'unlock!'"; # same as above, but unlock
+              #   before_sleep_cmd = "notify-send 'Zzz'"; # command ran before sleep
+              #   after_sleep_cmd = "notify-send 'Awake!'"; # command ran after sleep
+              #   ignore_dbus_inhibit = false; # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
+              #   ignore_systemd_inhibit = false; # whether to ignore systemd-inhibit --what=idle inhibitors
+              # };
+              # listener = {
+              #   timeout = 30; # in seconds
+              #   on-timeout = "notify-send 'You are idle!'"; # command to run when timeout has passed
+              #   on-resume = "notify-send 'Welcome back!'"; # command to run when activity is detected after timeout has fired.
+              # };
               # general = {
               #   after_sleep_cmd = "hyprctl dispatch dpms on";
               #   ignore_dbus_inhibit = false;
