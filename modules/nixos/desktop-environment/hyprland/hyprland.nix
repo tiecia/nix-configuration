@@ -22,11 +22,11 @@ with lib; {
       libinput.enable = true;
       xserver = {
         enable = true;
-        #   displayManager.gdm = {
-        #     enable = true;
-        #     wayland = true;
-        #     autoSuspend = true;
-        #   };
+        displayManager.gdm = {
+          enable = true;
+          wayland = true;
+          autoSuspend = true;
+        };
       };
 
       gnome.gnome-keyring.enable = true;
@@ -37,14 +37,14 @@ with lib; {
       udisks2.enable = true;
     };
 
-    services.greetd = {
-      enable = true;
-      settings = {
-        command = "agreety --cmd $SHELL";
-        # command = "hyprlock";
-        # user = "tiec";
-      };
-    };
+    # services.greetd = {
+    #   enable = true;
+    #   settings = {
+    #     command = "agreety --cmd $SHELL";
+    # command = "hyprlock";
+    # user = "tiec";
+    #   };
+    # };
 
     # services.greetd = {
     #   enable = true;
