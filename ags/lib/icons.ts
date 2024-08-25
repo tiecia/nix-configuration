@@ -103,6 +103,7 @@ export default {
         sleep: "weather-clear-night-symbolic",
         reboot: "system-reboot-symbolic",
         logout: "system-log-out-symbolic",
+        lock: "system-lock-screen-symbolic",
         shutdown: "system-shutdown-symbolic",
     },
     recorder: {
