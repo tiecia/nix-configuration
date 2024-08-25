@@ -20,14 +20,14 @@ with lib; {
 
     services = {
       libinput.enable = true;
-      xserver = {
-        enable = true;
-        displayManager.gdm = {
-          enable = true;
-          wayland = true;
-          autoSuspend = true;
-        };
-      };
+      # xserver = {
+      #   enable = true;
+      #   displayManager.gdm = {
+      #     enable = true;
+      #     wayland = true;
+      #     autoSuspend = true;
+      #   };
+      # };
 
       gnome.gnome-keyring.enable = true;
     };
@@ -35,6 +35,10 @@ with lib; {
     services = {
       gvfs.enable = true;
       udisks2.enable = true;
+    };
+
+    services.greetd = {
+      enable = true;
     };
 
     # services.greetd = {
