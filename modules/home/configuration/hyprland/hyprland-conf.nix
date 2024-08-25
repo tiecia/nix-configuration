@@ -481,9 +481,9 @@ in
                   monitor = "";
                   size = "250, 50";
                   outline_thickness = 3;
-                  outer_color = "rgb(198, 160, 246)";
+                  outer_color = "rgb(255, 255, 255)";
                   inner_color = "rgb(36, 39, 58)";
-                  font_color = "rgb(198, 160, 246)";
+                  font_color = "rgb(255, 255, 255)";
                   fail_color = "rgb(237, 135, 150)";
                   fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
                   fail_transition = 300;
@@ -501,29 +501,29 @@ in
               label = [
                 {
                   monitor = "";
-                  # text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
-                  text = "$TIME";
+                  text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
+                  # text = "$TIME";
                   font_size = 64;
                   font_family = "JetBrains Mono Nerd Font 10";
-                  color = "rgb(198, 160, 246)";
+                  color = "rgb(255, 255, 255)";
                   position = "0, 16";
                   valign = "center";
                   halign = "center";
                 }
-                {
-                  monitor = "";
-                  text = "Hello <span text_transform=\"capitalize\" size=\"larger\">$USER!</span>";
-                  color = "rgb(198, 160, 246)";
-                  font_size = 20;
-                  font_family = "JetBrains Mono Nerd Font 10";
-                  position = "0, 100";
-                  halign = "center";
-                  valign = "center";
-                }
+                # {
+                #   monitor = "";
+                #   text = "Hello <span text_transform=\"capitalize\" size=\"larger\">$USER!</span>";
+                #   color = "rgb(198, 160, 246)";
+                #   font_size = 20;
+                #   font_family = "JetBrains Mono Nerd Font 10";
+                #   position = "0, 100";
+                #   halign = "center";
+                #   valign = "center";
+                # }
                 {
                   monitor = "";
                   text = "Current Layout : $LAYOUT";
-                  color = "rgb(198, 160, 246)";
+                  color = "rgb(255, 255, 255)";
                   font_size = 14;
                   font_family = "JetBrains Mono Nerd Font 10";
                   position = "0, 20";
@@ -545,42 +545,6 @@ in
               ];
             };
           };
-
-          # hyprlock = {
-          #   enable = true;
-          #   settings = {
-          #     general = {
-          #       disable_loading_bar = true;
-          #       grace = 300;
-          #       hide_cursor = true;
-          #       no_fade_in = false;
-          #     };
-          #
-          #     background = [
-          #       {
-          #         path = "screenshot";
-          #         blur_passes = 3;
-          #         blur_size = 8;
-          #       }
-          #     ];
-          #
-          #     input-field = [
-          #       {
-          #         size = "200, 50";
-          #         position = "0, -80";
-          #         monitor = "";
-          #         dots_center = true;
-          #         fade_on_empty = false;
-          #         font_color = "rgb(202, 211, 245)";
-          #         inner_color = "rgb(91, 96, 120)";
-          #         outer_color = "rgb(24, 25, 38)";
-          #         outline_thickness = 5;
-          #         # placeholder_text = "'\'<span foreground="##cad3f5">Password...</span>'\'";
-          #         shadow_passes = 2;
-          #       }
-          #     ];
-          #   };
-          # };
         };
 
         # services.dunst.enable = true;
