@@ -456,6 +456,26 @@ in
             enable = true;
 
             settings = {
+              general = {
+                hide_cursor = true;
+              };
+
+              background = [
+                {
+                  monitor = "";
+                  color = "rgb(36, 39, 58)";
+                  path = "${../../../../wallpapers/alena-aenami-lights1k1.jpg}";
+
+                  blur_size = 3;
+                  blur_passes = 2;
+                  noise = 0.0117;
+                  contrast = 1.000;
+                  brightness = 1.0000;
+                  vibrancy = 0.2100;
+                  vibrancy_darkness = 0.0;
+                }
+              ];
+
               input-field = [
                 {
                   monitor = "";
@@ -476,6 +496,52 @@ in
                   halign = "center";
                   valign = "bottom";
                 }
+              ];
+
+              label = [
+                {
+                  monitor = "";
+                  # text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
+                  text = "$TIME";
+                  font_size = 64;
+                  font_family = "JetBrains Mono Nerd Font 10";
+                  color = "rgb(198, 160, 246)";
+                  position = "0, 16";
+                  valign = "center";
+                  halign = "center";
+                }
+                {
+                  monitor = "";
+                  text = "Hello <span text_transform=\"capitalize\" size=\"larger\">$USER!</span>";
+                  color = "rgb(198, 160, 246)";
+                  font_size = 20;
+                  font_family = "JetBrains Mono Nerd Font 10";
+                  position = "0, 100";
+                  halign = "center";
+                  valign = "center";
+                }
+                {
+                  monitor = "";
+                  text = "Current Layout : $LAYOUT";
+                  color = "rgb(198, 160, 246)";
+                  font_size = 14;
+                  font_family = "JetBrains Mono Nerd Font 10";
+                  position = "0, 20";
+                  halign = "center";
+                  valign = "bottom";
+                }
+                /*
+                   {
+                  monitor = "";
+                  text = "Enter your password to unlock.";
+                  color = "rgb(198, 160, 246)";
+                  font_size = 14;
+                  font_family = "JetBrains Mono Nerd Font 10";
+                  position = "0, 60";
+                  halign = "center";
+                  valign = "bottom";
+                }
+                */
               ];
             };
           };
