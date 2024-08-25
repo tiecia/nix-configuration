@@ -456,7 +456,7 @@ in
             enable = true;
 
             settings = let
-              primary-color = "rgb(116, 122, 130)";
+              primary-color = "rgb(170, 170, 170)";
             in {
               general = {
                 hide_cursor = true;
