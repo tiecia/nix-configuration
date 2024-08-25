@@ -39,6 +39,11 @@ with lib; {
 
     services.greetd = {
       enable = true;
+      settings = {
+        command = "agreety --cmd $SHELL";
+        # command = "hyprlock";
+        # user = "tiec";
+      };
     };
 
     # services.greetd = {
