@@ -595,17 +595,17 @@ in
             enable = true;
             settings = {
               general = {
-                lock_cmd = "notify-send 'lock!'";
-                unlock_cmd = "notify-send 'unlock!'"; # same as above, but unlock
-                before_sleep_cmd = "notify-send 'Zzz'"; # command ran before sleep
-                after_sleep_cmd = "notify-send 'Awake!'"; # command ran after sleep
+                lock_cmd = "hyprlock";
+                # unlock_cmd = "notify-send 'unlock!'"; # same as above, but unlock
+                before_sleep_cmd = "hyprlock"; # command ran before sleep
+                # after_sleep_cmd = "notify-send 'Awake!'"; # command ran after sleep
                 ignore_dbus_inhibit = false; # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
                 ignore_systemd_inhibit = false; # whether to ignore systemd-inhibit --what=idle inhibitors
               };
               listener = {
-                timeout = 30; # in seconds
-                on-timeout = "hyprlock"; # command to run when timeout has passed
-                on-resume = "notify-send 'Welcome back!'"; # command to run when activity is detected after timeout has fired.
+                timeout = 15; # in seconds
+                on-timeout = "loginctl lock-session"; # command to run when timeout has passed
+                # on-resume = "notify-send 'Welcome back!'"; # command to run when activity is detected after timeout has fired.
               };
 
               # general = {
