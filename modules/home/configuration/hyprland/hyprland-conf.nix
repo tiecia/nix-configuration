@@ -481,9 +481,9 @@ in
                   monitor = "";
                   size = "250, 50";
                   outline_thickness = 3;
-                  outer_color = "rgb(170, 170, 170)";
+                  outer_color = "rgb(200, 200, 200)";
                   inner_color = "rgb(36, 39, 58)";
-                  font_color = "rgb(170, 170, 170)";
+                  font_color = "rgb(200, 200, 200)";
                   fail_color = "rgb(237, 135, 150)";
                   fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
                   fail_transition = 300;
@@ -504,9 +504,21 @@ in
                   text = "cmd[update:1000] echo \"<b><big> $(date +\"%-I:%M %p\") </big></b>\"";
                   # text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
                   # text = "$TIME";
-                  font_size = 64;
+                  font_size = 48;
                   font_family = "JetBrains Mono Nerd Font 10";
-                  color = "rgb(170, 170, 170)";
+                  color = "rgb(200, 200, 200)";
+                  position = "0, 16";
+                  valign = "center";
+                  halign = "center";
+                }
+                {
+                  monitor = "";
+                  text = "cmd[update:1000] echo \"<b><h3> $(date +\"%B %-d, %Y\") </h3></b>\"";
+                  # text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
+                  # text = "$TIME";
+                  font_size = 32;
+                  font_family = "JetBrains Mono Nerd Font 10";
+                  color = "rgb(200, 200, 200)";
                   position = "0, 16";
                   valign = "center";
                   halign = "center";
@@ -524,7 +536,7 @@ in
                 {
                   monitor = "";
                   text = "Current Layout : $LAYOUT";
-                  color = "rgb(170, 170, 170)";
+                  color = "rgb(200, 200, 200)";
                   font_size = 14;
                   font_family = "JetBrains Mono Nerd Font 10";
                   position = "0, 20";
