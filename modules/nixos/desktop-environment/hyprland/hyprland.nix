@@ -96,9 +96,6 @@ with lib; {
         xwayland.enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       };
-      hyprlock = {
-        enable = true;
-      };
     };
   };
 }
