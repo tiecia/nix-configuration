@@ -519,7 +519,7 @@ in
                   font_size = 24;
                   font_family = "JetBrains Mono Nerd Font 10";
                   color = "rgb(200, 200, 200)";
-                  position = "0, -16";
+                  position = "0, -30";
                   valign = "center";
                   halign = "center";
                 }
