@@ -498,7 +498,7 @@ in
           };
 
           hypridle = {
-            enable = true;
+            enable = false;
             settings = {
               general = {
                 lock_cmd = "notify-send 'lock!'";

@@ -58,7 +58,7 @@ with lib; {
       polkit.enable = true;
       pam.services = {
         ags = {};
-        hyprlock = {}; # Gives the homemanager-enabled hyperlock elevated privilages to work
+        # hyprlock = {}; # Gives the homemanager-enabled hyperlock elevated privilages to work
       };
 
       rtkit.enable = true; # Pipewire uses this to get process scheduling priority
@@ -90,10 +90,12 @@ with lib; {
       wireplumber.enable = true;
     };
 
-    programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    programs = {
+      hyprland = {
+        enable = true;
+        xwayland.enable = true;
+        package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      };
     };
   };
 }
