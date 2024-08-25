@@ -470,7 +470,7 @@ in
                   blur_passes = 2;
                   noise = 0.0117;
                   contrast = 1.000;
-                  brightness = 1.0000;
+                  brightness = 0.7000;
                   vibrancy = 0.2100;
                   vibrancy_darkness = 0.0;
                 }
@@ -481,9 +481,9 @@ in
                   monitor = "";
                   size = "250, 50";
                   outline_thickness = 3;
-                  outer_color = "rgb(255, 255, 255)";
+                  outer_color = "rgb(170, 170, 170)";
                   inner_color = "rgb(36, 39, 58)";
-                  font_color = "rgb(255, 255, 255)";
+                  font_color = "rgb(170, 170, 170)";
                   fail_color = "rgb(237, 135, 150)";
                   fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
                   fail_transition = 300;
@@ -501,11 +501,12 @@ in
               label = [
                 {
                   monitor = "";
-                  text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
+                  text = "cmd[update:1000] echo \"<b><big> $(date +\"%-I:%M %p\") </big></b>\"";
+                  # text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
                   # text = "$TIME";
                   font_size = 64;
                   font_family = "JetBrains Mono Nerd Font 10";
-                  color = "rgb(255, 255, 255)";
+                  color = "rgb(170, 170, 170)";
                   position = "0, 16";
                   valign = "center";
                   halign = "center";
@@ -523,7 +524,7 @@ in
                 {
                   monitor = "";
                   text = "Current Layout : $LAYOUT";
-                  color = "rgb(255, 255, 255)";
+                  color = "rgb(170, 170, 170)";
                   font_size = 14;
                   font_family = "JetBrains Mono Nerd Font 10";
                   position = "0, 20";
