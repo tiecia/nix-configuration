@@ -455,7 +455,9 @@ in
           hyprlock = {
             enable = true;
 
-            settings = {
+            settings = let
+              primary-color = "rgb(116, 122, 130)";
+            in {
               general = {
                 hide_cursor = true;
               };
@@ -481,9 +483,9 @@ in
                   monitor = "";
                   size = "250, 50";
                   outline_thickness = 3;
-                  outer_color = "rgb(200, 200, 200)";
+                  outer_color = primary-color;
                   inner_color = "rgb(36, 39, 58)";
-                  font_color = "rgb(200, 200, 200)";
+                  font_color = primary-color;
                   fail_color = "rgb(237, 135, 150)";
                   fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
                   fail_transition = 300;
@@ -506,7 +508,7 @@ in
                   # text = "$TIME";
                   font_size = 48;
                   font_family = "JetBrains Mono Nerd Font 10";
-                  color = "rgb(200, 200, 200)";
+                  color = primary-color;
                   position = "0, 16";
                   valign = "center";
                   halign = "center";
@@ -518,8 +520,8 @@ in
                   # text = "$TIME";
                   font_size = 24;
                   font_family = "JetBrains Mono Nerd Font 10";
-                  color = "rgb(200, 200, 200)";
-                  position = "0, -30";
+                  color = primary-color;
+                  position = "0, -40";
                   valign = "center";
                   halign = "center";
                 }
@@ -536,7 +538,7 @@ in
                 {
                   monitor = "";
                   text = "Current Layout : $LAYOUT";
-                  color = "rgb(200, 200, 200)";
+                  color = primary-color;
                   font_size = 14;
                   font_family = "JetBrains Mono Nerd Font 10";
                   position = "0, 20";
