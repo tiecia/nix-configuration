@@ -27,14 +27,13 @@ in {
   laptop-configuration.enable = lib.mkForce true;
   hyprland.enable = true;
   surface.enable = lib.mkForce true;
-  nvidia-graphics.enable = lib.mkForce false;
 
-  # nvidia-graphics = {
-  #   enable = false;
-  #   prime = "offload";
-  #   intelBusId = "PCI:0:2:0";
-  #   nvidiaBusId = "PCI:243:0:0";
-  # };
+  nvidia-graphics = {
+    enable = lib.mkForce true;
+    prime = "offload";
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:243:0:0";
+  };
 
   # services.create_ap = {
   #   enable = true;
