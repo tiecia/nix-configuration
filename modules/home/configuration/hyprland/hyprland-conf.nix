@@ -453,7 +453,7 @@ in
           };
 
           hyprlock = {
-            enable = true;
+            enable = false;
 
             settings = let
               primary-color = "rgb(170, 170, 170)";
@@ -571,7 +571,7 @@ in
           };
 
           hypridle = {
-            enable = true;
+            enable = false;
             settings = {
               general = {
                 lock_cmd = "hyprlock";
