@@ -2,6 +2,8 @@
   config,
   lib,
   pkgs,
+  pkgs-stable,
+  inputs,
   ...
 }:
 with lib; {
@@ -10,8 +12,8 @@ with lib; {
   };
 
   config = mkIf config.betterbird.enable {
-    home.packages = with pkgs; [
-      betterbird
+    home.packages = [
+      pkgs-stable.betterbird
     ];
   };
 }
