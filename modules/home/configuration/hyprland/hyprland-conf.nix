@@ -50,6 +50,7 @@ in
     };
 
     config = let
+      inherit (inputs.hyprsession.packages.${pkgs.system}) hyprsession;
       options = config.hyprland-conf;
       terminal = "${pkgs.kitty}/bin/kitty";
       fileManager = "${pkgs.nautilus}/bin/nautilus";
@@ -62,7 +63,7 @@ in
 
         ${pkgs.udiskie}/bin/udiskie &
 
-        ${inputs.hyprsession.packages.${pkgs.system}.hyprsession}/bin/hyprsession &
+        ${hyprsession} &
 
         # swww-daemon &
 
@@ -650,6 +651,8 @@ in
             gvfs # Needed for network mounts in nautilus
 
             aileron
+
+            hyprsession
           ]
           ++ lists.optionals options.laptop [
             inputs.hyprdock.packages.${pkgs.system}.hyprdock
