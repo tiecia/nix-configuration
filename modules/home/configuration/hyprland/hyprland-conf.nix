@@ -58,12 +58,13 @@ in
       startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
         dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
+        ${hyprsession}/bin/hyprsession &
+
         # TODO: Move to ags-widgets.nix
         ags
 
         ${pkgs.udiskie}/bin/udiskie &
 
-        ${hyprsession}/bin/hyprsession &
 
         # swww-daemon &
 
