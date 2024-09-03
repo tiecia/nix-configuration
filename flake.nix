@@ -34,6 +34,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprsession = {
+      url = "github:tiecia/hyprsession";
+    };
+
     ags.url = "github:Aylur/ags?ref=v1.8.2";
 
     stylix.url = "github:danth/stylix";

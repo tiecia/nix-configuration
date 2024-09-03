@@ -62,6 +62,8 @@ in
 
         ${pkgs.udiskie}/bin/udiskie &
 
+        ${inputs.hyprsession.packages.${pkgs.system}.hyprsession}/bin/hyprsession &
+
         # swww-daemon &
 
         # swww img ${options.wallpaper}
