@@ -88,9 +88,7 @@ in
           settings = {
             inherit (options) monitor;
 
-            # exec-once = lib.mkAfter ''${startupScript}/bin/startupScript'';
-
-            exec-once = "${inputs.hyprsession.packages.${pkgs.system}.hyprsession}/bin/hyprsession";
+            exec-once = lib.mkAfter ''${startupScript}/bin/startupScript'';
 
             plugin = {
               hyprsplit = {
