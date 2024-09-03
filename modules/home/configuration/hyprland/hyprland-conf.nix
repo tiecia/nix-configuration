@@ -63,7 +63,7 @@ in
 
         ${pkgs.udiskie}/bin/udiskie &
 
-        ${hyprsession} &
+        ${hyprsession}/bin/hyprsession &
 
         # swww-daemon &
 
