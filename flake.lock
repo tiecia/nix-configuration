@@ -692,11 +692,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1725332966,
-        "narHash": "sha256-KyMp+bomdJFdpmbRl/TmeTFhBs3YRSnaRh5hnBDfPlo=",
+        "lastModified": 1725335471,
+        "narHash": "sha256-VEP8IiKrtfP+M0S+4DCu2yL2ADZ1LMScMf8W/okZy2w=",
         "owner": "tiecia",
         "repo": "hyprsession",
-        "rev": "f352de00cc3d1720d941ee9d00115bb0d8e89464",
+        "rev": "5f7eb4f82ad3c87eea09d3e67506e5037a7771b7",
         "type": "github"
       },
       "original": {
