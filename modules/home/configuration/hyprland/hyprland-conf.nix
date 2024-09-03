@@ -131,6 +131,7 @@ in
                 # "$mainMod Ctrl_L, S, movetoworkspace, special:magic"
                 "Alt_L, Tab, workspace, previous"
                 "$mainMod, code:95, fullscreen"
+                "$ALT_L, code:95, fullscreen" # WIN+FN on one of my keyboards is win-lock so this bindings gets around that.
 
                 # Scroll through existing workspaces with mainMod + scroll
                 "$mainMod, mouse_down, workspace, e+1"
