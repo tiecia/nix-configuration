@@ -79,11 +79,11 @@
       config = {
         allowUnfree = true;
       };
-      # overlays = [
-      #   (final: prev: {
-      #     inherit (pkgs-master) ceph;
-      #   })
-      # ];
+      overlays = [
+        (final: prev: {
+          inherit (pkgs-master) hyprpaper xdg-desktop-portal-hyprland;
+        })
+      ];
     };
 
     specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland;};
