@@ -12,4 +12,6 @@
     ./wine.nix
     ./via.nix
   ];
+
+  via.enable = lib.mkDefault true;
 }
