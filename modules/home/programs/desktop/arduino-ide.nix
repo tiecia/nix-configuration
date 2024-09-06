@@ -13,7 +13,7 @@ with lib; {
     home.packages = with pkgs; [
       arduino-ide
       python312
-      python312Packages.pyserial
+      python312Packages.serialio
     ];
   };
 }
