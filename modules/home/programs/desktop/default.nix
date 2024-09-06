@@ -31,6 +31,7 @@
     ./figma.nix
     ./winapps.nix
     ./dotnet.nix
+    ./arduino-ide.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -45,4 +46,5 @@
   figma.enable = lib.mkDefault true;
   winapps.enable = lib.mkDefault true;
   dotnet.enable = lib.mkDefault true;
+  arduino-ide.enable = lib.mkDefault true;
 }

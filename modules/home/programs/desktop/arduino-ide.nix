@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  pkgs-master,
   ...
 }:
 with lib; {
@@ -13,6 +12,8 @@ with lib; {
   config = mkIf config.arduino-ide.enable {
     home.packages = with pkgs; [
       arduino-ide
+      python312
+      python312Packages.pyserial
     ];
   };
 }

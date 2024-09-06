@@ -10,5 +10,6 @@
     ./steam.nix
     ./syncthing.nix
     ./wine.nix
+    ./via.nix
   ];
 }
