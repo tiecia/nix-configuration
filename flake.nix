@@ -21,7 +21,7 @@
 
     # NOTE: hyprland and hyprsplit should be updated together
     # A couple of commits after v1.41.2
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=09dbcabcc71f412dcaf86dbed7b67d58a273fa50";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=9b54342baa27d8de0460e1103ec4c3cc65592ed8";
 
     # v1.41.2
     hyprsplit = {
