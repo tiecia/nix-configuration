@@ -20,12 +20,10 @@
     };
 
     # NOTE: hyprland and hyprsplit should be updated together
-    # A couple of commits after v1.41.2
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=9b54342baa27d8de0460e1103ec4c3cc65592ed8";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=7c4c402bd7f24241c096d809cc80408a469f15cb";
 
-    # v1.41.2
     hyprsplit = {
-      url = "github:shezdy/hyprsplit?rev=d4c59ca20581b04ef9348944377a12b911d9b5e3";
+      url = "github:shezdy/hyprsplit?rev=61d8dacc1733f0a3cd152d4e0522caae4f7b8b2d";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
 
