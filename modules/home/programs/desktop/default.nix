@@ -32,6 +32,7 @@
     ./winapps.nix
     ./dotnet.nix
     ./arduino-ide.nix
+    ./onlyoffice.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -43,6 +44,7 @@
   gimp.enable = lib.mkDefault true;
   inkscape.enable = lib.mkDefault true;
   wpsoffice.enable = lib.mkDefault true;
+  onlyoffice.enable = lib.mkDefault true;
   figma.enable = lib.mkDefault true;
   winapps.enable = lib.mkDefault true;
   dotnet.enable = lib.mkDefault true;
