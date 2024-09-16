@@ -19,6 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-cli.url = "github:water-sucks/nixos";
+
     # NOTE: hyprland and hyprsplit should be updated together
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=7c4c402bd7f24241c096d809cc80408a469f15cb";
 
@@ -128,6 +130,7 @@
           stylix.nixosModules.stylix
           ./hosts/sls/configuration.nix
           nixos-hardware.nixosModules.microsoft-surface-common
+          inputs.nixos-cli.nixosModules.nixos-cli
         ];
       };
     };
