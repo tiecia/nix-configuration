@@ -11,7 +11,9 @@
     ./syncthing.nix
     ./wine.nix
     ./via.nix
+    ./nixos-cli.nix
   ];
 
   via.enable = lib.mkDefault true;
+  nixos-cli.enable = lib.mkDefault true;
 }

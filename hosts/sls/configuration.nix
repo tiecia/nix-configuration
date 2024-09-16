@@ -35,11 +35,6 @@ in {
     nvidiaBusId = "PCI:243:0:0";
   };
 
-  services.nixos-cli = {
-    enable = true;
-    package = inputs.nixos-cli.packages.${pkgs.system}.nixosLegacy;
-  };
-
   # services.create_ap = {
   #   enable = true;
   #   settings = {
