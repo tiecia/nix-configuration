@@ -88,50 +88,63 @@
 
     specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable;};
+
+    sharedModules = [
+      inputs.nixos-cli.nixosModules.nixos-cli
+    ];
   in {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
 
-        modules = [
-          stylix.nixosModules.stylix
-          ./hosts/desktop/configuration.nix
-        ];
+        modules =
+          [
+            stylix.nixosModules.stylix
+            ./hosts/desktop/configuration.nix
+          ]
+          ++ sharedModules;
       };
 
       l390 = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
 
-        modules = [
-          ./hosts/l390/configuration.nix
-        ];
+        modules =
+          [
+            ./hosts/l390/configuration.nix
+          ]
+          ++ sharedModules;
       };
 
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsCli;
 
-        modules = [
-          ./hosts/wsl/configuration.nix
-        ];
+        modules =
+          [
+            ./hosts/wsl/configuration.nix
+          ]
+          ++ sharedModules;
       };
 
       surfacebook = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
 
-        modules = [
-          ./hosts/surfacebook/configuration.nix
-        ];
+        modules =
+          [
+            ./hosts/surfacebook/configuration.nix
+          ]
+          ++ sharedModules;
       };
 
       sls = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
 
-        modules = [
-          stylix.nixosModules.stylix
-          ./hosts/sls/configuration.nix
-          nixos-hardware.nixosModules.microsoft-surface-common
-          inputs.nixos-cli.nixosModules.nixos-cli
-        ];
+        modules =
+          [
+            stylix.nixosModules.stylix
+            ./hosts/sls/configuration.nix
+            nixos-hardware.nixosModules.microsoft-surface-common
+          ]
+          ++ sharedModules;
       };
     };
   };
