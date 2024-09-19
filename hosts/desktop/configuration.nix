@@ -20,6 +20,12 @@ in {
     ../../modules/nixos/programs
   ];
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   # TODO: Move this to a home-manager configuration module
   home-manager.users.tiec = import ./home.nix;
   rebuild.host = "desktop";
