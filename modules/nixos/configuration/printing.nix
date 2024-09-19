@@ -12,5 +12,12 @@ with lib; {
   config = mkIf config.printing.enable {
     # Enable CUPS to print documents.
     services.printing.enable = true;
+
+    # Automatically detect supported printers.
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
   };
 }
