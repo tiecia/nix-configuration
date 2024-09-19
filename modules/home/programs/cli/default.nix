@@ -15,6 +15,8 @@
     ./replace.nix
     ./nvim.nix
     ./eza.nix
+    ./platformio.nix
+    ./screen.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -27,4 +29,6 @@
   unzip.enable = lib.mkDefault true;
   replace.enable = lib.mkDefault true;
   eza.enable = lib.mkDefault true;
+  platformio.enable = lib.mkDefault true;
+  screen.enable = lib.mkDefault true;
 }
