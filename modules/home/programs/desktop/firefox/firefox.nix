@@ -14,10 +14,10 @@ with lib; {
 
   config = mkIf config.firefox.enable {
     home = {
-      packages = mkMerge [
-        [pkgs.firefox]
-        (mkIf config.firefox.installPWA [pkgs.firefoxpwa])
-      ];
+      # packages = mkMerge [
+      #   [pkgs.firefox]
+      #   (mkIf config.firefox.installPWA [pkgs.firefoxpwa])
+      # ];
 
       # Note: The absolute path to config.json is needed here because I am using flakes.
       file.".local/share/firefoxpwa/config.json" = mkIf config.firefox.installPWA {
