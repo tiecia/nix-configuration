@@ -15,7 +15,7 @@ with lib; {
   config = mkIf config.firefox.enable {
     home = {
       packages = mkMerge [
-        [pkgs.firefox]
+        # [pkgs.firefox]
         (mkIf config.firefox.installPWA [pkgs.firefoxpwa])
       ];
 
