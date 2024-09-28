@@ -13,4 +13,5 @@ export const IdleInhibitor = () => SimpleToggleButton({
     icon: icon(),
     label: label(),
     toggle: () => Utils.exec("matcha -t"),
+    connection: () => [null, null],
 })

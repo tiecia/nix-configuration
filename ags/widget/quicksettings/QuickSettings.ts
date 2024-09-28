@@ -62,7 +62,8 @@ const Settings = () => Widget.Box({
             // [ProfileToggle, DarkModeToggle],
             // [ProfileSelector],
         ),
-        Row([DND, IdleInhibitor]),
+        Row([DND]),
+        // Row([DND, IdleInhibitor]),
         Widget.Box({
             visible: media.as(l => l.length > 0),
             child: Media(),
