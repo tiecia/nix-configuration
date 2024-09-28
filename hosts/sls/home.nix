@@ -24,6 +24,12 @@
     theme = "nord";
   };
 
+  stylix = {
+    targets = {
+      vscode.enable = false;
+    };
+  };
+
   git.enable = true;
   wireguard.enable = true;
 
