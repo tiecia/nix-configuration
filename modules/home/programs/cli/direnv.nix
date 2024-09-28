@@ -30,6 +30,7 @@ with lib; {
               echo "use flake" > .envrc
               direnv allow
             fi
+            ''${EDITOR:-vim} flake.nix
           }
         '';
       };
