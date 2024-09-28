@@ -38,6 +38,8 @@
       url = "github:tiecia/hyprsession";
     };
 
+    matcha.url = "github:tiecia/matcha";
+
     ags.url = "github:Aylur/ags?ref=v1.8.2";
 
     stylix.url = "github:danth/stylix";
