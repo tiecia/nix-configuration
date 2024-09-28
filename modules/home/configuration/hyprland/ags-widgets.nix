@@ -46,6 +46,7 @@
         networkmanager
         gtk3
         matugen
+        inputs.matcha.packages.${system}.default
       ];
 
       programs.ags = {
