@@ -17,6 +17,7 @@
     ./eza.nix
     ./platformio.nix
     ./screen.nix
+    ./direnv.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -31,4 +32,5 @@
   eza.enable = lib.mkDefault true;
   platformio.enable = lib.mkDefault true;
   screen.enable = lib.mkDefault true;
+  direnv.enable = lib.mkDefault true;
 }
