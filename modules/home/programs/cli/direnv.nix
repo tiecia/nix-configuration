@@ -37,8 +37,14 @@ with lib; {
             ];
           }
           EOF
-              ''${EDITOR:-vim} default.nix
             fi
+
+            if [ ! -r .gitignore ]; then
+              touch .gitignore
+            fi
+            echo ".direnv" >> .gitignore
+
+            ''${EDITOR:-vim} default.nix
           }
 
           flakify() {
@@ -48,6 +54,11 @@ with lib; {
               echo "use flake" > .envrc
               direnv allow
             fi
+
+            if [ ! -r .gitignore ]; then
+              touch .gitignore
+            fi
+            echo ".direnv" >> .gitignore
             ''${EDITOR:-vim} flake.nix
           }
         '';
