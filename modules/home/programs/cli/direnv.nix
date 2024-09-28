@@ -44,7 +44,7 @@ with lib; {
             fi
             echo ".direnv" >> .gitignore
 
-            ''${EDITOR:-vim} default.nix
+            # ''${EDITOR:-vim} default.nix
           }
 
           flakify() {
@@ -59,7 +59,8 @@ with lib; {
               touch .gitignore
             fi
             echo ".direnv" >> .gitignore
-            ''${EDITOR:-vim} flake.nix
+            # ''${EDITOR:-vim} flake.nix
+            direnv allow
           }
         '';
       };
