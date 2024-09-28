@@ -18,7 +18,20 @@ with lib; {
       };
       bash = {
         enable = true;
-        bashrcExtra = "eval \"$(direnv hook bash)\"";
+
+        # https://github.com/nix-community/nix-direnv/wiki/Shell-integration
+        bashrcExtra = ''
+          eval "$(direnv hook bash)"
+
+          flakify() {
+            if [ ! -e flake.nix ]; then
+              nix flake new -t github:nix-community/nix-direnv .
+            elif [ ! -e .envrc ]; then
+              echo "use flake" > .envrc
+              direnv allow
+            fi
+          }
+        '';
       };
     };
   };
