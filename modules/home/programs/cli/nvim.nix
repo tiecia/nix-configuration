@@ -24,6 +24,9 @@
           vi = "${custom-nvim}/bin/nvim";
           v = "${custom-nvim}/bin/nvim";
         };
+        sessionVariables = {
+          EDITOR = "${custom-nvim}/bin/nvim";
+        };
       };
     };
 }
