@@ -27,6 +27,7 @@
   stylix = {
     targets = {
       vscode.enable = false;
+      spicetify.enable = false;
     };
   };
 

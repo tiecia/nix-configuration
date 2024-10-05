@@ -25,6 +25,7 @@ with lib; {
 
     targets = {
       gnome.enable = lib.mkForce false;
+      spicetify.enable = lib.mkForce false;
     };
 
     cursor = {
