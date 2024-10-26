@@ -22,10 +22,10 @@
     nixos-cli.url = "github:water-sucks/nixos";
 
     # NOTE: hyprland and hyprsplit should be updated together
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=7c4c402bd7f24241c096d809cc80408a469f15cb";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=0b29caf9ab86518ff474eed5e7d19c12f96ebbd0";
 
     hyprsplit = {
-      url = "github:shezdy/hyprsplit?rev=61d8dacc1733f0a3cd152d4e0522caae4f7b8b2d";
+      url = "github:shezdy/hyprsplit?rev=73452b8a1deb5c260373f68ba1daba3a426da380";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
 
