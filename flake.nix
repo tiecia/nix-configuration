@@ -7,7 +7,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # Updated 8/21/2024
-    nixos-hardware.url = "github:nixos/nixos-hardware?rev=b09c46430ffcf18d575acf5c339b38ac4e1db5d2";
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=e8a2f6d5513fe7b7d15701b2d05404ffdc3b6dda";
 
     home-manager = {
       url = "github:nix-community/home-manager";

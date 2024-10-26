@@ -11,7 +11,7 @@ with lib; {
 
   config = mkIf config.kde-connect.enable {
     environment.systemPackages = with pkgs; [
-      kdeconnect
+      plasma5Packages.kdeconnect-kde
     ];
 
     networking.firewall = {
