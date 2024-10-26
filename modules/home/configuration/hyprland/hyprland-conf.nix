@@ -319,12 +319,12 @@ in
               # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
               pseudotile = "yes";
               preserve_split = "yes";
-              no_gaps_when_only = 0;
+              # no_gaps_when_only = 0;
               special_scale_factor = 0.95;
             };
 
             master = {
-              no_gaps_when_only = 0;
+              # no_gaps_when_only = 0;
               new_on_top = true;
               special_scale_factor = 0.95;
             };
