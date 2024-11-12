@@ -19,6 +19,7 @@
     ./screen.nix
     ./direnv.nix
     ./tmux.nix
+    ./devenv.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -35,4 +36,5 @@
   screen.enable = lib.mkDefault true;
   direnv.enable = lib.mkDefault true;
   tmux.enable = lib.mkDefault true;
+  devenv.enable = lib.mkDefault true;
 }
