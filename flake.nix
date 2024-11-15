@@ -80,6 +80,9 @@
       inherit system;
       config = {
         allowUnfree = true;
+        permittedInsecurePackages = [
+          "betterbird-115.9.0"
+        ];
       };
       # overlays = [
       #   (final: prev: {

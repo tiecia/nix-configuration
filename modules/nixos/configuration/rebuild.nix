@@ -68,7 +68,7 @@
 
     echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 
-    nix flake lock --update-input custom-nvim
+    nix flake update custom-nvim
 
     options=""
     # Rebuild, output simplified errors, log trackebacks
