@@ -292,8 +292,9 @@ in
                 size = "3";
                 passes = "1";
               };
+
+              # This attribute is deprecated but it is being set by some other file, we need to override it here.
               "col.shadow" = lib.mkForce {};
-              # "col.shadow" =  "rgba(1a1a1aee)";
             };
 
             animations = {
@@ -470,7 +471,7 @@ in
                 {
                   monitor = "";
                   color = "rgb(36, 39, 58)";
-                  path = "${../../../../wallpapers/alena-aenami-lights1k1.jpg}";
+                  path = "${../../../../wallpapers/dark-water.jpg}";
 
                   blur_size = 3;
                   blur_passes = 2;
