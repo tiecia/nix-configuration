@@ -30,4 +30,12 @@
 
   desktop-configuration.enable = lib.mkDefault true; # Configuration to enable for desktop systems
   laptop-configuration.enable = lib.mkDefault false;
+
+  nix = {
+    extraOptions = ''
+      trusted-users = root tiec
+      extra-substituters = https://devenv.cachix.org
+      extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
+    '';
+  };
 }
