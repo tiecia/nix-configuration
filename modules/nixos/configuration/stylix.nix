@@ -12,7 +12,7 @@ with lib; {
 
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
 
-    autoEnable = true;
+    autoEnable = false;
 
     targets = {
       # gnome.enable = lib.mkForce false;
