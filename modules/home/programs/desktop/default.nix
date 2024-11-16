@@ -33,6 +33,7 @@
     ./dotnet.nix
     ./arduino-ide.nix
     ./onlyoffice.nix
+    ./alacritty.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -49,5 +50,6 @@
   winapps.enable = lib.mkDefault true;
   dotnet.enable = lib.mkDefault true;
   arduino-ide.enable = lib.mkDefault true;
+  alacritty.enable = lib.mkDefault true;
   # davinci-resolve.enable = lib.mkDefault true;
 }

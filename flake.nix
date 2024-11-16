@@ -96,16 +96,21 @@
     ];
   in {
     nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = specialArgsDesktop;
+      desktop = let
+        globalConfig = {
+          terminal = "alacritty";
+        };
+      in
+        nixpkgs.lib.nixosSystem {
+          specialArgs = specialArgsDesktop // globalConfig;
 
-        modules =
-          [
-            stylix.nixosModules.stylix
-            ./hosts/desktop/configuration.nix
-          ]
-          ++ sharedModules;
-      };
+          modules =
+            [
+              stylix.nixosModules.stylix
+              ./hosts/desktop/configuration.nix
+            ]
+            ++ sharedModules;
+        };
 
       l390 = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
