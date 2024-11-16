@@ -12,12 +12,12 @@ with lib; {
 
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
 
-    autoEnable = false;
+    autoEnable = true;
 
     targets = {
       # gnome.enable = lib.mkForce false;
       # spicetify.enable = lib.mkForce false;
-      gtk.enable = lib.mkForce true;
+      # gtk.enable = lib.mkForce true;
     };
 
     cursor = {
