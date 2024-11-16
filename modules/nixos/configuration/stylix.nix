@@ -5,17 +5,6 @@
   ...
 }:
 with lib; {
-  # options = {
-  #   stylix = {
-  #     enable = lib.mkEnableOption "Enable stylix";
-  #     wallpaper = lib.mkOption {
-  #       type = types.path;
-  #       default = ../../../wallpapers/alena-aenami-lights1k1.jpg;
-  #     };
-  #   };
-  # };
-
-  # config = mkIf config.stylix.enable {
   stylix = {
     enable = lib.mkDefault true;
     image = lib.mkDefault ../../../wallpapers/dark-water.jpg;
@@ -28,7 +17,7 @@ with lib; {
     targets = {
       # gnome.enable = lib.mkForce false;
       # spicetify.enable = lib.mkForce false;
-      # gtk.enable = lib.mkForce false;
+      gtk.enable = lib.mkForce true;
     };
 
     cursor = {
@@ -36,5 +25,4 @@ with lib; {
       name = "Bibata-Modern-Classic";
     };
   };
-  # };
 }
