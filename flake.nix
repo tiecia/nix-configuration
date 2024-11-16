@@ -40,7 +40,7 @@
 
     matcha.url = "github:tiecia/matcha";
 
-    ags.url = "github:Aylur/ags?ref=v2.0.1";
+    ags.url = "github:Aylur/ags?ref=v1.8.2";
 
     stylix.url = "github:danth/stylix";
 
