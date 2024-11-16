@@ -292,7 +292,6 @@ in
                 size = "3";
                 passes = "1";
               };
-              "col.shadow" = lib.mkForce "rgba(1a1a1aee)";
             };
 
             animations = {
