@@ -17,7 +17,8 @@ in {
 
     ../../modules/nixos/configuration
     ../../modules/nixos/desktop-environment
-    ../../modules/nixos/programs
+    ../../modules/nixos/programs/cli
+    ../../modules/nixos/programs/desktop
   ];
 
   home-manager.users.tiec = import ./home.nix;

@@ -17,7 +17,7 @@ with lib; {
   ];
 
   options = {
-    desktop-configuration.enable = lib.mkEnableOption "Enable desktop-configuration";
+    desktop-configuration.enable = lib.mkEnableOption "Enable non-headless machine configuration";
   };
 
   config = mkIf config.desktop-configuration.enable {

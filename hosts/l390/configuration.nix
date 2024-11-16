@@ -13,7 +13,8 @@
 
     ../../modules/nixos/configuration
     ../../modules/nixos/desktop-environment
-    ../../modules/nixos/programs
+    ../../modules/nixos/programs/cli
+    ../../modules/nixos/programs/desktop
   ];
 
   plasma.enable = true;
