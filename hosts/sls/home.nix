@@ -24,14 +24,6 @@
     theme = "nord";
   };
 
-  stylix = {
-    targets = {
-      vscode.enable = false;
-      spicetify.enable = false;
-      firefox.enable = false;
-    };
-  };
-
   git.enable = true;
   wireguard.enable = true;
 

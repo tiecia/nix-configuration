@@ -42,16 +42,6 @@
     theme = "dark-blue";
   };
 
-  stylix = {
-    autoEnable = false;
-    targets = {
-      # vscode.enable = false;
-      # spicetify.enable = false;
-      # firefox.enable = false;
-      kitty.enable = true;
-    };
-  };
-
   git.enable = true;
 
   betterbird.enable = true;
