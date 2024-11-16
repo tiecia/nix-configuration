@@ -8,10 +8,10 @@
 }:
 with lib; {
   options = {
-    betterbird.enable = lib.mkEnableOption "Enable betterbird";
+    thunderbird.enable = lib.mkEnableOption "Enable thunderbird";
   };
 
-  config = mkIf config.betterbird.enable {
+  config = mkIf config.thunderbird.enable {
     home.packages = [
       pkgs-stable.thunderbird
     ];

@@ -467,7 +467,8 @@ in
                 hide_cursor = true;
               };
 
-              background = [
+              # For some reason we ned to force these values so they override the values defined in the hyprlock default configuration.
+              background = lib.mkForce [
                 {
                   monitor = "";
                   color = "rgb(36, 39, 58)";
@@ -483,7 +484,7 @@ in
                 }
               ];
 
-              input-field = [
+              input-field = lib.mkForce [
                 {
                   monitor = "";
                   size = "250, 50";

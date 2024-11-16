@@ -84,11 +84,11 @@
           "betterbird-115.9.0"
         ];
       };
-      # overlays = [
-      #   (final: prev: {
-      #     inherit (pkgs-master) hyprpaper xdg-desktop-portal-hyprland;
-      #   })
-      # ];
+      overlays = [
+        (final: prev: {
+          inherit (pkgs-master) matugen;
+        })
+      ];
     };
 
     specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland;};
