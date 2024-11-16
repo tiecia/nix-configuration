@@ -25,7 +25,6 @@
   locale-en-us.enable = lib.mkDefault true;
   rebuild.enable = lib.mkDefault true;
   dynamic-linking.enable = lib.mkDefault true;
-  docker.enable = lib.mkDefault true;
   numlock-boot.enable = lib.mkDefault true;
 
   desktop-configuration.enable = lib.mkDefault true; # Configuration to enable for desktop systems

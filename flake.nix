@@ -126,6 +126,7 @@
 
         modules =
           [
+            stylix.nixosModules.stylix
             ./hosts/wsl/configuration.nix
           ]
           ++ sharedModules;
