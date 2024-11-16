@@ -100,18 +100,16 @@
     ];
   in {
     nixosConfigurations = {
-      desktop = let
-      in
-        nixpkgs.lib.nixosSystem {
-          specialArgs = specialArgsDesktop;
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = specialArgsDesktop;
 
-          modules =
-            [
-              stylix.nixosModules.stylix
-              ./hosts/desktop/configuration.nix
-            ]
-            ++ sharedModules;
-        };
+        modules =
+          [
+            stylix.nixosModules.stylix
+            ./hosts/desktop/configuration.nix
+          ]
+          ++ sharedModules;
+      };
 
       l390 = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
