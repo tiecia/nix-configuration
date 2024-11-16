@@ -88,7 +88,11 @@
       ];
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland;};
+    globalConfig = {
+      terminal = "alacritty";
+    };
+
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland globalConfig;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable;};
 
     sharedModules = [
@@ -97,12 +101,9 @@
   in {
     nixosConfigurations = {
       desktop = let
-        globalConfig = {
-          terminal = "alacritty";
-        };
       in
         nixpkgs.lib.nixosSystem {
-          specialArgs = specialArgsDesktop // globalConfig;
+          specialArgs = specialArgsDesktop;
 
           modules =
             [
