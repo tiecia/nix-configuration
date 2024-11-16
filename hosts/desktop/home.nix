@@ -43,10 +43,12 @@
   };
 
   stylix = {
+    autoEnable = false;
     targets = {
-      vscode.enable = false;
-      spicetify.enable = false;
-      firefox.enable = false;
+      # vscode.enable = false;
+      # spicetify.enable = false;
+      # firefox.enable = false;
+      kitty.enable = true;
     };
   };
 
