@@ -46,6 +46,7 @@
     targets = {
       vscode.enable = false;
       spicetify.enable = false;
+      firefox.enable = false;
     };
   };
 
