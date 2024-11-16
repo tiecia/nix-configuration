@@ -42,6 +42,9 @@
   pipewire.enable = lib.mkForce false;
   bootloader.enable = lib.mkForce false;
 
+  # nvidia-graphics.enable = lib.mkForce false;
+  services.samba.enable = lib.mkForce false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nixos = {
     isNormalUser = true;

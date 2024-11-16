@@ -5,11 +5,5 @@
   ...
 }:
 with lib; {
-  options = {
-    docker.enable = mkEnableOption "Enable docker";
-  };
-
-  config = mkIf config.docker.enable {
-    virtualisation.docker.enable = true;
-  };
+  virtualisation.docker.enable = true;
 }
