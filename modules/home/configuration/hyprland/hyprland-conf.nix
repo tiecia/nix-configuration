@@ -292,6 +292,7 @@ in
                 size = "3";
                 passes = "1";
               };
+              "col.shadow" = "rgba(1a1a1aee)";
             };
 
             animations = {

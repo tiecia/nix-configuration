@@ -40,7 +40,7 @@
 
     matcha.url = "github:tiecia/matcha";
 
-    ags.url = "github:Aylur/ags?ref=v1.8.2";
+    ags.url = "github:Aylur/ags?ref=v2.0.1";
 
     stylix.url = "github:danth/stylix";
 
@@ -80,9 +80,6 @@
       inherit system;
       config = {
         allowUnfree = true;
-        permittedInsecurePackages = [
-          "betterbird-115.9.0"
-        ];
       };
       overlays = [
         (final: prev: {
