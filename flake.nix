@@ -96,7 +96,7 @@
     };
 
     specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland globalConfig;};
-    specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable;};
+    specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable globalConfig;};
 
     sharedModules = [
       inputs.nixos-cli.nixosModules.nixos-cli
