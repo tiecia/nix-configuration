@@ -12,7 +12,7 @@
 }: {
   imports = [
     # include NixOS-WSL modules
-    <nixos-wsl/modules>
+    # <nixos-wsl/modules>
 
     # ./hardware-configuration.nix
 

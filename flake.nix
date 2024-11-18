@@ -9,6 +9,8 @@
     # Updated 8/21/2024
     nixos-hardware.url = "github:nixos/nixos-hardware?rev=e8a2f6d5513fe7b7d15701b2d05404ffdc3b6dda";
 
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,6 +60,7 @@
     nixpkgs-master,
     nixpkgs-stable,
     nixos-hardware,
+    nixos-wsl,
     hyprland,
     stylix,
     ...
@@ -93,6 +96,7 @@
 
     sharedModules = [
       inputs.nixos-cli.nixosModules.nixos-cli
+      stylix.nixosModules.stylix
     ];
   in {
     nixosConfigurations = {
@@ -101,7 +105,6 @@
 
         modules =
           [
-            stylix.nixosModules.stylix
             ./hosts/desktop/configuration.nix
           ]
           ++ sharedModules;
@@ -122,8 +125,8 @@
 
         modules =
           [
-            stylix.nixosModules.stylix
             ./hosts/wsl/configuration.nix
+            nixos-wsl.nixosModules.default
           ]
           ++ sharedModules;
       };
@@ -143,7 +146,6 @@
 
         modules =
           [
-            stylix.nixosModules.stylix
             ./hosts/sls/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-common
           ]
