@@ -11,13 +11,10 @@
   ...
 }: {
   imports = [
-    # include NixOS-WSL modules
-    # <nixos-wsl/modules>
-
-    # ./hardware-configuration.nix
-
     inputs.home-manager.nixosModules.default # Imports the home-manager module
     ../../modules/nixos/configuration
+
+    ../../modules/nixos/configuration/stylix.nix
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
