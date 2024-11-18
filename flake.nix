@@ -91,7 +91,11 @@
       ];
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland;};
+    globalConfig = {
+      terminal = "alacritty";
+    };
+
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland globalConfig;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable;};
 
     sharedModules = [

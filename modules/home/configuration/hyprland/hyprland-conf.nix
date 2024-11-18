@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  globalConfig,
   ...
 }: let
 in
@@ -52,7 +53,7 @@ in
     config = let
       inherit (inputs.hyprsession.packages.${pkgs.system}) hyprsession;
       options = config.hyprland-conf;
-      terminal = "${pkgs.kitty}/bin/kitty";
+      terminal = "${globalConfig.terminal}";
       fileManager = "${pkgs.nautilus}/bin/nautilus";
 
       startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
@@ -354,7 +355,7 @@ in
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
 
-                "opacity 0.85, class:(kitty)"
+                "opacity 0.85, class:(${globalConfig.terminal})"
                 "opacity 0.90, class:(org.gnome.Nautilus)"
                 "noborder, onworkspace:w[t1]"
               ]
@@ -632,6 +633,7 @@ in
         home.packages = with pkgs;
           [
             kitty
+            alacritty
             # dolphin
             xwaylandvideobridge
             playerctl # Media player CLI controls

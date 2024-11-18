@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  globalConfig,
   ...
 }:
 with lib; {
@@ -28,7 +29,7 @@ with lib; {
         unfree = "export NIXPKGS_ALLOW_UNFREE=1";
         open = "bash ~/nix-configuration/modules/home/programs/cli/scripts/open.sh";
         ".." = "cd ..";
-        dup = "(kitty $PWD &) &> /dev/null";
+        dup = "(${globalConfig.terminal} $PWD &) &> /dev/null";
       };
     };
   };

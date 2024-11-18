@@ -14,6 +14,7 @@ with lib; {
       autoEnable = false;
       targets = {
         kitty.enable = true;
+        alacritty.enable = true;
       };
     };
   };
