@@ -156,6 +156,17 @@
           ]
           ++ sharedModules;
       };
+
+      live-sls = nixpkgs.lib.nixosSystem {
+        specialArgs = specialArgsDesktop;
+        modules =
+          [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+            ./hosts/sls/configuration.nix
+            nixos-hardware.nixosModules.microsoft-surface-common
+          ]
+          ++ sharedModules;
+      };
     };
   };
 }

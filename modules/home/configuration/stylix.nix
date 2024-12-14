@@ -15,6 +15,7 @@ with lib; {
       targets = {
         kitty.enable = true;
         alacritty.enable = true;
+        gtk.enable = true;
       };
     };
   };
