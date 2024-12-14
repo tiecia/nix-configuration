@@ -24,10 +24,10 @@
     nixos-cli.url = "github:water-sucks/nixos";
 
     # NOTE: hyprland and hyprsplit should be updated together
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=a425fbebe4cf4238e48a42f724ef2208959d66cf";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=3cba4ba44e7ba3cc8bb67ac71bc61245b5aca347";
 
     hyprsplit = {
-      url = "github:shezdy/hyprsplit?rev=1ac3dc76d7bd9a5dcffa0f6fb75d35258c519454";
+      url = "github:shezdy/hyprsplit?rev=28b1603e7674cc12e0b2b5b384b4dc88b659a62b";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
 
@@ -87,6 +87,7 @@
       overlays = [
         (final: prev: {
           inherit (pkgs-master) matugen;
+          inherit (pkgs-stable) catppuccin-cursors;
         })
       ];
     };
