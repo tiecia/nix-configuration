@@ -17,7 +17,7 @@ with lib; {
     };
 
     environment.systemPackages = [
-      pkgs.gnome.gnome-tweaks
+      pkgs.gnome-tweaks
     ];
   };
 }
