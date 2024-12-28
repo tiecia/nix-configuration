@@ -16,6 +16,10 @@ with lib; {
       winapps-pkgs.winapps
       winapps-pkgs.winapps-launcher
       pkgs.dialog
+      pkgs.freerdp3
+      pkgs.iproute2
+      pkgs.libnotify
+      pkgs.netcat-gnu
     ];
 
     virtualisation.libvirtd = {
