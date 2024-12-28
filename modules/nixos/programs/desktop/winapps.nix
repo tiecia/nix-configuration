@@ -15,6 +15,7 @@ with lib; {
     environment.systemPackages = [
       winapps-pkgs.winapps
       winapps-pkgs.winapps-launcher
+      pkgs.dialog
     ];
 
     virtualisation.libvirtd = {
