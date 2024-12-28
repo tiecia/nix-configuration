@@ -46,6 +46,11 @@
 
     stylix.url = "github:danth/stylix";
 
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     custom-nvim.url = "path:./nvim/";
 
     private = {
