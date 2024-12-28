@@ -3,6 +3,7 @@
   lib,
   # system,
   winapps-pkgs,
+  pkgs,
   ...
 }:
 with lib; {
@@ -15,5 +16,24 @@ with lib; {
       winapps-pkgs.winapps
       winapps-pkgs.winapps-launcher
     ];
+
+    virtualisation.libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            })
+            .fd
+          ];
+        };
+      };
+    };
   };
 }
