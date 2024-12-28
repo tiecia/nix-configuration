@@ -68,6 +68,7 @@
     nixos-wsl,
     hyprland,
     stylix,
+    winapps,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -97,11 +98,13 @@
       ];
     };
 
+    winapps-pkgs = winapps.packages.${system};
+
     globalConfig = {
       terminal = "alacritty";
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland globalConfig;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland globalConfig winapps-pkgs;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable globalConfig;};
 
     sharedModules = [

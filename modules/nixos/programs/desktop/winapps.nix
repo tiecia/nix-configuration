@@ -1,7 +1,8 @@
 {
   config,
   lib,
-  system,
+  # system,
+  winapps-pkgs,
   ...
 }:
 with lib; {
@@ -11,8 +12,8 @@ with lib; {
 
   config = mkIf config.winapps.enable {
     environment.systemPackages = [
-      winapps.packages.${system}.winapps
-      winapps.packages.${system}.winapps-launcher
+      winapps-pkgs.winapps
+      winapps-pkgs.winapps-launcher
     ];
   };
 }
