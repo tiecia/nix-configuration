@@ -37,6 +37,7 @@
     ./android-studio.nix
     ./postman.nix
     ./mqttx.nix
+    ./wireshark.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -57,5 +58,6 @@
   android-studio.enable = lib.mkDefault true;
   postman.enable = lib.mkDefault true;
   mqttx.enable = lib.mkDefault true;
+  wireshark.enable = lib.mkDefault true;
   # davinci-resolve.enable = lib.mkDefault true;
 }
