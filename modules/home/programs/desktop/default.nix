@@ -36,6 +36,7 @@
     ./alacritty.nix
     ./android-studio.nix
     ./postman.nix
+    ./mqttx.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -55,5 +56,6 @@
   alacritty.enable = lib.mkDefault true;
   android-studio.enable = lib.mkDefault true;
   postman.enable = lib.mkDefault true;
+  mqttx.enable = lib.mkDefault true;
   # davinci-resolve.enable = lib.mkDefault true;
 }
