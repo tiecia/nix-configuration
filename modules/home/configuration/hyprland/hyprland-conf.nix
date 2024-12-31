@@ -393,51 +393,51 @@ in
             ];
             config.common.default = "*"; # This forces the desktop portal config to use the pre-version 1.17 config.
           };
-          mimeApps = {
-            enable = true;
-            associations.added = {
-              "x-scheme-handler/notion" = ["notion-app-enhanced.desktop"];
-              "x-scheme-handler/gitkraken" = ["GitKraken.desktop"];
-              "x-scheme-handler/msteams" = ["teams-for-linux.desktop"];
-              "x-scheme-handler/http" = ["firefox.desktop"];
-              "x-scheme-handler/https" = ["firefox.desktop"];
-              "x-scheme-handler/chrome" = ["firefox.desktop"];
-              "x-scheme-handler/about" = ["firefox.desktop"];
-              "x-scheme-handler/unknown" = ["firefox.desktop"];
-              "text/html" = ["firefox.desktop"];
-              "application/x-extension-htm" = ["firefox.desktop"];
-              "application/x-extension-html" = ["firefox.desktop"];
-              "application/x-extension-shtml" = ["firefox.desktop"];
-              "application/xhtml+xml" = ["firefox.desktop"];
-              "application/x-extension-xhtml" = ["firefox.desktop"];
-              "application/x-extension-xht" = ["firefox.desktop"];
-
-              "application/pdf" = ["firefox.desktop"];
-            };
-
-            defaultApplications = {
-              "x-scheme-handler/notion" = ["notion-app-enhanced.desktop"];
-              "x-scheme-handler/gitkraken" = ["GitKraken.desktop"];
-              "x-scheme-handler/msteams" = ["teams-for-linux.desktop"];
-              "text/html" = ["firefox.desktop"];
-              "x-scheme-handler/http" = ["firefox.desktop"];
-              "x-scheme-handler/https" = ["firefox.desktop"];
-              "x-scheme-handler/about" = ["firefox.desktop"];
-              "x-scheme-handler/unknown" = ["firefox.desktop"];
-              "x-scheme-handler/chrome" = ["firefox.desktop"];
-              "application/x-extension-htm" = ["firefox.desktop"];
-              "application/x-extension-html" = ["firefox.desktop"];
-              "application/x-extension-shtml" = ["firefox.desktop"];
-              "application/xhtml+xml" = ["firefox.desktop"];
-              "application/x-extension-xhtml" = ["firefox.desktop"];
-              "application/x-extension-xht" = ["firefox.desktop"];
-
-              "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
-              "image/jpg" = ["com.interversehq.qView.desktop"];
-              "image/jpeg" = ["com.interversehq.qView.desktop"];
-              "image/png" = ["com.interversehq.qView.desktop"];
-            };
-          };
+          # mimeApps = {
+          #   enable = true;
+          #   associations.added = {
+          #     "x-scheme-handler/notion" = ["notion-app-enhanced.desktop"];
+          #     "x-scheme-handler/gitkraken" = ["GitKraken.desktop"];
+          #     "x-scheme-handler/msteams" = ["teams-for-linux.desktop"];
+          #     "x-scheme-handler/http" = ["firefox.desktop"];
+          #     "x-scheme-handler/https" = ["firefox.desktop"];
+          #     "x-scheme-handler/chrome" = ["firefox.desktop"];
+          #     "x-scheme-handler/about" = ["firefox.desktop"];
+          #     "x-scheme-handler/unknown" = ["firefox.desktop"];
+          #     "text/html" = ["firefox.desktop"];
+          #     "application/x-extension-htm" = ["firefox.desktop"];
+          #     "application/x-extension-html" = ["firefox.desktop"];
+          #     "application/x-extension-shtml" = ["firefox.desktop"];
+          #     "application/xhtml+xml" = ["firefox.desktop"];
+          #     "application/x-extension-xhtml" = ["firefox.desktop"];
+          #     "application/x-extension-xht" = ["firefox.desktop"];
+          #
+          #     "application/pdf" = ["firefox.desktop"];
+          #   };
+          #
+          #   defaultApplications = {
+          #     "x-scheme-handler/notion" = ["notion-app-enhanced.desktop"];
+          #     "x-scheme-handler/gitkraken" = ["GitKraken.desktop"];
+          #     "x-scheme-handler/msteams" = ["teams-for-linux.desktop"];
+          #     "text/html" = ["firefox.desktop"];
+          #     "x-scheme-handler/http" = ["firefox.desktop"];
+          #     "x-scheme-handler/https" = ["firefox.desktop"];
+          #     "x-scheme-handler/about" = ["firefox.desktop"];
+          #     "x-scheme-handler/unknown" = ["firefox.desktop"];
+          #     "x-scheme-handler/chrome" = ["firefox.desktop"];
+          #     "application/x-extension-htm" = ["firefox.desktop"];
+          #     "application/x-extension-html" = ["firefox.desktop"];
+          #     "application/x-extension-shtml" = ["firefox.desktop"];
+          #     "application/xhtml+xml" = ["firefox.desktop"];
+          #     "application/x-extension-xhtml" = ["firefox.desktop"];
+          #     "application/x-extension-xht" = ["firefox.desktop"];
+          #
+          #     "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
+          #     "image/jpg" = ["com.interversehq.qView.desktop"];
+          #     "image/jpeg" = ["com.interversehq.qView.desktop"];
+          #     "image/png" = ["com.interversehq.qView.desktop"];
+          #   };
+          # };
         };
 
         programs = {
