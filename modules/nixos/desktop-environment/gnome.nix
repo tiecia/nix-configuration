@@ -23,5 +23,11 @@ with lib; {
       pkgs.gnome-tweaks
       pkgs.gnomeExtensions.gpu-profile-selector
     ];
+
+    programs.bash = {
+      shellAliases = {
+        code = "code --use-gl=desktop";
+      };
+    };
   };
 }
