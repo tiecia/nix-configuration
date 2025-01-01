@@ -21,6 +21,7 @@ with lib; {
 
     environment.systemPackages = [
       pkgs.gnome-tweaks
+      pkgs.gnomeExtensions.gpu-profile-selector
     ];
   };
 }
