@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  stdenv,
   ...
 }: let
   alacritty-theme = pkgs.callPackage ./alacritty-theme.nix {};
@@ -13,14 +12,26 @@ in
     };
 
     config = mkIf config.alacritty.enable {
-      home.packages = with pkgs; [
-        alacritty
-      ];
+      # home.packages = with pkgs; [
+      #   alacritty
+      # ];
+
+      programs.alacritty = {
+        enable = true;
+        settings = lib.mkForce {
+          general.import = [
+            "alacritty-theme/themes/gruvbox_dark.toml"
+          ];
+          window = {
+            startup_mode = "Maximized";
+            opacity = 0.9;
+          };
+          font.size = 14;
+        };
+      };
 
       home.file = {
         ".config/alacritty/alacritty-theme".source = alacritty-theme;
-        #   source = alacritty-theme;
-        # };
       };
     };
   }
