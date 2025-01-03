@@ -31,7 +31,10 @@ in
       };
 
       home.file = {
-        ".config/alacritty/alacritty-theme".source = alacritty-theme;
+        ".config/alacritty/alacritty-theme" = {
+          source = alacritty-theme;
+          force = true;
+        };
       };
     };
   }
