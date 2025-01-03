@@ -18,9 +18,9 @@ in
       ];
 
       home.file = {
-        ".config/alacritty2/alacritty-theme" = {
-          source = alacritty-theme;
-        };
+        ".config/alacritty/alacritty-theme".source = alacritty-theme;
+        #   source = alacritty-theme;
+        # };
       };
     };
   }

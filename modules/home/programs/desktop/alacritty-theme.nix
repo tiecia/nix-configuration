@@ -1,3 +1,4 @@
+# Makes a derivation containing the alacritty-theme repository
 {
   stdenv,
   fetchFromGitHub,
