@@ -370,11 +370,6 @@ in
           ];
         };
 
-        # stylix = {
-        #   enable = true;
-        #   image = "~/nix-configuration/wallpapers/alena-aenami-lights1k1.jpg";
-        # };
-
         qt = {
           enable = true;
           platformTheme.name = "kde";
