@@ -21,7 +21,7 @@
 
   spotify = {
     enable = true;
-    theme = "nord";
+    # theme = "nord";
   };
 
   git.enable = true;
