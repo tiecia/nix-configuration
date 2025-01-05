@@ -6,8 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    # Updated 8/21/2024
-    nixos-hardware.url = "github:nixos/nixos-hardware?rev=e8a2f6d5513fe7b7d15701b2d05404ffdc3b6dda";
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=7c674c6734f61157e321db595dbfcd8523e04e19";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
@@ -96,8 +95,8 @@
       };
       overlays = [
         (final: prev: {
-          inherit (pkgs-master) matugen;
-          inherit (pkgs-stable) catppuccin-cursors;
+          inherit (pkgs-master) zsync;
+          inherit (pkgs-stable) ceph;
         })
       ];
     };
