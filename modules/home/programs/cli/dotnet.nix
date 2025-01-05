@@ -30,7 +30,7 @@ in {
     lib.mkIf config.dotnet.enable {
       home.packages = [
         pkgs.jetbrains.rider
-        (lib.mkIf (!maui) pkgs.dotnet-sdk_8)
+        # (lib.mkIf (!maui) pkgs.dotnet-sdk_8)
       ];
     };
 }
