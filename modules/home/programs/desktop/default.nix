@@ -30,7 +30,6 @@
     ./wpsoffice.nix
     ./figma.nix
     ./winapps.nix
-    ./dotnet.nix
     ./arduino-ide.nix
     ./onlyoffice.nix
     ./alacritty.nix
@@ -52,7 +51,6 @@
   onlyoffice.enable = lib.mkDefault true;
   figma.enable = lib.mkDefault true;
   # winapps.enable = lib.mkDefault true;
-  dotnet.enable = lib.mkDefault true;
   arduino-ide.enable = lib.mkDefault true;
   alacritty.enable = lib.mkDefault true;
   android-studio.enable = lib.mkDefault true;

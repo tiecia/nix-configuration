@@ -22,6 +22,7 @@
     ./devenv.nix
     ./mmv.nix
     ./nodejs.nix
+    ./dotnet.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -41,4 +42,5 @@
   devenv.enable = lib.mkDefault true;
   mmv.enable = lib.mkDefault true;
   nodejs.enable = lib.mkDefault true;
+  dotnet.enable = lib.mkDefault true;
 }

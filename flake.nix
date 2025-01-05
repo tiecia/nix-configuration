@@ -51,6 +51,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    android-nixpkgs = {
+      url = "github:tadfisher/android-nixpkgs";
+    };
+
     custom-nvim.url = "path:./nvim/";
 
     private = {

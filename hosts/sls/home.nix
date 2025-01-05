@@ -47,12 +47,12 @@
   # This is where we can configure programs differently for this host.
   programs = {
     home-manager.enable = true;
-    kitty = {
-      enable = true; # Kitty is installed by Hyprland so we need to enable it here for options.
-      font = {
-        size = lib.mkForce 17;
-      };
-    };
+    # kitty = {
+    #   enable = true; # Kitty is installed by Hyprland so we need to enable it here for options.
+    #   font = {
+    #     size = lib.mkForce 17;
+    #   };
+    # };
   };
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -72,7 +72,6 @@
   # Install packages globally in the user profile.
   home.packages = with pkgs; [
     # hello
-    devenv
     parsec-bin
   ];
 
