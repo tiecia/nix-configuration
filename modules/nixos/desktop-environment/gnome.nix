@@ -23,6 +23,7 @@ with lib; {
       pkgs.gnome-tweaks
       pkgs.gnomeExtensions.gpu-profile-selector
       pkgs.hunspell
+      pkgs.hunspellDicts.en_US
     ];
 
     programs.bash = {
