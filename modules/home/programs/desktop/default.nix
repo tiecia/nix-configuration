@@ -30,11 +30,13 @@
     ./wpsoffice.nix
     ./figma.nix
     ./winapps.nix
-    ./dotnet.nix
     ./arduino-ide.nix
     ./onlyoffice.nix
     ./alacritty.nix
+    ./android-studio.nix
     ./postman.nix
+    ./mqttx.nix
+    ./notion.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -48,10 +50,13 @@
   wpsoffice.enable = lib.mkDefault true;
   onlyoffice.enable = lib.mkDefault true;
   figma.enable = lib.mkDefault true;
-  winapps.enable = lib.mkDefault true;
-  dotnet.enable = lib.mkDefault true;
+  # winapps.enable = lib.mkDefault true;
   arduino-ide.enable = lib.mkDefault true;
   alacritty.enable = lib.mkDefault true;
+  android-studio.enable = lib.mkDefault true;
+  postman.enable = lib.mkDefault true;
+  mqttx.enable = lib.mkDefault true;
+  notion.enable = lib.mkDefault true;
   # davinci-resolve.enable = lib.mkDefault true;
   postman.enable = lib.mkDefault true;
 }

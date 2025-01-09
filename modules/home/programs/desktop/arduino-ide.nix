@@ -14,6 +14,7 @@ with lib; {
       arduino-ide
       python312
       python312Packages.serialio
+      python312Packages.pyserial
     ];
   };
 }

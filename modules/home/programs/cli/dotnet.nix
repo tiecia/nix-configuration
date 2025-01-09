@@ -8,7 +8,7 @@
 in {
   options = {
     dotnet = {
-      enable = lib.mkEnableOption "Enable dotnet";
+      enable = lib.mkEnableOption "dotnet";
     };
   };
 
@@ -16,7 +16,12 @@ in {
     home.packages = [
       pkgs.jetbrains.rider
       pkgs.dotnet-sdk_8
-      # pkgs.dotnet-sdk_7
     ];
+
+    programs.bash = {
+      shellAliases = {
+        riderd = "(rider &) &> /dev/null";
+      };
+    };
   };
 }

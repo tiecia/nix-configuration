@@ -33,7 +33,7 @@ in
 
       # If a theme is specified use spicetify and apply the theme.
       programs.spicetify = mkMerge [
-        {enable = true;}
+        {enable = config.spotify.theme != null;}
         (mkIf (config.spotify.theme == "dark-blue") themes.dark-blue)
         (mkIf (config.spotify.theme == "nord") themes.nord)
       ];

@@ -12,6 +12,7 @@ with lib; {
   config = mkIf config.chrome.enable {
     home.packages = with pkgs; [
       google-chrome
+      chromium
     ];
   };
 }

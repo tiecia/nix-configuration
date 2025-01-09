@@ -26,7 +26,6 @@ in {
   networking.hostName = lib.mkForce "TyLaptopStudioNix";
 
   laptop-configuration.enable = lib.mkForce true;
-  hyprland.enable = true;
   surface.enable = lib.mkForce true;
 
   nvidia-graphics = {
@@ -46,22 +45,32 @@ in {
   #   };
   # };
 
+  gnome.enable = true;
+
   specialisation = {
+    hyprland.configuration = {
+      gnome.enable = lib.mkForce true;
+      hyprland.enable = true;
+      environment.sessionVariables = {
+        SPECIALISATION = "hyprland";
+      };
+    };
+
     plasma.configuration = {
-      hyprland.enable = lib.mkForce false;
+      gnome.enable = lib.mkForce false;
       plasma.enable = true;
       environment.sessionVariables = {
         SPECIALISATION = "plasma";
       };
     };
 
-    gnome.configuration = {
-      hyprland.enable = lib.mkForce false;
-      gnome.enable = true;
-      environment.sessionVariables = {
-        SPECIALISATION = "gnome";
-      };
-    };
+    # gnome.configuration = {
+    #   hyprland.enable = lib.mkForce false;
+    #   gnome.enable = true;
+    #   environment.sessionVariables = {
+    #     SPECIALISATION = "gnome";
+    #   };
+    # };
   };
 
   # This value determines the NixOS release from which the default

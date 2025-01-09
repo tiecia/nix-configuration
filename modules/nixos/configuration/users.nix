@@ -12,6 +12,8 @@
       "wheel"
       "docker" # Gives account access to the docker socket
       "dialout" # Gives account access to serial ports
+      "wireshark"
+      "plugdev"
     ];
     packages = with pkgs; [
       home-manager

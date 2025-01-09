@@ -10,6 +10,8 @@
     ./syncthing.nix
     ./wine.nix
     ./via.nix
+    ./winapps.nix
+    ./wireshark.nix
   ];
 
   via.enable = lib.mkDefault true;
@@ -18,4 +20,6 @@
   prism-launcher.enable = lib.mkDefault true;
   syncthing.enable = lib.mkDefault true;
   wine.enable = lib.mkDefault true;
+  winapps.enable = lib.mkDefault true;
+  wireshark.enable = lib.mkDefault true;
 }

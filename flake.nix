@@ -6,8 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    # Updated 8/21/2024
-    nixos-hardware.url = "github:nixos/nixos-hardware?rev=e8a2f6d5513fe7b7d15701b2d05404ffdc3b6dda";
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=7c674c6734f61157e321db595dbfcd8523e04e19";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
@@ -46,6 +45,15 @@
 
     stylix.url = "github:danth/stylix";
 
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # android-nixpkgs = {
+    #   url = "github:tadfisher/android-nixpkgs";
+    # };
+
     custom-nvim.url = "path:./nvim/";
 
     private = {
@@ -63,6 +71,7 @@
     nixos-wsl,
     hyprland,
     stylix,
+    winapps,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -86,17 +95,19 @@
       };
       overlays = [
         (final: prev: {
-          inherit (pkgs-master) matugen;
-          inherit (pkgs-stable) catppuccin-cursors;
+          inherit (pkgs-master) zsync;
+          inherit (pkgs-stable) ceph;
         })
       ];
     };
+
+    winapps-pkgs = winapps.packages.${system};
 
     globalConfig = {
       terminal = "alacritty";
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland globalConfig;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland globalConfig winapps-pkgs;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable globalConfig;};
 
     sharedModules = [
