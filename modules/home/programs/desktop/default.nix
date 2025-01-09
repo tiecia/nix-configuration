@@ -58,5 +58,4 @@
   mqttx.enable = lib.mkDefault true;
   notion.enable = lib.mkDefault true;
   # davinci-resolve.enable = lib.mkDefault true;
-  postman.enable = lib.mkDefault true;
 }
