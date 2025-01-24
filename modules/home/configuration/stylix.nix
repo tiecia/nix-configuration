@@ -13,8 +13,9 @@ with lib; {
     stylix = {
       autoEnable = false;
       targets = {
-        kitty.enable = true;
-        alacritty.enable = true;
+        kitty.enable = lib.mkForce true;
+        alacritty.enable = lib.mkForce true;
+        gtk.enable = true;
       };
     };
   };
