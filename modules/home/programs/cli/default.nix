@@ -23,6 +23,7 @@
     ./mmv.nix
     ./nodejs.nix
     ./dotnet.nix
+    ./lm_sensors.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -43,4 +44,5 @@
   mmv.enable = lib.mkDefault true;
   nodejs.enable = lib.mkDefault true;
   dotnet.enable = lib.mkDefault true;
+  lm_sensors.enable = lib.mkDefault true;
 }
