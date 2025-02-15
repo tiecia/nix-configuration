@@ -1,1 +1,8 @@
-{plugins.nvim-autopairs = {enable = true;};}
+{
+  plugins = {
+    nvim-autopairs.enable = true;
+    ts-autotag = {
+      enable = true;
+    };
+  };
+}
