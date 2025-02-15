@@ -383,7 +383,7 @@ in
           portal = {
             enable = true;
             extraPortals = [
-              pkgs.xdg-desktop-portal-hyprland
+              # pkgs.xdg-desktop-portal-hyprland
               pkgs.xdg-desktop-portal-gtk
             ];
             config.common.default = "*"; # This forces the desktop portal config to use the pre-version 1.17 config.

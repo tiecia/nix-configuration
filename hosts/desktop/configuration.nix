@@ -26,7 +26,7 @@ in {
   rebuild.host = "desktop";
   networking.hostName = "TyDesktopNix";
 
-  hyprland.enable = true;
+  gnome.enable = true;
 
   services.samba.enable = lib.mkForce true;
 
@@ -38,18 +38,18 @@ in {
 
   specialisation = {
     plasma.configuration = {
-      hyprland.enable = lib.mkForce false;
+      gnome.enable = lib.mkForce false;
       plasma.enable = true;
       environment.sessionVariables = {
         SPECIALISATION = "plasma";
       };
     };
 
-    gnome.configuration = {
-      hyprland.enable = lib.mkForce false;
-      gnome.enable = true;
+    hyprland.configuration = {
+      gnome.enable = lib.mkForce false;
+      hyprland.enable = true;
       environment.sessionVariables = {
-        SPECIALISATION = "gnome";
+        SPECIALISATION = "hyprland";
       };
     };
   };
