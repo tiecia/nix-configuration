@@ -12,6 +12,7 @@
     ./via.nix
     ./winapps.nix
     ./wireshark.nix
+    ./virtualbox.nix
   ];
 
   via.enable = lib.mkDefault true;
@@ -22,4 +23,5 @@
   wine.enable = lib.mkDefault true;
   winapps.enable = lib.mkDefault true;
   wireshark.enable = lib.mkDefault true;
+  virtualbox.enable = lib.mkDefault true;
 }
