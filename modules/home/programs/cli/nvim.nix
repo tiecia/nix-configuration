@@ -20,6 +20,7 @@
         pkgs.libgccjit
         pkgs.ripgrep
         pkgs.xclip
+        pkgs.binutils
 
         neovim
       ];
