@@ -5,28 +5,46 @@
   pkgs,
   ...
 }: {
-  options = {
-    nvim.enable = lib.mkEnableOption "Enable nvim";
-  };
+  options = {nvim.enable = lib.mkEnableOption "Enable nvim";};
 
   config = let
-    custom-nvim = inputs.custom-nvim.packages.${pkgs.system}.default;
+    # custom-nvim = inputs.custom-nvim.packages.${pkgs.system}.default;
+    inherit (pkgs) neovim;
   in
     lib.mkIf config.nvim.enable {
       home.packages = [
-        custom-nvim
-        pkgs.ripgrep # Needed for telescope
+        # Dependencies as defined in kickstart.nvim
+        pkgs.git
+        pkgs.gnumake
+        pkgs.unzip
+        pkgs.libgcc
+        pkgs.ripgrep
+        pkgs.xclip
+
+        neovim
       ];
 
       programs.bash = {
         enable = true;
         shellAliases = {
-          vi = "${custom-nvim}/bin/nvim";
-          v = "${custom-nvim}/bin/nvim";
+          vi = "${neovim}/bin/neovim";
+          v = "${neovim}/bin/neovim";
         };
-        sessionVariables = {
-          EDITOR = "${custom-nvim}/bin/nvim";
-        };
+        sessionVariables = {EDITOR = "${neovim}/bin/neovim";};
       };
+
+      # home.packages = [
+      #   custom-nvim
+      #   pkgs.ripgrep # Needed for telescope
+      # ];
+      #
+      # programs.bash = {
+      #   enable = true;
+      #   shellAliases = {
+      #     vi = "${custom-nvim}/bin/nvim";
+      #     v = "${custom-nvim}/bin/nvim";
+      #   };
+      #   sessionVariables = { EDITOR = "${custom-nvim}/bin/nvim"; };
+      # };
     };
 }

@@ -33,6 +33,15 @@
     settings.mirage = true;
   };
 
+  extraConfigLua = ''
+    require('mason').setup {
+      registries = {
+        'github:mason-org/mason-registry',
+        'github:crashdummyy/mason-registry',
+      },
+    }
+  '';
+
   extraConfigVim = ''
     autocmd BufRead,BufNewFile *.pl set filetype=prolog
   '';
