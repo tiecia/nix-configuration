@@ -17,7 +17,7 @@
         pkgs.git
         pkgs.gnumake
         pkgs.unzip
-        pkgs.libgcc
+        pkgs.libgccjit
         pkgs.ripgrep
         pkgs.xclip
 
