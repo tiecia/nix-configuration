@@ -27,10 +27,10 @@
       programs.bash = {
         enable = true;
         shellAliases = {
-          vi = "${neovim}/bin/neovim";
-          v = "${neovim}/bin/neovim";
+          vi = "${neovim}/bin/nvim";
+          v = "${neovim}/bin/nvim";
         };
-        sessionVariables = {EDITOR = "${neovim}/bin/neovim";};
+        sessionVariables = {EDITOR = "${neovim}/bin/nvim";};
       };
 
       # home.packages = [
