@@ -6,12 +6,12 @@
 }:
 with lib; {
   options = {
-    devenv.enable = mkEnableOption "Enable devenv";
+    ncdu.enable = mkEnableOption "Enable ncdu";
   };
 
-  config = mkIf config.devenv.enable {
+  config = mkIf config.ncdu.enable {
     home.packages = with pkgs; [
-      devenv
+      ncdu
     ];
   };
 }
