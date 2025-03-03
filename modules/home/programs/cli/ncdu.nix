@@ -1,3 +1,4 @@
+# A tool that searches directories and gives a summary of storage usage per directory.
 {
   config,
   lib,
