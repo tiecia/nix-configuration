@@ -146,8 +146,8 @@ in
           rebuild = rebuild-command;
           rb = rebuild-command;
           listgens = "nix profile history --profile /nix/var/nix/profiles/system"; # https://nixos.org/manual/nix/stable/package-management/garbage-collection
-          nixclean = "nh clean all --keep 3";
-          cleannix = "nh clean all --keep 3";
+          nixclean = "nh clean all --keep 3 --nogcroots";
+          cleannix = "nh clean all --keep 3 --nogcroots";
           search = "nh search";
 
           compare = "bash ${compare}/bin/compare";
