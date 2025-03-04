@@ -14,8 +14,8 @@
     str=$(hyprctl clients | grep "FFPWA-01HZ3KX1QST5T15ECH5S0EDXQC")
 
     if [ -z "$str" ] && [ "$str" != " " ]; then
-      firefoxpwa site launch 01HZ3KX1QST5T15ECH5S0EDXQC &
-      # discord &
+      # firefoxpwa site launch 01HZ3KX1QST5T15ECH5S0EDXQC &
+      discord --use-gl=desktop &
     fi
     hyprctl dispatch togglespecialworkspace discord
   '';
