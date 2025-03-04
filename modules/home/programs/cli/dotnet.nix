@@ -15,8 +15,8 @@ in {
   config = lib.mkIf config.dotnet.enable {
     home.packages = [
       pkgs.jetbrains.rider
-      # pkgs.dotnet-sdk_8
-      pkgs.dotnet-sdk_9
+      pkgs.dotnet-sdk_8
+      # pkgs.dotnet-sdk_9
     ];
 
     programs.bash = {
