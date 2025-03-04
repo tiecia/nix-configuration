@@ -652,6 +652,8 @@ in
             aileron
 
             hyprsession
+
+            geary
           ]
           ++ lists.optionals options.laptop [
             inputs.hyprdock.packages.${pkgs.system}.hyprdock
