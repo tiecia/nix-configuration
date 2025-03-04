@@ -655,6 +655,7 @@ in
 
             evolution
             evolution-data-server
+            mailspring
           ]
           ++ lists.optionals options.laptop [
             inputs.hyprdock.packages.${pkgs.system}.hyprdock
