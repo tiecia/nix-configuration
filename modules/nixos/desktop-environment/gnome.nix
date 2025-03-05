@@ -24,6 +24,7 @@ with lib; {
       pkgs.gnomeExtensions.gpu-profile-selector
       pkgs.hunspell
       pkgs.hunspellDicts.en_US
+      pkgs.gnomeExtensions.dash-to-dock
     ];
 
     programs.bash = {

@@ -49,7 +49,7 @@ in {
 
   specialisation = {
     hyprland.configuration = {
-      gnome.enable = lib.mkForce true;
+      gnome.enable = lib.mkForce false;
       hyprland.enable = true;
       environment.sessionVariables = {
         SPECIALISATION = "hyprland";
