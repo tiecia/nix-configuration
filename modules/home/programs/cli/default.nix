@@ -44,7 +44,7 @@
   devenv.enable = lib.mkDefault true;
   mmv.enable = lib.mkDefault true;
   nodejs.enable = lib.mkDefault true;
-  dotnet.enable = lib.mkDefault false;
+  dotnet.enable = lib.mkDefault true;
   lm_sensors.enable = lib.mkDefault true;
   ncdu.enable = lib.mkDefault true;
 }
