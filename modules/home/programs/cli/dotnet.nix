@@ -38,6 +38,7 @@ in {
         };
         sessionVariables = {
           NETCOREDBG_HOME = "${netcoredbg}/bin/netcoredbg";
+          TEST = "test";
         };
       };
     };
