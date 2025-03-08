@@ -12,12 +12,12 @@ in
     };
 
     config = mkIf config.alacritty.enable {
-      # home.packages = with pkgs; [
-      #   alacritty
-      # ];
+      home.packages = with pkgs; [
+        alacritty
+      ];
 
       programs.alacritty = {
-        enable = true;
+        enable = false;
         # settings = lib.mkForce {
         #   general.import = [
         #     "alacritty-theme/themes/gruvbox_dark.toml"
