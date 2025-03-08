@@ -26,7 +26,12 @@ in
             startup_mode = "Maximized";
             opacity = 0.9;
           };
-          font.size = 14;
+          font = {
+            size = 12;
+            normal = {
+              family = "DejaVuSansMono";
+            };
+          };
         };
       };
 
