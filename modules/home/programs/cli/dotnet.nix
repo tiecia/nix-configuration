@@ -24,9 +24,11 @@ in {
         pkgs.dotnetCorePackages.sdk_9_0
         pkgs.dotnetCorePackages.sdk_8_0
       ])
-
-      pkgs.netcoredbg
     ];
+
+    home.sessionVariables = {
+      NETCOREDBG_HOME = "${pkgs.netcoredbg}/bin/netcoredbg";
+    };
 
     programs.bash = {
       shellAliases = {
