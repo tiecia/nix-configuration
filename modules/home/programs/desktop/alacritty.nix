@@ -17,22 +17,22 @@ in
       ];
 
       programs.alacritty = {
-        enable = false;
-        # settings = lib.mkForce {
-        #   general.import = [
-        #     "alacritty-theme/themes/gruvbox_dark.toml"
-        #   ];
-        #   window = {
-        #     startup_mode = "Maximized";
-        #     opacity = 0.9;
-        #   };
-        #   font = {
-        #     size = 12;
-        #     normal = {
-        #       family = "DejaVuSansMono";
-        #     };
-        #   };
-        # };
+        enable = true;
+        settings = lib.mkForce {
+          general.import = [
+            "alacritty-theme/themes/gruvbox_dark.toml"
+          ];
+          window = {
+            startup_mode = "Maximized";
+            opacity = 0.9;
+          };
+          font = {
+            size = 12;
+            normal = {
+              family = "DejaVuSansMono";
+            };
+          };
+        };
       };
 
       home.file = {
