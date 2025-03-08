@@ -28,17 +28,11 @@ in {
           pkgs.dotnetCorePackages.sdk_9_0
           pkgs.dotnetCorePackages.sdk_8_0
         ])
-
-        netcoredbg
       ];
 
       programs.bash = {
         shellAliases = {
           riderd = "(rider &) &> /dev/null";
-        };
-        sessionVariables = {
-          NETCOREDBG_HOME = "${netcoredbg}/bin/netcoredbg";
-          TEST = "test";
         };
       };
     };
