@@ -32,13 +32,12 @@ in {
         netcoredbg
       ];
 
-      home.sessionVariables = {
-        NETCOREDBG_HOME = "${netcoredbg}/bin/netcoredbg";
-      };
-
       programs.bash = {
         shellAliases = {
           riderd = "(rider &) &> /dev/null";
+        };
+        sessionVariables = {
+          NETCOREDBG_HOME = "${netcoredbg}/bin/netcoredbg";
         };
       };
     };
