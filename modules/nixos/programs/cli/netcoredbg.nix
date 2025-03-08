@@ -13,9 +13,5 @@ in
       sessionVariables = {
         NETCOREDBG_PATH = "${netcoredbg}/bin/netcoredbg";
       };
-
-      variables = {
-        TEST = "test";
-      };
     };
   }
