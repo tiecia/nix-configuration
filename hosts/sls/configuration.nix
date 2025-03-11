@@ -11,6 +11,11 @@
   ...
 }: let
 in {
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
+
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default # Imports the home-manager module
@@ -30,7 +35,7 @@ in {
 
   nvidia-graphics = {
     enable = lib.mkForce true;
-    prime = "sync";
+    prime = "offload";
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:243:0:0";
   };

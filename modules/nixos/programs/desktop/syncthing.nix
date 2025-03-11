@@ -22,7 +22,7 @@ in
           configDir = "/home/${username}/.config/syncthing"; # Folder for Syncthing's settings and keys
           guiAddress = "0.0.0.0:8384";
           overrideDevices = true;
-          overrideFolders = true;
+          overrideFolders = false;
 
           settings = {
             inherit (secrets) gui devices;

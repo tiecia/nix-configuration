@@ -40,9 +40,9 @@
 
   xbindkeys.enable = true;
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-  };
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  # };
 
   # This is where we can configure programs differently for this host.
   programs = {

@@ -6,7 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware?rev=7c674c6734f61157e321db595dbfcd8523e04e19";
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=d23a3bc3c600a064c72c7fb02862edfab11a46cf";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
@@ -23,12 +23,12 @@
     nixos-cli.url = "github:water-sucks/nixos";
 
     # NOTE: hyprland and hyprsplit should be updated together
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=3cba4ba44e7ba3cc8bb67ac71bc61245b5aca347";
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff";
 
-    hyprsplit = {
-      url = "github:shezdy/hyprsplit?rev=28b1603e7674cc12e0b2b5b384b4dc88b659a62b";
-      inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
-    };
+    # hyprsplit = {
+    #   url = "github:shezdy/hyprsplit?rev=622fbb49e4caeec8c4196e9f8be8489b00263a83";
+    #   # inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
+    # };
 
     hyprdock = {
       url = "github:DashieTM/hyprdock?rev=8d07dbdf446e6b21528cc994547cc8f173a70330";
@@ -69,7 +69,6 @@
     nixpkgs-stable,
     nixos-hardware,
     nixos-wsl,
-    hyprland,
     stylix,
     winapps,
     ...
@@ -107,7 +106,7 @@
       terminal = "alacritty";
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable hyprland globalConfig winapps-pkgs;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable globalConfig winapps-pkgs;};
     specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable globalConfig;};
 
     sharedModules = [

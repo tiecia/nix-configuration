@@ -83,7 +83,7 @@ in
 
         wayland.windowManager.hyprland = {
           enable = true;
-          package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+          # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
           # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
           systemd.variables = ["--all"]; # Fixes an issue where some programs don't work in systemd services started by homemanager.
@@ -366,7 +366,7 @@ in
             };
           };
           plugins = [
-            inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
+            pkgs.hyprlandPlugins.hyprsplit
           ];
         };
 
@@ -630,7 +630,7 @@ in
             kitty
             alacritty
             # dolphin
-            xwaylandvideobridge
+            kdePackages.xwaylandvideobridge
             playerctl # Media player CLI controls
             pulseaudio # Used as CLI tool to adjust volume
             wev
