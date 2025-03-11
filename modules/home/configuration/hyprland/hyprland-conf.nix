@@ -652,6 +652,9 @@ in
             aileron
 
             hyprsession
+
+            evolution
+            evolution-data-server
           ]
           ++ lists.optionals options.laptop [
             inputs.hyprdock.packages.${pkgs.system}.hyprdock

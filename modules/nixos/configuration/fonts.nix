@@ -8,5 +8,6 @@
     helvetica-neue-lt-std
     liberation_ttf
     # aileron
+    nerd-fonts.caskaydia-cove
   ];
 }
