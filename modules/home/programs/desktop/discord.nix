@@ -12,7 +12,7 @@ with lib; {
   config = mkIf config.discord.enable {
     home.packages = with pkgs; [
       discord
-      vesktop
+      webcord
     ];
   };
 }
