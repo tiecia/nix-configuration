@@ -582,12 +582,22 @@ in
                 ignore_dbus_inhibit = false; # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
                 ignore_systemd_inhibit = false; # whether to ignore systemd-inhibit --what=idle inhibitors
               };
-              listener = {
-                timeout = 600; # in seconds (10 minutes)
-                on-timeout = "hyprlock"; # command to run when timeout has passed
-                # on-timeout = "systemctl suspend"; # command to run when timeout has passed
-                # on-resume = "notify-send 'Welcome back!'"; # command to run when activity is detected after timeout has fired.
-              };
+
+              listener = [
+                {
+                  timeout = 300; # 5 minutes
+                  on-timeout = "hyprlock"; # command to run when timeout has passed
+                }
+                {
+                  timeout = 330; # 5.5 minutes
+                  on-timeout = "hyprctl dispatch dpms off";
+                  on-resume = "hyprctl dispatch dpms on";
+                }
+                {
+                  timeout = 900; # 15 minutes
+                  on-timeout = "systemctl suspend";
+                }
+              ];
 
               # general = {
               #   lock_cmd = "notify-send 'lock!'";
