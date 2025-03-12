@@ -286,6 +286,10 @@ in
               resize_on_border = "true";
             };
 
+            xwayland = {
+              force_zero_scaling = true;
+            };
+
             decoration = {
               rounding = "10";
               blur = {
