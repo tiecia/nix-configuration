@@ -10,6 +10,7 @@ import { DarkModeToggle } from "./widgets/DarkMode"
 import { MicMute } from "./widgets/MicMute"
 import { Media } from "./widgets/Media"
 import { IdleInhibitor } from "./widgets/IdleInhibitor"
+import { Hyprdock } from "./widgets/Hyprdock"
 import PopupWindow from "widget/PopupWindow"
 import options from "options"
 
@@ -62,8 +63,7 @@ const Settings = () => Widget.Box({
             // [ProfileToggle, DarkModeToggle],
             // [ProfileSelector],
         ),
-        Row([DND]),
-        // Row([DND, IdleInhibitor]),
+        Row([DND, Hyprdock]),
         Widget.Box({
             visible: media.as(l => l.length > 0),
             child: Media(),

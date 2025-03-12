@@ -132,6 +132,7 @@ type SimpleToggleButtonProps = {
     toggle: () => void
     connection: [GObject.Object, () => boolean]
 }
+
 export const SimpleToggleButton = ({
     icon,
     label,

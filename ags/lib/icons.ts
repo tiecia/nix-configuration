@@ -143,4 +143,5 @@ export default {
         dark: "dark-mode-symbolic",
         light: "light-mode-symbolic",
     },
+    display: "display"
 }
