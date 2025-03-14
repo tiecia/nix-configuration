@@ -11,12 +11,13 @@
   '';
 
   show-discord = pkgs.writeShellScriptBin "show-discord" ''
-    str=$(hyprctl clients | grep "FFPWA-01HZ3KX1QST5T15ECH5S0EDXQC")
+    # str=$(hyprctl clients | grep "FFPWA-01HZ3KX1QST5T15ECH5S0EDXQC")
 
-    if [ -z "$str" ] && [ "$str" != " " ]; then
+    # if [ -z "$str" ] && [ "$str" != " " ]; then
       # firefoxpwa site launch 01HZ3KX1QST5T15ECH5S0EDXQC &
-      discord --use-gl=desktop &
-    fi
+      # discord --use-gl=desktop &
+    # fi
+    webcord &
     hyprctl dispatch togglespecialworkspace discord
   '';
 
