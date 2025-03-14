@@ -71,7 +71,7 @@ in {
           "workspace special:discord, class:(discord)" # Discord native app
           "workspace special:discord, title:^(Discord)" # Discord PWA
 
-          "workspace special:mail, class:(betterbird)"
+          "workspace special:mail, class:(thunderbird)"
 
           "workspace special:gitkraken, class:(GitKraken)"
 
