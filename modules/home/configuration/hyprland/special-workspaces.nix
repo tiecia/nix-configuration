@@ -20,9 +20,9 @@
     hyprctl dispatch togglespecialworkspace discord
   '';
 
-  show-betterbird = pkgs.writeShellScriptBin "show-betterbird" ''
-    betterbird &
-    hyprctl dispatch togglespecialworkspace betterbird
+  show-mail = pkgs.writeShellScriptBin "show-mail" ''
+    thunderbird &
+    hyprctl dispatch togglespecialworkspace mail
   '';
 
   show-gitkraken = pkgs.writeShellScriptBin "show-gitkraken" ''
@@ -55,8 +55,8 @@ in {
           "$mainMod, D, exec, ${show-discord}/bin/show-discord"
           "$mainMod Shift_L, D, movetoworkspace, special:discord"
 
-          "$mainMod, B, exec, ${show-betterbird}/bin/show-betterbird"
-          "$mainMod Shift_L, B, movetoworkspace, special:betterbird"
+          "$mainMod, M, exec, ${show-mail}/bin/show-mail"
+          "$mainMod Shift_L, M, movetoworkspace, special:mail"
 
           "$mainMod, G, exec, ${show-gitkraken}/bin/show-gitkraken"
           "$mainMod Shift_L, G, movetoworkspace, special:gitkraken"
@@ -71,7 +71,7 @@ in {
           "workspace special:discord, class:(discord)" # Discord native app
           "workspace special:discord, title:^(Discord)" # Discord PWA
 
-          "workspace special:betterbird, class:(betterbird)"
+          "workspace special:mail, class:(betterbird)"
 
           "workspace special:gitkraken, class:(GitKraken)"
 
