@@ -665,8 +665,6 @@ in
 
             evolution
             evolution-data-server
-
-            inputs.hyprland-display-tools
           ]
           ++ lists.optionals options.laptop [
             inputs.hyprdock.packages.${pkgs.system}.hyprdock

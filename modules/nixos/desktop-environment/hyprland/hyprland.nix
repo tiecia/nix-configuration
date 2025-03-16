@@ -56,6 +56,10 @@ with lib; {
     #   };
     # };
 
+    environment.systemPackages = [
+      inputs.hyprland-display-tools
+    ];
+
     security = {
       polkit.enable = true;
       pam.services = {
