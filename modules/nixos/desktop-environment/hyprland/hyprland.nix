@@ -80,6 +80,10 @@ with lib; {
           TimeoutStopSec = 10;
         };
       };
+
+      # user.services.display-tools = {
+      #   wantedBy
+      # }
     };
 
     # sound.enable = true;

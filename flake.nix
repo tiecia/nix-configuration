@@ -42,6 +42,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland-display-tools.url = "github:tiecia/hyprland-display-tools";
+
     # android-nixpkgs = {
     #   url = "github:tadfisher/android-nixpkgs";
     # };
