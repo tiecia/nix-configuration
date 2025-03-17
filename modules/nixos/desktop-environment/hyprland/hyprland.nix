@@ -91,6 +91,7 @@ with lib; {
         wantedBy = ["graphical-session.target"];
         serviceConfig = {
           Type = "simple";
+          User = "tiec";
           ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
           Restart = "on-failure";
           RestartSec = 1;
