@@ -57,7 +57,7 @@ with lib; {
     # };
 
     environment.systemPackages = [
-      inputs.hyprland-display-tools
+      inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools
     ];
 
     security = {
