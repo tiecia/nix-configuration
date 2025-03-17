@@ -86,6 +86,7 @@ with lib; {
       };
 
       user.services.hyprland-display-tools = {
+        enable = true;
         description = "hyprland-display-tools";
         wantedBy = ["graphical-session.target"];
         serviceConfig = {
