@@ -670,11 +670,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1742177239,
-        "narHash": "sha256-20G8/ALRWRuOzFDoyyU39gmrVW6sg8630O7sDyN2rus=",
+        "lastModified": 1742177476,
+        "narHash": "sha256-V98QecGrCzBr5mNssQqlfW5PzPh7SmrhJZ7IOF1fzSk=",
         "owner": "tiecia",
         "repo": "hyprland-display-tools",
-        "rev": "de5e89d9006d76d79fbff499c2c279a5c5ad7082",
+        "rev": "347c8d10a84f9ebc1caf4f90154ccbf85f83568a",
         "type": "github"
       },
       "original": {
