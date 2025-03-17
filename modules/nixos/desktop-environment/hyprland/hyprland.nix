@@ -98,6 +98,9 @@ with lib; {
           RestartSec = 1;
           TimeoutStopSec = 10;
         };
+        environment = {
+          XDG_RUNTIME_DIR = "/run/user/1000";
+        };
       };
     };
 
