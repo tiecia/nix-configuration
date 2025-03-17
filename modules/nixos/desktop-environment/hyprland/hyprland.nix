@@ -103,6 +103,21 @@ with lib; {
           RUST_BACKTRACE = "full";
         };
       };
+
+      user.services.test-service = let
+        test-service = inputs.test-service.packages.${pkgs.system}.default;
+      in {
+        enable = true;
+        description = "test-service";
+        wantedBy = ["graphical-session.target"];
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = "${test-service}/bin/test-service";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+      };
     };
 
     # sound.enable = true;

@@ -49,6 +49,7 @@
     # };
 
     custom-nvim.url = "path:./nvim/";
+    test-service.url = "path:./services/test/";
 
     private = {
       url = "path:/home/tiec/private/";
