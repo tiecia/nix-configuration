@@ -92,6 +92,7 @@ with lib; {
         serviceConfig = {
           Type = "simple";
           User = "tiec";
+          Group = "users";
           ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
           Restart = "on-failure";
           RestartSec = 1;
