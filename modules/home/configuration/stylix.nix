@@ -17,6 +17,11 @@ with lib; {
         alacritty.enable = lib.mkForce true;
         gtk.enable = true;
       };
+      cursor = {
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Classic";
+        size = 12;
+      };
     };
   };
 }
