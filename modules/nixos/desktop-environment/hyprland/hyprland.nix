@@ -85,9 +85,19 @@ with lib; {
         };
       };
 
-      # user.services.display-tools = {
-      #   wantedBy
-      # }
+      user.services.hyprland-display-tools = {
+        description = "hyprland-display-tools";
+        wantedBy = ["graphical-session.target"];
+        wants = ["graphical-session.target"];
+        after = ["graphical-session.target"];
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+      };
     };
 
     # sound.enable = true;
