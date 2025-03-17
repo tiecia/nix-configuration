@@ -670,11 +670,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1742147974,
-        "narHash": "sha256-U0cWvnousSgOrWY7hatVWhGt1Vp74ScBlTy5MNi3ewo=",
+        "lastModified": 1742188347,
+        "narHash": "sha256-eDGApIdWbetRdg1oEtjDuhqzwcyUnNzcp5cPjE3sqtE=",
         "owner": "tiecia",
         "repo": "hyprland-display-tools",
-        "rev": "231a0fe66a9fa1e82ad75344cfcc65252c24d15f",
+        "rev": "520b66fa81dc9933f1bc72c6dafa6cf81bb058c8",
         "type": "github"
       },
       "original": {
@@ -1116,8 +1116,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1734160685,
-        "narHash": "sha256-6w/6vFKp6roeY8ivhciuNH3hTTVh8MwaSBzlKz2N0iQ=",
+        "lastModified": 1734207745,
+        "narHash": "sha256-X/22KzDOmv9hYXL3Qhl76CQOWWsAJcUMgHY/n2wUScU=",
         "path": "/home/tiec/private/",
         "type": "path"
       },

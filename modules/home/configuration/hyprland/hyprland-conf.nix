@@ -66,6 +66,7 @@ in
 
         ${pkgs.udiskie}/bin/udiskie &
 
+        # ${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools &
 
         # swww-daemon &
 
@@ -86,7 +87,10 @@ in
           # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
           # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
-          systemd.variables = ["--all"]; # Fixes an issue where some programs don't work in systemd services started by homemanager.
+          systemd = {
+            enable = true;
+            # variables = ["--all"]; # Fixes an issue where some programs don't work in systemd services started by homemanager.
+          };
           settings = {
             inherit (options) monitor;
 
