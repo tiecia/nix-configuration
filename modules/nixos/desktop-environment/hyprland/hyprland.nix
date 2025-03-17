@@ -87,9 +87,7 @@ with lib; {
 
       user.services.hyprland-display-tools = {
         description = "hyprland-display-tools";
-        wantedBy = ["multi-user.target"];
-        wants = ["multi-user.target"];
-        after = ["multi-user.target"];
+        wantedBy = ["graphical-session.target"];
         serviceConfig = {
           Type = "simple";
           ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
