@@ -85,24 +85,24 @@ with lib; {
         };
       };
 
-      services.hyprland-display-tools = {
-        enable = true;
-        description = "hyprland-display-tools";
-        wantedBy = ["graphical-session.target"];
-        serviceConfig = {
-          Type = "simple";
-          User = "tiec";
-          # Group = "users";
-          ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-        };
-        environment = {
-          XDG_RUNTIME_DIR = "/run/user/1000";
-          RUST_BACKTRACE = "full";
-        };
-      };
+      # services.hyprland-display-tools = {
+      #   enable = true;
+      #   description = "hyprland-display-tools";
+      #   wantedBy = ["graphical-session.target"];
+      #   serviceConfig = {
+      #     Type = "simple";
+      #     User = "tiec";
+      #     # Group = "users";
+      #     ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
+      #     Restart = "on-failure";
+      #     RestartSec = 1;
+      #     TimeoutStopSec = 10;
+      #   };
+      #   environment = {
+      #     XDG_RUNTIME_DIR = "/run/user/1000";
+      #     RUST_BACKTRACE = "full";
+      #   };
+      # };
     };
 
     # sound.enable = true;
