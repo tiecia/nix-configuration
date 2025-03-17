@@ -89,7 +89,7 @@ in
           # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
           systemd = {
             enable = true;
-            variables = ["--all"]; # Fixes an issue where some programs don't work in systemd services started by homemanager.
+            # variables = ["--all"]; # Fixes an issue where some programs don't work in systemd services started by homemanager.
           };
           settings = {
             inherit (options) monitor;
