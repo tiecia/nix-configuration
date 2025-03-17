@@ -85,13 +85,13 @@ with lib; {
         };
       };
 
-      services.hyprland-display-tools = {
+      user.services.hyprland-display-tools = {
         enable = true;
         description = "hyprland-display-tools";
         wantedBy = ["graphical-session.target"];
         serviceConfig = {
           Type = "simple";
-          User = "tiec";
+          # User = "tiec";
           # Group = "users";
           ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
           Restart = "on-failure";
