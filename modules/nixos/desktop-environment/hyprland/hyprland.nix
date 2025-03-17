@@ -100,7 +100,7 @@ with lib; {
         };
         environment = {
           XDG_RUNTIME_DIR = "/run/user/1000";
-          RUST_BACKTRACE = "1";
+          RUST_BACKTRACE = "full";
         };
       };
     };
