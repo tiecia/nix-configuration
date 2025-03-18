@@ -363,6 +363,8 @@ in
                 "float,title:(Picture-in-Picture)"
                 "pin, title:(Picture-in-Picture)"
 
+                "float,initialTitle:(Calendar Reminders)"
+
                 "opacity 0.85, class:(${globalConfig.terminal})"
                 "opacity 0.90, class:(org.gnome.Nautilus)"
                 "noborder, onworkspace:w[t1]"
