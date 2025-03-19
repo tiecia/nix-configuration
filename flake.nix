@@ -117,7 +117,6 @@
       # useGlobalPkgs = true;
       # useUserPackages = true;
       # backupFileExtension = "backup";
-      # change
 
       modules = [./hosts/sls/home.nix];
     };
