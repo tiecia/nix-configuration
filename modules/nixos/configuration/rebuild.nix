@@ -15,8 +15,6 @@
         exit 0
     fi
 
-    hmVersion = home-manager generations | sort -r | head -n 1 | cut -d ' ' -f1-5
-
     if [ $# -lt 2 ]; then
       echo 1>&2 "$0: not enough arguments"
       exit 2
@@ -30,7 +28,6 @@
 
   rebuild = pkgs.writeShellScriptBin "rebuild" ''
     set -e
-
 
     # cd to your config dir
     pushd ~/nix-configuration
@@ -102,6 +99,7 @@
 
     # Get current generation metadata
     current=$(nixos-rebuild list-generations --flake ./#$CONFIGURATION_HOST | grep current)
+    hmVersion=$(home-manager generations | sort -r | head -n 1 | cut -d ' ' -f1-5)
 
     # Commit all changes witih the generation metadata
     if [ $dry == 0 ]; then
