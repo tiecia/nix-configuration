@@ -64,6 +64,7 @@
     nixpkgs-stable,
     nixos-hardware,
     nixos-wsl,
+    home-manager,
     stylix,
     winapps,
     ...
@@ -109,7 +110,7 @@
       stylix.nixosModules.stylix
     ];
   in {
-    homeConfigurations."tiec" = inputs.home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."tiec@sls" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
       extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable globalConfig;};
