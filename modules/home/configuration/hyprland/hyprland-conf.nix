@@ -61,9 +61,6 @@ in
 
         # ${hyprsession}/bin/hyprsession &
 
-        # TODO: Move to ags-widgets.nix
-        ags
-
         ${pkgs.udiskie}/bin/udiskie &
 
         # ${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools &
