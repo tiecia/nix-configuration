@@ -13,7 +13,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default # Imports the home-manager module
+    # inputs.home-manager.nixosModules.default # Imports the home-manager module
 
     ../../modules/nixos/configuration
     ../../modules/nixos/desktop-environment
@@ -21,7 +21,8 @@ in {
     ../../modules/nixos/programs/desktop
   ];
 
-  home-manager.users.tiec = import ./home.nix;
+  # home-manager.users.tiec = import ./home.nix;
+
   rebuild.host = "sls";
   networking.hostName = lib.mkForce "TyLaptopStudioNix";
 

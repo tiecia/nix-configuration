@@ -46,7 +46,7 @@
 
     # android-nixpkgs = {
     #   url = "github:tadfisher/android-nixpkgs";
-    # };
+    #
 
     custom-nvim.url = "path:./nvim/";
     test-service.url = "path:./services/test/";
@@ -109,6 +109,12 @@
       stylix.nixosModules.stylix
     ];
   in {
+    homeConfigurations."tiec" = inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+
+      modules = [./hosts/sls/home.nix];
+    };
+
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
