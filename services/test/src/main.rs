@@ -5,5 +5,4 @@ fn main() {
 
     Command::new("pwd").status().expect("Unable to run command");
     Command::new("ls").status().expect("Unable to run command");
-    Command::new("ags").status().expect("Unable to run command");
 }
