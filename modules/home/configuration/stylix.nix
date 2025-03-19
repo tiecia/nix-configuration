@@ -10,18 +10,18 @@ with lib; {
   };
 
   config = mkIf config.stylixhm.enable {
-    stylix = {
-      autoEnable = false;
-      targets = {
-        kitty.enable = lib.mkForce true;
-        alacritty.enable = lib.mkForce true;
-        gtk.enable = true;
-      };
-      cursor = {
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
-        size = 12;
-      };
-    };
+    # stylix = {
+    #   autoEnable = false;
+    #   targets = {
+    #     kitty.enable = lib.mkForce true;
+    #     alacritty.enable = lib.mkForce true;
+    #     gtk.enable = true;
+    #   };
+    #   cursor = {
+    #     package = pkgs.bibata-cursors;
+    #     name = "Bibata-Modern-Classic";
+    #     size = 12;
+    #   };
+    # };
   };
 }

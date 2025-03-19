@@ -112,6 +112,11 @@
     homeConfigurations."tiec" = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
+      extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable globalConfig;};
+      # useGlobalPkgs = true;
+      # useUserPackages = true;
+      # backupFileExtension = "backup";
+
       modules = [./hosts/sls/home.nix];
     };
 
