@@ -47,7 +47,6 @@
     # android-nixpkgs = {
     #   url = "github:tadfisher/android-nixpkgs";
     #
-    # change
 
     custom-nvim.url = "path:./nvim/";
     test-service.url = "path:./services/test/";
