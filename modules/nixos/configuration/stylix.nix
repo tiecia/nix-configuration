@@ -19,5 +19,11 @@ with lib; {
       # spicetify.enable = lib.mkForce false;
       # gtk.enable = lib.mkForce true;
     };
+
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 12;
+    };
   };
 }

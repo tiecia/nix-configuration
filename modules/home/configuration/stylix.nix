@@ -9,8 +9,12 @@ with lib; {
     stylixhm.enable = mkEnableOption "Enable stylix hm configuration";
   };
 
+  # imports = [
+  #   stylix.homeManagerModules.stylix
+  # ];
+
   config = mkIf config.stylixhm.enable {
-    # stylix = {
+    # programs.stylix = {
     #   autoEnable = false;
     #   targets = {
     #     kitty.enable = lib.mkForce true;
