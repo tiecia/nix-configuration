@@ -15,6 +15,7 @@
         exit 0
     fi
 
+    hmVersion = home-manager generations | sort -r | head -n 1 | cut -d ' ' -f1-5
 
     if [ $# -lt 2 ]; then
       echo 1>&2 "$0: not enough arguments"
@@ -104,7 +105,7 @@
 
     # Commit all changes witih the generation metadata
     if [ $dry == 0 ]; then
-        sudo git commit -am "$CONFIGURATION_HOST $current"
+        sudo git commit -am "$CONFIGURATION_HOST $current (HM: $hmVersion)"
     fi
 
     # if [ $nopush == 0 ]; then
