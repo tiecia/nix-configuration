@@ -64,6 +64,10 @@ in {
         shellAliases = {
           riderd = "(rider &) &> /dev/null";
         };
+
+        sessionVariables = {
+          DOTNET_ROOT = "${dotnet-combined}/${dotnet-root}";
+        };
       };
 
       home.sessionVariables = {
