@@ -60,6 +60,7 @@ in {
       ];
 
       programs.bash = {
+        enable = true;
         shellAliases = {
           riderd = "(rider &) &> /dev/null";
         };
