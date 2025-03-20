@@ -853,6 +853,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-dotnet": {
+      "locked": {
+        "lastModified": 1731867563,
+        "narHash": "sha256-CpS2OTo7hoEwKDoAv4QujPO8RqWYpg1x1Eoxtt5dpZs=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "42d69ab59a80edf0c79b112f7a9b6dd86858c2cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "42d69ab59a80edf0c79b112f7a9b6dd86858c2cd",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1719876945,
@@ -1186,6 +1202,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_11",
+        "nixpkgs-dotnet": "nixpkgs-dotnet",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-stable": "nixpkgs-stable",
         "private": "private",

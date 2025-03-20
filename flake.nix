@@ -5,6 +5,7 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-dotnet.url = "github:nixos/nixpkgs?rev=42d69ab59a80edf0c79b112f7a9b6dd86858c2cd";
 
     nixos-hardware.url = "github:nixos/nixos-hardware?rev=d23a3bc3c600a064c72c7fb02862edfab11a46cf";
 
@@ -62,6 +63,7 @@
     nixpkgs,
     nixpkgs-master,
     nixpkgs-stable,
+    nixpkgs-dotnet,
     nixos-hardware,
     nixos-wsl,
     stylix,
@@ -94,6 +96,12 @@
         })
       ];
     };
+    pkgs-dotnet = import nixpkgs-dotnet {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
 
     winapps-pkgs = winapps.packages.${system};
 
@@ -101,8 +109,8 @@
       terminal = "alacritty";
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable globalConfig winapps-pkgs;};
-    specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable globalConfig;};
+    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable pkgs-dotnet globalConfig winapps-pkgs;};
+    specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable pkgs-dotnet globalConfig;};
 
     sharedModules = [
       inputs.nixos-cli.nixosModules.nixos-cli

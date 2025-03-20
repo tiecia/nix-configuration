@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  pkgs-dotnet,
   lib,
   config,
   ...
@@ -38,7 +39,7 @@ in {
     };
 
     # use this if you don't need multiple SDK versions
-    dotnet-combined = pkgs.dotnetCorePackages.sdk_9_0.unwrapped.overrideAttrs postInstallUserlocal;
+    dotnet-combined = pkgs-dotnet.dotnetCorePackages.sdk_9_0.unwrapped.overrideAttrs postInstallUserlocal;
   in
     lib.mkIf config.dotnet.enable
     {
