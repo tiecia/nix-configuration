@@ -25,6 +25,7 @@
     ./dotnet.nix
     ./lm_sensors.nix
     ./ncdu.nix
+    ./bash.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -47,4 +48,5 @@
   dotnet.enable = lib.mkDefault true;
   lm_sensors.enable = lib.mkDefault true;
   ncdu.enable = lib.mkDefault true;
+  bash.enable = lib.mkDefault true;
 }
