@@ -65,6 +65,10 @@ in {
           riderd = "(rider &) &> /dev/null";
         };
 
+        profileExtra = ''
+          echo 'init from dotnet'
+        '';
+
         sessionVariables = {
           DOTNET_ROOT = "${dotnet-combined}/${dotnet-root}";
         };
