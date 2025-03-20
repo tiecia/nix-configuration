@@ -66,7 +66,6 @@ in {
         };
 
         profileExtra = ''
-          echo 'init from dotnet'
         '';
 
         sessionVariables = {
