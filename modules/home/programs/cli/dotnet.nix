@@ -16,17 +16,14 @@ in {
   config = let
     netcoredbg = pkgs.netcoredbg;
 
-    dotnet-root = "share/dotnet";
-    # This is needed to install workload in $HOME
-    # https://discourse.nixos.org/t/dotnet-maui-workload/20370/2
     userlocal = ''
-       for i in $out/${dotnet-root}/sdk/*; do
+       for i in $out/sdk/*; do
          i=$(basename $i)
          length=$(printf "%s" "$i" | wc -c)
          substring=$(printf "%s" "$i" | cut -c 1-$(expr $length - 2))
          i="$substring""00"
-         mkdir -p $out/${dotnet-root}/metadata/workloads/''${i/-*}
-         touch $out/${dotnet-root}/metadata/workloads/''${i/-*}/userlocal
+         mkdir -p $out/metadata/workloads/''${i/-*}
+         touch $out/metadata/workloads/''${i/-*}/userlocal
       done
     '';
     # append userlocal sctipt to postInstall phase
@@ -39,8 +36,18 @@ in {
     };
 
     # use this if you don't need multiple SDK versions
-    dotnet-combined = pkgs-dotnet.dotnetCorePackages.sdk_8_0.unwrapped.overrideAttrs postInstallUserlocal;
-    # dotnet-combined = pkgs-dotnet.dotnetCorePackages.sdk_9_0.unwrapped.overrideAttrs postInstallUserlocal;
+    # dotnet-combined = dotnetCorePackages.sdk_9_0.overrideAttrs postInstallUserlocal)
+
+    # or use this if you ought to have multiple SDK versions
+    # this will create userlocal files in both $DOTNET_ROOT and dotnet bin realtive path
+    dotnet-combined =
+      (with pkgs-dotnet.dotnetCorePackages;
+        combinePackages [
+          (sdk_9_0.overrideAttrs postInstallUserlocal)
+          (sdk_8_0.overrideAttrs postInstallUserlocal)
+        ])
+      .overrideAttrs
+      postBuildUserlocal;
   in
     lib.mkIf config.dotnet.enable
     {
@@ -71,12 +78,12 @@ in {
         '';
 
         sessionVariables = {
-          DOTNET_ROOT = "${dotnet-combined}/${dotnet-root}";
+          DOTNET_ROOT = "${dotnet-combined}";
         };
       };
 
       home.sessionVariables = {
-        DOTNET_ROOT = "${dotnet-combined}/${dotnet-root}";
+        DOTNET_ROOT = "${dotnet-combined}";
       };
     };
 }

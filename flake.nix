@@ -5,7 +5,7 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-dotnet.url = "github:nixos/nixpkgs?rev=42d69ab59a80edf0c79b112f7a9b6dd86858c2cd";
+    nixpkgs-dotnet.url = "github:nixos/nixpkgs?rev=a30e284fcd69aadaec15c563b1649667fc77cd4d";
 
     nixos-hardware.url = "github:nixos/nixos-hardware?rev=d23a3bc3c600a064c72c7fb02862edfab11a46cf";
 

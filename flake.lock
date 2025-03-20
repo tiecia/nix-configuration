@@ -855,17 +855,17 @@
     },
     "nixpkgs-dotnet": {
       "locked": {
-        "lastModified": 1731867563,
-        "narHash": "sha256-CpS2OTo7hoEwKDoAv4QujPO8RqWYpg1x1Eoxtt5dpZs=",
+        "lastModified": 1729019041,
+        "narHash": "sha256-iXeA4TnR6DQOAFxMHT464nbAmx3P27juIxpXKIpuzXk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "42d69ab59a80edf0c79b112f7a9b6dd86858c2cd",
+        "rev": "a30e284fcd69aadaec15c563b1649667fc77cd4d",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "42d69ab59a80edf0c79b112f7a9b6dd86858c2cd",
+        "rev": "a30e284fcd69aadaec15c563b1649667fc77cd4d",
         "type": "github"
       }
     },
