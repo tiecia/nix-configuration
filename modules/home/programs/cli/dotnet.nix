@@ -64,5 +64,9 @@ in {
           riderd = "(rider &) &> /dev/null";
         };
       };
+
+      home.sessionVariables = {
+        DOTNET_ROOT = "${dotnet-combined}/${dotnet-root}";
+      };
     };
 }
