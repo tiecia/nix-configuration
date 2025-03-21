@@ -65,6 +65,8 @@ in {
 
         dotnet-combined
 
+        pkgs.dotnetPackages.Nuget
+
         pkgs.azure-cli
       ];
 
