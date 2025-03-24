@@ -39,6 +39,7 @@
     ./notion.nix
     ./anytype.nix
     ./appflowy.nix
+    ./insomnia.nix
   ];
 
   firefox.enable = lib.mkDefault true;
@@ -62,4 +63,5 @@
   # davinci-resolve.enable = lib.mkDefault true;
   anytype.enable = lib.mkDefault true;
   appflowy.enable = lib.mkDefault true;
+  insomnia.enable = lib.mkDefault true;
 }
