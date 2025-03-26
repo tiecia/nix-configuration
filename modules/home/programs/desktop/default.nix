@@ -62,4 +62,5 @@
   # davinci-resolve.enable = lib.mkDefault true;
   anytype.enable = lib.mkDefault true;
   appflowy.enable = lib.mkDefault true;
+  obs.enable = lib.mkDefault true;
 }
