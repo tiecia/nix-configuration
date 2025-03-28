@@ -22,12 +22,22 @@ with lib; {
           name = "Microsoft Edge";
           comment = "Access the Internet";
           genericName = "Web Browser";
-          exec = "${microsoft-edge}/bin/microsoft-edge";
+          exec = "${microsoft-edge}/bin/microsoft-edge --use-gl=desktop";
           startupNotify = true;
           terminal = false;
           icon = "microsoft-edge";
           categories = ["Network" "WebBrowser"];
           mimeType = ["application/pdf" "application/rdf+xml" "application/rss+xml" "application/xhtml+xml" "application/xhtml_xml" "application/xml" "image/gif" "image/jpeg" "image/png" "image/webp" "text/html" "text/xml" "x-scheme-handler/http" "x-scheme-handler/https"];
+          actions = {
+            "new-window" = {
+              name = "New Window";
+              exec = "${microsoft-edge}/bin/microsoft-edge --use-gl=desktop";
+            };
+            "new-private-window" = {
+              name = "New Private Window";
+              exec = "${microsoft-edge}/bin/microsoft-edge --private --use-gl=desktop";
+            };
+          };
         };
       };
     };
