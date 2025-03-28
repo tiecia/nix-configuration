@@ -20,11 +20,14 @@ with lib; {
       xdg.desktopEntries = {
         microsoft-edge = {
           name = "Microsoft Edge";
+          comment = "Access the Internet";
           genericName = "Web Browser";
           exec = "${microsoft-edge}/bin/microsoft-edge";
+          startupNotify = true;
+          terminal = false;
           icon = "microsoft-edge";
           categories = ["Network" "WebBrowser"];
-          startupNotify = true;
+          mimeType = ["application/pdf" "application/rdf+xml" "application/rss+xml" "application/xhtml+xml" "application/xhtml_xml" "application/xml" "image/gif" "image/jpeg" "image/png" "image/webp" "text/html" "text/xml" "x-scheme-handler/http" "x-scheme-handler/https"];
         };
       };
     };
