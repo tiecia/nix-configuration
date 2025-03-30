@@ -111,14 +111,13 @@
 
     sharedModules = [
       inputs.nixos-cli.nixosModules.nixos-cli
-      stylix.nixosModules.stylix
     ];
   in {
     homeConfigurations = {
       "tiec@sls" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable globalConfig;};
+        extraSpecialArgs = specialArgsDesktop;
 
         modules = [
           stylix.homeManagerModules.stylix
@@ -130,7 +129,6 @@
         inherit pkgs;
 
         extraSpecialArgs = specialArgsDesktop;
-        # extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable globalConfig;};
 
         modules = [
           stylix.homeManagerModules.stylix
