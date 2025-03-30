@@ -12,21 +12,11 @@ with lib; {
   config = lib.mkIf config.git.enable {
     home = {
       packages = with pkgs; [
-        git
+        # git
         gitkraken
-        gh
+        # gh
       ];
     };
-
-    # programs.bash = {
-    #   enable = true;
-    #   shellAliases = {
-    #     co = "checkout";
-    #     cm = "commit";
-    #     st = "status";
-    #     pu = "push";
-    #   };
-    # };
 
     programs.git = {
       enable = true;
