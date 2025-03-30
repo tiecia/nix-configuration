@@ -13,7 +13,6 @@
 in {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default # Imports the home-manager module
 
     ../../modules/nixos/configuration
     ../../modules/nixos/desktop-environment
@@ -22,7 +21,7 @@ in {
   ];
 
   # TODO: Move this to a home-manager configuration module
-  home-manager.users.tiec = import ./home.nix;
+  # home-manager.users.tiec = import ./home.nix;
   rebuild.host = "desktop";
   networking.hostName = "TyDesktopNix";
 
