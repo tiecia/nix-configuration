@@ -451,14 +451,6 @@ in
             };
           };
 
-          kitty = {
-            enable = true;
-            font = {
-              size = 12;
-              name = "DejaVu Sans";
-            };
-          };
-
           hyprlock = {
             enable = true;
 

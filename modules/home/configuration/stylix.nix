@@ -14,7 +14,7 @@ with lib; {
   # ];
 
   config = mkIf config.stylixhm.enable {
-    # programs.stylix = {
+    # stylix = {
     #   autoEnable = false;
     #   targets = {
     #     kitty.enable = lib.mkForce true;
