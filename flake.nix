@@ -45,10 +45,6 @@
 
     hyprland-display-tools.url = "github:tiecia/hyprland-display-tools";
 
-    # android-nixpkgs = {
-    #   url = "github:tadfisher/android-nixpkgs";
-    #
-
     custom-nvim.url = "path:./nvim/";
     test-service.url = "path:./services/test/";
 
@@ -123,9 +119,6 @@
         inherit pkgs;
 
         extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable globalConfig;};
-        # useGlobalPkgs = true;
-        # useUserPackages = true;
-        # backupFileExtension = "backup";
 
         modules = [
           stylix.homeManagerModules.stylix
@@ -136,10 +129,8 @@
       "tiec@desktop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable globalConfig;};
-        # useGlobalPkgs = true;
-        # useUserPackages = true;
-        # backupFileExtension = "backup";
+        extraSpecialArgs = specialArgsDesktop;
+        # extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable globalConfig;};
 
         modules = [
           stylix.homeManagerModules.stylix
