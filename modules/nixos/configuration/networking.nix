@@ -16,6 +16,8 @@
     extraHosts = ''
       34.169.118.232 install
       34.169.48.183 runner
+
+      192.168.1.166 server
     '';
   };
 }
