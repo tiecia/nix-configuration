@@ -8,7 +8,6 @@
   options = {nvim.enable = lib.mkEnableOption "Enable nvim";};
 
   config = let
-    # custom-nvim = inputs.custom-nvim.packages.${pkgs.system}.default;
     inherit (pkgs) neovim;
   in
     lib.mkIf config.nvim.enable {
@@ -33,19 +32,5 @@
         };
         sessionVariables = {EDITOR = "${neovim}/bin/nvim";};
       };
-
-      # home.packages = [
-      #   custom-nvim
-      #   pkgs.ripgrep # Needed for telescope
-      # ];
-      #
-      # programs.bash = {
-      #   enable = true;
-      #   shellAliases = {
-      #     vi = "${custom-nvim}/bin/nvim";
-      #     v = "${custom-nvim}/bin/nvim";
-      #   };
-      #   sessionVariables = { EDITOR = "${custom-nvim}/bin/nvim"; };
-      # };
     };
 }

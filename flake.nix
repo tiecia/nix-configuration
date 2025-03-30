@@ -45,7 +45,6 @@
 
     hyprland-display-tools.url = "github:tiecia/hyprland-display-tools";
 
-    custom-nvim.url = "path:./nvim/";
     test-service.url = "path:./services/test/";
 
     private = {

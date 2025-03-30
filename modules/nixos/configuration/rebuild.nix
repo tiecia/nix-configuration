@@ -71,8 +71,6 @@
 
     echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 
-    nix flake update custom-nvim
-
     if [ $target == 0 ] || [ $target == 2 ]; then
       options=""
       # Rebuild, output simplified errors, log trackebacks
