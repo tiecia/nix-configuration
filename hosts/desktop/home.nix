@@ -12,9 +12,9 @@
     ../../modules/home/programs/desktop
   ];
 
-  nix.settings = {
-    warn-dirty = false;
-  };
+  # nix.settings = {
+  #   warn-dirty = false;
+  # };
 
   # TODO: Do this only on the hyprland specialisation
   hyprland-conf = {
@@ -39,7 +39,7 @@
 
   spotify = {
     enable = true;
-    theme = "dark-blue";
+    # theme = "dark-blue";
   };
 
   git.enable = true;
@@ -60,6 +60,10 @@
   firefox.installPWA = true;
 
   xbindkeys.enable = true;
+
+  programs = {
+    home-manager.enable = true;
+  };
 
   # wayland.windowManager.hyprland = {
   #   enable = true;
@@ -137,5 +141,5 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  # programs.home-manager.enable = true;
 }
