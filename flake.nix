@@ -133,6 +133,16 @@
           ./hosts/desktop/home.nix
         ];
       };
+
+      "tiec@server" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        extraSpecialArgs = specialArgsDesktop;
+
+        modules = [
+          ./hosts/server/home.nix
+        ];
+      };
     };
 
     nixosConfigurations = {
@@ -164,6 +174,16 @@
           [
             ./hosts/sls/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-common
+          ]
+          ++ sharedModules;
+      };
+
+      server = nixpkgs.lib.nixosSystem {
+        specialArgs = specialArgsCli;
+
+        modules =
+          [
+            ./hosts/server/configuration.nix
           ]
           ++ sharedModules;
       };
