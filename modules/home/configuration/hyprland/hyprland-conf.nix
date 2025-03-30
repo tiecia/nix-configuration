@@ -61,9 +61,6 @@ in
 
         # ${hyprsession}/bin/hyprsession &
 
-        # TODO: Move to ags-widgets.nix
-        ags
-
         ${pkgs.udiskie}/bin/udiskie &
 
         # ${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools &
@@ -454,14 +451,6 @@ in
             };
           };
 
-          kitty = {
-            enable = true;
-            font = {
-              size = 12;
-              # name = "DejaVu Sans";
-            };
-          };
-
           hyprlock = {
             enable = true;
 
@@ -635,6 +624,63 @@ in
               #     on-resume = "hyprctl dispatch dpms on";
               #   }
               # ];
+            };
+          };
+        };
+
+        systemd.user.services = {
+          test-service = let
+            test-service = inputs.test-service.packages.${pkgs.system}.default;
+          in {
+            Unit = {
+              Description = "test-service";
+            };
+            Service = {
+              Type = "simple";
+              ExecStart = "${test-service}/bin/test-service";
+              Restart = "on-failure";
+              RestartSec = 1;
+              TimeoutStopSec = 10;
+            };
+            Install = {
+              WantedBy = ["graphical-session.target"];
+            };
+          };
+
+          ags-desktop-shell = {
+            Unit = {
+              Description = "AGSv1 Desktop Shell";
+            };
+            Service = {
+              Type = "simple";
+              ExecStart = pkgs.writeShellScript "ags-desktop-shell-start" ''
+                ags
+              '';
+              ExecStop = pkgs.writeShellScript "ags-desktop-shell-stop" ''
+                ags -q
+              '';
+              Restart = "on-failure";
+              RestartSec = 1;
+              TimeoutStopSec = 10;
+            };
+            Install = {
+              WantedBy = ["graphical-session.target"];
+            };
+          };
+
+          hyprland-display-tools = {
+            Unit = {
+              Description = "hyprland-display-tools";
+            };
+            Service = {
+              Type = "simple";
+              ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
+              Restart = "on-failure";
+              RestartSec = 1;
+              TimeoutStopSec = 10;
+            };
+            Install = {
+              WantedBy = ["graphical-session.target"];
             };
           };
         };

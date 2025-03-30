@@ -9,5 +9,5 @@
     ./stylix.nix
   ];
 
-  stylixhm.enable = lib.mkDefault true;
+  stylix.enable = lib.mkDefault true;
 }

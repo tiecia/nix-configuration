@@ -12,7 +12,7 @@ with lib; {
   config = mkIf config.vscode.enable {
     programs.vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
+      profiles.default.extensions = with pkgs.vscode-extensions; [
         # These should always be installed
         bbenoist.nix
 

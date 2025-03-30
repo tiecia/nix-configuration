@@ -15,7 +15,6 @@
         exit 0
     fi
 
-
     if [ $# -lt 2 ]; then
       echo 1>&2 "$0: not enough arguments"
       exit 2
@@ -30,7 +29,6 @@
   rebuild = pkgs.writeShellScriptBin "rebuild" ''
     set -e
 
-
     # cd to your config dir
     pushd ~/nix-configuration
 
@@ -40,11 +38,12 @@
     test=0
     verbose=0
     nopush=0
+    target=0
 
     for arg in "$@"
     do
         if [ "$arg" == "-u" ] || [ "$arg" == "--update" ]; then
-            update=1
+          update=1
         elif [ "$arg" == "-i" ] || [ "$arg" == "--impure" ]; then
           impure=1
         elif [ "$arg" == "-d" ] || [ "$arg" == "--dry" ]; then
@@ -54,7 +53,11 @@
         elif [ "$arg" == "-v" ] || [ "$arg" == "--verbose" ]; then
           verbose=1
         elif [ "$arg" == "-n" ] || [ "$arg" == "--nopush" ]; then
-      nopush=1
+          nopush=1
+        elif [ "$arg" == "-h" ] || [ "$arg" == "--home" ]; then
+          target=1
+        elif [ "$arg" == "-o" ] || [ "$arg" == "--os" ]; then
+          target=2
         fi
     done
 
@@ -70,41 +73,48 @@
 
     nix flake update custom-nvim
 
-    options=""
-    # Rebuild, output simplified errors, log trackebacks
-    if [ $impure == 1 ]; then
-      sudo nixos-rebuild switch --impure --flake ./#$CONFIGURATION_HOST
-    else
-        if [ $dry == 1 ]; then
-            options+="--dry "
-        fi
+    if [ $target == 0 ] || [ $target == 2 ]; then
+      options=""
+      # Rebuild, output simplified errors, log trackebacks
+      if [ $impure == 1 ]; then
+        sudo nixos-rebuild switch --impure --flake ./#$CONFIGURATION_HOST
+      else
+          if [ $dry == 1 ]; then
+              options+="--dry "
+          fi
 
-        if [ $verbose == 1 ]; then
-            options+="--verbose "
-        fi
+          if [ $verbose == 1 ]; then
+              options+="--verbose "
+          fi
 
-        if [ $update == 1 ]; then
-            options+="--update "
-        fi
+          if [ $update == 1 ]; then
+              options+="--update "
+          fi
 
-        if [[ ! -z $SPECIALISATION ]]; then
-      echo "Using specialisation \"$SPECIALISATION\""
-      options+="-s $SPECIALISATION "
-        fi
+          if [[ ! -z $SPECIALISATION ]]; then
+        echo "Using specialisation \"$SPECIALISATION\""
+        options+="-s $SPECIALISATION "
+          fi
 
-        if [ $test == 1 ]; then
-            nh os test ./ -H $CONFIGURATION_HOST $options
-        else
-            nh os switch ./ -H $CONFIGURATION_HOST $options
-        fi
+          if [ $test == 1 ]; then
+              nh os test ./ -H $CONFIGURATION_HOST $options
+          else
+              nh os switch ./ -H $CONFIGURATION_HOST $options
+          fi
+      fi
+    fi
+
+    if [ $target == 0 ] || [ $target == 1 ]; then
+      home-manager switch --flake ./#tiec@$CONFIGURATION_HOST
     fi
 
     # Get current generation metadata
     current=$(nixos-rebuild list-generations --flake ./#$CONFIGURATION_HOST | grep current)
+    hmVersion=$(home-manager generations | sort -r | head -n 1 | cut -d ' ' -f1-5)
 
     # Commit all changes witih the generation metadata
     if [ $dry == 0 ]; then
-        sudo git commit -am "$CONFIGURATION_HOST $current"
+        sudo git commit -am "$CONFIGURATION_HOST $current (HM: $hmVersion)"
     fi
 
     # if [ $nopush == 0 ]; then

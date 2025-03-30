@@ -47,7 +47,7 @@
 
     # android-nixpkgs = {
     #   url = "github:tadfisher/android-nixpkgs";
-    # };
+    #
 
     custom-nvim.url = "path:./nvim/";
     test-service.url = "path:./services/test/";
@@ -66,6 +66,7 @@
     nixpkgs-dotnet,
     nixos-hardware,
     nixos-wsl,
+    home-manager,
     stylix,
     winapps,
     ...
@@ -117,6 +118,20 @@
       stylix.nixosModules.stylix
     ];
   in {
+    homeConfigurations."tiec@sls" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+
+      extraSpecialArgs = {inherit inputs pkgs pkgs-master pkgs-stable globalConfig;};
+      # useGlobalPkgs = true;
+      # useUserPackages = true;
+      # backupFileExtension = "backup";
+
+      modules = [
+        stylix.homeManagerModules.stylix
+        ./hosts/sls/home.nix
+      ];
+    };
+
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;

@@ -8,7 +8,6 @@ with lib; {
   imports = [
     ./nvidia-graphics.nix
     ./printing.nix
-    ./stylix.nix
     ./pipewire.nix
     ./bluetooth.nix
     ./logitech.nix
