@@ -23,6 +23,11 @@
     AllowSuspendThenHibernate=no
   '';
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [32772];
+  };
+
   boot.kernelParams = ["nomodeset"];
 
   # This value determines the NixOS release from which the default
