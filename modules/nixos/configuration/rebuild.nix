@@ -103,7 +103,7 @@
     fi
 
     if [ $target == 0 ] || [ $target == 1 ]; then
-      home-manager switch --flake ./#tiec@$CONFIGURATION_HOST
+      nh home switch ./ -c tiec@$CONFIGURATION_HOST
     fi
 
     # Get current generation metadata
