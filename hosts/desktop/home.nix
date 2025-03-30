@@ -39,7 +39,7 @@
 
   spotify = {
     enable = true;
-    # theme = "dark-blue";
+    theme = "dark-blue";
   };
 
   git.enable = true;
@@ -65,15 +65,8 @@
     home-manager.enable = true;
   };
 
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   package = pkgs.hyprland;
-  #   systemd.enable = true;
-  # };
-
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-
   home.username = "tiec";
   home.homeDirectory = "/home/tiec";
 
@@ -139,7 +132,4 @@
     # # environment.
     # MY_ENV_VAR = "some value";
   };
-
-  # Let Home Manager install and manage itself.
-  # programs.home-manager.enable = true;
 }

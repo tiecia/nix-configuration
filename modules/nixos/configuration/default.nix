@@ -11,7 +11,6 @@
     ./rebuild.nix
     ./numlock.nix
     ./dynamic-linking.nix
-    # ./home-manager.nix
     ./users.nix
     ./gpg.nix
     ./samba.nix

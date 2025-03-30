@@ -120,7 +120,6 @@
         extraSpecialArgs = specialArgsDesktop;
 
         modules = [
-          stylix.homeManagerModules.stylix
           ./hosts/sls/home.nix
         ];
       };
@@ -131,7 +130,6 @@
         extraSpecialArgs = specialArgsDesktop;
 
         modules = [
-          # stylix.homeManagerModules.stylix
           ./hosts/desktop/home.nix
         ];
       };
@@ -148,16 +146,6 @@
           ++ sharedModules;
       };
 
-      l390 = nixpkgs.lib.nixosSystem {
-        specialArgs = specialArgsDesktop;
-
-        modules =
-          [
-            ./hosts/l390/configuration.nix
-          ]
-          ++ sharedModules;
-      };
-
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsCli;
 
@@ -169,32 +157,11 @@
           ++ sharedModules;
       };
 
-      surfacebook = nixpkgs.lib.nixosSystem {
-        specialArgs = specialArgsDesktop;
-
-        modules =
-          [
-            ./hosts/surfacebook/configuration.nix
-          ]
-          ++ sharedModules;
-      };
-
       sls = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
 
         modules =
           [
-            ./hosts/sls/configuration.nix
-            nixos-hardware.nixosModules.microsoft-surface-common
-          ]
-          ++ sharedModules;
-      };
-
-      live-sls = nixpkgs.lib.nixosSystem {
-        specialArgs = specialArgsDesktop;
-        modules =
-          [
-            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
             ./hosts/sls/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-common
           ]
