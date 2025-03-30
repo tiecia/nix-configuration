@@ -15,7 +15,7 @@
 
     extraHosts = ''
       34.169.118.232 install
-      104.198.96.36 runner
+      34.169.48.183 runner
     '';
   };
 }
