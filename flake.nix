@@ -118,7 +118,10 @@
       # useUserPackages = true;
       # backupFileExtension = "backup";
 
-      modules = [./hosts/sls/home.nix];
+      modules = [
+        stylix.homeManagerModules.stylix
+        ./hosts/sls/home.nix
+      ];
     };
 
     nixosConfigurations = {
