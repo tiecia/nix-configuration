@@ -131,7 +131,7 @@
         extraSpecialArgs = specialArgsDesktop;
 
         modules = [
-          stylix.homeManagerModules.stylix
+          # stylix.homeManagerModules.stylix
           ./hosts/desktop/home.nix
         ];
       };

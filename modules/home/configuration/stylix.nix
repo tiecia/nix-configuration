@@ -2,12 +2,13 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 with lib; {
-  # imports = [
-  #   stylix.homeManagerModules.stylix
-  # ];
+  imports = [
+    inputs.stylix.homeManagerModules.stylix
+  ];
 
   stylix = {
     image = lib.mkDefault ../../../wallpapers/dark-water.jpg;
