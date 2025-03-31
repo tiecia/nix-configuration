@@ -12,7 +12,7 @@
     homeManagerModules.default = {
       config = {
         home.packages = [
-          nixpkgs.legacyPackages.x86_64-linux.hello
+          nixpkgs.legacyPackages.x86_64-linux.cowsay
         ];
       };
     };
