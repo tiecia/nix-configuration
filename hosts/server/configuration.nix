@@ -23,6 +23,16 @@
     allowedTCPPorts = [32772];
   };
 
+  virtualisation.oci-containers = {
+    backend = "docker";
+    containers = {
+      hello-world = {
+        image = "nginxdemos/hello";
+        ports = ["127.0.0.1:3010:80"];
+      };
+    };
+  };
+
   # From: https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/profiles/headless.nix
   # Can I just import this file here somehow instead?
 
