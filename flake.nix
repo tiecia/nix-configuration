@@ -47,6 +47,8 @@
 
     test-service.url = "path:./services/test/";
 
+    test-flake.url = "path:./test-flake";
+
     private = {
       url = "path:/home/tiec/private/";
       inputs.nixpkgs.follows = "nixpkgs";
