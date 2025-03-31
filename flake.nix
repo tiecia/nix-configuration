@@ -143,7 +143,7 @@
 
         modules = [
           ./hosts/server/home.nix
-          inputs.test-homemanager-module.homeManagerModules.default
+          inputs.test-homemanager-module.homeManagerModules.${system}.default
         ];
       };
     };
