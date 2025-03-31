@@ -48,6 +48,7 @@
     test-service.url = "path:./services/test/";
 
     test-flake.url = "path:./test-flake";
+    test-homemanager-module.url = "path:./test-homemanager-module";
 
     private = {
       url = "path:/home/tiec/private/";
@@ -142,6 +143,7 @@
 
         modules = [
           ./hosts/server/home.nix
+          inputs.test-homemanager-module.homeManagerModules.default
         ];
       };
     };

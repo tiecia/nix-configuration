@@ -539,7 +539,7 @@
     },
     "naersk_2": {
       "inputs": {
-        "nixpkgs": "nixpkgs_12"
+        "nixpkgs": "nixpkgs_13"
       },
       "locked": {
         "lastModified": 1739824009,
@@ -735,6 +735,22 @@
     },
     "nixpkgs_12": {
       "locked": {
+        "lastModified": 1743315132,
+        "narHash": "sha256-6hl6L/tRnwubHcA4pfUUtk542wn2Om+D4UnDhlDW9BE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "52faf482a3889b7619003c0daec593a1912fddc1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_13": {
+      "locked": {
         "lastModified": 0,
         "narHash": "sha256-C7jVfohcGzdZRF6DO+ybyG/sqpo1h6bZi9T56sxLy+k=",
         "path": "/nix/store/alzxn3hjisc84hrlv44x6hni48crww26-source",
@@ -745,7 +761,7 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_13": {
+    "nixpkgs_14": {
       "locked": {
         "lastModified": 1742169275,
         "narHash": "sha256-nkH2Edu9rClcsQp2PYBe8E6fp8LDPi2uDBQ6wyMdeXI=",
@@ -945,6 +961,7 @@
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
         "test-flake": "test-flake",
+        "test-homemanager-module": "test-homemanager-module",
         "test-service": "test-service",
         "winapps": "winapps"
       }
@@ -1125,10 +1142,25 @@
         "type": "path"
       }
     },
+    "test-homemanager-module": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_12"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-Q2ILpLdjneW7GXgF/VNtMXAevDlkMX2mHJvPkHa3eRY=",
+        "path": "./test-homemanager-module",
+        "type": "path"
+      },
+      "original": {
+        "path": "./test-homemanager-module",
+        "type": "path"
+      }
+    },
     "test-service": {
       "inputs": {
         "naersk": "naersk_2",
-        "nixpkgs": "nixpkgs_13",
+        "nixpkgs": "nixpkgs_14",
         "utils": "utils_2"
       },
       "locked": {
