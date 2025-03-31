@@ -28,7 +28,7 @@
     containers = {
       hello-world = {
         image = "nginxdemos/hello";
-        ports = ["127.0.0.1:3010:80"];
+        ports = ["0.0.0.0:3010:80"];
       };
     };
   };
