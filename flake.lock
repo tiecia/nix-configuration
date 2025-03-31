@@ -1148,7 +1148,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-Q2ILpLdjneW7GXgF/VNtMXAevDlkMX2mHJvPkHa3eRY=",
+        "narHash": "sha256-Apq6/qnAWET8e5ZSZuXCZtbcM6rlwRzkdmtnM4Gl6gs=",
         "path": "./test-homemanager-module",
         "type": "path"
       },
