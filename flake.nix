@@ -185,6 +185,7 @@
         modules =
           [
             ./hosts/server/configuration.nix
+            inputs.test-flake.nixosModules.default
           ]
           ++ sharedModules;
       };
