@@ -11,26 +11,29 @@
     inherit (pkgs) neovim;
   in
     lib.mkIf config.nvim.enable {
-      home.packages = [
-        # Dependencies as defined in kickstart.nvim
-        pkgs.git
-        pkgs.gnumake
-        pkgs.unzip
-        pkgs.gcc
-        pkgs.ripgrep
-        pkgs.xclip
-        pkgs.binutils
-
-        neovim
+      import = [
+        inputs.tiecia-neovim.homeManagerModules.default
       ];
-
-      programs.bash = {
-        enable = true;
-        shellAliases = {
-          vi = "${neovim}/bin/nvim";
-          v = "${neovim}/bin/nvim";
-        };
-        sessionVariables = {EDITOR = "${neovim}/bin/nvim";};
-      };
+      # home.packages = [
+      #   # Dependencies as defined in kickstart.nvim
+      #   pkgs.git
+      #   pkgs.gnumake
+      #   pkgs.unzip
+      #   pkgs.gcc
+      #   pkgs.ripgrep
+      #   pkgs.xclip
+      #   pkgs.binutils
+      #
+      #   neovim
+      # ];
+      #
+      # programs.bash = {
+      #   enable = true;
+      #   shellAliases = {
+      #     vi = "${neovim}/bin/nvim";
+      #     v = "${neovim}/bin/nvim";
+      #   };
+      #   sessionVariables = {EDITOR = "${neovim}/bin/nvim";};
+      # };
     };
 }

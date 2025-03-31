@@ -47,6 +47,11 @@
 
     test-service.url = "path:./services/test/";
 
+    tiecia-neovim = {
+      url = "github:tiecia/nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     private = {
       url = "path:/home/tiec/private/";
       inputs.nixpkgs.follows = "nixpkgs";
