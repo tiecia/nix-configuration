@@ -49,5 +49,5 @@
   ncdu.enable = lib.mkDefault true;
   bash.enable = lib.mkDefault true;
 
-  dotnet.enable = lib.mkDefault false;
+  dotnet.enable = lib.mkDefault true;
 }
