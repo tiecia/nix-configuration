@@ -51,5 +51,5 @@
   bash.enable = lib.mkDefault true;
   poppler-pdf-tools.enable = lib.mkDefault true;
 
-  dotnet.enable = lib.mkDefault false;
+  dotnet.enable = lib.mkDefault true;
 }
