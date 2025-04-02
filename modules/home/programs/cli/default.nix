@@ -26,6 +26,7 @@
     ./lm_sensors.nix
     ./ncdu.nix
     ./bash.nix
+    ./poppler.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -48,6 +49,7 @@
   lm_sensors.enable = lib.mkDefault true;
   ncdu.enable = lib.mkDefault true;
   bash.enable = lib.mkDefault true;
+  poppler-pdf-tools.enable = lib.mkDefault true;
 
   dotnet.enable = lib.mkDefault true;
 }
