@@ -16,7 +16,7 @@ with lib; {
     targets = {
       kitty.enable = lib.mkForce true;
       alacritty.enable = lib.mkForce true;
-      gtk.enable = true;
+      gtk.enable = false;
     };
     cursor = {
       package = pkgs.bibata-cursors;
