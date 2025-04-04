@@ -37,5 +37,9 @@ with lib; {
         ms-python.python
       ];
     };
+
+    home.shellAliases = {
+      code = "code --use-gl=desktop";
+    };
   };
 }
