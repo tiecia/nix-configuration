@@ -14,8 +14,8 @@
     hostName = lib.mkDefault "nixos";
 
     extraHosts = ''
-      34.169.118.232 install
-      34.169.48.183 runner
+      34.127.16.105 install
+      34.169.170.77 runner
 
       192.168.1.166 server
     '';
