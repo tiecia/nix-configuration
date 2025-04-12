@@ -103,6 +103,8 @@
 
     globalConfig = {
       terminal = "alacritty";
+      lockTime = 300; # 5 minutes
+      sleepTime = 330; # 5.5 minutes
     };
 
     specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable pkgs-dotnet globalConfig winapps-pkgs;};

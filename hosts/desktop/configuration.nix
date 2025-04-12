@@ -2,11 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  inputs,
-  config,
-  pkgs,
-  pkgs-master,
-  pkgs-stable,
+  globalConfig,
   lib,
   ...
 }: let
@@ -20,8 +16,11 @@ in {
     ../../modules/nixos/programs/desktop
   ];
 
-  # TODO: Move this to a home-manager configuration module
-  # home-manager.users.tiec = import ./home.nix;
+  # globalConfig = {
+  #   lockTime = 600; # 10 minutes
+  #   sleepTime = 1200; # 20 minutes
+  # };
+
   rebuild.host = "desktop";
   networking.hostName = "TyDesktopNix";
 

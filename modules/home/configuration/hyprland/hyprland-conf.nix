@@ -584,11 +584,11 @@ in
 
               listener = [
                 {
-                  timeout = 300; # 5 minutes
+                  timeout = globalConfig.lockTime;
                   on-timeout = "hyprlock"; # command to run when timeout has passed
                 }
                 {
-                  timeout = 330; # 5.5 minutes
+                  timeout = globalConfig.sleepTime;
                   on-timeout = "hyprctl dispatch dpms off";
                   on-resume = "hyprctl dispatch dpms on";
                 }
