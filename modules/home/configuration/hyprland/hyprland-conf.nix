@@ -47,6 +47,16 @@ in
           default = "~/nix-configuration/wallpapers/abstract-lines.jpg";
         };
         laptop = mkEnableOption "Laptop configuration";
+        sleepTime = mkOption {
+          type = types.int;
+          default = 1200;
+          description = "Time in seconds to sleep";
+        };
+        lockTime = mkOption {
+          type = types.int;
+          default = 600;
+          description = "Time in seconds to lock";
+        };
       };
     };
 
@@ -584,11 +594,11 @@ in
 
               listener = [
                 {
-                  timeout = globalConfig.lockTime;
+                  timeout = options.lockTime;
                   on-timeout = "hyprlock"; # command to run when timeout has passed
                 }
                 {
-                  timeout = globalConfig.sleepTime;
+                  timeout = options.sleepTime;
                   on-timeout = "hyprctl dispatch dpms off";
                   on-resume = "hyprctl dispatch dpms on";
                 }

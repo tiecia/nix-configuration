@@ -1,11 +1,7 @@
 # Edit this configuration file to define what should be installed onconfiguration
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  globalConfig,
-  lib,
-  ...
-}: let
+{lib, ...}: let
 in {
   imports = [
     ./hardware-configuration.nix
@@ -15,11 +11,6 @@ in {
     ../../modules/nixos/programs/cli
     ../../modules/nixos/programs/desktop
   ];
-
-  # globalConfig = {
-  #   lockTime = 600; # 10 minutes
-  #   sleepTime = 1200; # 20 minutes
-  # };
 
   rebuild.host = "desktop";
   networking.hostName = "TyDesktopNix";
