@@ -58,6 +58,7 @@ with lib; {
       enableAllFirmware = true;
       opengl = {
         enable = true;
+        driSupport32Bit = true;
       };
       nvidia = {
         prime = mkIf (config.nvidia-graphics.prime != "off") {
