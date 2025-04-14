@@ -1,15 +1,7 @@
 # Edit this configuration file to define what should be installed onconfiguration
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  inputs,
-  config,
-  pkgs,
-  pkgs-master,
-  pkgs-stable,
-  lib,
-  ...
-}: let
+{lib, ...}: let
 in {
   imports = [
     ./hardware-configuration.nix
@@ -20,8 +12,6 @@ in {
     ../../modules/nixos/programs/desktop
   ];
 
-  # TODO: Move this to a home-manager configuration module
-  # home-manager.users.tiec = import ./home.nix;
   rebuild.host = "desktop";
   networking.hostName = "TyDesktopNix";
 
