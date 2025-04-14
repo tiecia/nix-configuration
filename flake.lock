@@ -1100,15 +1100,14 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-ky1IduF7Egr1clOyAgHn/bJqM7cocxe2quGH9krvXHo=",
         "path": "./services/test/",
         "type": "path"
       },
       "original": {
         "path": "./services/test/",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "tinted-foot": {
       "flake": false,
