@@ -56,6 +56,9 @@ with lib; {
 
     hardware = {
       enableAllFirmware = true;
+      opengl = {
+        enable = true;
+      };
       nvidia = {
         prime = mkIf (config.nvidia-graphics.prime != "off") {
           offload = mkIf (config.nvidia-graphics.prime == "offload") {
