@@ -1,7 +1,11 @@
 # Edit this configuration file to define what should be installed onconfiguration
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{lib, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
 in {
   imports = [
     ./hardware-configuration.nix
@@ -18,6 +22,10 @@ in {
   gnome.enable = true;
 
   services.samba.enable = lib.mkForce true;
+
+  environment.systemPackages = [
+    pkgs.jdk17
+  ];
 
   steam = {
     enable = true;
