@@ -101,7 +101,7 @@ with lib; {
 
         # Optionally, you may need to select the appropriate driver version for your specific GPU.
         # package = config.boot.kernelPackages.nvidiaPackages.production;
-        package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+        package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta; # This one is needed or else android emulator fails to launch.
 
         vaapi = {
           enable = true;
