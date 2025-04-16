@@ -6,6 +6,7 @@
   pkgs,
   ...
 }: let
+  jdk = pkgs.jdk17;
 in {
   imports = [
     ./hardware-configuration.nix
@@ -24,8 +25,16 @@ in {
   services.samba.enable = lib.mkForce true;
 
   environment.systemPackages = [
-    pkgs.jdk17
+    jdk
   ];
+
+  environment.variables = {
+    JAVA_HOME = "${jdk}";
+  };
+
+  environment.sessionVariables = {
+    JAVA_HOME = "${jdk}";
+  };
 
   steam = {
     enable = true;
