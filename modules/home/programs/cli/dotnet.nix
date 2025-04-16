@@ -40,13 +40,14 @@ in {
 
     # or use this if you ought to have multiple SDK versions
     # this will create userlocal files in both $DOTNET_ROOT and dotnet bin realtive path
-    dotnet-combined = (with pkgs.dotnetCorePackages;
-      combinePackages [
-        (sdk_9_0.overrideAttrs postInstallUserlocal)
-        (sdk_8_0.overrideAttrs postInstallUserlocal)
-      ])
+    dotnet-combined =
+      (with pkgs.dotnetCorePackages;
+        combinePackages [
+          (sdk_9_0.overrideAttrs postInstallUserlocal)
+          (sdk_8_0.overrideAttrs postInstallUserlocal)
+        ])
       .overrideAttrs
-    postBuildUserlocal;
+      postBuildUserlocal;
   in
     lib.mkIf config.dotnet.enable
     {
