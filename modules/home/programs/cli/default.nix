@@ -27,6 +27,8 @@
     ./ncdu.nix
     ./bash.nix
     ./poppler.nix
+    ./dig.nix
+    ./traceroute.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -50,6 +52,8 @@
   ncdu.enable = lib.mkDefault true;
   bash.enable = lib.mkDefault true;
   poppler-pdf-tools.enable = lib.mkDefault true;
+  dig.enable = lib.mkDefault true;
+  traceroute.enable = lib.mkDefault true;
 
   dotnet.enable = lib.mkDefault true;
 }
