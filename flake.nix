@@ -45,6 +45,11 @@
 
     hyprland-display-tools.url = "github:tiecia/hyprland-display-tools";
 
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     test-service.url = "path:./services/test/";
 
     private = {
