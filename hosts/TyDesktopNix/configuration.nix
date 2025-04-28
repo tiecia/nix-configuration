@@ -17,7 +17,7 @@ in {
     ../../modules/nixos/programs/desktop
   ];
 
-  rebuild.host = "desktop";
+  rebuild.host = "TyDesktopNix";
   networking.hostName = "TyDesktopNix";
 
   gnome.enable = true;

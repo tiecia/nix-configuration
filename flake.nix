@@ -128,13 +128,13 @@
         ];
       };
 
-      "tiec@desktop" = home-manager.lib.homeManagerConfiguration {
+      "tiec@TyDesktopNix" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         extraSpecialArgs = specialArgsDesktop;
 
         modules = [
-          ./hosts/desktop/home.nix
+          ./hosts/TyDesktopNix/home.nix
         ];
       };
 
@@ -150,12 +150,12 @@
     };
 
     nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
+      TyDesktopNix = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
 
         modules =
           [
-            ./hosts/desktop/configuration.nix
+            ./hosts/TyDesktopNix/configuration.nix
           ]
           ++ sharedModules;
       };
