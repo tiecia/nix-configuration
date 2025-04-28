@@ -23,7 +23,7 @@ in {
 
   # home-manager.users.tiec = import ./home.nix;
 
-  rebuild.host = "sls";
+  rebuild.host = "TyLaptopStudioNix";
   networking.hostName = lib.mkForce "TyLaptopStudioNix";
 
   laptop-configuration.enable = lib.mkForce true;
