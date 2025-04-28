@@ -15,6 +15,7 @@
     ./gpg.nix
     ./samba.nix
     ./ssh.nix
+    ./security.nix
 
     ./desktop.nix # Configuration to enable for desktop systems
     ./laptop.nix

@@ -122,7 +122,7 @@ in
               [
                 # See https://wiki.hyprland.org/Configuring/Binds/ for more
                 "$mainMod, Q, exec, ${terminal}"
-                "$mainMod, F, exec, firefox"
+                "$mainMod, F, exec, zen"
                 "$mainMod, C, killactive,"
                 "$mainMod, E, exec, ${fileManager}"
                 "$mainMod, V, togglefloating,"
