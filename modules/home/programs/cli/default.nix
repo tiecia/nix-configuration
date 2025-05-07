@@ -29,6 +29,7 @@
     ./poppler.nix
     ./dig.nix
     ./traceroute.nix
+    ./azure.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -56,4 +57,5 @@
   traceroute.enable = lib.mkDefault true;
 
   dotnet.enable = lib.mkDefault true;
+  azure-tools.enable = lib.mkDefault true;
 }
