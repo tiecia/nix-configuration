@@ -118,13 +118,13 @@
     ];
   in {
     homeConfigurations = {
-      "tiec@sls" = home-manager.lib.homeManagerConfiguration {
+      "tiec@TyLaptopStudioNix" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         extraSpecialArgs = specialArgsDesktop;
 
         modules = [
-          ./hosts/sls/home.nix
+          ./hosts/TyLaptopStudioNix/home.nix
         ];
       };
 
@@ -171,12 +171,12 @@
           ++ sharedModules;
       };
 
-      sls = nixpkgs.lib.nixosSystem {
+      TyLaptopStudioNix = nixpkgs.lib.nixosSystem {
         specialArgs = specialArgsDesktop;
 
         modules =
           [
-            ./hosts/sls/configuration.nix
+            ./hosts/TyLaptopStudioNix/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-common
           ]
           ++ sharedModules;
