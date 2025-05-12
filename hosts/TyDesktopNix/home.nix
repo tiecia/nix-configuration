@@ -21,9 +21,9 @@
     enable = true;
     monitor = [
       "DP-2,2560x1080@144,0x0,1" # Main Ultrawide
-      "HDMI-A-1,2560x1080@60,0x-1080,1" #Top Ultrawide
-      "HDMI-A-2,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
-      "DP-1,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
+      "HDMI-A-2,2560x1080@60,0x-1080,1" #Top Ultrawide
+      # "HDMI-A-1,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
+      # "DP-1,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
     ];
     extraBind = [
       "Super, P, split:swapactiveworkspaces, 0 3"
