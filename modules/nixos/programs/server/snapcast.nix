@@ -10,6 +10,7 @@ with lib; {
   };
 
   config = mkIf config.snapcast.enable {
+    networking.firewall.allowedTCPPorts = [1704 1705 1780];
     environment.systemPackages = [
       pkgs.snapcast
     ];
@@ -19,7 +20,7 @@ with lib; {
       wantedBy = ["multi-user.target"];
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${pkgs.snapcast}/bin/snapcast";
+        ExecStart = "${pkgs.snapcast}/bin/snapserver";
       };
     };
   };
