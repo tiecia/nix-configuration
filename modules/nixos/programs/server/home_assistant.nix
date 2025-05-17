@@ -16,7 +16,7 @@ with lib; {
       backend = "docker";
       containers.homeassistant = {
         volumes = ["home-assistant:/config"];
-        environment.TZ = "Europe/Berlin";
+        environment.TZ = "America/Los_Angeles";
         image = "ghcr.io/home-assistant/home-assistant:stable"; # Warning: if the tag does not change, the image will not be updated
         extraOptions = [
           "--network=host"

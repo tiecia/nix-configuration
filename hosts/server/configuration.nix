@@ -18,6 +18,7 @@
   networking.hostName = lib.mkForce "TyServer";
 
   home_assistant.enable = true;
+  music_assistant.enable = true;
 
   ssh.enable = true;
 
