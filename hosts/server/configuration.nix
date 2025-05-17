@@ -19,6 +19,7 @@
 
   home_assistant.enable = true;
   music_assistant.enable = true;
+  snapcast.enable = true;
 
   ssh.enable = true;
 
