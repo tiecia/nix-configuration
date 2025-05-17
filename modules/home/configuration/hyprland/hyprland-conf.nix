@@ -639,23 +639,23 @@ in
         };
 
         systemd.user.services = {
-          test-service = let
-            test-service = inputs.test-service.packages.${pkgs.system}.default;
-          in {
-            Unit = {
-              Description = "test-service";
-            };
-            Service = {
-              Type = "simple";
-              ExecStart = "${test-service}/bin/test-service";
-              Restart = "on-failure";
-              RestartSec = 1;
-              TimeoutStopSec = 10;
-            };
-            Install = {
-              WantedBy = ["graphical-session.target"];
-            };
-          };
+          # test-service = let
+          #   test-service = inputs.test-service.packages.${pkgs.system}.default;
+          # in {
+          #   Unit = {
+          #     Description = "test-service";
+          #   };
+          #   Service = {
+          #     Type = "simple";
+          #     ExecStart = "${test-service}/bin/test-service";
+          #     Restart = "on-failure";
+          #     RestartSec = 1;
+          #     TimeoutStopSec = 10;
+          #   };
+          #   Install = {
+          #     WantedBy = ["graphical-session.target"];
+          #   };
+          # };
 
           ags-desktop-shell = {
             Unit = {

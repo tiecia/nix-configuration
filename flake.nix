@@ -50,7 +50,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    test-service.url = "path:./services/test/";
+    # test-service = {
+    #   url = "path:./services/test/";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     private = {
       url = "path:/home/tiec/private/";
