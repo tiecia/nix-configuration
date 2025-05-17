@@ -13,6 +13,7 @@ with lib; {
     networking.firewall.allowedTCPPorts = [1704 1705 1780];
     environment.systemPackages = [
       pkgs.snapcast
+      pkgs.snapweb
     ];
 
     systemd.services.snapcast = {
