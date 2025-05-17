@@ -10,7 +10,7 @@ with lib; {
   };
 
   config = mkIf config.music_assistant.enable {
-    networking.firewall.allowedTCPPorts = [8095 4070];
+    networking.firewall.allowedTCPPorts = [8095 8097 4070];
 
     virtualisation.oci-containers = {
       backend = "docker";
