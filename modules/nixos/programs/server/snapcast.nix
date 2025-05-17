@@ -14,15 +14,13 @@ with lib; {
       pkgs.snapcast
     ];
 
-    # systemd.services = [
-    #   snapcast = [
-    #     enable = true;
-    #     wantedBy = [ "multi-user.target" ];
-    #     serviceConfig = {
-    #       Type = "simple";
-    #       ExecStart = "${pkgs.snapcast}/bin/snapcast";
-    #     };
-    #   ];
-    # ];
+    systemd.services.snapcast = {
+      enable = true;
+      wantedBy = ["multi-user.target"];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.snapcast}/bin/snapcast";
+      };
+    };
   };
 }
