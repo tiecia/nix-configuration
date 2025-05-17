@@ -15,7 +15,7 @@ with lib; {
     virtualisation.oci-containers = {
       backend = "docker";
       containers.musicassistant = {
-        volumes = ["music-assistant-server/data:/data/"];
+        volumes = ["music-assistant-server:/data/"];
         image = "ghcr.io/music-assistant/server:stable"; # Warning: if the tag does not change, the image will not be updated
         extraOptions = [
           "--network=host"
