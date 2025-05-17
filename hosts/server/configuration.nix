@@ -11,10 +11,13 @@
 
     ../../modules/nixos/programs/cli
     ../../modules/nixos/configuration
+    ../../modules/nixos/programs/server
   ];
 
   rebuild.host = "server";
   networking.hostName = lib.mkForce "TyServer";
+
+  home_assistant.enable = true;
 
   ssh.enable = true;
 
