@@ -22,9 +22,8 @@ with lib; {
         };
       };
     };
-  }
-  ++ mkIf config.snapclient.enable {
-    systemd.user.services.snapclient = {
+
+    systemd.user.services.snapclient = mkIf config.snapclient.enable {
       wantedBy = [
         "pipewire.service"
       ];
