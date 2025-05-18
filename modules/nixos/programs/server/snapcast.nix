@@ -6,12 +6,13 @@
 }:
 with lib; {
   options = {
-    snapcast.enable = mkEnableOption "Enable snapcast audio streaming";
+    snapserver.enable = mkEnableOption "Enable snapserver";
+    snapclient.enable = mkEnableOption "Enable snapclient";
   };
 
-  config = mkIf config.snapcast.enable {
+  config = {
     services.snapserver = {
-      enable = false;
+      enable = config.snapserver.enable;
       openFirewall = true;
       codec = "flac";
       streams = {
@@ -21,19 +22,18 @@ with lib; {
         };
       };
     };
-    #   networking.firewall.allowedTCPPorts = [1704 1705 1780];
-    #   environment.systemPackages = [
-    #     pkgs.snapcast
-    #     pkgs.snapweb
-    #   ];
-    #
-    #   systemd.services.snapcast = {
-    #     enable = true;
-    #     wantedBy = ["multi-user.target"];
-    #     serviceConfig = {
-    #       Type = "simple";
-    #       ExecStart = "${pkgs.snapcast}/bin/snapserver";
-    #     };
-    #   };
   };
+  # ++ mkIf config.snapclient.enable {
+  #   systemd.user.services.snapclient = {
+  #     wantedBy = [
+  #       "pipewire.service"
+  #     ];
+  #     after = [
+  #       "pipewire.service"
+  #     ];
+  #     serviceConfig = {
+  #       ExecStart = "${pkgs.snapcast}/bin/snapclient -h ::1";
+  #     };
+  #   };
+  # };
 }
