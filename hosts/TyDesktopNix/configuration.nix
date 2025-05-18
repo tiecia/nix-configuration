@@ -15,12 +15,16 @@ in {
     ../../modules/nixos/desktop-environment
     ../../modules/nixos/programs/cli
     ../../modules/nixos/programs/desktop
+
+    ../../modules/nixos/programs/server
   ];
 
   rebuild.host = "TyDesktopNix";
   networking.hostName = "TyDesktopNix";
 
   gnome.enable = true;
+
+  snapclient.enable = true;
 
   services.samba.enable = lib.mkForce true;
 
