@@ -11,7 +11,7 @@ with lib; {
 
   config = mkIf config.snapcast.enable {
     services.snapserver = {
-      enable = true;
+      enable = false;
       openFirewall = true;
       codec = "flac";
       streams = {
