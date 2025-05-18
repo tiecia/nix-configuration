@@ -10,19 +10,30 @@ with lib; {
   };
 
   config = mkIf config.snapcast.enable {
-    networking.firewall.allowedTCPPorts = [1704 1705 1780];
-    environment.systemPackages = [
-      pkgs.snapcast
-      pkgs.snapweb
-    ];
-
-    systemd.services.snapcast = {
+    services.snapserver = {
       enable = true;
-      wantedBy = ["multi-user.target"];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.snapcast}/bin/snapserver";
+      openFirewall = true;
+      codec = "flac";
+      streams = {
+        pipewire = {
+          type = "pipe";
+          location = "/run/snapserver/pipewire";
+        };
       };
     };
+    #   networking.firewall.allowedTCPPorts = [1704 1705 1780];
+    #   environment.systemPackages = [
+    #     pkgs.snapcast
+    #     pkgs.snapweb
+    #   ];
+    #
+    #   systemd.services.snapcast = {
+    #     enable = true;
+    #     wantedBy = ["multi-user.target"];
+    #     serviceConfig = {
+    #       Type = "simple";
+    #       ExecStart = "${pkgs.snapcast}/bin/snapserver";
+    #     };
+    #   };
   };
 }
