@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-master,
   ...
 }:
 with lib; {
@@ -10,8 +11,8 @@ with lib; {
   };
 
   config = mkIf config.wpsoffice.enable {
-    home.packages = with pkgs; [
-      wpsoffice
+    home.packages = [
+      pkgs-master.wpsoffice
     ];
   };
 }
