@@ -68,7 +68,6 @@
   appflowy.enable = lib.mkDefault true;
   obs.enable = lib.mkDefault true;
   insomnia.enable = lib.mkDefault true;
-  pgadmin.enable = lib.mkDefault true;
-  microsoft-edge.enable = lib.mkDefault true;
+  # pgadmin.enable = lib.mkDefault true;
   zen.enable = lib.mkDefault true;
 }

@@ -29,7 +29,8 @@ with lib; {
         unfree = "export NIXPKGS_ALLOW_UNFREE=1";
         open = "bash ~/nix-configuration/modules/home/programs/cli/scripts/open.sh";
         ".." = "cd ..";
-        dup = "(${globalConfig.terminal} $PWD &) &> /dev/null";
+        dup = "nohup ${globalConfig.terminal} --working-directory $PWD > /dev/null 2>&1 &";
+        # dup = "(nohup ${globalConfig.terminal} $PWD &) &> /dev/null";
       };
     };
   };
