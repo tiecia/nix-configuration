@@ -37,25 +37,26 @@ with lib; {
   };
 
   config = mkIf config.nvidia-graphics.enable {
-    hardware.graphics = {
-      enable = true;
-
-      extraPackages = with pkgs; [
-        intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        libvdpau-va-gl
-        nvidia-vaapi-driver
-        cudaPackages.cuda_cccl
-        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-        vaapiVdpau
-        vulkan-validation-layers
-      ];
-    };
-
     # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
     hardware = {
       enableAllFirmware = true;
+
+      graphics = {
+        enable = true;
+
+        extraPackages = with pkgs; [
+          intel-media-driver # LIBVA_DRIVER_NAME=iHD
+          libvdpau-va-gl
+          nvidia-vaapi-driver
+          cudaPackages.cuda_cccl
+          vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+          vaapiVdpau
+          vulkan-validation-layers
+        ];
+      };
+
       nvidia = {
         prime = mkIf (config.nvidia-graphics.prime != "off") {
           offload = mkIf (config.nvidia-graphics.prime == "offload") {

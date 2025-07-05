@@ -17,7 +17,8 @@
       # firefoxpwa site launch 01HZ3KX1QST5T15ECH5S0EDXQC &
       # discord --use-gl=desktop &
     # fi
-    webcord --use-gl=desktop &
+    # webcord --use-gl=desktop &
+    discord &
     hyprctl dispatch togglespecialworkspace discord
   '';
 
