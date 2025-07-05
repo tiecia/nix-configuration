@@ -141,6 +141,16 @@
         ];
       };
 
+      "tiec@fw16" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        extraSpecialArgs = specialArgsDesktop;
+
+        modules = [
+          ./hosts/fw16/home.nix
+        ];
+      };
+
       "tiec@server" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
@@ -181,6 +191,16 @@
           [
             ./hosts/TyLaptopStudioNix/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-common
+          ]
+          ++ sharedModules;
+      };
+
+      fw16 = nixpkgs.lib.nixosSystem {
+        specialArgs = specialArgsDesktop;
+
+        modules =
+          [
+            ./hosts/fw16/configuration.nix
           ]
           ++ sharedModules;
       };
