@@ -7,7 +7,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-dotnet.url = "github:nixos/nixpkgs?rev=a30e284fcd69aadaec15c563b1649667fc77cd4d";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware?rev=d23a3bc3c600a064c72c7fb02862edfab11a46cf";
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=9154f4569b6cdfd3c595851a6ba51bfaa472d9f3";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 

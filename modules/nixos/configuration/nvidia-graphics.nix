@@ -51,8 +51,8 @@ with lib; {
           libvdpau-va-gl
           nvidia-vaapi-driver
           cudaPackages.cuda_cccl
-          vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-          vaapiVdpau
+          intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+          libva-vdpau-driver
           vulkan-validation-layers
         ];
       };

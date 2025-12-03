@@ -20,13 +20,17 @@ with lib; {
 
     programs.git = {
       enable = true;
-      userEmail = "ty.cia@outlook.com";
-      userName = "tiecia";
-      aliases = {
-        co = "checkout";
-        cm = "commit";
-        st = "status";
-        pu = "push";
+      settings = {
+        user = {
+          email = "ty.cia@outlook.com";
+          name = "tiecia";
+        };
+        aliases = {
+          co = "checkout";
+          cm = "commit";
+          st = "status";
+          pu = "push";
+        };
       };
     };
 

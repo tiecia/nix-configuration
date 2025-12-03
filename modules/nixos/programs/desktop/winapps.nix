@@ -16,7 +16,7 @@ with lib; {
       winapps-pkgs.winapps
       winapps-pkgs.winapps-launcher
       pkgs.dialog
-      pkgs.freerdp3
+      pkgs.freerdp
       pkgs.iproute2
       pkgs.libnotify
       pkgs.netcat-gnu
@@ -28,16 +28,6 @@ with lib; {
         package = pkgs.qemu_kvm;
         runAsRoot = true;
         swtpm.enable = true;
-        ovmf = {
-          enable = true;
-          packages = [
-            (pkgs.OVMF.override {
-              secureBoot = true;
-              tpmSupport = true;
-            })
-            .fd
-          ];
-        };
       };
     };
   };
