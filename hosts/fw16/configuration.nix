@@ -31,6 +31,10 @@ in {
 
   gnome.enable = true;
 
+  hardware = {
+    xone.enable = true;
+  };
+
   specialisation = {
     hyprland.configuration = {
       gnome.enable = lib.mkForce false;

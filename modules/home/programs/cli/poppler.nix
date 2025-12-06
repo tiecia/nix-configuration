@@ -11,7 +11,7 @@ with lib; {
 
   config = mkIf config.poppler-pdf-tools.enable {
     home.packages = with pkgs; [
-      poppler_utils
+      poppler-utils
     ];
   };
 }

@@ -702,7 +702,7 @@ in
             kitty
             alacritty
             # dolphin
-            kdePackages.xwaylandvideobridge
+            # kdePackages.xwaylandvideobridge
             playerctl # Media player CLI controls
             pulseaudio # Used as CLI tool to adjust volume
             wev

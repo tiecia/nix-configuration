@@ -10,7 +10,7 @@
     ./discord.nix
     ./filezilla.nix
     ./firefox/firefox.nix
-    ./kalc.nix
+    # ./kalc.nix
     # ./libreoffice.eix
     ./msteams.nix
     ./onedrive/onedrive.nix
@@ -47,7 +47,7 @@
 
   firefox.enable = lib.mkDefault true;
   vscode.enable = lib.mkDefault true;
-  kalc.enable = lib.mkDefault true;
+  # kalc.enable = lib.mkDefault true;
   vlc.enable = lib.mkDefault true;
   cheese.enable = lib.mkDefault true;
   quickemu.enable = lib.mkDefault true;

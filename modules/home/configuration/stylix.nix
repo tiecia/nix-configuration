@@ -13,6 +13,7 @@ with lib; {
   stylix = {
     image = lib.mkDefault ../../../wallpapers/dark-water.jpg;
     autoEnable = false;
+    enableReleaseChecks = false;
     targets = {
       kitty.enable = lib.mkForce true;
       alacritty.enable = lib.mkForce true;
