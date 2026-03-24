@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-stable,
   inputs,
   ...
 }:
@@ -100,7 +101,7 @@ with lib; {
       hyprland = {
         enable = true;
         xwayland.enable = true;
-        # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+        package = pkgs-stable.hyprland;
       };
     };
   };

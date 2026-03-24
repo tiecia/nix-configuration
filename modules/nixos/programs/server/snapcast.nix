@@ -15,12 +15,12 @@ with lib; {
       enable = config.snapserver.enable;
       openFirewall = true;
       codec = "flac";
-      streams = {
-        pipewire = {
-          type = "pipe";
-          location = "/run/snapserver/pipewire";
-        };
-      };
+      # stream = {
+      # source = {
+      #   type = "pipe";
+      #   location = "/run/snapserver/pipewire";
+      # };
+      # };
     };
 
     systemd.user.services.snapclient = mkIf config.snapclient.enable {

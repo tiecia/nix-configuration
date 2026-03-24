@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-master,
   ...
 }: let
   configDir = config.home.homeDirectory + "/.quickemu";
@@ -18,8 +19,8 @@ in
     };
 
     config = mkIf config.quickemu.enable {
-      home.packages = with pkgs; [
-        quickemu
+      home.packages = [
+        pkgs-master.quickemu
       ];
 
       programs.bash = {

@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-stable,
   inputs,
   globalConfig,
   ...
@@ -383,7 +384,7 @@ in
             };
           };
           plugins = [
-            pkgs.hyprlandPlugins.hyprsplit
+            pkgs-stable.hyprlandPlugins.hyprsplit
           ];
         };
 
@@ -405,6 +406,7 @@ in
             ];
             config.common.default = "*"; # This forces the desktop portal config to use the pre-version 1.17 config.
           };
+          configFile."mimeapps.list".force = true;
           mimeApps = {
             enable = true;
             associations.added = {
