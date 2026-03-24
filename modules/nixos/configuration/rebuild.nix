@@ -112,7 +112,7 @@
 
     # Commit all changes witih the generation metadata
     if [ $dry == 0 ]; then
-        sudo git commit -am "$CONFIGURATION_HOST $current (HM: $hmVersion)"
+        git commit -am "$CONFIGURATION_HOST $current (HM: $hmVersion)"
     fi
 
     # if [ $nopush == 0 ]; then
