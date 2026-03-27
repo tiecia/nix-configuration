@@ -67,17 +67,17 @@ in {
           "$mainMod Shift_L, G, movetoworkspace, special:notion"
         ];
 
-        windowrulev2 = [
-          "workspace special:spotify, title:(Spotify Premium)"
+        windowrule = [
+          "workspace special:spotify, match:title (Spotify Premium)"
 
-          "workspace special:discord, class:(discord)" # Discord native app
-          "workspace special:discord, title:^(Discord)" # Discord PWA
+          "workspace special:discord, match:class (discord)" # Discord native app
+          "workspace special:discord, match:title ^(Discord)" # Discord PWA
 
-          "workspace special:mail, class:(thunderbird)"
+          "workspace special:mail, match:class (thunderbird)"
 
-          "workspace special:gitkraken, class:(GitKraken)"
+          "workspace special:gitkraken, match:class (GitKraken)"
 
-          "workspace special:notion, initialTitle:(Notion)"
+          "workspace special:notion, match:initial_title (Notion)"
         ];
       };
     };

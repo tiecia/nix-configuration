@@ -28,6 +28,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland?ref=v0.54.2";
+    };
+
+    hyprsplit = {
+      url = "github:shezdy/hyprsplit?rev=1972e9ef373ea56bfcc50f86a0f7c52f7f5b00a1";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     hyprsession = {
       url = "github:tiecia/hyprsession";
     };

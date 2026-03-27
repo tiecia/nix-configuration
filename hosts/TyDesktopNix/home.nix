@@ -28,7 +28,7 @@
     extraBind = [
       "Super, P, split:swapactiveworkspaces, 0 3"
     ];
-    extraWindowrulev2 = [
+    extraWindowrule = [
       # "monitor 2,title:(Spotify Premium)"
       # "monitor 2,class:(discord)" # Discord native app
       # "monitor 2,title:^(Discord)" # Discord PWA

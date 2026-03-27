@@ -26,10 +26,10 @@ in
           default = [];
           description = "Extra binds to add to config";
         };
-        extraWindowrulev2 = mkOption {
+        extraWindowrule = mkOption {
           type = types.listOf types.str;
           default = [];
-          description = "Extra windowrulev2 optios to add to config";
+          description = "Extra windowrule optios to add to config";
         };
         numWorkspaces = mkOption {
           type = types.int;
@@ -62,7 +62,7 @@ in
     };
 
     config = let
-      inherit (inputs.hyprsession.packages.${pkgs.system}) hyprsession;
+      hyprsession = inputs.hyprsession.packages.${pkgs.system}.default;
       options = config.hyprland-conf;
       terminal = "${globalConfig.terminal}";
       fileManager = "${pkgs.nautilus}/bin/nautilus";
@@ -92,7 +92,7 @@ in
 
         wayland.windowManager.hyprland = {
           enable = true;
-          # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+          package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
           # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
           systemd = {
@@ -347,10 +347,13 @@ in
 
             gestures = {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
-              workspace_swipe = "on";
               workspace_swipe_forever = true;
               workspace_swipe_cancel_ratio = 0.3;
             };
+
+            gesture = [
+              "3, horizontal, workspace"
+            ];
 
             misc = {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -358,33 +361,33 @@ in
             };
 
             # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-            windowrulev2 =
+            windowrule =
               [
-                "suppressevent maximize, class:.*"
-                "float,class:(betterbird),title:^(Write:)"
-                "float,class:(org.gnome.Nautilus)"
-                "size 80% 80%,class:(org.gnome.Nautilus)"
-                "float,class:(steam)"
-                "size 40% 80%,title:(Friends List)"
-                "size 40% 80%,title:(Steam Settings)"
-                "size 80% 80%,class:(steam)"
-                "float,title:(Picture-in-Picture)"
-                "pin, title:(Picture-in-Picture)"
+                "suppress_event maximize, match:class .*"
+                "float on, match:class (betterbird), match:title ^(Write:)"
+                "float on, match:class (org.gnome.Nautilus)"
+                "size 80% 80%, match:class (org.gnome.Nautilus)"
+                "float on, match:class (steam)"
+                "size 40% 80%, match:title (Friends List)"
+                "size 40% 80%, match:title (Steam Settings)"
+                "size 80% 80%, match:class (steam)"
+                "float on, match:title (Picture-in-Picture)"
+                "pin on, match:title (Picture-in-Picture)"
 
-                "float,initialTitle:(Calendar Reminders)"
+                "float on, match:initial_title (Calendar Reminders)"
 
-                "opacity 0.85, class:(${globalConfig.terminal})"
-                "opacity 0.90, class:(org.gnome.Nautilus)"
-                "noborder, onworkspace:w[t1]"
+                "opacity 0.85, match:class (${globalConfig.terminal})"
+                "opacity 0.90, match:class (org.gnome.Nautilus)"
+                "border_size 0, match:workspace w[t1]"
               ]
-              ++ options.extraWindowrulev2;
+              ++ options.extraWindowrule;
 
             debug = {
               disable_logs = false;
             };
           };
           plugins = [
-            pkgs-stable.hyprlandPlugins.hyprsplit
+            inputs.hyprsplit.packages.${pkgs.system}.default
           ];
         };
 
@@ -401,7 +404,7 @@ in
           portal = {
             enable = true;
             extraPortals = [
-              pkgs.xdg-desktop-portal-hyprland
+              # pkgs.xdg-desktop-portal-hyprland # Included with the hyprland home-manager module.
               pkgs.xdg-desktop-portal-gtk
             ];
             config.common.default = "*"; # This forces the desktop portal config to use the pre-version 1.17 config.
