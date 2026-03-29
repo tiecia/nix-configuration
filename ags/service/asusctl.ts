@@ -1,55 +1,61 @@
+import GObject from "gi://GObject?version=2.0"
+import { register, property } from "ags/gobject"
 import { sh } from "lib/utils"
+import { exec } from "lib/proc"
 
 type Profile = "Performance" | "Balanced" | "Quiet"
 type Mode = "Hybrid" | "Integrated"
 
-class Asusctl extends Service {
-    static {
-        Service.register(this, {}, {
-            "profile": ["string", "r"],
-            "mode": ["string", "r"],
-        })
+@register()
+class Asusctl extends GObject.Object {
+    @property(String)
+    profile: Profile = "Balanced"
+
+    @property(String)
+    mode: Mode = "Hybrid"
+
+    constructor() {
+        super()
+
+        if (this._available()) {
+            sh("asusctl profile -p").then(p => {
+                this.profile = p.split(" ")[3] as Profile
+            })
+            sh("supergfxctl -g").then(m => {
+                this.mode = m as Mode
+            })
+        }
     }
 
-    get available() {
-        return Utils.exec("which asusctl", () => true, () => false)
+    private _available: () => boolean = () => {
+        try {
+            exec("which asusctl")
+            return true
+        } catch {
+            return false
+        }
     }
-
-    #profile: Profile = "Balanced"
-    #mode: Mode = "Hybrid"
 
     async nextProfile() {
         await sh("asusctl profile -n")
         const profile = await sh("asusctl profile -p")
         const p = profile.split(" ")[3] as Profile
-        this.#profile = p
-        this.changed("profile")
+        this.profile = p
     }
 
     async setProfile(prof: Profile) {
         await sh(`asusctl profile --profile-set ${prof}`)
-        this.#profile = prof
-        this.changed("profile")
+        this.profile = prof
     }
 
     async nextMode() {
-        await sh(`supergfxctl -m ${this.#mode === "Hybrid" ? "Integrated" : "Hybrid"}`)
-        this.#mode = await sh("supergfxctl -g") as Mode
-        this.changed("profile")
+        await sh(`supergfxctl -m ${this.mode === "Hybrid" ? "Integrated" : "Hybrid"}`)
+        this.mode = await sh("supergfxctl -g") as Mode
     }
 
-    constructor() {
-        super()
-
-        if (this.available) {
-            sh("asusctl profile -p").then(p => this.#profile = p.split(" ")[3] as Profile)
-            sh("supergfxctl -g").then(m => this.#mode = m as Mode)
-        }
+    get profiles(): Profile[] {
+        return ["Performance", "Balanced", "Quiet"]
     }
-
-    get profiles(): Profile[] { return ["Performance", "Balanced", "Quiet"] }
-    get profile() { return this.#profile }
-    get mode() { return this.#mode }
 }
 
-export default new Asusctl
+export default new Asusctl()

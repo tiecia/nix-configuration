@@ -25,8 +25,26 @@
 }: let
   name = "asztal";
 
-  ags = inputs.ags.packages.${system}.default.override {
-    extraPackages = [accountsservice];
+  agsPackages = inputs.ags.packages.${system};
+
+  ags = agsPackages.default.override {
+    extraPackages = [
+      accountsservice
+      agsPackages.astal3
+      agsPackages.io
+      agsPackages.apps
+      agsPackages.auth
+      agsPackages.battery
+      agsPackages.bluetooth
+      agsPackages.greet
+      agsPackages.hyprland
+      agsPackages.mpris
+      agsPackages.network
+      agsPackages.notifd
+      agsPackages.powerprofiles
+      agsPackages.tray
+      agsPackages.wireplumber
+    ];
   };
 
   dependencies = [
@@ -52,12 +70,16 @@
 
   greeter = writeShellScript "greeter" ''
     export PATH=$PATH:${addBins dependencies}
-    ${cage}/bin/cage -ds -m last ${ags}/bin/ags -- -c ${config}/greeter.js
+    ${cage}/bin/cage -ds -m last ${ags}/bin/ags run ${config}/greeter.js
   '';
 
   desktop = writeShellScript name ''
     export PATH=$PATH:${addBins dependencies}
-    ${ags}/bin/ags -b ${name} -c ${config}/config.js $@
+    if [ $# -eq 0 ]; then
+      ${ags}/bin/ags -b ${name} run ${config}/config.js
+    else
+      ${ags}/bin/ags -b ${name} "$@"
+    fi
   '';
 
   config = stdenv.mkDerivation {
@@ -69,13 +91,15 @@
         --bundle ./main.ts \
         --outfile=main.js \
         --format=esm \
+        --loader:.ts=tsx \
         --external:resource://\* \
         --external:gi://\* \
 
       ${esbuild}/bin/esbuild \
-        --bundle ./greeter/greeter.ts \
+        --bundle ./greeter/greeter.tsx \
         --outfile=greeter.js \
         --format=esm \
+        --loader:.ts=tsx \
         --external:resource://\* \
         --external:gi://\* \
     '';

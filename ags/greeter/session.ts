@@ -20,4 +20,4 @@ Object.assign(globalThis, {
     USER: userName,
 })
 
-Utils.ensureDirectory(TMP)
+GLib.mkdir_with_parents(TMP, 0o755)

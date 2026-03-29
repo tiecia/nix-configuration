@@ -1,3 +1,6 @@
+import GLib from "gi://GLib?version=2.0"
+import { monitorFile } from "ags/file"
+import { fetch } from "ags/fetch"
 import options from "options"
 import { dependencies, sh } from "lib/utils"
 
@@ -12,17 +15,31 @@ export type Market =
     | "en-NZ"
     | "en-CA"
 
-const WP = `${Utils.HOME}/.config/background`
-const Cache = `${Utils.HOME}/Pictures/Wallpapers/Bing`
+const HOME = GLib.get_home_dir()
+const WP = `${HOME}/.config/background`
+const Cache = `${HOME}/Pictures/Wallpapers/Bing`
 
-class Wallpaper extends Service {
-    static {
-        Service.register(this, {}, {
-            "wallpaper": ["string"],
-        })
-    }
+class Wallpaper {
+    private _nextListenerId = 1
+    private _listeners = new Map<number, { signal: string, callback: () => void }>()
 
     #blockMonitor = false
+
+    connect(signal: string, callback: () => void) {
+        const id = this._nextListenerId++
+        this._listeners.set(id, { signal, callback })
+        return id
+    }
+
+    disconnect(id: number) {
+        this._listeners.delete(id)
+    }
+
+    private _emit(signal: string) {
+        for (const { signal: sig, callback } of this._listeners.values()) {
+            if (sig === signal) callback()
+        }
+    }
 
     #wallpaper() {
         if (!dependencies("swww"))
@@ -36,7 +53,7 @@ class Wallpaper extends Service {
                 "--transition-pos", pos.replace(" ", ""),
                 WP,
             ]).then(() => {
-                this.changed("wallpaper")
+                this._emit("changed")
             })
         })
     }
@@ -51,7 +68,7 @@ class Wallpaper extends Service {
     }
 
     async #fetchBing() {
-        const res = await Utils.fetch("https://bing.biturl.top/", {
+        const res = await fetch("https://bing.biturl.top/", {
             params: {
                 resolution: options.wallpaper.resolution.value,
                 format: "json",
@@ -68,7 +85,7 @@ class Wallpaper extends Service {
         const file = `${Cache}/${url.replace("https://www.bing.com/th?id=", "")}`
 
         if (dependencies("curl")) {
-            Utils.ensureDirectory(Cache)
+            GLib.mkdir_with_parents(Cache, 0o755)
             await sh(`curl "${url}" --output ${file}`)
             this.#setWallpaper(file)
         }
@@ -79,19 +96,19 @@ class Wallpaper extends Service {
     get wallpaper() { return WP }
 
     constructor() {
-        super()
-
         if (!dependencies("swww"))
-            return this
+            return
 
         // gtk portal
-        Utils.monitorFile(WP, () => {
+        if (monitorFile(WP, () => {
             if (!this.#blockMonitor)
                 this.#wallpaper()
-        })
+        })) {
+            // monitor established
+        }
 
-        // Utils.execAsync("swww-daemon")
-        //     .then(this.#wallpaper)
+        // execAsync("swww-daemon")
+        //     .then(() => this.#wallpaper())
         //     .catch(() => null)
     }
 }

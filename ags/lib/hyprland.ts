@@ -1,8 +1,13 @@
 import options from "options"
-const { messageAsync } = await Service.import("hyprland")
+
+const AstalHyprland = await import("gi://AstalHyprland")
+    .then(mod => mod.default)
+    .catch(() => null)
+
+const hyprland = AstalHyprland?.get_default?.() ?? null
 
 const {
-    hyprland,
+    hyprland: hyprlandOpts,
     theme: {
         spacing,
         radius,
@@ -41,39 +46,45 @@ function rgba(color: string) {
     return `rgba(${color}ff)`.replace("#", "")
 }
 
-function sendBatch(batch: string[]) {
+async function sendBatch(batch: string[]) {
+    if (!hyprland) return null
+
     const cmd = batch
         .filter(x => !!x)
         .map(x => `keyword ${x}`)
         .join("; ")
 
-    return messageAsync(`[[BATCH]]/${cmd}`)
+    return hyprland.message_async(`[[BATCH]]/${cmd}`)
 }
 
 async function setupHyprland() {
-    // const wm_gaps = Math.floor(hyprland.gaps.value * spacing.value)
+    if (!hyprland) return
+
+    // const wm_gaps = Math.floor(hyprlandOpts.gaps.value * spacing.value)
     const wm_gaps = 0;
 
-    sendBatch([
-        `general:border_size ${width}`,
+    await sendBatch([
+        `general:border_size ${width.value}`,
         `general:gaps_out ${wm_gaps}`,
         `general:gain ${Math.floor(wm_gaps / 2)}`,
         `general:col.active_border ${rgba(primary())}`,
-        `general:col.inactive_border ${rgba(hyprland.inactiveBorder.value)}`,
-        `decoration:rounding ${radius}`,
+        `general:col.inactive_border ${rgba(hyprlandOpts.inactiveBorder.value)}`,
+        `decoration:rounding ${radius.value}`,
         `decoration:drop_shadow ${shadows.value ? "yes" : "no"}`,
-        `dwindle:no_gaps_when_only ${hyprland.gapsWhenOnly.value ? 0 : 1}`,
-        `master:no_gaps_when_only ${hyprland.gapsWhenOnly.value ? 0 : 1}`,
+        `dwindle:no_gaps_when_only ${hyprlandOpts.gapsWhenOnly.value ? 0 : 1}`,
+        `master:no_gaps_when_only ${hyprlandOpts.gapsWhenOnly.value ? 0 : 1}`,
     ])
 
-    await sendBatch(App.windows.map(({ name }) => `layerrule unset, ${name}`))
+    // TODO: need app instance to get windows
+    // await sendBatch(app.get_windows().map(({ name }) => `layerrule unset, ${name}`))
 
     if (blur.value > 0) {
-        sendBatch(App.windows.flatMap(({ name }) => [
-            `layerrule unset, ${name}`,
-            `layerrule blur, ${name}`,
-            `layerrule ignorealpha ${/* based on shadow color */.29}, ${name}`,
-        ]))
+        // TODO: need app instance to get windows
+        // await sendBatch(app.get_windows().flatMap(({ name }) => [
+        //     `layerrule unset, ${name}`,
+        //     `layerrule blur, ${name}`,
+        //     `layerrule ignorealpha ${0.29}, ${name}`,
+        // ]))
     }
 }
 

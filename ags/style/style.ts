@@ -2,6 +2,7 @@
 import { type Opt } from "lib/option"
 import options from "options"
 import { bash, dependencies } from "lib/utils"
+import { writeFile, monitorFile } from "ags/file"
 
 const deps = [
     "font",
@@ -89,15 +90,15 @@ async function resetCss() {
         const scss = `${TMP}/main.scss`
         const css = `${TMP}/main.css`
 
-        const fd = await bash(`fd ".scss" ${App.configDir}`)
+        const fd = await bash(`fd ".scss" ${CONFIG_DIR}`)
         const files = fd.split(/\s+/)
         const imports = [vars, ...files].map(f => `@import '${f}';`)
 
-        await Utils.writeFile(variables().join("\n"), vars)
-        await Utils.writeFile(imports.join("\n"), scss)
+        writeFile(vars, variables().join("\n"))
+        writeFile(scss, imports.join("\n"))
         await bash`sass ${scss} ${css}`
 
-        App.applyCss(css, true)
+        globalThis.app?.apply_css(css, true)
     } catch (error) {
         error instanceof Error
             ? logError(error)
@@ -105,6 +106,6 @@ async function resetCss() {
     }
 }
 
-Utils.monitorFile(`${App.configDir}/style`, resetCss)
+monitorFile(`${CONFIG_DIR}/style`, () => resetCss())
 options.handler(deps, resetCss)
 await resetCss()

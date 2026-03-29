@@ -1,16 +1,21 @@
 import options from "options"
-const notifs = await Service.import("notifications")
 
-// TODO: consider adding this to upstream
+const Notifd = await import("gi://AstalNotifd")
+    .then(mod => mod.default)
+    .catch(() => null)
 
 const { blacklist } = options.notifications
 
 export default function init() {
-    const notify = notifs.constructor.prototype.Notify.bind(notifs)
-    notifs.constructor.prototype.Notify = function(appName: string, ...rest: unknown[]) {
-        if (blacklist.value.includes(appName))
-            return Number.MAX_SAFE_INTEGER
-
-        return notify(appName, ...rest)
-    }
+    const notifd = Notifd?.get_default?.()
+    if (!notifd) return
+    
+    notifd.connect("notified", (_, id: number) => {
+        const notif = notifd.get_notification(id)
+        if (!notif) return
+        
+        if (blacklist.value.includes(notif.app_name)) {
+            notif.dismiss()
+        }
+    })
 }

@@ -1,16 +1,29 @@
 import icons from "./icons"
 
-export default async function init() {
-    const bat = await Service.import("battery")
-    bat.connect("notify::percent", ({ percent, charging }) => {
+const Battery = await import("gi://AstalBattery")
+    .then(mod => mod.default)
+    .catch(() => null)
+
+const Notifd = await import("gi://AstalNotifd")
+    .then(mod => mod.default)
+    .catch(() => null)
+
+const notifd = Notifd?.get_default?.() ?? null
+
+export default function init() {
+    const battery = Battery?.get_default?.() ?? null
+    if (!battery || !notifd) return
+    
+    battery.connect("notify::percentage", () => {
+        const { percentage, charging } = battery
         const low = 30
-        if (percent !== low || percent !== low / 2 || !charging)
+        if (percentage !== low || percentage !== low / 2 || !charging)
             return
 
-        Utils.notify({
-            summary: `${percent}% Battery Percentage`,
-            iconName: icons.battery.warning,
-            urgency: "critical",
+        notifd.notify({
+            summary: `${percentage}% Battery Percentage`,
+            icon_name: icons.battery.warning,
+            urgency: 2, // critical
         })
     })
 }

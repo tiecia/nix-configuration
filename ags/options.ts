@@ -1,7 +1,19 @@
+import GLib from "gi://GLib?version=2.0"
 import { opt, mkOptions } from "lib/option"
 import { distro } from "lib/variables"
 import { icon } from "lib/utils"
+import { readFile } from "ags/file"
 import icons from "lib/icons"
+
+const CONFIG_DIR = GLib.build_filenamev([GLib.get_user_config_dir(), "ags"])
+const USER = GLib.get_user_name()
+const readWeatherConfig = () => {
+    try {
+        return JSON.parse(readFile(`${CONFIG_DIR}/.weather`) || "{}")
+    } catch {
+        return {}
+    }
+}
 
 const options = mkOptions(OPTIONS, {
     autotheme: opt(false),
@@ -98,11 +110,17 @@ const options = mkOptions(OPTIONS, {
                 colored: opt(false),
                 label: opt(""),
             },
-            action: opt(() => App.toggleWindow("launcher")),
+            action: opt(() => {
+                const win = globalThis.app?.get_window("launcher")
+                if (win) win.set_visible(!win.visible)
+            }),
         },
         date: {
             format: opt("%-I:%M %p - %B %-d, %Y"),
-            action: opt(() => App.toggleWindow("datemenu")),
+            action: opt(() => {
+                const win = globalThis.app?.get_window("datemenu")
+                if (win) win.set_visible(!win.visible)
+            }),
         },
         battery: {
             bar: opt<"hidden" | "regular" | "whole">("whole"),
@@ -121,7 +139,10 @@ const options = mkOptions(OPTIONS, {
             exclusive: opt(false),
         },
         messages: {
-            action: opt(() => App.toggleWindow("datemenu")),
+            action: opt(() => {
+                const win = globalThis.app?.get_window("datemenu")
+                if (win) win.set_visible(!win.visible)
+            }),
         },
         systray: {
             ignore: opt([
@@ -138,7 +159,10 @@ const options = mkOptions(OPTIONS, {
         },
         powermenu: {
             monochrome: opt(false),
-            action: opt(() => App.toggleWindow("powermenu")),
+            action: opt(() => {
+                const win = globalThis.app?.get_window("powermenu")
+                if (win) win.set_visible(!win.visible)
+            }),
         },
     },
 
@@ -185,7 +209,7 @@ const options = mkOptions(OPTIONS, {
 
     quicksettings: {
         avatar: {
-            image: opt(`/var/lib/AccountsService/icons/${Utils.USER}`),
+            image: opt(`/var/lib/AccountsService/icons/${USER}`),
             size: opt(70),
         },
         width: opt(380),
@@ -204,10 +228,10 @@ const options = mkOptions(OPTIONS, {
             interval: opt(60_000),
             unit: opt<"metric" | "imperial" | "standard">("metric"),
             key: opt<string>(
-                JSON.parse(Utils.readFile(`${App.configDir}/.weather`) || "{}")?.key || "",
+                readWeatherConfig()?.key || "",
             ),
             cities: opt<Array<number>>(
-                JSON.parse(Utils.readFile(`${App.configDir}/.weather`) || "{}")?.cities || [],
+                readWeatherConfig()?.cities || [],
             ),
         },
     },

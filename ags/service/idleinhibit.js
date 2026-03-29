@@ -1,16 +1,42 @@
-class IdleInhibitor {
-  #state = Utils.exec('matcha -g');
+import GObject from "gi://GObject?version=2.0"
+import { register, property } from "ags/gobject"
+import { exec } from "lib/proc"
 
-  get inhibited() {
-    return this.#state == 'enabled';
-  }
+@register()
+class IdleInhibitor extends GObject.Object {
+    @property(Boolean)
+    inhibited
 
-  toggle() {
-    Utils.exec('matcha -t');
-  }
+    _inhibited = false
+
+    constructor() {
+        super()
+        this._updateState()
+    }
+
+    _updateState() {
+        try {
+            const state = exec("matcha -g")
+            this._inhibited = state.trim() === "enabled"
+        } catch {
+            this._inhibited = false
+        }
+    }
+
+    toggle() {
+        try {
+            exec("matcha -t")
+            this._updateState()
+        } catch (err) {
+            console.error("Failed to toggle idle inhibitor", err)
+        }
+    }
+
+    getInhibited() {
+        return this._inhibited
+    }
 }
 
-const inh = new IdleInhibitor;
+export default new IdleInhibitor()
 
-export default inh;
 

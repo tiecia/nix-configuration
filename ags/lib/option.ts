@@ -1,43 +1,91 @@
-import { Variable } from "resource:///com/github/Aylur/ags/variable.js"
+import GLib from "gi://GLib"
+import { readFile, writeFile, monitorFile } from "ags/file"
 
 type OptProps = {
     persistent?: boolean
 }
 
-export class Opt<T = unknown> extends Variable<T> {
-    static { Service.register(this) }
-
+export class Opt<T = unknown> {
     constructor(initial: T, { persistent = false }: OptProps = {}) {
-        super(initial)
         this.initial = initial
+        this._value = initial
         this.persistent = persistent
     }
 
     initial: T
     id = ""
     persistent: boolean
-    toString() { return `${this.value}` }
-    toJSON() { return `opt:${this.value}` }
+    private _value: T
+    private _nextListenerId = 1
+    private _listeners = new Map<number, { signal: string, callback: () => void }>()
 
-    getValue = (): T => {
-        return super.getValue()
+    connect(signal: string, callback: () => void) {
+        const id = this._nextListenerId++
+        this._listeners.set(id, { signal, callback })
+        return id
+    }
+
+    disconnect(id: number) {
+        this._listeners.delete(id)
+    }
+
+    private _emit(signal: string) {
+        for (const { signal: sig, callback } of this._listeners.values()) {
+            if (sig === signal) {
+                callback()
+            }
+        }
+    }
+
+    bind() {
+        return {
+            as: <U>(fn: (v: T) => U) => fn(this._value),
+        }
+    }
+
+    get value(): T {
+        return this._value
+    }
+
+    set value(v: T) {
+        if (JSON.stringify(this._value) !== JSON.stringify(v)) {
+            this._value = v
+            this._emit("changed")
+        }
+    }
+
+    toString() {
+        return `${this.value}`
+    }
+
+    toJSON() {
+        return `opt:${this.value}`
     }
 
     init(cacheFile: string) {
-        const cacheV = JSON.parse(Utils.readFile(cacheFile) || "{}")[this.id]
-        if (cacheV !== undefined)
-            this.value = cacheV
+        try {
+            const cache = JSON.parse(readFile(cacheFile) || "{}")
+            const cacheV = cache[this.id]
+            if (cacheV !== undefined) {
+                this._value = cacheV
+            }
+        } catch (err) {
+            // File doesn't exist yet, skip
+        }
 
         this.connect("changed", () => {
-            const cache = JSON.parse(Utils.readFile(cacheFile) || "{}")
-            cache[this.id] = this.value
-            Utils.writeFileSync(JSON.stringify(cache, null, 2), cacheFile)
+            try {
+                const cache = JSON.parse(readFile(cacheFile) || "{}")
+                cache[this.id] = this.value
+                writeFile(cacheFile, JSON.stringify(cache, null, 2))
+            } catch (err) {
+                console.error("Failed to cache option", err)
+            }
         })
     }
 
     reset() {
-        if (this.persistent)
-            return
+        if (this.persistent) return
 
         if (JSON.stringify(this.value) !== JSON.stringify(this.initial)) {
             this.value = this.initial
@@ -53,12 +101,12 @@ function getOptions(object: object, path = ""): Opt[] {
         const obj: Opt = object[key]
         const id = path ? path + "." + key : key
 
-        if (obj instanceof Variable) {
+        if (obj instanceof Opt) {
             obj.id = id
             return obj
         }
 
-        if (typeof obj === "object")
+        if (typeof obj === "object" && obj !== null)
             return getOptions(obj, id)
 
         return []
@@ -66,19 +114,25 @@ function getOptions(object: object, path = ""): Opt[] {
 }
 
 export function mkOptions<T extends object>(cacheFile: string, object: T) {
-    for (const opt of getOptions(object))
+    for (const opt of getOptions(object)) {
         opt.init(cacheFile)
+    }
 
-    Utils.ensureDirectory(cacheFile.split("/").slice(0, -1).join("/"))
+    GLib.mkdir_with_parents(cacheFile.split("/").slice(0, -1).join("/"), 0o755)
 
-    const configFile = `${TMP}/config.json`
+    const configFile = `${globalThis.TMP}/config.json`
     const values = getOptions(object).reduce((obj, { id, value }) => ({ [id]: value, ...obj }), {})
-    Utils.writeFileSync(JSON.stringify(values, null, 2), configFile)
-    Utils.monitorFile(configFile, () => {
-        const cache = JSON.parse(Utils.readFile(configFile) || "{}")
-        for (const opt of getOptions(object)) {
-            if (JSON.stringify(cache[opt.id]) !== JSON.stringify(opt.value))
-                opt.value = cache[opt.id]
+    writeFile(configFile, JSON.stringify(values, null, 2))
+
+    monitorFile(configFile, () => {
+        try {
+            const cache = JSON.parse(readFile(configFile) || "{}")
+            for (const opt of getOptions(object)) {
+                if (JSON.stringify(cache[opt.id]) !== JSON.stringify(opt.value))
+                    opt.value = cache[opt.id]
+            }
+        } catch (err) {
+            console.error("Failed to read config file", err)
         }
     })
 

@@ -1,6 +1,7 @@
 import wallpaper from "service/wallpaper"
 import options from "options"
 import { sh, dependencies } from "./utils"
+import { timeout } from "./timer"
 
 export default function init() {
     wallpaper.connect("changed", () => matugen())
@@ -9,7 +10,7 @@ export default function init() {
 
 function animate(...setters: Array<() => void>) {
     const delay = options.transition.value / 2
-    setters.forEach((fn, i) => Utils.timeout(delay * i, fn))
+    setters.forEach((fn, i) => timeout(delay * i, fn))
 }
 
 export async function matugen(

@@ -1,24 +1,45 @@
 import GLib from "gi://GLib"
 import icons from "lib/icons"
 import { dependencies, sh, bash } from "lib/utils"
+import { interval } from "lib/timer"
 
+const Notifd = await import("gi://AstalNotifd")
+    .then(mod => mod.default)
+    .catch(() => null)
+
+const notifd = Notifd?.get_default?.() ?? null
 const now = () => GLib.DateTime.new_now_local().format("%Y-%m-%d_%H-%M-%S")
 
-class Recorder extends Service {
-    static {
-        Service.register(this, {}, {
-            "timer": ["int"],
-            "recording": ["boolean"],
-        })
+class Recorder {
+    timer = 0
+    recording = false
+    private _nextListenerId = 1
+    private _listeners = new Map<number, { signal: string, callback: () => void }>()
+
+    #recordings = GLib.get_home_dir() + "/Videos/Screencasting"
+    #screenshots = GLib.get_home_dir() + "/Pictures/Screenshots"
+    #file = ""
+    #intervalId = 0
+
+    connect(signal: string, callback: () => void) {
+        const id = this._nextListenerId++
+        this._listeners.set(id, { signal, callback })
+        return id
     }
 
-    #recordings = Utils.HOME + "/Videos/Screencasting"
-    #screenshots = Utils.HOME + "/Pictures/Screenshots"
-    #file = ""
-    #interval = 0
+    private _emit(signal: string) {
+        for (const { signal: sig, callback } of this._listeners.values()) {
+            if (sig === signal || sig === "changed") callback()
+        }
+    }
 
-    recording = false
-    timer = 0
+    getRecording() {
+        return this.recording
+    }
+
+    getTimer() {
+        return this.timer
+    }
 
     async start() {
         if (!dependencies("slurp", "wf-recorder"))
@@ -27,18 +48,18 @@ class Recorder extends Service {
         if (this.recording)
             return
 
-        Utils.ensureDirectory(this.#recordings)
+        GLib.mkdir_with_parents(this.#recordings, 0o755)
         this.#file = `${this.#recordings}/${now()}.mp4`
         sh(`wf-recorder -g "${await sh("slurp")}" -f ${this.#file} --pixel-format yuv420p`)
 
         this.recording = true
-        this.changed("recording")
+        this._emit("changed")
 
         this.timer = 0
-        this.#interval = Utils.interval(1000, () => {
-            this.changed("timer")
+        this.#intervalId = interval(1000, () => {
             this.timer++
-        })
+            this._emit("changed")
+        }) as any as number
     }
 
     async stop() {
@@ -47,18 +68,24 @@ class Recorder extends Service {
 
         await bash("killall -INT wf-recorder")
         this.recording = false
-        this.changed("recording")
-        GLib.source_remove(this.#interval)
+        this._emit("changed")
 
-        Utils.notify({
-            iconName: icons.fallback.video,
+        try {
+            GLib.source_remove(this.#intervalId)
+        } catch {
+            // Source may have already been removed
+        }
+
+        notifd?.notify?.({
+            icon_name: icons.fallback.video,
             summary: "Screenrecord",
             body: this.#file,
-            actions: {
-                "Show in Files": () => sh(`xdg-open ${this.#recordings}`),
-                "View": () => sh(`xdg-open ${this.#file}`),
-            },
         })
+
+        // Show files action via separate notification
+        setTimeout(() => {
+            sh(`xdg-open ${this.#recordings}`).catch(() => {})
+        }, 500)
     }
 
     async screenshot(full = false) {
@@ -66,37 +93,37 @@ class Recorder extends Service {
             return
 
         const file = `${this.#screenshots}/${now()}.png`
-        Utils.ensureDirectory(this.#screenshots)
+        GLib.mkdir_with_parents(this.#screenshots, 0o755)
 
-        if (full) {
-            await sh(`wayshot -f ${file}`)
+        try {
+            if (full) {
+                await sh(`wayshot -f ${file}`)
+            } else {
+                const size = await sh("slurp")
+                if (!size)
+                    return
+
+                await sh(`wayshot -f ${file} -s "${size}"`)
+            }
+
+            await bash(`wl-copy < ${file}`)
+
+            notifd?.notify?.({
+                image: file,
+                summary: "Screenshot",
+                body: file,
+            })
+
+            // Show/View/Edit actions via separate calls
+            setTimeout(() => {
+                sh(`xdg-open ${this.#screenshots}`).catch(() => {})
+            }, 500)
+        } catch (err) {
+            console.error("Screenshot failed", err)
         }
-        else {
-            const size = await sh("slurp")
-            if (!size)
-                return
-
-            await sh(`wayshot -f ${file} -s "${size}"`)
-        }
-
-        bash(`wl-copy < ${file}`)
-
-        Utils.notify({
-            image: file,
-            summary: "Screenshot",
-            body: file,
-            actions: {
-                "Show in Files": () => sh(`xdg-open ${this.#screenshots}`),
-                "View": () => sh(`xdg-open ${file}`),
-                "Edit": () => {
-                    if (dependencies("swappy"))
-                        sh(`swappy -f ${file}`)
-                },
-            },
-        })
     }
 }
 
-const recorder = new Recorder
+const recorder = new Recorder()
 Object.assign(globalThis, { recorder })
 export default recorder

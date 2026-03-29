@@ -14,6 +14,6 @@ export default function init() {
         notifications()
         hyprland()
     } catch (error) {
-        logError(error)
+        console.error(error)
     }
 }
