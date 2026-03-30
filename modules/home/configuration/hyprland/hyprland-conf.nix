@@ -58,6 +58,11 @@ in
           default = 600;
           description = "Time in seconds to lock";
         };
+        mainMod = mkOption {
+          type = types.str;
+          default = "Super";
+          description = "The main modifier key to use in the config";
+        };
       };
     };
 
@@ -87,7 +92,8 @@ in
       # screenshot-region = "${grim} -l 0 -g \"$(${slurp})\" - | ${copy}";
     in
       mkIf options.enable {
-        widgets.ags.enable = true;
+        widgets.ags.enable = false;
+        widgets.delta.enable = true;
         special-workspaces.enable = true;
 
         wayland.windowManager.hyprland = {
@@ -116,7 +122,7 @@ in
             "$media-next" = "playerctl next";
             "$media-prev" = "playerctl previous";
 
-            "$mainMod" = "Super";
+            "$mainMod" = options.mainMod;
 
             # Use the program "wev" to get key names
             bind =
@@ -661,27 +667,6 @@ in
           #     WantedBy = ["graphical-session.target"];
           #   };
           # };
-
-          ags-desktop-shell = {
-            Unit = {
-              Description = "AGSv1 Desktop Shell";
-            };
-            Service = {
-              Type = "simple";
-              ExecStart = pkgs.writeShellScript "ags-desktop-shell-start" ''
-                ags
-              '';
-              ExecStop = pkgs.writeShellScript "ags-desktop-shell-stop" ''
-                ags -q
-              '';
-              Restart = "on-failure";
-              RestartSec = 1;
-              TimeoutStopSec = 10;
-            };
-            Install = {
-              WantedBy = ["graphical-session.target"];
-            };
-          };
 
           hyprland-display-tools = {
             Unit = {

@@ -54,6 +54,8 @@
 
     hyprland-display-tools.url = "github:tiecia/hyprland-display-tools";
 
+    delta-shell.url = "github:tiecia/delta-shell";
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";

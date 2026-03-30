@@ -63,5 +63,28 @@
           widget-startup = "${pkgs.bash}/bin/bash ${widgetStartupScript}/bin/widgetStartupScript";
         };
       };
+
+      systemd.user.services = {
+        ags-desktop-shell = {
+          Unit = {
+            Description = "AGSv1 Desktop Shell";
+          };
+          Service = {
+            Type = "simple";
+            ExecStart = pkgs.writeShellScript "ags-desktop-shell-start" ''
+              ags
+            '';
+            ExecStop = pkgs.writeShellScript "ags-desktop-shell-stop" ''
+              ags -q
+            '';
+            Restart = "on-failure";
+            RestartSec = 1;
+            TimeoutStopSec = 10;
+          };
+          Install = {
+            WantedBy = ["graphical-session.target"];
+          };
+        };
+      };
     };
 }
