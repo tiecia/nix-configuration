@@ -34,6 +34,9 @@
     ./ttop.nix
     ./uv.nix
     ./github-copilot.nix
+    ./kubectl.nix
+    ./kustomize.nix
+    ./helm.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -66,4 +69,7 @@
   ttop.enable = lib.mkDefault true;
   uv.enable = lib.mkDefault true;
   github-copilot.enable = lib.mkDefault true;
+  kubectl.enable = lib.mkDefault true;
+  kustomize.enable = lib.mkDefault true;
+  helm.enable = lib.mkDefault true;
 }
