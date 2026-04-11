@@ -73,7 +73,7 @@ with lib; {
         # Modesetting is required.
         modesetting.enable = true;
 
-        nvidiaPersistenced = true;
+        nvidiaPersistenced = false; # TODO: re-enable after successful rebuild+reboot
 
         # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
         # Enable this if you have graphical corruption issues or application crashes after waking

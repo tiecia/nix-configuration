@@ -99,7 +99,7 @@ with lib; {
       hyprland = {
         enable = true;
         xwayland.enable = true;
-        package = pkgs-stable.hyprland;
+        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       };
     };
   };
