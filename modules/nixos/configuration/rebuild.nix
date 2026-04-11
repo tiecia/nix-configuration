@@ -67,7 +67,7 @@
     # Shows your changes
     git diff -U0 *.nix
 
-    sudo git add -A
+    git add -A
 
     echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 
@@ -106,13 +106,17 @@
       nh home switch ./ -c tiec@$CONFIGURATION_HOST
     fi
 
-    # Get current generation metadata
-    current=$(nixos-rebuild list-generations --flake ./#$CONFIGURATION_HOST | grep current)
+    # Get current generation metadata from the active profile symlink.
+    current=$(readlink /nix/var/nix/profiles/system | grep -o "[0-9]*")
     hmVersion=$(home-manager generations | sort -r | head -n 1 | cut -d ' ' -f1-5)
 
-    # Commit all changes witih the generation metadata
+    # Commit all changes with the generation metadata.
     if [ $dry == 0 ]; then
-        git commit -am "$CONFIGURATION_HOST $current (HM: $hmVersion)"
+        if git diff --cached --quiet; then
+          echo "No staged changes to commit"
+        else
+          git commit -m "$CONFIGURATION_HOST $current (HM: $hmVersion)"
+        fi
     fi
 
     # if [ $nopush == 0 ]; then
