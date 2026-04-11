@@ -11,16 +11,16 @@
 
   config = let
     options = config.widgets.delta;
-    deltaShellStartup = pkgs.pkgs.writeShellScript "deltaShellStartup" ''
-      ${inputs.delta-shell.packages.${pkgs.system}.default}/bin/delta-shell run
+    deltaShellStartup = pkgs.writeShellScript "deltaShellStartup" ''
+      ${inputs.delta-shell.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/delta-shell run
     '';
 
-    deltaShellStop = pkgs.pkgs.writeShellScript "deltaShellStop" ''
-      ${inputs.delta-shell.packages.${pkgs.system}.default}/bin/delta-shell quit
+    deltaShellStop = pkgs.writeShellScript "deltaShellStop" ''
+      ${inputs.delta-shell.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/delta-shell quit
     '';
 
-    deltaShellShowLauncher = pkgs.pkgs.writeShellScript "deltaShellShowLauncher" ''
-      ${inputs.delta-shell.packages.${pkgs.system}.default}/bin/delta-shell toggle applauncher
+    deltaShellShowLauncher = pkgs.writeShellScript "deltaShellShowLauncher" ''
+      ${inputs.delta-shell.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/delta-shell toggle applauncher
     '';
     mainMod = config.hyprland-conf.mainMod;
   in

@@ -14,13 +14,11 @@ with lib; {
   config = mkIf config.hyprland.enable {
     services = {
       libinput.enable = true;
-      xserver = {
+      xserver.enable = true;
+      displayManager.gdm = {
         enable = true;
-        displayManager.gdm = {
-          enable = true;
-          wayland = true;
-          # autoSuspend = true;
-        };
+        wayland = true;
+        # autoSuspend = true;
       };
 
       gnome.gnome-keyring.enable = true;
@@ -58,7 +56,7 @@ with lib; {
     # };
 
     environment.systemPackages = [
-      inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools
+      inputs.hyprland-display-tools.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-display-tools
     ];
 
     security = {

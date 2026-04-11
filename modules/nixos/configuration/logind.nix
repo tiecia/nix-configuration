@@ -1,12 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  services.logind = {
-    lidSwitch = "suspend";
-    powerKey = "suspend";
-    powerKeyLongPress = "poweroff";
+{...}: {
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandlePowerKey = "suspend";
+    HandlePowerKeyLongPress = "poweroff";
   };
 }

@@ -5,7 +5,7 @@
   config,
   ...
 }: let
-  android-sdk = inputs.android-nixpkgs.sdk.${pkgs.system} (sdkPkgs:
+  android-sdk = inputs.android-nixpkgs.sdk.${pkgs.stdenv.hostPlatform.system} (sdkPkgs:
     with sdkPkgs; [
       build-tools-35-0-0
       build-tools-34-0-0

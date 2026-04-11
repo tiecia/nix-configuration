@@ -67,19 +67,19 @@ in
     };
 
     config = let
-      hyprsession = inputs.hyprsession.packages.${pkgs.system}.default;
+      hyprsession = inputs.hyprsession.packages.${pkgs.stdenv.hostPlatform.system}.default;
       options = config.hyprland-conf;
       terminal = "${globalConfig.terminal}";
       fileManager = "${pkgs.nautilus}/bin/nautilus";
 
-      startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
+      startupScript = pkgs.writeShellScriptBin "startupScript" ''
         dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
         # ${hyprsession}/bin/hyprsession &
 
         ${pkgs.udiskie}/bin/udiskie &
 
-        # ${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools &
+        # ${inputs.hyprland-display-tools.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-display-tools}/bin/hyprland-display-tools &
 
         # swww-daemon &
 
@@ -98,7 +98,7 @@ in
 
         wayland.windowManager.hyprland = {
           enable = true;
-          package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+          package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
           # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
           systemd = {
@@ -393,7 +393,7 @@ in
             };
           };
           plugins = [
-            inputs.hyprsplit.packages.${pkgs.system}.default
+            inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.default
           ];
         };
 
@@ -651,7 +651,7 @@ in
 
         systemd.user.services = {
           # test-service = let
-          #   test-service = inputs.test-service.packages.${pkgs.system}.default;
+          #   test-service = inputs.test-service.packages.${pkgs.stdenv.hostPlatform.system}.default;
           # in {
           #   Unit = {
           #     Description = "test-service";
@@ -674,7 +674,7 @@ in
             };
             Service = {
               Type = "simple";
-              ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
+              ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-display-tools}/bin/hyprland-display-tools";
               Restart = "on-failure";
               RestartSec = 1;
               TimeoutStopSec = 10;
@@ -719,7 +719,7 @@ in
             evolution-data-server
           ]
           ++ lists.optionals options.laptop [
-            inputs.hyprdock.packages.${pkgs.system}.hyprdock
+            inputs.hyprdock.packages.${pkgs.stdenv.hostPlatform.system}.hyprdock
           ];
       };
   }

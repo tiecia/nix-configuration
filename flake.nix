@@ -124,10 +124,13 @@
       terminal = "alacritty";
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable pkgs-dotnet globalConfig winapps-pkgs;};
-    specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable pkgs-dotnet globalConfig;};
+    specialArgsDesktop = {inherit inputs pkgs-master pkgs-stable pkgs-dotnet globalConfig winapps-pkgs;};
+    specialArgsCli = {inherit inputs pkgs-master pkgs-stable pkgs-dotnet globalConfig;};
 
     sharedModules = [
+      {
+        nixpkgs.pkgs = pkgs;
+      }
       inputs.nixos-cli.nixosModules.nixos-cli
     ];
   in {

@@ -20,6 +20,7 @@ with lib; {
 
     programs.git = {
       enable = true;
+      signing.format = "openpgp";
       settings = {
         user = {
           email = "ty.cia@outlook.com";

@@ -15,7 +15,7 @@
 
   config = let
     options = config.widgets.ags;
-    widgetStartupScript = pkgs.pkgs.writeShellScriptBin "widgetStartupScript" ''
+    widgetStartupScript = pkgs.writeShellScriptBin "widgetStartupScript" ''
       ags
     '';
     mainMod = "Super"; # Inherit this from parent config?
@@ -46,7 +46,7 @@
         networkmanager
         gtk3
         matugen
-        inputs.matcha.packages.${system}.default
+        inputs.matcha.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
       programs.ags = {
