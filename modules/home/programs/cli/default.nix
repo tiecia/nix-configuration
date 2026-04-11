@@ -37,6 +37,7 @@
     ./kubectl.nix
     ./kustomize.nix
     ./helm.nix
+    ./argocd.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -72,4 +73,5 @@
   kubectl.enable = lib.mkDefault true;
   kustomize.enable = lib.mkDefault true;
   helm.enable = lib.mkDefault true;
+  argocd.enable = lib.mkDefault true;
 }
