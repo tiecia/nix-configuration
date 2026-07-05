@@ -1,7 +1,6 @@
 {
   inputs,
   writeShellScript,
-  system,
   stdenv,
   cage,
   swww,
@@ -25,7 +24,7 @@
 }: let
   name = "asztal";
 
-  ags = inputs.ags.packages.${system}.default.override {
+  ags = inputs.ags.packages.${stdenv.hostPlatform.system}.default.override {
     extraPackages = [accountsservice];
   };
 

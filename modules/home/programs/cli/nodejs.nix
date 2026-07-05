@@ -13,5 +13,9 @@ with lib; {
     home.packages = with pkgs; [
       nodejs
     ];
+
+    home.sessionVariables = {
+      PATH = "$HOME/.npm-global/bin:$PATH";
+    };
   };
 }

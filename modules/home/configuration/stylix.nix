@@ -7,12 +7,13 @@
 }:
 with lib; {
   imports = [
-    inputs.stylix.homeManagerModules.stylix
+    inputs.stylix.homeModules.stylix
   ];
 
   stylix = {
     image = lib.mkDefault ../../../wallpapers/dark-water.jpg;
     autoEnable = false;
+    enableReleaseChecks = false;
     targets = {
       kitty.enable = lib.mkForce true;
       alacritty.enable = lib.mkForce true;

@@ -12,7 +12,7 @@ with lib; {
   config = mkIf config.winapps.enable {
     home.packages = with pkgs; [
       dialog
-      freerdp3
+      freerdp
       iproute2
       libnotify
       netcat-gnu

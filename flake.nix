@@ -4,10 +4,11 @@
   inputs = {
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-dotnet.url = "github:nixos/nixpkgs?rev=a30e284fcd69aadaec15c563b1649667fc77cd4d";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware?rev=d23a3bc3c600a064c72c7fb02862edfab11a46cf";
+    nixos-hardware.url = "github:nixos/nixos-hardware?rev=9154f4569b6cdfd3c595851a6ba51bfaa472d9f3";
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
@@ -27,6 +28,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland?ref=v0.54.2";
+    };
+
+    hyprsplit = {
+      url = "github:shezdy/hyprsplit?rev=1972e9ef373ea56bfcc50f86a0f7c52f7f5b00a1";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     hyprsession = {
       url = "github:tiecia/hyprsession";
     };
@@ -43,6 +53,8 @@
     };
 
     hyprland-display-tools.url = "github:tiecia/hyprland-display-tools";
+
+    delta-shell.url = "github:tiecia/delta-shell";
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
@@ -94,12 +106,12 @@
       config = {
         allowUnfree = true;
       };
-      overlays = [
-        (final: prev: {
-          inherit (pkgs-master) zsync;
-          inherit (pkgs-stable) ceph;
-        })
-      ];
+      # overlays = [
+      #   (final: prev: {
+      #     inherit (pkgs-master) zsync;
+      #     inherit (pkgs-stable) ceph;
+      #   })
+      # ];
     };
     pkgs-dotnet = import nixpkgs-dotnet {
       inherit system;
@@ -114,10 +126,13 @@
       terminal = "alacritty";
     };
 
-    specialArgsDesktop = {inherit inputs system pkgs pkgs-master pkgs-stable pkgs-dotnet globalConfig winapps-pkgs;};
-    specialArgsCli = {inherit inputs system pkgs pkgs-master pkgs-stable pkgs-dotnet globalConfig;};
+    specialArgsDesktop = {inherit inputs pkgs-master pkgs-stable pkgs-dotnet globalConfig winapps-pkgs;};
+    specialArgsCli = {inherit inputs pkgs-master pkgs-stable pkgs-dotnet globalConfig;};
 
     sharedModules = [
+      {
+        nixpkgs.pkgs = pkgs;
+      }
       inputs.nixos-cli.nixosModules.nixos-cli
     ];
   in {
@@ -139,6 +154,16 @@
 
         modules = [
           ./hosts/TyDesktopNix/home.nix
+        ];
+      };
+
+      "tiec@fw16" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        extraSpecialArgs = specialArgsDesktop;
+
+        modules = [
+          ./hosts/fw16/home.nix
         ];
       };
 
@@ -182,6 +207,16 @@
           [
             ./hosts/TyLaptopStudioNix/configuration.nix
             nixos-hardware.nixosModules.microsoft-surface-common
+          ]
+          ++ sharedModules;
+      };
+
+      fw16 = nixpkgs.lib.nixosSystem {
+        specialArgs = specialArgsDesktop;
+
+        modules =
+          [
+            ./hosts/fw16/configuration.nix
           ]
           ++ sharedModules;
       };

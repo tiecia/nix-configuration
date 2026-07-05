@@ -20,16 +20,17 @@ with lib; {
 
     programs.git = {
       enable = true;
+      signing.format = "openpgp";
       settings = {
-        alias = {
+        user = {
+          email = "ty.cia@outlook.com";
+          name = "tiecia";
+        };
+        aliases = {
           co = "checkout";
           cm = "commit";
           st = "status";
           pu = "push";
-        };
-        user = {
-          email = "ty.cia@outlook.com";
-          name = "tiecia";
         };
       };
     };

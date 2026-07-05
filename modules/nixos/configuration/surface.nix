@@ -13,5 +13,15 @@ with lib; {
     environment.systemPackages = with pkgs; [
       surface-control
     ];
+
+    boot.kernelPatches = [
+      {
+        name = "disable-rust";
+        patch = null;
+        structuredExtraConfig = with lib.kernel; {
+          RUST = lib.mkForce no;
+        };
+      }
+    ];
   };
 }

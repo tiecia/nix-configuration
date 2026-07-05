@@ -25,7 +25,7 @@ with lib; {
         gaa = "git add -A";
         g = "git";
         gp = "git push";
-        work = "cd ~/development/rosepoint/PlanZ/; code ~/Development/rosepoint/PlanZ/";
+        work = "cd ~/dev/rosepoint";
         unfree = "export NIXPKGS_ALLOW_UNFREE=1";
         open = "bash ~/nix-configuration/modules/home/programs/cli/scripts/open.sh";
         ".." = "cd ..";

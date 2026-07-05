@@ -32,6 +32,12 @@
     # cd to your config dir
     pushd ~/nix-configuration
 
+    fix_git_permissions() {
+      if [ -d .git ]; then
+        sudo chown -R "$USER:$(id -gn)" .git
+      fi
+    }
+
     update=0
     impure=0
     dry=0
@@ -61,44 +67,48 @@
         fi
     done
 
+    # A sudo flake evaluation can leave root-owned objects in .git/objects.
+    # Repair ownership up front so git add/commit keeps working.
+    fix_git_permissions
+
     # Autoformat your nix files
     alejandra . &>/dev/null \ || ( alejandra . ; echo "formatting failed!" && exit 1)
 
     # Shows your changes
     git diff -U0 *.nix
 
-    sudo git add -A
+    git add -A
 
     echo "NixOS rebuilding with host configuration \"$CONFIGURATION_HOST\""
 
     if [ $target == 0 ] || [ $target == 2 ]; then
       options=""
-      # Rebuild, output simplified errors, log trackebacks
+      # Build the flake as the user and let nh handle elevation only where needed.
+      if [ $dry == 1 ]; then
+        options+="--dry "
+      fi
+
+      if [ $verbose == 1 ]; then
+        options+="--verbose "
+      fi
+
+      if [ $update == 1 ]; then
+        options+="--update "
+      fi
+
       if [ $impure == 1 ]; then
-        sudo nixos-rebuild switch --impure --flake ./#$CONFIGURATION_HOST
-      else
-          if [ $dry == 1 ]; then
-              options+="--dry "
-          fi
+        options+="--impure "
+      fi
 
-          if [ $verbose == 1 ]; then
-              options+="--verbose "
-          fi
-
-          if [ $update == 1 ]; then
-              options+="--update "
-          fi
-
-          if [[ ! -z $SPECIALISATION ]]; then
+      if [[ ! -z $SPECIALISATION ]]; then
         echo "Using specialisation \"$SPECIALISATION\""
         options+="-s $SPECIALISATION "
-          fi
+      fi
 
-          if [ $test == 1 ]; then
-              nh os test ./ -H $CONFIGURATION_HOST $options
-          else
-              nh os switch ./ -H $CONFIGURATION_HOST $options
-          fi
+      if [ $test == 1 ]; then
+        nh os test ./ -H $CONFIGURATION_HOST $options
+      else
+        nh os switch ./ -H $CONFIGURATION_HOST $options
       fi
     fi
 
@@ -106,20 +116,24 @@
       nh home switch ./ -c tiec@$CONFIGURATION_HOST
     fi
 
-    # Get current generation metadata
-    current=$(nixos-rebuild list-generations --flake ./#$CONFIGURATION_HOST | grep current)
+    # Get current generation metadata from the active profile symlink.
+    current=$(readlink /nix/var/nix/profiles/system | grep -o "[0-9]*")
     hmVersion=$(home-manager generations | sort -r | head -n 1 | cut -d ' ' -f1-5)
 
-    # Commit all changes witih the generation metadata
+    # Commit all changes with the generation metadata.
     if [ $dry == 0 ]; then
-        sudo git commit -am "$CONFIGURATION_HOST $current (HM: $hmVersion)"
+        if git diff --cached --quiet; then
+          echo "No staged changes to commit"
+        else
+          git commit -m "$CONFIGURATION_HOST $current (HM: $hmVersion)"
+        fi
     fi
 
     # if [ $nopush == 0 ]; then
       # git push
     # fi
 
-    sudo chown -R $USER ./
+    fix_git_permissions
 
     # Back to where you were
     popd
@@ -165,8 +179,8 @@ in
 
           conf = "nvim ~/nix-configuration/hosts/${host}/configuration.nix";
           home = "nvim ~/nix-configuration/hosts/${host}/home.nix";
-          nxrs = "sudo nixos-rebuild switch --flake ~/nix-configuration/#${host}";
-          nxrt = "sudo nixos-rebuild test --flake ~/nix-configuration/#${host}";
+          nxrs = "nh os switch ~/nix-configuration -H ${host}";
+          nxrt = "nh os test ~/nix-configuration -H ${host}";
         };
 
         sessionVariables = {

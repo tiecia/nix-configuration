@@ -11,37 +11,21 @@
     ../../modules/home/programs/desktop
   ];
 
-  # nix.settings = {
-  #   warn-dirty = false;
-  # };
-
-  # TODO: Do this only on the hyprland specialisation
+  # TODO: Do this only in hyprland specialisation
   hyprland-conf = {
     enable = true;
-    monitor = [
-      "DP-2,2560x1080@144,0x0,1" # Main Ultrawide
-      "HDMI-A-2,2560x1080@60,0x-1080,1" #Top Ultrawide
-      # "HDMI-A-1,1920x1080@60,-1080x-840,1,transform,1" #Left Vertical
-      # "DP-1,1920x1080@60,2560x-700,1,transform,1" #Right Vertical
-    ];
-    extraBind = [
-      "Super, P, split:swapactiveworkspaces, 0 3"
-    ];
-    extraWindowrule = [
-      # "monitor 2,title:(Spotify Premium)"
-      # "monitor 2,class:(discord)" # Discord native app
-      # "monitor 2,title:^(Discord)" # Discord PWA
-    ];
-    mouse.sensitivity = -0.6;
-    wallpaper = "~/nix-configuration/wallpapers/black-sand-1.png";
+    laptop = true;
+    monitor = ",2400x1600@120,0x0,1";
+    wallpaper = "~/nix-configuration/wallpapers/cloud-binary-0-1-rain.jpg";
   };
 
   spotify = {
     enable = true;
-    theme = "dark-blue";
+    # theme = "nord";
   };
 
   git.enable = true;
+  wireguard.enable = true;
 
   betterbird.enable = true;
   bitwarden.enable = true;
@@ -51,15 +35,12 @@
   msteams.enable = true;
   solaar.enable = true;
   onedrive.enable = true;
-  wireguard.enable = true;
-
-  obs.enable = true;
-  zoom.enable = true;
 
   firefox.installPWA = true;
 
   xbindkeys.enable = true;
 
+  # This is where we can configure programs differently for this host.
   programs = {
     home-manager.enable = true;
   };
@@ -81,9 +62,7 @@
   # Install packages globally in the user profile.
   home.packages = with pkgs; [
     # hello
-    devenv
     parsec-bin
-    gamescope
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

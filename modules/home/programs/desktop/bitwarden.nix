@@ -11,7 +11,7 @@ with lib; {
 
   config = mkIf config.bitwarden.enable {
     home.packages = with pkgs; [
-      bitwarden
+      bitwarden-desktop
     ];
   };
 }

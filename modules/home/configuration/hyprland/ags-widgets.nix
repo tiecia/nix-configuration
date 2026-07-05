@@ -15,7 +15,7 @@
 
   config = let
     options = config.widgets.ags;
-    widgetStartupScript = pkgs.pkgs.writeShellScriptBin "widgetStartupScript" ''
+    widgetStartupScript = pkgs.writeShellScriptBin "widgetStartupScript" ''
       ags
     '';
     mainMod = "Super"; # Inherit this from parent config?
@@ -46,7 +46,7 @@
         networkmanager
         gtk3
         matugen
-        inputs.matcha.packages.${system}.default
+        inputs.matcha.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
       programs.ags = {
@@ -61,6 +61,29 @@
         enable = true;
         shellAliases = {
           widget-startup = "${pkgs.bash}/bin/bash ${widgetStartupScript}/bin/widgetStartupScript";
+        };
+      };
+
+      systemd.user.services = {
+        ags-desktop-shell = {
+          Unit = {
+            Description = "AGSv1 Desktop Shell";
+          };
+          Service = {
+            Type = "simple";
+            ExecStart = pkgs.writeShellScript "ags-desktop-shell-start" ''
+              ags
+            '';
+            ExecStop = pkgs.writeShellScript "ags-desktop-shell-stop" ''
+              ags -q
+            '';
+            Restart = "on-failure";
+            RestartSec = 1;
+            TimeoutStopSec = 10;
+          };
+          Install = {
+            WantedBy = ["graphical-session.target"];
+          };
         };
       };
     };

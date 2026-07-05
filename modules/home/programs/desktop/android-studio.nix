@@ -10,8 +10,10 @@ with lib; {
   };
 
   config = mkIf config.android-studio.enable {
-    home.packages = with pkgs; [
-      android-studio
+    home.packages = [
+      pkgs.android-studio
+      # pkgs.androidStudioPackages.canary
+      pkgs.androidStudioForPlatformPackages.canary
     ];
   };
 }

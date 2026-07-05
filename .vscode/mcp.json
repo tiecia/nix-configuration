@@ -1,0 +1,12 @@
+{
+	"servers": {
+		"NixOS": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"mcp-nixos"
+			]
+		}
+	},
+	"inputs": []
+}

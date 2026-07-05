@@ -11,9 +11,9 @@ with lib; {
   };
 
   config = mkIf config.nixos-cli.enable {
-    services.nixos-cli = {
+    programs.nixos-cli = {
       enable = true;
-      package = inputs.nixos-cli.packages.${pkgs.system}.nixosLegacy;
+      package = inputs.nixos-cli.packages.${pkgs.stdenv.hostPlatform.system}.nixos-cli-legacy;
     };
   };
 }

@@ -14,12 +14,12 @@ with lib; {
     services.snapserver = {
       enable = config.snapserver.enable;
       openFirewall = true;
-      codec = "flac";
-      # streams = {
-      #   pipewire = {
-      #     type = "pipe";
-      #     location = "/run/snapserver/pipewire";
-      #   };
+      settings.tcp-streaming.codec = "flac";
+      # stream = {
+      # source = {
+      #   type = "pipe";
+      #   location = "/run/snapserver/pipewire";
+      # };
       # };
     };
 

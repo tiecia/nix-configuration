@@ -30,6 +30,14 @@
     ./dig.nix
     ./traceroute.nix
     ./azure.nix
+    ./htop.nix
+    ./ttop.nix
+    ./uv.nix
+    ./github-copilot.nix
+    ./kubectl.nix
+    ./kustomize.nix
+    ./helm.nix
+    ./argocd.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -58,4 +66,12 @@
 
   dotnet.enable = lib.mkDefault true;
   azure-tools.enable = lib.mkDefault true;
+  htop.enable = lib.mkDefault true;
+  ttop.enable = lib.mkDefault true;
+  uv.enable = lib.mkDefault true;
+  github-copilot.enable = lib.mkDefault true;
+  kubectl.enable = lib.mkDefault true;
+  kustomize.enable = lib.mkDefault true;
+  helm.enable = lib.mkDefault true;
+  argocd.enable = lib.mkDefault true;
 }

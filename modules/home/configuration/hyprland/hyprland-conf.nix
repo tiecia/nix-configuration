@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-stable,
   inputs,
   globalConfig,
   ...
@@ -25,10 +26,10 @@ in
           default = [];
           description = "Extra binds to add to config";
         };
-        extraWindowrulev2 = mkOption {
+        extraWindowrule = mkOption {
           type = types.listOf types.str;
           default = [];
-          description = "Extra windowrulev2 optios to add to config";
+          description = "Extra windowrule optios to add to config";
         };
         numWorkspaces = mkOption {
           type = types.int;
@@ -57,23 +58,28 @@ in
           default = 600;
           description = "Time in seconds to lock";
         };
+        mainMod = mkOption {
+          type = types.str;
+          default = "Super";
+          description = "The main modifier key to use in the config";
+        };
       };
     };
 
     config = let
-      inherit (inputs.hyprsession.packages.${pkgs.system}) hyprsession;
+      hyprsession = inputs.hyprsession.packages.${pkgs.stdenv.hostPlatform.system}.default;
       options = config.hyprland-conf;
       terminal = "${globalConfig.terminal}";
       fileManager = "${pkgs.nautilus}/bin/nautilus";
 
-      startupScript = pkgs.pkgs.writeShellScriptBin "startupScript" ''
+      startupScript = pkgs.writeShellScriptBin "startupScript" ''
         dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
         # ${hyprsession}/bin/hyprsession &
 
         ${pkgs.udiskie}/bin/udiskie &
 
-        # ${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools &
+        # ${inputs.hyprland-display-tools.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-display-tools}/bin/hyprland-display-tools &
 
         # swww-daemon &
 
@@ -86,12 +92,13 @@ in
       # screenshot-region = "${grim} -l 0 -g \"$(${slurp})\" - | ${copy}";
     in
       mkIf options.enable {
-        widgets.ags.enable = true;
+        widgets.ags.enable = false;
+        widgets.delta.enable = true;
         special-workspaces.enable = true;
 
         wayland.windowManager.hyprland = {
           enable = true;
-          # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+          package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
           # https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/#programs-dont-work-in-systemd-services-but-do-on-the-terminal
           systemd = {
@@ -115,7 +122,7 @@ in
             "$media-next" = "playerctl next";
             "$media-prev" = "playerctl previous";
 
-            "$mainMod" = "Super";
+            "$mainMod" = options.mainMod;
 
             # Use the program "wev" to get key names
             bind =
@@ -346,10 +353,13 @@ in
 
             gestures = {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
-              workspace_swipe = "on";
               workspace_swipe_forever = true;
               workspace_swipe_cancel_ratio = 0.3;
             };
+
+            gesture = [
+              "3, horizontal, workspace"
+            ];
 
             misc = {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -357,33 +367,33 @@ in
             };
 
             # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-            windowrulev2 =
+            windowrule =
               [
-                "suppressevent maximize, class:.*"
-                "float,class:(betterbird),title:^(Write:)"
-                "float,class:(org.gnome.Nautilus)"
-                "size 80% 80%,class:(org.gnome.Nautilus)"
-                "float,class:(steam)"
-                "size 40% 80%,title:(Friends List)"
-                "size 40% 80%,title:(Steam Settings)"
-                "size 80% 80%,class:(steam)"
-                "float,title:(Picture-in-Picture)"
-                "pin, title:(Picture-in-Picture)"
+                "suppress_event maximize, match:class .*"
+                "float on, match:class (betterbird), match:title ^(Write:)"
+                "float on, match:class (org.gnome.Nautilus)"
+                "size 80% 80%, match:class (org.gnome.Nautilus)"
+                "float on, match:class (steam)"
+                "size 40% 80%, match:title (Friends List)"
+                "size 40% 80%, match:title (Steam Settings)"
+                "size 80% 80%, match:class (steam)"
+                "float on, match:title (Picture-in-Picture)"
+                "pin on, match:title (Picture-in-Picture)"
 
-                "float,initialTitle:(Calendar Reminders)"
+                "float on, match:initial_title (Calendar Reminders)"
 
-                "opacity 0.85, class:(${globalConfig.terminal})"
-                "opacity 0.90, class:(org.gnome.Nautilus)"
-                "noborder, onworkspace:w[t1]"
+                "opacity 0.85, match:class (${globalConfig.terminal})"
+                "opacity 0.90, match:class (org.gnome.Nautilus)"
+                "border_size 0, match:workspace w[t1]"
               ]
-              ++ options.extraWindowrulev2;
+              ++ options.extraWindowrule;
 
             debug = {
               disable_logs = false;
             };
           };
           plugins = [
-            pkgs.hyprlandPlugins.hyprsplit
+            inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.default
           ];
         };
 
@@ -400,51 +410,52 @@ in
           portal = {
             enable = true;
             extraPortals = [
-              pkgs.xdg-desktop-portal-hyprland
+              # pkgs.xdg-desktop-portal-hyprland # Included with the hyprland home-manager module.
               pkgs.xdg-desktop-portal-gtk
             ];
             config.common.default = "*"; # This forces the desktop portal config to use the pre-version 1.17 config.
           };
+          configFile."mimeapps.list".force = true;
           mimeApps = {
             enable = true;
             associations.added = {
               "x-scheme-handler/notion" = ["notion-app-enhanced.desktop"];
               "x-scheme-handler/gitkraken" = ["GitKraken.desktop"];
               "x-scheme-handler/msteams" = ["teams-for-linux.desktop"];
-              "x-scheme-handler/http" = ["firefox.desktop"];
-              "x-scheme-handler/https" = ["firefox.desktop"];
-              "x-scheme-handler/chrome" = ["firefox.desktop"];
-              "x-scheme-handler/about" = ["firefox.desktop"];
-              "x-scheme-handler/unknown" = ["firefox.desktop"];
-              "text/html" = ["firefox.desktop"];
-              "application/x-extension-htm" = ["firefox.desktop"];
-              "application/x-extension-html" = ["firefox.desktop"];
-              "application/x-extension-shtml" = ["firefox.desktop"];
-              "application/xhtml+xml" = ["firefox.desktop"];
-              "application/x-extension-xhtml" = ["firefox.desktop"];
-              "application/x-extension-xht" = ["firefox.desktop"];
+              "x-scheme-handler/http" = ["zen.desktop"];
+              "x-scheme-handler/https" = ["zen.desktop"];
+              "x-scheme-handler/chrome" = ["zen.desktop"];
+              "x-scheme-handler/about" = ["zen.desktop"];
+              "x-scheme-handler/unknown" = ["zen.desktop"];
+              "text/html" = ["zen.desktop"];
+              "application/x-extension-htm" = ["zen.desktop"];
+              "application/x-extension-html" = ["zen.desktop"];
+              "application/x-extension-shtml" = ["zen.desktop"];
+              "application/xhtml+xml" = ["zen.desktop"];
+              "application/x-extension-xhtml" = ["zen.desktop"];
+              "application/x-extension-xht" = ["zen.desktop"];
 
-              "application/pdf" = ["firefox.desktop"];
+              "application/pdf" = ["zen.desktop"];
             };
 
             defaultApplications = {
               "x-scheme-handler/notion" = ["notion-app-enhanced.desktop"];
               "x-scheme-handler/gitkraken" = ["GitKraken.desktop"];
               "x-scheme-handler/msteams" = ["teams-for-linux.desktop"];
-              "text/html" = ["firefox.desktop"];
-              "x-scheme-handler/http" = ["firefox.desktop"];
-              "x-scheme-handler/https" = ["firefox.desktop"];
-              "x-scheme-handler/about" = ["firefox.desktop"];
-              "x-scheme-handler/unknown" = ["firefox.desktop"];
-              "x-scheme-handler/chrome" = ["firefox.desktop"];
-              "application/x-extension-htm" = ["firefox.desktop"];
-              "application/x-extension-html" = ["firefox.desktop"];
-              "application/x-extension-shtml" = ["firefox.desktop"];
-              "application/xhtml+xml" = ["firefox.desktop"];
-              "application/x-extension-xhtml" = ["firefox.desktop"];
-              "application/x-extension-xht" = ["firefox.desktop"];
+              "text/html" = ["zen.desktop"];
+              "x-scheme-handler/http" = ["zen.desktop"];
+              "x-scheme-handler/https" = ["zen.desktop"];
+              "x-scheme-handler/about" = ["zen.desktop"];
+              "x-scheme-handler/unknown" = ["zen.desktop"];
+              "x-scheme-handler/chrome" = ["zen.desktop"];
+              "application/x-extension-htm" = ["zen.desktop"];
+              "application/x-extension-html" = ["zen.desktop"];
+              "application/x-extension-shtml" = ["zen.desktop"];
+              "application/xhtml+xml" = ["zen.desktop"];
+              "application/x-extension-xhtml" = ["zen.desktop"];
+              "application/x-extension-xht" = ["zen.desktop"];
 
-              "application/pdf" = ["org.pwmt.zathura.desktop" "firefox.service"];
+              "application/pdf" = ["org.pwmt.zathura.desktop" "zen.desktop"];
               "image/jpg" = ["com.interversehq.qView.desktop"];
               "image/jpeg" = ["com.interversehq.qView.desktop"];
               "image/png" = ["com.interversehq.qView.desktop"];
@@ -640,7 +651,7 @@ in
 
         systemd.user.services = {
           # test-service = let
-          #   test-service = inputs.test-service.packages.${pkgs.system}.default;
+          #   test-service = inputs.test-service.packages.${pkgs.stdenv.hostPlatform.system}.default;
           # in {
           #   Unit = {
           #     Description = "test-service";
@@ -657,34 +668,13 @@ in
           #   };
           # };
 
-          ags-desktop-shell = {
-            Unit = {
-              Description = "AGSv1 Desktop Shell";
-            };
-            Service = {
-              Type = "simple";
-              ExecStart = pkgs.writeShellScript "ags-desktop-shell-start" ''
-                ags
-              '';
-              ExecStop = pkgs.writeShellScript "ags-desktop-shell-stop" ''
-                ags -q
-              '';
-              Restart = "on-failure";
-              RestartSec = 1;
-              TimeoutStopSec = 10;
-            };
-            Install = {
-              WantedBy = ["graphical-session.target"];
-            };
-          };
-
           hyprland-display-tools = {
             Unit = {
               Description = "hyprland-display-tools";
             };
             Service = {
               Type = "simple";
-              ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.system}.hyprland-display-tools}/bin/hyprland-display-tools";
+              ExecStart = "${inputs.hyprland-display-tools.packages.${pkgs.stdenv.hostPlatform.system}.hyprland-display-tools}/bin/hyprland-display-tools";
               Restart = "on-failure";
               RestartSec = 1;
               TimeoutStopSec = 10;
@@ -702,7 +692,7 @@ in
             kitty
             alacritty
             # dolphin
-            kdePackages.xwaylandvideobridge
+            # kdePackages.xwaylandvideobridge
             playerctl # Media player CLI controls
             pulseaudio # Used as CLI tool to adjust volume
             wev
@@ -729,7 +719,7 @@ in
             evolution-data-server
           ]
           ++ lists.optionals options.laptop [
-            inputs.hyprdock.packages.${pkgs.system}.hyprdock
+            inputs.hyprdock.packages.${pkgs.stdenv.hostPlatform.system}.hyprdock
           ];
       };
   }

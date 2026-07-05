@@ -28,6 +28,8 @@ in {
 
   services.samba.enable = lib.mkForce true;
 
+  nvidia-graphics.enable = true;
+
   environment.systemPackages = [
     jdk
   ];
