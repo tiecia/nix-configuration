@@ -31,6 +31,7 @@ with lib; {
         ".." = "cd ..";
         dup = "nohup ${globalConfig.terminal} --working-directory $PWD > /dev/null 2>&1 &";
         # dup = "(nohup ${globalConfig.terminal} $PWD &) &> /dev/null";
+        installed = "nix-store --query --requisites /run/current-system | cut -d- -f2-";
       };
     };
   };

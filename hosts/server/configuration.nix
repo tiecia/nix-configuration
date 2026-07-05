@@ -14,18 +14,39 @@
     ../../modules/nixos/programs/server
   ];
 
+  desktop-configuration.enable = lib.mkForce false;
+
+  environment.systemPackages = [
+    pkgs.jdk21
+  ];
+
   rebuild.host = "server";
   networking.hostName = lib.mkForce "TyServer";
 
+  minecraft-server.enable = false;
+
   home_assistant.enable = true;
   music_assistant.enable = true;
-  snapserver.enable = true;
+  snapserver.enable = false;
+  portracker.enable = true;
+
+  # cloudflare-warp.enable = true;
+  tailscale.enable = true;
+
+  k3s.enable = true;
 
   ssh.enable = true;
 
+  glances.enable = true;
+
   networking.firewall = {
     enable = true;
-    # allowedTCPPorts = [3010];
+    allowedTCPPorts = [
+      4566
+      3000
+      4000
+      4532
+    ];
   };
 
   virtualisation.oci-containers = {

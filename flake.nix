@@ -8,7 +8,6 @@
     nixpkgs-dotnet.url = "github:nixos/nixpkgs?rev=a30e284fcd69aadaec15c563b1649667fc77cd4d";
 
     nixos-hardware.url = "github:nixos/nixos-hardware?rev=d23a3bc3c600a064c72c7fb02862edfab11a46cf";
-
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     home-manager = {
@@ -49,6 +48,8 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     # test-service = {
     #   url = "path:./services/test/";
@@ -191,6 +192,10 @@
         modules =
           [
             ./hosts/server/configuration.nix
+            inputs.nix-minecraft.nixosModules.minecraft-servers
+            {
+              nixpkgs.overlays = [inputs.nix-minecraft.overlay];
+            }
           ]
           ++ sharedModules;
       };
