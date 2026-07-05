@@ -10,7 +10,7 @@ with lib; {
     dig.enable = mkEnableOption "Enable dig";
   };
 
-  config = mkIf config.wget.enable {
+  config = mkIf config.dig.enable {
     home.packages = with pkgs; [
       dig
     ];

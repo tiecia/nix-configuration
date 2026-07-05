@@ -28,6 +28,7 @@
     ./bash.nix
     ./poppler.nix
     ./dig.nix
+    ./claude-code.nix
     ./traceroute.nix
     ./azure.nix
     ./htop.nix
@@ -62,6 +63,7 @@
   bash.enable = lib.mkDefault true;
   poppler-pdf-tools.enable = lib.mkDefault true;
   dig.enable = lib.mkDefault true;
+  claude-code.enable = lib.mkDefault true;
   traceroute.enable = lib.mkDefault true;
 
   dotnet.enable = lib.mkDefault true;
