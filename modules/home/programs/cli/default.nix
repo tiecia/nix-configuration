@@ -40,6 +40,7 @@
     ./helm.nix
     ./argocd.nix
     ./lima.nix
+    ./pi.nix
   ];
 
   # Programs that are enabled by default when the home/programs/cli directory is imported
@@ -77,6 +78,7 @@
   kustomize.enable = lib.mkDefault true;
   helm.enable = lib.mkDefault true;
   argocd.enable = lib.mkDefault true;
+  pi.enable = lib.mkDefault true;
 
   lima.enable = lib.mkDefault false;
 }
