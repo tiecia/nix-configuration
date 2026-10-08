@@ -160,6 +160,7 @@ in
         systemPackages = with pkgs; [
           alejandra # .nix formatter
           libnotify # Provides the notify-send used in my nixos-rebuild script
+          ghostty.terminfo # Support TERM=xterm-ghostty in pagers during rebuilds
           nh
           nvd
         ];
