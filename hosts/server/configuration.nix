@@ -23,7 +23,37 @@
   rebuild.host = "server";
   networking.hostName = lib.mkForce "TyServer";
 
-  minecraft-server.enable = false;
+  # Reclaim the IDs used by the existing /srv/minecraft data, so the
+  # Minecraft service account and group keep access across rebuilds.
+  users.users.minecraft.uid = 993;
+  users.groups.minecraft.gid = 991;
+  users.users.tiec.extraGroups = ["minecraft"];
+
+  # Keep the existing worlds and modpack in /srv/minecraft. Start each server
+  # manually for the first time; enable autoStart only after verifying it.
+  services.minecraft-servers = {
+    enable = true;
+    eula = true;
+    dataDir = "/srv/minecraft";
+
+    servers = {
+      vanilla = {
+        enable = false;
+        autoStart = false;
+        openFirewall = false;
+        jvmOpts = "-Xmx4G -Xms2G";
+        package = pkgs.minecraftServers.vanilla-1_20_6;
+      };
+
+      all-the-mods = {
+        enable = true;
+        autoStart = false;
+        openFirewall = false;
+        jvmOpts = "-Xms4G -Xmx8G";
+        package = pkgs.neoforgeServers."neoforge-1_21_1-21_1_186";
+      };
+    };
+  };
 
   home_assistant.enable = true;
   music_assistant.enable = true;
@@ -42,6 +72,7 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
+      25566 # All the Mods Minecraft server
       4566
       3000
       4000
