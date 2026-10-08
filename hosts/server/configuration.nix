@@ -29,8 +29,7 @@
   users.groups.minecraft.gid = 991;
   users.users.tiec.extraGroups = ["minecraft"];
 
-  # Keep the existing worlds and modpack in /srv/minecraft. Start each server
-  # manually for the first time; enable autoStart only after verifying it.
+  # Keep the existing worlds and modpack in /srv/minecraft.
   services.minecraft-servers = {
     enable = true;
     eula = true;
@@ -47,7 +46,7 @@
 
       all-the-mods = {
         enable = true;
-        autoStart = false;
+        autoStart = true;
         openFirewall = false;
         jvmOpts = "-Xms4G -Xmx8G";
         package = pkgs.neoforgeServers."neoforge-1_21_1-21_1_186";
