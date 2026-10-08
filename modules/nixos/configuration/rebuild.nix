@@ -135,8 +135,12 @@
 
     fix_git_permissions
 
-    # Back to where you were
-    popd
+    # A rebuild can change permissions on the directory we started in (for
+    # example, when adding a new service group). The switch already succeeded;
+    # do not report the whole rebuild as failed if we cannot return there.
+    if ! popd; then
+      echo "Previous directory is no longer accessible; log in again to refresh group membership." >&2
+    fi
 
     echo "NixOS Rebuild OK!"
   '';
