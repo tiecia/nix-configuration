@@ -1,21 +1,21 @@
 {
   config,
   lib,
+  options,
   pkgs,
-  inputs,
   ...
 }: {
   options = {
     minecraft-server.enable = lib.mkEnableOption "Enable the vanilla Minecraft server";
   };
 
-  config = {
+  config = lib.optionalAttrs (options.services ? minecraft-servers) (lib.mkIf config.minecraft-server.enable {
     services.minecraft-servers = {
       enable = true;
       eula = true;
       openFirewall = true;
       servers = {
-        vanilla = lib.mkIf config.minecraft-server.enable {
+        vanilla = {
           enable = true;
           jvmOpts = "-Xmx4G -Xms2G";
 
@@ -24,5 +24,5 @@
         };
       };
     };
-  };
+  });
 }

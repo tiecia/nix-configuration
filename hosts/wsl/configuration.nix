@@ -6,6 +6,7 @@
 {
   inputs,
   config,
+  globalConfig,
   lib,
   pkgs,
   ...
@@ -13,14 +14,12 @@
   imports = [
     inputs.home-manager.nixosModules.default # Imports the home-manager module
     ../../modules/nixos/configuration
-
-    ../../modules/nixos/configuration/stylix.nix
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs pkgs;};
+    extraSpecialArgs = {inherit globalConfig inputs pkgs;};
     users = {
       nixos = import ./home.nix;
     };
