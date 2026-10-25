@@ -49,7 +49,10 @@
         autoStart = true;
         openFirewall = false;
         jvmOpts = "-Xms4G -Xmx8G";
-        package = pkgs.neoforgeServers."neoforge-1_21_1-21_1_186";
+        # The modpack targets Java 21; nix-minecraft defaults to Java 25.
+        package = pkgs.neoforgeServers."neoforge-1_21_1-21_1_186".override {
+          jre_headless = pkgs.jdk21;
+        };
       };
     };
   };
@@ -57,7 +60,7 @@
   home_assistant.enable = true;
   music_assistant.enable = true;
   snapserver.enable = false;
-  portracker.enable = true;
+  # portracker.enable = true;
 
   # cloudflare-warp.enable = true;
   tailscale.enable = true;
